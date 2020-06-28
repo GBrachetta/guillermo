@@ -9,7 +9,7 @@ static/css/bootstrap-reboot.css
 static/css/bootstrap-utilities.css
 static/sass
 static/icons/*.svg
-# !static/icons/bootstrap.svg
+!static/icons/bootstrap.svg
 .env
 package.json
 package-lock.json
