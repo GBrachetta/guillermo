@@ -10848,6 +10848,15 @@ body {
 
 .navbar .navbar-collapse .dropdown-menu {
   background-color: #424242;
+  color: #fff;
+}
+
+.navbar .navbar-collapse .dropdown-menu .dropdown-item {
+  color: #fff;
+}
+
+.navbar .navbar-collapse .dropdown-menu .dropdown-item:hover {
+  color: #424242;
 }
 
 .navbar.alt-color {
