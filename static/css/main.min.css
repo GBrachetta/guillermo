@@ -10929,7 +10929,6 @@ body {
   position: absolute;
   top: 50%;
   left: 5%;
-  background-color: #4e4e4e50;
 }
 
 .intro .wrapper-musician h1,
@@ -10937,6 +10936,23 @@ body {
 .slide .wrapper-musician h1,
 .slide .wrapper-researcher h1 {
   padding: 0 20px;
+}
+
+.intro .wrapper-researcher .researcher,
+.slide .wrapper-researcher .researcher {
+  background-color: #00000050;
+}
+
+.intro .wrapper-researcher-text,
+.slide .wrapper-researcher-text {
+  color: #fff;
+  background-color: #00000050;
+  position: absolute;
+  top: 40%;
+  right: 10%;
+  width: 40%;
+  font-size: 2rem;
+  padding: 2rem;
 }
 
 .intro h1.name,
