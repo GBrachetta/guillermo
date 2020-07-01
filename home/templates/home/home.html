@@ -1,11 +1,49 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
-<section class="home row">
-    <div class="col">
-        <img src="{% static 'icons/bootstrap.svg' %}" alt="" height="72" width="72" class="mb-4" />
-        <img class="img-responsive" src="{% static 'images/guillermo11.jpg' %}" width="200" height="300" alt="">
+<!-- <section class="home row">
+    <div class="col-12">
+        <img src="{% static 'icons/alarm.svg' %}" alt="" height="72" width="72" class="mb-4" />
         <h1 class="h3 mb-3 font-weight-normal">Guillermo Brachetta</h1>
     </div>
 </section>
-
-{% endblock content %}
+-->
+<div id="main" class="main-container">
+    <div id="intro" class="intro">
+        <div class="background-container">
+            <div class="wrapper">
+                <h1>INTRO</h1>
+            </div>
+        </div>
+    </div>
+    <div id="slide01" class="slide">
+        <div class="pin-wrapper">
+            <div class="img"></div>
+            <div class="wrapper">
+                <h1>TITLE ONE</h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %} {% block postjs %} {{ block.super }}
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"
+    integrity="sha256-XDWrid8aGX+NZwSY7JzTu6oWArI71Sw+aUZ9Hd0P5mo="
+    crossorigin="anonymous"
+></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"
+    integrity="sha256-2p2tRZlPowp3P/04Pw2rqVCSbhyV/IB7ZEVUglrDS/c="
+    crossorigin="anonymous"
+></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"
+    integrity="sha256-peenofh8a9TIqKdPKIeQE7mJvuwh+J0To7nslvpj1jI="
+    crossorigin="anonymous"
+></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"
+    integrity="sha256-XBVALc3QsDSQiDtiaBwNZ2rxCJTHzlUhhlDQ84J8bw8="
+    crossorigin="anonymous"
+></script>
+<script src="{% static 'home/js/home.js' %}"></script>
+{% endblock postjs %}
