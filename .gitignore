@@ -22,3 +22,4 @@ static/css/bootstrap.min.css
 # Icons allowed
 !static/icons/bootstrap.svg
 !static/icons/logo.svg
+docs
