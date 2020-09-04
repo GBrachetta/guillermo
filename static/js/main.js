@@ -1,4 +1,4 @@
-jQuery(document).ready(function ($) {
+$(document).ready(function ($) {
     $(window).scroll(function () {
         var scrollPos = $(window).scrollTop(),
             navbar = $(".navbar");
