@@ -30,7 +30,8 @@
             ></script>
             <script src="{% static 'js/main.js' %}"></script>
         {% endblock js %}
-        <title>Guillermo Brachetta</title>
+        <title>Guillermo Brachetta {% block title %}
+        {% endblock title %} </title>
     </head>
 
     <body class="text-center bg-secondary">
@@ -38,7 +39,14 @@
             {% include 'includes/navigation.html' %}
         </header>
         <main>
-            {% block content %} {% endblock content %}
+            {% if messages %}
+                <div class="message-container"></div>
+            {% endif %}
+            {% block extra_header %}
+            {% endblock extra_header %}
+            {% block content %}
+            {% endblock content %}
+
         </main>
         {% block main_js %}
         <script src="https://kit.fontawesome.com/9464f43776.js" crossorigin="anonymous"></script>
