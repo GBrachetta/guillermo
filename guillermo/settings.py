@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "home",
     "shop",
+    "album",
+    "music",
+    "video",
     # Extra
     "storages",
 ]
