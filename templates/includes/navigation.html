@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Biography</a>
@@ -36,11 +36,13 @@
                     Media
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Music</a>
-                    <a class="dropdown-item" href="#">Video</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'shop' %}">Shop</a>
+                    <a class="dropdown-item" href="{% url 'music' %}">Music</a>
+                    <a class="dropdown-item" href="{% url 'album' %}">Photo</a>
+                    <a class="dropdown-item" href="{% url 'video' %}">Video</a>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'shop' %}">Shop</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
