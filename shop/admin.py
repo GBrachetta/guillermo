@@ -3,4 +3,15 @@ from .models import Cd
 
 
 # Register your models here.
-admin.site.register(Cd)
+class CdAdmin(admin.ModelAdmin):
+    list_display = (
+        'sku',
+        'name',
+        'price',
+        'image',
+    )
+
+    ordering = ('sku',)
+
+
+admin.site.register(Cd, CdAdmin)
