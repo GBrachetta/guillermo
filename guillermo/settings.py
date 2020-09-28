@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "album",
     "music",
     "video",
+    "bag",
     # Extra
     "storages",
 ]
@@ -77,6 +78,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.media",  # makes media available accross the site
+                "bag.contexts.bag_contents",
             ],
         },
     },
@@ -97,7 +100,7 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = "/accounts/login/"
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/shop/"
 
 WSGI_APPLICATION = "guillermo.wsgi.application"
 
@@ -197,3 +200,6 @@ else:
     EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASS")
     DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
+
+FREE_DELIVERY_THRESHOLD = 59.99
+STANDARD_DELIVERY_PERCENTAGE = 10

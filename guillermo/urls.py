@@ -26,4 +26,5 @@ urlpatterns = [
     path("album/", include("album.urls")),
     path("music/", include("music.urls")),
     path("video/", include("video.urls")),
+    path("bag/", include("bag.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
