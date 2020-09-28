@@ -11,9 +11,16 @@
 
 {% block content %}
 <div class="overlay"></div>
-<h1>SHOP HERE!</h1>
+<h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>
 
 <div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="mb-4">Shop Here</h2>
+            <hr>
+        </div>
+    </div>
     <div class="row">
         <div class="product-container col-10 offset-1">
             <div class="row">
@@ -21,11 +28,11 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
                         {% if cd.image %}
-                        <a href="">
+                        <a href="{% url 'cd_detail' cd.id %}">
                             <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-top img-fluid">
                         </a>
                         {% else %}
-                        <a href="{% url 'product_detail' cd.id %}">
+                        <a href="{% url 'cd_detail' cd.id %}">
                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid">
                         </a>
                         {% endif %}
@@ -36,8 +43,6 @@
                             <div class="row">
                                 <div class="col">
                                     <p class="lead mb-0 text-left font-weight-bold">${{ cd.price }}</p>
-
-
                                 </div>
                             </div>
                         </div>
