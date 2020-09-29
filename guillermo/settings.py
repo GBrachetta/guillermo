@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "music",
     "video",
     "bag",
+    "checkout",
     # Extra
     "storages",
 ]
