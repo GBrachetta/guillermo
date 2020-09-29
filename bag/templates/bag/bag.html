@@ -87,7 +87,7 @@
                             <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
                             {% if free_delivery_delta > 0 %}
                             <p class="mb-1 text-danger">
-                                You could get free delivery by purchasing just <strong>{{ free_delivery_delta }}</strong> more CD(s)!
+                                You could get free delivery by purchasing just <span class="badge badge-pill badge-danger"><strong>{{ free_delivery_delta }}</strong></span> more CD(s)!
                             </p>
                             {% endif %}
                         </td>
