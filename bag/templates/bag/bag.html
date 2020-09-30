@@ -128,7 +128,7 @@
 
 {% block postjs %}
 {{ block.super }}
-{% include 'shop/includes/quantity_input_script.html' %}
+<script src="{% static 'shop/js/quantity_input_script.js' %}"></script>
 
 <script type="text/javascript">
     $('.update-link').click(function(e) {
