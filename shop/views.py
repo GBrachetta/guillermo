@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib import messages
 from .models import Cd
 from .forms import CdForm
 
@@ -25,7 +26,19 @@ def cd_detail(request, cd_id):
 
 
 def add_cd(request):
-    form = CdForm
+    if request.method == "POST":
+        form = CdForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "CD Added")
+            return redirect(reverse("add_cd"))
+        else:
+            messages.error(
+                request, "Failed to add CD. Please check your form."
+            )
+    else:
+        form = CdForm()
+
     template = "shop/add_cd.html"
     context = {"form": form}
 
