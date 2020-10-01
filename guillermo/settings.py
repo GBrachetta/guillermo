@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "video",
     "bag",
     "checkout",
+    "profiles",
     # Extra
     "storages",
     "crispy_forms",
