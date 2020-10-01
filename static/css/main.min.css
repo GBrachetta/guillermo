@@ -358,6 +358,11 @@ select option[value=""] {
   color: #aab7c4;
 }
 
+.order-history {
+  max-height: 416px;
+  overflow-y: auto;
+}
+
 .home {
   position: relative;
   height: 100vh;
