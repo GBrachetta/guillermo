@@ -1,0 +1,158 @@
+[
+    {
+        "pk": 1,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd01",
+            "name": "Ciaccona",
+            "description": "Guillermo Brachetta makes his solo debut recording with a programme of ciacconas and chaconnes that chart the extraordinary diversity and the development of this musical form. Beginning with works from such composers as Jacques Champion de Chambonnieres and Louis Couperin, Guillermo takes the listener on a journey through to the substantial offerings by Jacques Duphly and Johann Sebastian Bach. Accompanied by an essay from musicologist Nigel Simeone, Guillermo performs this selection on two instruments by instrument builder Titus Crijnen - copies of instruments by G.B. Giusti (1681) and H. Ruckers (1624) with grand ravalement (1680).",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171250/cd01_shue36.jpg",
+            "image": "cd01_shue36.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd02",
+            "name": "Sonnerie & Other Portraits",
+            "description": "Following on from the critical success of their debut recording (RES10112), Fantasticus release their second album for Resonus Classics with a selection of French Baroque chamber works. Here, the trio – Rie Kimura (baroque violin), Robert Smith (viola da gamba) and Guillermo Brachetta (harpsichord) – perform an exquisite programme of French Baroque chamber works focusing on a theme of ‘musical portraits’. The recording includes popular and lesser-known works by composers such as Jean-Philippe Rameau, Marin Marais, François Francoeur, Jean-Marie Leclair, Jacques Duphly and Louis-Antoine Dornel.",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171249/cd02_ause5r.jpg",
+            "image": "cd02_ause5r.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd03",
+            "name": "Baroque Chamber Works",
+            "description": "The talented Baroque trio, Fantasticus, here make their debut recording with an album including works by Dieterich Buxtehude, Antonio Bertali, John Jenkins, Giovanni Antonio Pandolfi Mealli, Augustinus Kertzinger, Georg Muffat, Alessandro Stradella and Johann Heinrich Schmelzer. Based in Amsterdam, Fantasticus features Rie Kimura (Baroque violin), Robert Smith (viola da gamba and Baroque cello) and Guillermo Brachetta (harpsichord) and is inspired by the gloriously virtuosic music from the end of the 17th century, from which the name Stylus Fantasticus was coined. The aim of the ensemble is to recreate repertoire from the early seicento until the late Baroque searching and exploring the extravagance that flourished when composers and instrumentalists dared to traverse the established limits of the usual. Fantasticus prides itself on the fact that it makes no compromises with regard to authentic performance, fearlessly trespassing on the borders of correctness.",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171249/cd03_s65bnr.jpg",
+            "image": "cd03_s65bnr.jpg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd04",
+            "name": "Arvo Pärt",
+            "description": "After the successful CD of works by Pärt and Palestrina from 2010, the Nederlands Kamerkoor with chief conductor Risto Joost is now launching a new CD, entirely devoted to the Estonian composer Arvo Pärt. Together with the Netherlands Chamber Orchestra, this is a fascinating sample of Pärt's skills, culminating in the impressive Te Deum for three choirs, piano, string orchestra and tape.",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171249/cd04_cyy76e.jpg",
+            "image": "cd04_cyy76e.jpg"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd05",
+            "name": "Kerstmotetten voor Ons Lieve Heer op Solder",
+            "description": "The remake of the CD with the Christmas program was released in 2010. This is a revised version of the CD released in 2005 under the same name. This CD contains nine motets from the collection 'Cantiones sacrae' by Jan Pzn. Sweelinck and three motets. Max van Egmond reads the Christmas story from the Moerentorf Bible (1599).",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171249/cd05_hqbxph.jpg",
+            "image": "cd05_hqbxph.jpg"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd06",
+            "name": "Tartini & Veracini",
+            "description": "Founder member of the acclaimed Baroque trio Fantasticus, and celebrated up-and-coming violinist, Rie Kimura, makes a sensational solo debut with this thrilling selection of four virtuosic violin sonatas. Joined by Baroque cellist Robert Smith and harpsichordist Guillermo Brachetta from Fantasticus, Kimura presents scintillating works by Italian eighteenth-century luminaries Giuseppe Tartini (including his famous Devil’s Trill sonata) and Francesco Maria Veracini.",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171250/cd06_u2hnmn.jpg",
+            "image": "cd06_u2hnmn.jpg"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd07",
+            "name": "Bound to Nothing",
+            "description": "Amsterdam-based Baroque trio, Fantasticus, return to the Resonus label, following a number of highly-acclaimed releases, with this scintillating and inspiring survey of works from the German stylus fantasticus period. Charting the rise of the Baroque era, Fantasticus explore the extravagance that flourished when composers and instrumentalists dared to traverse the established limits of the usual. Among the composers represented are Dieterich Buxtehude, Philipp Heinrich Erlebach, Johann Philipp Krieger, Johann Jacob Walther and August Kühnel in a scintillating combination of works for trio and solo.",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171250/cd07_r89gge.jpg",
+            "image": "cd07_r89gge.jpg"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd08",
+            "name": "Concerto",
+            "description": "Following much critical acclaim for his debut solo album, Ciaccona, harpsichordist Guillermo Brachetta returns to the Resonus label with Concerto, a thrilling programme of works for one and two harpsichords composed senza ripieno. This stunning album features J.S. Bach's Italian Concerto, the second part of his Clavier-Übung, and solo concerti from Wilhelm Friedemann Bach and Carl Heinrich Graun. Brachetta is joined by Menno van Delft for the original two-harpsichord version of J.S. Bach's Concerto a due cembali in C major, BWV 1061a.",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171249/cd08_aoysxx.jpg",
+            "image": "cd08_aoysxx.jpg"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd09",
+            "name": "Conversed Monologue",
+            "description": "Following several exciting and critically acclaimed albums as a Baroque trio, the Amsterdam-based group Fantasticus are now augmented to become a chamber orchestra for the first time – Fantasticus XL. Their debut recording as an expanded group features three diverse early concerti that charts the differing forms of French and German forms of this evolving genre. The album consists of one concerto for each original member of the trio of Rie Kimura (Baroque violin – Jean-Marie Leclair), Robert Smith (viola da gamba – Johann Gottlieb Graun) and Guillermo Brachetta (harpsichord – Wilhelm Friedemann Bach).  ",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171250/cd09_kli9na.jpg",
+            "image": "cd09_kli9na.jpg"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd10",
+            "name": "Divine Noise",
+            "description": "Following on from the resounding critical success of his first solo album (Ciaccona: Works for harpsichord - RES10126), harpsichordist Guillermo Brachetta returns with Divine Noise, a thrilling album of theatrical works for two harpsichords. Joined by the renowned Dutch player Menno van Delft – and performed on two incredible French-style instruments by harpsichord builder Titus Crijnen – the duo present a programme of French Baroque works from François Couperin (La Paix du Parnasse), Gaspard Le Roux (Suite in F major) & Jean-Philippe Rameau. The centre-piece of the disc is a new arrangement by Brachetta of twenty movements from Rameau's comic opera masterpiece Platée.",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171250/cd10_ou9dx6.jpg",
+            "image": "cd10_ou9dx6.jpg"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd11",
+            "name": "Flute Quartets Op.12",
+            "description": "The acclaimed Amsterdam-based early music ensemble Fantasticus returns to Resonus with this new recording of the complete Op. 12 flute quartets by the French composer and violinist Louis-Gabriel Guillemain (1705–1770). The ensemble are joined by the internationally renowned and celebrated period flautist Wilbert Hazelzet for this musical journey through this enticing and elegant set of six sonatas, the first of two sets of Sonates en Quatuors by this engaging composer.",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171251/cd11_yud31v.jpg",
+            "image": "cd11_yud31v.jpg"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd12",
+            "name": "Handel Uncaged",
+            "description": "George Frideric Handel’s early Italian cantatas were a laboratory for his vocal writing, daring experiments in melody and harmony upon which Handel drew for the rest of his composing life. In Handel Uncaged, the internationally renowned countertenor Lawrence Zazzo has ‘uncaged’ a selection of these cantatas for the alto voice, presenting them in new ways, crowned by the world premiere recording of unpublished music from Handel’s astonishing and amusing 10-aria cantata cycle, Amore Uccellatore. Zazzo is joined by a stellar continuo team of Jonathan Manson (cello and viola da gamba), Andrew Maginley (theorbo & guitar) and Guillermo Brachetta (harpsichord).",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171251/cd12_qozbji.jpg",
+            "image": "cd12_qozbji.jpg"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "shop.cd",
+        "fields": {
+            "sku": "cd13",
+            "name": "Quatrième Livre de Pièces de Clavecin",
+            "description": "Acclaimed harpsichordist Guillermo Brachetta returns to Resonus to begin a major recording of the complete Pièces de Clavecin by the French Baroque master, François Couperin, starting with the fourth book of this monumental collection. Often wistful and valedictory in tone, the fourth and final book of this landmark collection of keyboard music was completed at the very end of Couperin’s life and in the grip of failing health. Containing many vivid musical representations of real characters, Couperin’s grace and elegance in writing for this instrument is evident to the very end. For this recording, Brachetta uses a two-manual instrument by Keith Hill (2010) after an instrument by Pascal Taskin from 1769.",
+            "price": 19.99,
+            "image_url": "https://res.cloudinary.com/gbrachetta/image/upload/v1600171251/cd13_qcnkcx.jpg",
+            "image": "cd13_qcnkcx.jpg"
+        }
+    }
+]

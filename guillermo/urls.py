@@ -20,5 +20,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("accounts/", include('allauth.urls')),
     path("", include("home.urls")),
+    path("shop/", include("shop.urls")),
+    path("album/", include("album.urls")),
+    path("music/", include("music.urls")),
+    path("video/", include("video.urls")),
+    path("bag/", include("bag.urls")),
+    path("checkout/", include("checkout.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
