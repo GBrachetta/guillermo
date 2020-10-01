@@ -363,6 +363,22 @@ select option[value=""] {
   overflow-y: auto;
 }
 
+.text-black {
+  color: #000 !important;
+}
+
+.border-black {
+  border: 1px solid black !important;
+}
+
+.bg-black {
+  background: #000 !important;
+}
+
+.text-nav {
+  color: #a8a8a8 !important;
+}
+
 .home {
   position: relative;
   height: 100vh;
