@@ -20,9 +20,9 @@ stripe = "*"
 coverage = "*"
 psycopg2-binary = "*"
 boto3 = "*"
-django-countries = "*"
 pillow = "*"
 django-storages = "*"
+django-countries = "*"
 
 [requires]
 python_version = "3.8"
