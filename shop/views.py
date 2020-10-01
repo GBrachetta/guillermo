@@ -29,9 +29,9 @@ def add_cd(request):
     if request.method == "POST":
         form = CdForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            cd = form.save()
             messages.success(request, "CD Added")
-            return redirect(reverse("add_cd"))
+            return redirect(reverse("cd_detail", args=[cd.id]))
         else:
             messages.error(
                 request, "Failed to add CD. Please check your form."
@@ -69,3 +69,10 @@ def edit_cd(request, cd_id):
     }
 
     return render(request, template, context)
+
+
+def delete_cd(request, cd_id):
+    cd = get_object_or_404(Cd, pk=cd_id)
+    cd.delete()
+    messages.success(request, "CD deleted.")
+    return redirect(reverse("shop"))

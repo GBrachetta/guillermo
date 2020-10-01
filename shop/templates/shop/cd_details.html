@@ -13,7 +13,7 @@
 <div class="overlay"></div>
 
 <div id="delivery-banner" class="row text-center">
-    <div class="col bg-black text-black">
+    <div class="col text-black">
         <h4 class="logo-font my-1">Free delivery if you buy {{ free_delivery_threshold }} CDs!</h4>
     </div>
 </div>
@@ -28,6 +28,12 @@
                 <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-top img-fluid">
                 {% else %}
                 <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid">
+                {% endif %}
+                {% if request.user.is_superuser %}
+                <small class="ml-3">
+                    <a href="{% url 'edit_cd' cd.id %}">Edit</a> |
+                    <a class="text-danger" href="{% url 'delete_cd' cd.id %}">Delete</a>
+                </small>
                 {% endif %}
             </div>
         </div>
