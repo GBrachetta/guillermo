@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = "DEVELOPMENT" in os.environ
 
 ALLOWED_HOSTS = [
-    "7e2dd7712033.ngrok.io",
+    "101ebd2ebca4.ngrok.io",
     "guillermo-brachetta.herokuapp.com",
     "127.0.0.1",
 ]
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "video",
     "bag",
     "checkout",
+    "profiles",
     # Extra
     "storages",
     "crispy_forms",
