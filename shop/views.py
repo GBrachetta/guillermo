@@ -43,3 +43,29 @@ def add_cd(request):
     context = {"form": form}
 
     return render(request, template, context)
+
+
+def edit_cd(request, cd_id):
+    cd = get_object_or_404(Cd, pk=cd_id)
+    if request.method == "POST":
+        form = CdForm(request.POST, request.FILES, instance=cd)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Successfully edited CD.")
+            return redirect(reverse("cd_detail", args=[cd.id]))
+        else:
+            messages.error(
+                request,
+                "Failed to edit the CD. Please make sure the form is valid.",
+            )
+    else:
+        form = CdForm(instance=cd)
+        messages.info(request, f"You are editing {cd.name}")
+
+    template = "shop/edit_cd.html"
+    context = {
+        "form": form,
+        "cd": cd,
+    }
+
+    return render(request, template, context)
