@@ -40,7 +40,11 @@
                     {% for item in bag_items %}
                     <tr>
                         <td class="p-3 w-25">
-                            <img src="{{ item.cd.image.url }}" alt="" class="img-fluid rounded">
+                            {% if item.cd.image %}
+                            <img class="img-fluid rounded" src="{{ item.cd.image.url }}" alt="{{ item.cd.name }}">
+                            {% else %}
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.cd.name }}">
+                            {% endif %}
                         </td>
                         <td class="py-3">
                             <p class="my-0"><strong>{{ item.cd.name }}</strong></p>
@@ -72,8 +76,8 @@
                                     </div>
                                 </div>
                             </form>
-                            <a  class="update-link text-info float-left"><small>Update</small></a>
-                            <a  class="remove-item update-link text-danger float-right" id="remove_{{ item.item_id }}"><small>Delete</small></a>
+                            <a class="update-link text-info float-left"><small>Update</small></a>
+                            <a class="remove-item update-link text-danger float-right" id="remove_{{ item.item_id }}"><small>Delete</small></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">€{{ item.cd.price | calc_subtotal:item.quantity }}</p>

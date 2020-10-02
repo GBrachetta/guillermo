@@ -14,7 +14,7 @@
 
 <div class="container-fluid">
     <div id="delivery-banner" class="row text-center">
-        <div class="col bg-black text-black">
+        <div class="col text-black">
             <h4 class="logo-font my-1">Free delivery if you buy {{ free_delivery_threshold }} CDs!</h4>
         </div>
     </div>
@@ -47,7 +47,13 @@
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col text-center">
-                                    <p class="font-weight-bold">€{{ cd.price }}</p>
+                                    <p class="font-weight-bold mb-0">€{{ cd.price }}</p>
+                                    {% if request.user.is_superuser %}
+                                    <small>
+                                        <a href="{% url 'edit_cd' cd.id %}">Edit</a> |
+                                        <a class="text-danger" href="{% url 'delete_cd' cd.id %}">Delete</a>
+                                    </small>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
