@@ -139,6 +139,14 @@
 </div>
 {% endblock content %}
 
+{% block page_footer %}
+<div class="container footer-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock page_footer %}
+
 {% block postjs %}
 {{ block.super }}
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}
