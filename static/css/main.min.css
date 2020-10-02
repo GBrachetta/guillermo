@@ -39,8 +39,16 @@ body {
   color: #424242;
 }
 
+.navbar {
+  background-color: #000 !important;
+}
+
 .navbar.alt-color {
-  background-color: #29597550 !important;
+  background-color: #ffce65 !important;
+}
+
+.navbar-items.alt-text-color {
+  color: #3b3b3b !important;
 }
 
 .overlay {
@@ -165,7 +173,11 @@ input[name="q"]::placeholder {
 }
 
 .header-container {
-  padding-top: 116px;
+  padding-top: 98px;
+}
+
+.footer-container {
+  padding-bottom: 98px;
 }
 
 .StripeElement,
@@ -403,6 +415,20 @@ select option[value=""] {
   background-color: #dc3545;
   border-color: #dc3545;
   border-radius: 0;
+}
+
+.footer {
+  padding: 20px;
+}
+
+.card-img-top {
+  max-height: 370px;
+  max-width: 370px;
+}
+
+.card-img-details {
+  height: 500px;
+  width: 500px;
 }
 
 .home {
