@@ -7,16 +7,16 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="toast-body bg-white">
-        <div class="row">
+    <div class="toast-body bg-white text-left pb-0 px-0">
+        <div class="row px-3">
             <div class="col">
                 {{ message }}
                 <hr class="mt-1 mb-3">
             </div>
         </div>
         {% if grand_total and not on_profile_page %}
-        <p class="logo-font bg-white text-black py-1">Your Bag contains {% if cd_count == 1 %}1 CD{% else %}{{ cd_count }} CDs{% endif %}</p>
-        <div class="bag-notification-wrapper">
+        <p class="logo-font bg-white text-black py-1 px-3">Your Bag contains {% if cd_count == 1 %}1 CD{% else %}{{ cd_count }} CDs{% endif %}</p>
+        <div class="bag-notification-wrapper px-3">
             {% for item in bag_items %}
             <div class="row">
                 <div class="col-3 my-1">
@@ -33,25 +33,31 @@
             </div>
             {% endfor %}
         </div>
-        <div class="row">
-            <div class="col">
-                <strong>
-                    <p class="mt-3 mb-1 text-black">
-                        Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}:
-                        <span class="float-right">${{ total|floatformat:2 }}</span>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <strong>
+                        <p class="mt-3 mb-1 text-black">
+                            Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}:
+                            <span class="float-right">${{ total|floatformat:2 }}</span>
+                        </p>
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col px-0">
+                    {% if free_delivery_delta > 0 %}
+                    <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                        Buy <strong>{{ free_delivery_delta }}</strong> more CD(s) to get free delivery!
                     </p>
-                </strong>
-                {% if free_delivery_delta > 0 %}
-                <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
-                    Buy <strong>{{ free_delivery_delta }}</strong> more CD(s) to get free delivery!
-                </p>
-                {% endif %}
-                <a href="{% url 'view_bag' %}" class="btn btn-black btn-block rounded-0">
-                    <span class="text-uppercase">Go To Secure Checkout</span>
-                    <span class="icon">
-                        <i class="fas fa-lock"></i>
-                    </span>
-                </a>
+                    {% endif %}
+                    <a href="{% url 'view_bag' %}" class="btn btn-black btn-block rounded-0">
+                        <span class="text-uppercase">Go To Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
         {% endif %}
