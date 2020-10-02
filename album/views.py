@@ -1,6 +1,11 @@
 from django.shortcuts import render
+from .models import Album
 
 
 # Create your views here.
 def album(request):
-    return render(request, 'album/album.html')
+    album = Album.objects.all
+    context = {
+        "album": album,
+    }
+    return render(request, "album/album.html", context)
