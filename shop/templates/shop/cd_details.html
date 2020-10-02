@@ -13,27 +13,33 @@
 <div class="overlay"></div>
 
 <div id="delivery-banner" class="row text-center">
-    <div class="col text-black">
+    <div class="col text-black bg-warning py-2">
         <h4 class="logo-font my-1">Free delivery if you buy {{ free_delivery_threshold }} CDs!</h4>
     </div>
 </div>
 <hr class="w-50 mx-auto">
 <h1>{{ cd.name }}</h1>
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+        {% if request.user.is_superuser %}
+        <small class="ml-3 font-weight-bold">
+            <a href="{% url 'edit_cd' cd.id %}">Edit</a> |
+            <a class="text-danger" href="{% url 'delete_cd' cd.id %}">Delete</a>
+        </small>
+        {% endif %}
+        </div>
+    </div>
+</div>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
                 {% if cd.image %}
-                <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-top img-fluid">
+                <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-details img-fluid">
                 {% else %}
                 <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid">
-                {% endif %}
-                {% if request.user.is_superuser %}
-                <small class="ml-3">
-                    <a href="{% url 'edit_cd' cd.id %}">Edit</a> |
-                    <a class="text-danger" href="{% url 'delete_cd' cd.id %}">Delete</a>
-                </small>
                 {% endif %}
             </div>
         </div>
@@ -87,6 +93,14 @@
 </div>
 
 {% endblock content %}
+
+{% block page_footer %}
+<div class="container footer-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock page_footer %}
 
 {% block postjs %}
 {{ block.super }}
