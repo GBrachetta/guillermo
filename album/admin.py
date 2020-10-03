@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Album
+from .models import Photo
 
 
 # Register your models here.
-class AlbumAdmin(admin.ModelAdmin):
+class PhotoAdmin(admin.ModelAdmin):
     list_display = (
         "name",
         "caption",
@@ -22,4 +22,4 @@ class AlbumAdmin(admin.ModelAdmin):
     thumbnail_preview.allow_tags = True
 
 
-admin.site.register(Album, AlbumAdmin)
+admin.site.register(Photo, PhotoAdmin)

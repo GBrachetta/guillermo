@@ -3,7 +3,7 @@ from django.utils.html import mark_safe
 
 
 # Create your models here.
-class Album(models.Model):
+class Photo(models.Model):
     name = models.CharField(max_length=254)
     caption = models.TextField()
     image_url = models.URLField(max_length=1024, null=True, blank=True)

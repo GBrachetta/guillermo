@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from .models import Album
+from .models import Photo
 
 
 # Create your views here.
 def album(request):
-    album = Album.objects.all
+    album = Photo.objects.all
     context = {
         "album": album,
     }
