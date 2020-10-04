@@ -14,26 +14,30 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container-fluid">
-<div class="row">
-    <div class="col">
-        <hr>
-        <h2 class="mb-4">Photo Album</h2>
-        <hr>
-    </div>
-</div>
-    <div class="row justify-content-center">
-        <div class="col-8 ">
-            <div class="grid">
-                {% for photo in album %}
-                <a href="{{ photo.image.url }}" data-lightbox="album" data-title="{{ photo.caption }}">
-                    <img src="{{ photo.image.url }}" alt="{{ photo.image.name }}" width="400">
-                </a>
-                {% endfor %}
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="mb-4">Photo Album</h2>
+            <hr>
         </div>
     </div>
 </div>
+
+<div class="container">
+    <div class="grid">
+        <div class="grid-sizer"></div>
+        {% for photo in album %}
+        <div class="grid-item">
+            <a href="{{ photo.image.url }}" data-lightbox="album" data-title="{{ photo.caption }}">
+                <img src="{{ photo.image.url }}" alt="{{ photo.image.name }}" width="400">
+            </a>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
 
 {% endblock content %}
 
