@@ -8,9 +8,7 @@ from .forms import CdForm
 # Create your views here.
 def shop(request):
     cds = Cd.objects.all
-    context = {
-        "cds": cds,
-    }
+    context = {"cds": cds, "shop": "active"}
     return render(request, "shop/shop.html", context)
 
 
@@ -19,9 +17,7 @@ def cd_detail(request, cd_id):
 
     cd = get_object_or_404(Cd, pk=cd_id)
 
-    context = {
-        "cd": cd,
-    }
+    context = {"cd": cd, "shop": "active"}
 
     return render(request, "shop/cd_details.html", context)
 
@@ -46,7 +42,7 @@ def add_cd(request):
         form = CdForm()
 
     template = "shop/add_cd.html"
-    context = {"form": form}
+    context = {"form": form, "shop": "active"}
 
     return render(request, template, context)
 
@@ -74,10 +70,7 @@ def edit_cd(request, cd_id):
         messages.info(request, f"You are editing {cd.name}")
 
     template = "shop/edit_cd.html"
-    context = {
-        "form": form,
-        "cd": cd,
-    }
+    context = {"form": form, "cd": cd, "shop": "active"}
 
     return render(request, template, context)
 
