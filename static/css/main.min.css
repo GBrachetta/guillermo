@@ -18,7 +18,7 @@ body {
   top: 0;
   left: 0;
   position: fixed;
-  background: #fff;
+  background: #f0f0f0;
   z-index: -1;
 }
 
@@ -69,8 +69,21 @@ body {
   background-color: #ffce65 !important;
 }
 
+.navbar-items,
+.navbar-items:hover {
+  color: #ffce65;
+}
+
+.active .navbar-items {
+  color: #e6e6e6;
+}
+
 .navbar-items.alt-text-color {
-  color: #3b3b3b !important;
+  color: #b32c2c;
+}
+
+.active .alt-text-color {
+  color: #292929;
 }
 
 .btn-black {
