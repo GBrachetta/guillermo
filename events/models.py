@@ -7,22 +7,10 @@ from datetime import date
 class Event(models.Model):
     name = models.CharField(max_length=254, null=False, blank=False)
     venue = models.CharField(max_length=254, null=False, blank=False)
-    description = models.TextField(null=False, blank=False)
+    programme = models.TextField(null=False, blank=False)
     date = models.DateField(auto_now_add=False, null=False, blank=False)
     time = models.TimeField(auto_now_add=False, null=False, blank=False)
     event_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
-
-    @property
-    def thumbnail_preview(self):
-        if self.image:
-            return mark_safe(
-                '<img src="{}" width="100" height="100" />'.format(
-                    self.image.url
-                )
-            )
-        return ""
 
     @property
     def is_due(self):
