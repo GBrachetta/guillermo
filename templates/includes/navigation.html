@@ -1,29 +1,22 @@
 {% load static %}
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><img class="logo" src="{% static 'icons/logo.svg' %}" height="72" width="72" alt="Logo" /></a>
+<nav class="navbar fixed-top navbar-expand-lg bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}"><img class="logo" src="{% static 'icons/logo.svg' %}" height="72" width="72" alt="Logo" /></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item {{ home }}">
                 <a class="nav-link navbar-items" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link navbar-items" href="#">Biography</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle navbar-items" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Media
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{% url 'music' %}">Music</a>
-                    <a class="dropdown-item" href="{% url 'album' %}">Photo</a>
-                    <a class="dropdown-item" href="{% url 'video' %}">Video</a>
-                </div>
+            <li class="nav-item {{ media }}">
+                <a class="nav-link navbar-items" href="{% url 'album' %}">Media</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link navbar-items" href="{% url 'music' %}">Calendar</a>
+            </li>
+            <li class="nav-item {{ shop }}">
                 <a class="nav-link navbar-items" href="{% url 'shop' %}">Shop</a>
             </li>
         </ul>
