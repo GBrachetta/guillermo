@@ -11,7 +11,7 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h1>Hola</h1>
+    <h1>Events</h1>
 </div>
 
 <div class="container">
@@ -19,47 +19,77 @@
         <div class="col-12">
             <hr>
             <h5>Past events</h5>
-            <hr>
-            {% for event in events %}
-            {% if event.is_due %}
-            <table>
-                <thead>
-                    <tr>
-                        <th>{{ event.date }} on {{ event.time }}</th>
-                        <th>{{ event.name }}</th>
-                        <th>{{ event.venue }}</th>
-                        <th>{{ event.description }}</th>
-                        <th><a href="{{ event.event_url }}">Link</a></th>
-                        {% if event.image %}
-                        <img src="{{ event.image.url }}" alt="">
-                        {% endif %}
-                    </tr>
-                </thead>
-            </table>
-            {% endif %}
-            {% endfor %}
+            <div class="table-responsive rounded text-left">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th style="width: 15%" scope="col">Date</th>
+                            <th style="width: 60%" scope="col">Programme</th>
+                            <th style="width: 15%" scope="col">Venue</th>
+                            <th style="width: 10%" scope="col">Link</th>
+                        </tr>
+                    </thead>
+                    {% for event in calendar %}
+                    {% if event.is_due %}
+                    <tbody>
+                        <tr>
+                            <th scope="row"><small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small></th>
+                            <td>{{ event.programme }}</td>
+                            <td>{{ event.venue }}</td>
+                            {% if event.event_url %}
+                            <td scope="col">
+                                <a href="{{ event.event_url }}">Link</a>
+                            </td>
+                            {% else %}
+                            <td scope="col">No link</td>
+                            {% endif %}
+                        </tr>
+                    </tbody>
+                    {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
             <hr>
             <h5>Future events</h5>
-            <hr>
-            {% for event in events %}
-            {% if event.is_future %}
-            <table>
-                <thead>
-                    <tr>
-                        <th>{{ event.date }} on {{ event.time }}</th>
-                        <th>{{ event.name }}</th>
-                        <th>{{ event.venue }}</th>
-                        <th>{{ event.description }}</th>
-                        <th><a href="{{ event.event_url }}">Link</a></th>
-                        {% if event.image %}
-                        <img src="{{ event.image.url }}" alt="">
-                        {% endif %}
-                    </tr>
-                </thead>
-            </table>
-            {% endif %}
-            {% endfor %}
+            <div class="table-responsive rounded text-left">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="width: 15%" scope="col">Date</th>
+                            <th style="width: 60%" scope="col">Programme</th>
+                            <th style="width: 15%" scope="col">Venue</th>
+                            <th style="width: 10%" scope="col">Link</th>
+                        </tr>
+                    </thead>
+                    {% for event in calendar %}
+                    {% if event.is_future %}
+                    <tbody>
+                        <tr>
+                            <th scope="row"><small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small></th>
+                            <td>{{ event.programme }}</td>
+                            <td>{{ event.venue }}</td>
+                            {% if event.event_url %}
+                            <td scope="col">
+                                <a href="{{ event.event_url }}">Link</a>
+                            </td>
+                            {% else %}
+                            <td scope="col">No link</td>
+                            {% endif %}
+                        </tr>
+                    </tbody>
+                    {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
         </div>
     </div>
 </div>
 {% endblock content %}
+
+{% block page_footer %}
+<div class="container footer-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock page_footer %}
