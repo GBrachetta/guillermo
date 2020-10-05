@@ -54,8 +54,6 @@
 ---
 ## Introduction
 
-
-
 The live version of the app can be found **[here](https://guillermo.herokuapp.com/)**
 
 <div align="right">
@@ -111,6 +109,8 @@ The live version of the app can be found **[here](https://guillermo.herokuapp.co
 </div>
 
 ## Wireframes
+
+[Landing Page]('wireframes/01-landing-page.png')
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
