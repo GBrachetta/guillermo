@@ -109,13 +109,13 @@ The live version of the app can be found **[here](https://guillermo.herokuapp.co
 ## Wireframes
 
 ![Landing Page](wireframes/01-landing-page.png)
-![Landing Page](wireframes/02-media-page.png)
-![Landing Page](wireframes/03-events-page.png)
-![Landing Page](wireframes/03-cds-page.png)
-![Landing Page](wireframes/03-cd-detail-page.png)
-![Landing Page](wireframes/03-cd-shop-page.png)
-![Landing Page](wireframes/03-cd-checkout-page.png)
-![Landing Page](wireframes/03-cd-checkout-success-page.png)
+![Media Page](wireframes/02-media-page.png)
+![Events Page](wireframes/03-events-page.png)
+![CDs Page](wireframes/03-cds-page.png)
+![CD Details Page](wireframes/03-cd-detail-page.png)
+![Shop Page](wireframes/03-shop-page.png)
+![Checkout Page](wireframes/03-checkout-page.png)
+![Checkout Success Page](wireframes/03-checkout-success-page.png)
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
