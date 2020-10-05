@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Hola</h1>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <hr>
+            <h5>Past events</h5>
+            <hr>
+            {% for event in events %}
+            {% if event.is_due %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>{{ event.date }} on {{ event.time }}</th>
+                        <th>{{ event.name }}</th>
+                        <th>{{ event.venue }}</th>
+                        <th>{{ event.description }}</th>
+                        <th><a href="{{ event.event_url }}">Link</a></th>
+                        {% if event.image %}
+                        <img src="{{ event.image.url }}" alt="">
+                        {% endif %}
+                    </tr>
+                </thead>
+            </table>
+            {% endif %}
+            {% endfor %}
+            <hr>
+            <h5>Future events</h5>
+            <hr>
+            {% for event in events %}
+            {% if event.is_future %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>{{ event.date }} on {{ event.time }}</th>
+                        <th>{{ event.name }}</th>
+                        <th>{{ event.venue }}</th>
+                        <th>{{ event.description }}</th>
+                        <th><a href="{{ event.event_url }}">Link</a></th>
+                        {% if event.image %}
+                        <img src="{{ event.image.url }}" alt="">
+                        {% endif %}
+                    </tr>
+                </thead>
+            </table>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

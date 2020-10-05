@@ -49,9 +49,8 @@ INSTALLED_APPS = [
     "home",
     "shop",
     "album",
-    "music",
-    "video",
     "bag",
+    "events",
     "checkout",
     "profiles",
     # Extra
