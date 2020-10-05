@@ -23,7 +23,7 @@
         </div>
     </div>
 </div>
-
+<!--
 <div class="container">
     <div class="grid">
         <div class="grid-sizer"></div>
@@ -34,9 +34,25 @@
             </a>
         </div>
         {% endfor %}
-
     </div>
 </div>
+-->
+
+<div class="container">
+    <div class="grid">
+        <div class="grid-col grid-col--1"></div>
+        <div class="grid-col grid-col--2"></div>
+        <div class="grid-col grid-col--3"></div>
+        {% for photo in album %}
+        <div class="grid-item">
+            <a href="{{ photo.image.url }}" data-lightbox="album" data-title="{{ photo.caption }}">
+                <img src="{{ photo.image.url }}" alt="{{ photo.image.name }}">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
 
 
 {% endblock content %}
@@ -51,7 +67,14 @@
 
 {% block postjs %}
 {{ block.super }}
+<!--
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
+-->
+<script src="https://unpkg.com/colcade@0/colcade.js"></script>
+
+
+
 <script src="{% static 'album/js/lightbox.js' %}"></script>
 <script src="{% static 'album/js/album.js' %}"></script>
 {% endblock %}

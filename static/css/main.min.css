@@ -433,12 +433,6 @@ select option[value=""] {
 
 /* ---- grid ---- */
 /* clear fix */
-.grid:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
 /* ---- .grid-item ---- */
 /* se puede usar media query para que sean dos columna en mobile
 .grid-sizer,
@@ -446,18 +440,51 @@ select option[value=""] {
     width: 50%;
 }
 */
-.grid-sizer,
-.grid-item {
-  width: 33.333%;
+.grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.grid-item {
-  float: left;
+.grid-col {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0 0.1em;
+}
+
+.grid-col--2,
+.grid-col--3 {
+  display: none;
 }
 
 .grid-item img {
-  display: block;
-  max-width: 100%;
+  width: 100%;
+  margin-bottom: 0.2em;
+}
+
+@media (min-width: 768px) {
+  .grid-col--2 {
+    display: block;
+  }
+  .grid-col {
+    padding: 0 0.5em;
+  }
+  .grid-item img {
+    margin-bottom: 0.8em;
+  }
+}
+
+@media (min-width: 1080px) {
+  .grid-col--3 {
+    display: block;
+  }
+  .grid-col {
+    padding: 0 0.3em;
+  }
+  .grid-item img {
+    margin-bottom: 0.5em;
+  }
 }
 
 .home {
