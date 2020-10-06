@@ -51,7 +51,7 @@ def edit_media(request, media_id):
         if form.is_valid():
             form.save()
             messages.success(request, "Successfully updated media.")
-            return redirect(reverse("edit_media", args=[media.id]))
+            return redirect(reverse("album"))
         else:
             messages.error(request, "Failed to update. Please check the form.")
     else:
