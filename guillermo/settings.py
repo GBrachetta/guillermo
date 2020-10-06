@@ -49,14 +49,14 @@ INSTALLED_APPS = [
     "home",
     "shop",
     "album",
-    "music",
-    "video",
     "bag",
+    "events",
     "checkout",
     "profiles",
     # Extra
     "storages",
     "crispy_forms",
+    "django_cleanup.apps.CleanupConfig",
 ]
 
 MIDDLEWARE = [
@@ -163,7 +163,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Amsterdam"
 
 USE_I18N = True
 

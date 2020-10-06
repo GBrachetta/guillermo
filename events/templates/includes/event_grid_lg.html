@@ -1,0 +1,44 @@
+<div class="container d-none d-lg-block">
+    <div class="row">
+        <div class="col-12 py-3"><strong>Past Events</strong></div>
+        <div class="col-2 border bg-secondary text-light text-left py-3">Date</div>
+        <div class="col-7 border bg-secondary text-light text-left py-3">Programme</div>
+        <div class="col-3 border bg-secondary text-light text-left py-3">Venue</div>
+        {% for event in calendar %}
+        {% if event.is_due %}
+        <div class="col-2 border bg-white text-left py-1"><small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small>
+            {% if request.user.is_superuser %}
+            <p><small class="font-weight-bold">
+                    <a href="{% url 'edit_event' event.id %}">Edit</a> |
+                    <a class="text-danger" href="{% url 'delete_event' event.id %}">Delete</a>
+                </small></p>
+            {% endif %}
+        </div>
+        <div class="col-7 border bg-white text-left py-1">{{ event.programme }}</div>
+        <div class="col-3 border bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12 py-3"><strong>Upcoming Events</strong></div>
+        <div class="col-2 border bg-info text-light text-left py-3">Date</div>
+        <div class="col-7 border bg-info text-light text-left py-3">Programme</div>
+        <div class="col-3 border bg-info text-light text-left py-3">Venue</div>
+        {% for event in calendar %}
+        {% if event.is_future %}
+        <div class="col-2 border bg-white text-left py-1"><small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small>
+            {% if request.user.is_superuser %}
+            <p><small class="font-weight-bold">
+                    <a href="{% url 'edit_event' event.id %}">Edit</a> |
+                    <a class="text-danger" href="{% url 'delete_event' event.id %}">Delete</a>
+                </small></p>
+            {% endif %}
+        </div>
+        <div class="col-7 border bg-white text-left py-1">{{ event.programme }}</div>
+        <div class="col-3 border bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
+
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>

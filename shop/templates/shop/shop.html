@@ -2,11 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
+<div class="header-container"></div>
 {% endblock page_header %}
 
 {% block content %}
@@ -14,16 +10,14 @@
 
 <div class="container-fluid">
     <div id="delivery-banner" class="row text-center">
-        <div class="col text-black">
+        <div class="col text-black bg-warning py-2">
             <h4 class="logo-font my-1">Free delivery if you buy {{ free_delivery_threshold }} CDs!</h4>
         </div>
     </div>
     <div class="row">
 
         <div class="col">
-            <hr>
-            <h2 class="mb-4">Shop Here</h2>
-            <hr>
+            <h2 class="my-5">Shop Here</h2>
         </div>
     </div>
     <div class="row">
@@ -32,6 +26,9 @@
                 {% for cd in cds %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
+                    <div class="card-body pb-3 pt-2">
+                        <p class="mb-0  font-weight-bold">{{ cd.name }}</p>
+                    </div>
                         {% if cd.image %}
                         <a href="{% url 'cd_detail' cd.id %}">
                             <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-top img-fluid">
@@ -41,15 +38,12 @@
                             <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid">
                         </a>
                         {% endif %}
-                        <div class="card-body pb-0">
-                            <p class="mb-0 lead font-weight-bold">{{ cd.name }}</p>
-                        </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col text-center">
-                                    <p class="font-weight-bold mb-0">€{{ cd.price }}</p>
+                                    <p class="font-weight-bold mb-0 pt-3">€{{ cd.price }}</p>
                                     {% if request.user.is_superuser %}
-                                    <small>
+                                    <small class="ml-3 font-weight-bold">
                                         <a href="{% url 'edit_cd' cd.id %}">Edit</a> |
                                         <a class="text-danger" href="{% url 'delete_cd' cd.id %}">Delete</a>
                                     </small>
@@ -59,13 +53,34 @@
                         </div>
                     </div>
                 </div>
+                {% if forloop.counter|divisibleby:1 %}
+                <div class="col-12 d-sm-none mb-2">
+                    <hr>
+                </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:2 %}
+                <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-2">
+                    <hr>
+                </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:3 %}
+                <div class="col-12 d-none d-lg-block d-xl-none mb-2">
+                    <hr>
+                </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:4 %}
+                <div class="col-12 d-none d-xl-block mb-2">
+                    <hr>
+                </div>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
     </div>
 </div>
 
-
-
-
 {% endblock content %}
+
+{% block page_footer %}
+<div class="footer-container"></div>
+{% endblock page_footer %}
