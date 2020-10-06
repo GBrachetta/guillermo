@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Photo
 from random import shuffle
 from .forms import MediaForm
@@ -12,7 +13,12 @@ def album(request):
     return render(request, "album/album.html", context)
 
 
+@login_required
 def add_media(request):
+    if not request.user.is_superuser:
+        messages.error(request, "Reserved to administrators.")
+        return redirect(reverse("album"))
+
     if request.method == "POST":
         form = MediaForm(request.POST, request.FILES)
         if form.is_valid():
@@ -32,7 +38,12 @@ def add_media(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_media(request, media_id):
+    if not request.user.is_superuser:
+        messages.error(request, "Reserved to administrators.")
+        return redirect(reverse("album"))
+
     media = get_object_or_404(Photo, pk=media_id)
 
     if request.method == "POST":
@@ -53,7 +64,11 @@ def edit_media(request, media_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_media(request, media_id):
+    if not request.user.is_superuser:
+        messages.error(request, "Reserved to administrators.")
+        return redirect(reverse("album"))
     media = get_object_or_404(Photo, pk=media_id)
     media.delete()
     messages.success(request, "Media deleted.")

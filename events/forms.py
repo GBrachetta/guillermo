@@ -11,7 +11,7 @@ class EventForm(forms.ModelForm):
     date = forms.DateField(widget=forms.TextInput(attrs={"type": "date"}))
     time = forms.TimeField(widget=forms.TextInput(attrs={"type": "time"}))
     # To pre-populate
-    # event_url = forms.URLField(initial='https://')
+    event_url = forms.URLField(initial='https://', required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

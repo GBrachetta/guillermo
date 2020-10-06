@@ -21,7 +21,13 @@
         <div class="col-12 col-md-6">
             <form method="POST" action="{% url 'edit_media' media.id %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ form | crispy }}
+                {% for field in form %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
+                {% endfor %}
                 <div class="text-right">
                     <a class="btn btn-outline-black rounded-0" href="{% url 'album' %}">Cancel</a>
                     <button class="btn btn-black rounded-0" type="submit">Update Media</button>
@@ -35,3 +41,8 @@
 {% block page_footer %}
 <div class="container footer-container"></div>
 {% endblock page_footer %}
+
+{% block postjs %}
+{{ block.super }}
+<script src="{% static 'shop/js/image_script.js' %}" type="text/javascript"></script>
+{% endblock %}
