@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from .models import Photo
+from random import shuffle
 
 
-# Create your views here.
 def album(request):
-    album = Photo.objects.all
+    album = list(Photo.objects.all())
+    shuffle(album)
     context = {"album": album, "media": "active"}
     return render(request, "album/album.html", context)
