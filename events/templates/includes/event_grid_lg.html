@@ -7,10 +7,17 @@
         <div class="col-1 border bg-secondary text-light text-left py-3">Link</div>
         {% for event in calendar %}
         {% if event.is_due %}
-        <div class="col-2 border bg-white text-left py-1"><small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small></div>
+        <div class="col-2 border bg-white text-left py-1"><small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small>
+            {% if request.user.is_superuser %}
+            <p><small class="font-weight-bold">
+                    <a href="{% url 'edit_event' event.id %}">Edit</a> |
+                    <a class="text-danger" href="{% url 'delete_event' event.id %}">Delete</a>
+                </small></p>
+            {% endif %}
+        </div>
         <div class="col-7 border bg-white text-left py-1">{{ event.programme }}</div>
         <div class="col-2 border bg-white text-left py-1">{{ event.venue }}</div>
-        <div class="col-1 border bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}">Link</a>{% else %}<small>No Link</small>{% endif %}</div>
+        <div class="col-1 border bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}">Link</a>{% else %}<small>None</small>{% endif %}</div>
         {% endif %}
         {% endfor %}
     </div>
@@ -23,10 +30,17 @@
         <div class="col-1 border bg-info text-light text-left py-3">Link</div>
         {% for event in calendar %}
         {% if event.is_future %}
-        <div class="col-2 border bg-white text-left py-1"><small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small></div>
+        <div class="col-2 border bg-white text-left py-1"><small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small>
+            {% if request.user.is_superuser %}
+            <p><small class="font-weight-bold">
+                    <a href="{% url 'edit_event' event.id %}">Edit</a> |
+                    <a class="text-danger" href="{% url 'delete_event' event.id %}">Delete</a>
+                </small></p>
+            {% endif %}
+        </div>
         <div class="col-7 border bg-white text-left py-1">{{ event.programme }}</div>
         <div class="col-2 border bg-white text-left py-1">{{ event.venue }}</div>
-        <div class="col-1 border bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}">Link</a>{% else %}<small>No Link</small>{% endif %}</div>
+        <div class="col-1 border bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}">Link</a>{% else %}<small>None</small>{% endif %}</div>
         {% endif %}
         {% endfor %}
     </div>
