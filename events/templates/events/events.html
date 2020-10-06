@@ -13,6 +13,16 @@
 
 {% include 'includes/event_grid_lg.html' %}
 {% include 'includes/event_grid_sm.html' %}
+
+{% if request.user.is_superuser %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-outline-black rounded-0" href="{% url 'add_event' %}">Add Event</a>
+        </div>
+    </div>
+</div>
+{% endif %}
 {% endblock content %}
 
 {% block page_footer %}

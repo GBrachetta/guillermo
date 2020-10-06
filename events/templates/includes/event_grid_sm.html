@@ -8,9 +8,7 @@
         <div class="col-3 border bg-secondary text-light text-left pl-1"><small>Programme</small></div>
         <div class="col-9 border text-left">{{ event.programme }}</div>
         <div class="col-3 border bg-secondary text-light text-left pl-1"><small>Venue</small></div>
-        <div class="col-9 border text-left">{{ event.venue }}</div>
-        <div class="col-3 border bg-secondary text-light text-left pl-1"><small>Link</small></div>
-        <div class="col-9 border text-left">{% if event.event_url %}<a href="{{ event.event_url }}">Link</a>{% else %}<small>None</small>{% endif %}</div>
+        <div class="col-9 border text-left">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
         {% if request.user.is_superuser %}
         <div class="col-12 mb-5">
             <small class="font-weight-bold">
@@ -32,9 +30,7 @@
         <div class="col-3 border bg-info text-light text-left pl-1"><small>Programme</small></div>
         <div class="col-9 border text-left">{{ event.programme }}</div>
         <div class="col-3 border bg-info text-light text-left pl-1"><small>Venue</small></div>
-        <div class="col-9 border text-left">{{ event.venue }}</div>
-        <div class="col-3 border bg-info text-light text-left pl-1"><small>Link</small></div>
-        <div class="col-9 border text-left">{% if event.event_url %}<a href="{{ event.event_url }}">Link</a>{% else %}None{% endif %}</div>
+        <div class="col-9 border text-left">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
         {% if request.user.is_superuser %}
         <div class="col-12 mb-5">
             <small class="font-weight-bold">
