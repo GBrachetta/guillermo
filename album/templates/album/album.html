@@ -11,21 +11,6 @@
 {% block content %}
 <div class="overlay"></div>
 
-<!--
-<div class="container">
-    <div class="grid">
-        <div class="grid-sizer"></div>
-        {% for photo in album %}
-        <div class="grid-item">
-            <a href="{{ photo.image.url }}" data-lightbox="album" data-title="{{ photo.caption }}">
-                <img src="{{ photo.image.url }}" alt="{{ photo.image.name }}" width="400">
-            </a>
-        </div>
-        {% endfor %}
-    </div>
-</div>
--->
-
 <div class="container mt-3 mt-md-5">
     <div class="grid">
         <div class="grid-col grid-col--1"></div>
@@ -33,9 +18,15 @@
         <div class="grid-col grid-col--3"></div>
         {% for media in album %}
         <div class="grid-item">
+            {% if media.image %}
             <a href="{{ media.image.url }}" data-lightbox="album" data-title="{{ media.caption }}">
                 <img src="{{ media.image.url }}" alt="{{ media.image.name }}">
             </a>
+            {% else %}
+            <a href="{{ MEDIA_URL }}noimage.png" data-lightbox="album" data-title="{{ media.caption }}">
+                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ media.name }}">
+            </a>
+            {% endif %}
         </div>
         {% endfor %}
     </div>
@@ -49,8 +40,12 @@
     <div class="container">
         <div class="row">
             {% for media in album %}
+            {% if media.image %}
             <div class="col-2"><img src="{{ media.image.url }}" width="50" height="50"></div>
-            <div class="col-5 text-left">{{ media.name }}</div>
+            {% else %}
+            <div class="col-2"><img src="{{ MEDIA_URL }}noimage.png" width="50" height="50"></div>
+            {% endif %}
+            <div class="col-5 text-left"><small>{{ media.name }}</small></div>
             <div class="col-5 text-right">
                 <small class="font-weight-bold">
                     <a href="{% url 'edit_media' media.id %}">Edit</a> |
@@ -58,7 +53,7 @@
                 </small>
             </div>
             <div class="col-12">
-            <hr>
+                <hr>
             </div>
             {% endfor %}
         </div>
