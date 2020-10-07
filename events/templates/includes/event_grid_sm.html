@@ -3,12 +3,12 @@
         <div class="col-12 py-3"><strong>Past Events</strong></div>
         {% for event in calendar %}
         {% if event.is_due %}
-        <div class="col-3 border bg-secondary text-light text-left pl-1"><small>Date</small></div>
-        <div class="col-9 text-left"><small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small></div>
-        <div class="col-3 border bg-secondary text-light text-left pl-1"><small>Venue</small></div>
-        <div class="col-9 text-left">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
-        <div class="col-3 border bg-secondary text-light text-left pl-1"><small>Programme</small></div>
-        <div class="col-9 text-left">{{ event.programme }}</div>
+        <div class="col-3 border bg-secondary text-light text-left pl-1 text-grid-events"><small>Date</small></div>
+        <div class="col-9 text-left text-grid-events"><small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small></div>
+        <div class="col-3 border bg-secondary text-light text-left pl-1 text-grid-events"><small>Venue</small></div>
+        <div class="col-9 text-left text-grid-events">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
+        <div class="col-3 border bg-secondary text-light text-left pl-1 text-grid-events"><small>Programme</small></div>
+        <div class="col-9 text-left text-grid-events">{{ event.programme }}</div>
         {% if request.user.is_superuser %}
         <div class="col-12 mb-5 text-left pl-0">
             <small class="font-weight-bold">
@@ -25,12 +25,12 @@
         <div class="col-12 py-3"><strong>Upcoming Events</strong></div>
         {% for event in calendar %}
         {% if event.is_future %}
-        <div class="col-3 border bg-info text-light text-left pl-1"><small>Date</small></div>
-        <div class="col-9 text-left"><small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small></div>
-        <div class="col-3 border bg-info text-light text-left pl-1"><small>Venue</small></div>
-        <div class="col-9 text-left">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
-        <div class="col-3 border bg-info text-light text-left pl-1"><small>Programme</small></div>
-        <div class="col-9 text-left">{{ event.programme }}</div>
+        <div class="col-3 border bg-info text-light text-left pl-1 text-grid-events"><small>Date</small></div>
+        <div class="col-9 text-left text-grid-events"><small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small></div>
+        <div class="col-3 border bg-info text-light text-left pl-1 text-grid-events"><small>Venue</small></div>
+        <div class="col-9 text-left text-grid-events">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
+        <div class="col-3 border bg-info text-light text-left pl-1 text-grid-events"><small>Programme</small></div>
+        <div class="col-9 text-left text-grid-events">{{ event.programme }}</div>
         {% if request.user.is_superuser %}
         <div class="col-12 mb-5 text-left pl-0">
             <small class="font-weight-bold">
