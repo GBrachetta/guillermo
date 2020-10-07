@@ -1,8 +1,52 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-<section class="home">
-    <img src="{% static 'icons/bootstrap.svg' %}" alt="" height="72" width="72" class="mb-4" />
-    <h1 class="h3 mb-3 font-weight-normal">Guillermo Brachetta</h1>
-</section>
-
+<div id="main" class="main-container">
+    <div id="intro" class="intro">
+        <div class="background-container">
+            <div class="wrapper-main">
+                <h1 class="name">GUILLERMO BRACHETTA</h1>
+            </div>
+        </div>
+    </div>
+    <div id="slide01" class="slide">
+        <div class="pin-wrapper">
+            <div class="img"></div>
+            <div class="row">
+                <div class="wrapper-musician col-6">
+                    <h1 class="musician">MUSICIAN</h1>
+                </div>
+                <div class="wrapper-musician-text col-6">
+                    <p>
+                        Lorem ipsum
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="slide02" class="slide">
+        <div class="pin-wrapper">
+            <div class="img-02"></div>
+            <div class="row">
+                <div class="wrapper-researcher col-6">
+                    <h1 class="researcher">RESEARCHER</h1>
+                </div>
+                <div class="wrapper-researcher-text col-6">
+                    <p>
+                        Lorem, ipsum
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
+{% block postjs %}
+{{ block.super }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js" integrity="sha256-XDWrid8aGX+NZwSY7JzTu6oWArI71Sw+aUZ9Hd0P5mo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js" integrity="sha256-2p2tRZlPowp3P/04Pw2rqVCSbhyV/IB7ZEVUglrDS/c=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js" integrity="sha256-peenofh8a9TIqKdPKIeQE7mJvuwh+J0To7nslvpj1jI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js" integrity="sha256-XBVALc3QsDSQiDtiaBwNZ2rxCJTHzlUhhlDQ84J8bw8=" crossorigin="anonymous"></script>
+<script src="{% static 'home/js/home.js' %}"></script>
+{% endblock postjs %}

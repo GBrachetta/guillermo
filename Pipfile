@@ -7,12 +7,26 @@ verify_ssl = true
 black = "*"
 pycodestyle = "*"
 flake8 = "*"
+autopep8 = "*"
+pylint = "*"
 
 [packages]
 django = "*"
+dj-database-url = "*"
+gunicorn = "*"
+django-allauth = "*"
+django-crispy-forms = "*"
+stripe = "*"
+coverage = "*"
+psycopg2-binary = "*"
+boto3 = "*"
+pillow = "*"
+django-storages = "*"
+django-countries = "*"
+django-cleanup = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
 
 [pipenv]
 allow_prereleases = true

@@ -1,0 +1,64 @@
+{% load static %}
+<nav class="navbar fixed-top navbar-expand-lg bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}"><img class="logo" src="{% static 'icons/logo.svg' %}" height="72" width="72" alt="Logo" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item {{ home }}">
+                <a class="nav-link navbar-items" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item {{ media }}">
+                <a class="nav-link navbar-items" href="{% url 'album' %}">Media</a>
+            </li>
+            <li class="nav-item {{ events }}">
+                <a class="nav-link navbar-items" href="{% url 'events' %}">Events</a>
+            </li>
+            <li class="nav-item {{ shop }}">
+                <a class="nav-link navbar-items" href="{% url 'shop' %}">Shop</a>
+            </li>
+        </ul>
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+            <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                <li class="list-inline-item dropdown">
+                    <a class="text-nav nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="text-center">
+                            <div><i class="fas fa-user fa-lg navbar-items"></i></div>
+                            <p class="my-0 navbar-items">My Account</p>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <a href="{% url 'add_media' %}" class="dropdown-item">Media Management</a>
+                        <a href="{% url 'add_event' %}" class="dropdown-item">Events Management</a>
+                        <a href="{% url 'add_cd' %}" class="dropdown-item">Product Management</a>
+                        {% endif %}
+                        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        {% endif %}
+                    </div>
+                </li>
+                <li class="list-inline-item">
+                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-nav{% endif %} nav-link" href="{% url 'view_bag' %}">
+                        <div class="text-center">
+                            <div><i class="fas fa-shopping-bag fa-lg navbar-items"></i></div>
+                            <p class="my-0 navbar-items">
+                                {% if grand_total %}
+                                €{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                €0.00
+                                {% endif %}
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

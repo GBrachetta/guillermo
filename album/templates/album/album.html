@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block postcss %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/3.0.3/css/nanogallery2.min.css" integrity="sha512-XNJOedg9uG2ewGJ32c4Nn1KNUr/7qQ0Jra+KlLMvx5I3QYEFPna9PhqYAh0kO5hV8pgP8D/+wDbeawW037VsKQ==" crossorigin="anonymous" />
+{% endblock postcss %}
+{% block page_header %}
+<div class="container header-container"></div>
+{% endblock page_header %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Photo and Video</h1>
+</div>
+<div class="container mt-3 mt-md-5">
+    <div class="row">
+        <div class="col">
+            <div id="nanogallery2" data-nanogallery2='{
+                    "thumbnailHeight": "auto",
+                    "thumbnailWidth": 400,
+                    "thumbnailBaseGridHeight" : 100,
+                    "thumbnailGutterWidth" : 2,
+                    "thumbnailGutterHeight" : 2,
+                    "thumbnailBorderHorizontal" : 0,
+                    "thumbnailBorderVertical" : 0,
+                    "gallerySorting": "random",
+                    "galleryDisplayTransition": "slideUp",
+                    "galleryResizeAnimation": true,
+                    "galleryDisplayTransitionDuration": 1000,
+                    "thumbnailDisplayOrder": "random",
+                    "thumbnailDisplayTransition": "scaleUp",
+                    "thumbnailHoverEffect2": "imageSepiaOff",
+                    "viewerToolbar": {
+                    "display": true,
+                    "standard": "minimizeButton, shareButton, fullscreenButton",
+                    "minimized": "minimizeButton, fullscreenButton, downloadButton, infoButton" },
+                    "viewerTools": {
+                    "topLeft": "label",
+                    "topRight": "playPauseButton, zoomButton, fullscreenButton, closeButton" },
+                    "thumbnailLabel": { "display": false, "valign": "bottom", "position": "overImage", "hideIcons": false, "displayDescription": true }
+                    }'>
+                {% for media in album %}
+                {% if media.image %}
+                <a href="{{ media.image.url }}" data-ngthumb="{{ media.image.url }}" data-ngdesc="{{ media.caption }}" alt="{{ media.name }}"></a>
+                {% else %}
+                <a href="{{ media.image_url }}" data-ngthumb="{{ media.image_url }}" data-ngdesc="{{ media.caption }}" alt="{{ media.name }}"></a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% if request.user.is_superuser %}
+    {% include 'includes/album_admin.html' %}
+    {% endif %}
+</div>
+{% endblock content %}
+
+{% block page_footer %}
+<div class="container footer-container"></div>
+{% endblock page_footer %}
+
+{% block postjs %}
+{{ block.super }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/3.0.3/jquery.nanogallery2.min.js" integrity="sha512-3xu5p0w7hcOqGBH4pfKR04261+kgH7Z5NjdnKQNKL+j+UmyAcTFZzDBzVsV0gN+reoUr/zahjx2TgP84RtyuRg==" crossorigin="anonymous"></script>
+{% endblock %}
