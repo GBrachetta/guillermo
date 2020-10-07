@@ -27,7 +27,6 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = "DEVELOPMENT" in os.environ
 
 ALLOWED_HOSTS = [
-    "101ebd2ebca4.ngrok.io",
     "guillermo-brachetta.herokuapp.com",
     "127.0.0.1",
 ]
@@ -88,7 +87,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.media",  # makes media available accross the site
-                "bag.contexts.bag_contents",
+                "bag.contexts.bag_contents",  # Context processors
             ],
             "builtins": [
                 "crispy_forms.templatetags.crispy_forms_tags",

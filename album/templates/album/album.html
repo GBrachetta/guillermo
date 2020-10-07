@@ -1,87 +1,64 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block postcss %}
-<link rel="stylesheet" href="{% static 'album/css/lightbox.css' %}" />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/3.0.3/css/nanogallery2.min.css" integrity="sha512-XNJOedg9uG2ewGJ32c4Nn1KNUr/7qQ0Jra+KlLMvx5I3QYEFPna9PhqYAh0kO5hV8pgP8D/+wDbeawW037VsKQ==" crossorigin="anonymous" />
 {% endblock postcss %}
 {% block page_header %}
 <div class="container header-container"></div>
 {% endblock page_header %}
 
 {% block content %}
-<div class="overlay"></div>
-
+<div class="container mt-5">
+    <h1>Photo and Video</h1>
+</div>
 <div class="container mt-3 mt-md-5">
-    <div class="grid">
-        <div class="grid-col grid-col--1"></div>
-        <div class="grid-col grid-col--2"></div>
-        <div class="grid-col grid-col--3"></div>
-        {% for media in album %}
-        <div class="grid-item">
-            {% if media.image %}
-            <a href="{{ media.image.url }}" data-lightbox="album" data-title="{{ media.caption }}">
-                <img src="{{ media.image.url }}" alt="{{ media.image.name }}">
-            </a>
-            {% else %}
-            <a href="{{ MEDIA_URL }}noimage.png" data-lightbox="album" data-title="{{ media.caption }}">
-                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ media.name }}">
-            </a>
-            {% endif %}
+    <div class="row">
+        <div class="col">
+            <div id="nanogallery2" data-nanogallery2='{
+                    "thumbnailHeight": "auto",
+                    "thumbnailWidth": 400,
+                    "thumbnailBaseGridHeight" : 100,
+                    "thumbnailGutterWidth" : 2,
+                    "thumbnailGutterHeight" : 2,
+                    "thumbnailBorderHorizontal" : 0,
+                    "thumbnailBorderVertical" : 0,
+                    "gallerySorting": "random",
+                    "galleryDisplayTransition": "slideUp",
+                    "galleryResizeAnimation": true,
+                    "galleryDisplayTransitionDuration": 1000,
+                    "thumbnailDisplayOrder": "random",
+                    "thumbnailDisplayTransition": "scaleUp",
+                    "thumbnailHoverEffect2": "imageSepiaOff",
+                    "viewerToolbar": {
+                    "display": true,
+                    "standard": "minimizeButton, shareButton, fullscreenButton",
+                    "minimized": "minimizeButton, fullscreenButton, downloadButton, infoButton" },
+                    "viewerTools": {
+                    "topLeft": "label",
+                    "topRight": "playPauseButton, zoomButton, fullscreenButton, closeButton" },
+                    "thumbnailLabel": { "display": false, "valign": "bottom", "position": "overImage", "hideIcons": false, "displayDescription": true }
+                    }'>
+                {% for media in album %}
+                {% if media.image %}
+                <a href="{{ media.image.url }}" data-ngthumb="{{ media.image.url }}" data-ngdesc="{{ media.caption }}" alt="{{ media.name }}"></a>
+                {% else %}
+                <a href="{{ media.image_url }}" data-ngthumb="{{ media.image_url }}" data-ngdesc="{{ media.caption }}" alt="{{ media.name }}"></a>
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
     </div>
     {% if request.user.is_superuser %}
-    <div class="row my-5">
-        <div class="col">
-            <hr>
-            <h5>For Administrators</h5>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            {% for media in album %}
-            {% if media.image %}
-            <div class="col-2"><img src="{{ media.image.url }}" width="50" height="50"></div>
-            {% else %}
-            <div class="col-2"><img src="{{ MEDIA_URL }}noimage.png" width="50" height="50"></div>
-            {% endif %}
-            <div class="col-5 text-left"><small>{{ media.name }}</small></div>
-            <div class="col-5 text-right">
-                <small class="font-weight-bold">
-                    <a href="{% url 'edit_media' media.id %}">Edit</a> |
-                    <a class="text-danger" href="{% url 'delete_media' media.id %}">Delete</a>
-                </small>
-            </div>
-            <div class="col-12">
-                <hr>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-    <a class="btn btn-outline-black rounded-0" href="{% url 'add_media' %}">Add Media</a>
+    {% include 'includes/album_admin.html' %}
     {% endif %}
 </div>
-
 {% endblock content %}
 
 {% block page_footer %}
-<div class="container footer-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
+<div class="container footer-container"></div>
 {% endblock page_footer %}
 
 {% block postjs %}
 {{ block.super }}
-<!--
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
-<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
--->
-<script src="https://unpkg.com/colcade@0/colcade.js"></script>
-
-
-
-<script src="{% static 'album/js/lightbox.js' %}"></script>
-<script src="{% static 'album/js/album.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/3.0.3/jquery.nanogallery2.min.js" integrity="sha512-3xu5p0w7hcOqGBH4pfKR04261+kgH7Z5NjdnKQNKL+j+UmyAcTFZzDBzVsV0gN+reoUr/zahjx2TgP84RtyuRg==" crossorigin="anonymous"></script>
 {% endblock %}
