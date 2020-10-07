@@ -4,7 +4,7 @@ $(document).ready(function ($) {
             navbar = $(".navbar"),
             navbarItems = $(".navbar-items");
 
-        if (scrollPos > 300) {
+        if (scrollPos > 500) {
             navbar.addClass("alt-color");
             navbarItems.addClass("alt-text-color");
         } else {
