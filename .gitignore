@@ -23,3 +23,5 @@ static/css/bootstrap.min.css
 !static/icons/bootstrap.svg
 !static/icons/logo.svg
 docs
+home/static/home/js/homeORIG.js
+home/templates/home/homeORIG.html
