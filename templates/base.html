@@ -68,9 +68,8 @@
     {% endblock main_js %}
 
     {% block postjs %}
-    <script type="text/javascript">
-        $('.toast').toast('show');
-    </script>
+    {{ block.super }}
+    <script src="{% static 'js/extras.js' %}"></script>
     {% endblock postjs %}
 </body>
 
