@@ -2,37 +2,44 @@
 {% load static %}
 {% block content %}
 
-
-<div class="container-fluid m-0 p-0">
-    <div class="row justify-content-center m-0">
-        <div class="col-12 text-center p-0">
-            <section class="panel red">
-                <img src="https://www.sgs.nl/-/media/global/images/structural-website-images/hero-images/hero-agri-forestry.jpg" alt="asd" />
-            </section>
-        </div>
-
-        <section class="container-fluid m-0 p-0">
-            <div class="row justify-content-center m-0">
-                <div class="col-12 text-center p-0">
-                    <section class="panel orange">
-                        <img src="https://www.sgs.nl/-/media/global/images/structural-website-images/hero-images/hero-agri-forestry.jpg" alt="" />
-                    </section>
-                </div>
-            </div>
-        </section>
-
-        <div class="container-fluid m-0 p-0">
-            <div class="row justify-content-center m-0">
-                <div class="col-12 text-center p-0">
-                    <section class="panel purple">
-                        <!-- <div class="overlay"></div> -->
-                        <img src="https://www.sgs.nl/-/media/global/images/structural-website-images/hero-images/hero-agri-forestry.jpg" alt="" />
-                    </section>
-                </div>
-            </div>
-        </div>
+<div id="overlay-first-section"></div>
+<section id="first-section" class="description panel first-section">
+    <div>
+        <h1 id="first-section-content">Guillermo Brachetta</h1>
     </div>
-</div>
+    </div>
+</section>
+
+<div id="overlay-second-section"></div>
+<section id="second-section" class="panel second-section align-top">
+    <p id="second-section-content">
+        I wish I could carve my own <span class="accent">chess</span> figures.
+        <br>
+        I wish I could write the <span class="accent">novel</span> of the century.
+        <br>
+        I wish I could build my own <span class="accent">house</span>.
+        <br>
+        I wish I could paint the Amsterdam <span class="accent">sunset</span> in all its spring colours.
+        <br>
+        I can make <span class="accent"><strong>music</strong></span>, which is the miracle of having all that together.
+    </p>
+</section>
+
+<div id="overlay-third-section"></div>
+<section id="third-section" class="panel third-section align-top">
+    <p id="third-section-content">
+        I love being a musician.<br> I could have my dream day playing basso continuo and chamber music with friends and colleagues, to feel privileged whilst playing with them.<br> I have a strong connection with the music of Wilhelm Friedemann Bach and will not rest until I’ve done everything possible to make it better understood.<br> I cannot hold a conversation or read a book if there’s good music playing, but I can cry.<br> I find being onstage irresistible. Thanks to the music I travel and meet fascinating people.<br> I’m extremely fortunate.
+    </p>
+</section>
+
+<div id="overlay-fourth-section"></div>
+<section id="fourth-section" class="panel fourth-section align-top">
+    <p id="fourth-section-content">
+        <code>start: "top center"</code> pins this element when the <strong>top</strong> of
+        the red element hits the <strong>center</strong> of the viewport, and remains pinned
+        for 200px because its <code>end</code> is defined as <code>"+=200"</code>
+    </p>
+</section>
 
 {% endblock content %}
 {% block postjs %}
@@ -42,11 +49,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js" integrity="sha256-peenofh8a9TIqKdPKIeQE7mJvuwh+J0To7nslvpj1jI=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js" integrity="sha256-XBVALc3QsDSQiDtiaBwNZ2rxCJTHzlUhhlDQ84J8bw8=" crossorigin="anonymous"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EaselPlugin.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EaselPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EasePack.min.js"></script>
 
 <script src="{% static 'home/js/home.js' %}"></script>
 {% endblock postjs %}
