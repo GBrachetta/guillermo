@@ -3,43 +3,81 @@
 {% block content %}
 
 <div id="overlay-first-section"></div>
-<section id="first-section" class="description panel first-section">
-    <div>
-        <h1 id="first-section-content">Guillermo Brachetta</h1>
+<section>
+    <div id="first-section" class="description panel first-section">
+        <div id="first-section-content">
+            <h1>Guillermo Brachetta</h1>
+            <h4 id="subtitle">Musician</h4>
+        </div>
     </div>
     </div>
 </section>
 
 <div id="overlay-second-section"></div>
-<section id="second-section" class="panel second-section align-top">
-    <p id="second-section-content">
-        I wish I could carve my own <span class="accent">chess</span> figures.
-        <br>
-        I wish I could write the <span class="accent">novel</span> of the century.
-        <br>
-        I wish I could build my own <span class="accent">house</span>.
-        <br>
-        I wish I could paint the Amsterdam <span class="accent">sunset</span> in all its spring colours.
-        <br>
-        I can make <span class="accent"><strong>music</strong></span>, which is the miracle of having all that together.
-    </p>
+<section>
+    <div id="second-section" class="panel second-section align-top">
+        <p id="second-section-content">
+            I wish I could carve my own <span class="accent">chess</span> figures.
+            <br>
+            I wish I could write the <span class="accent">novel</span> of the century.
+            <br>
+            I wish I could build my own <span class="accent">house</span>.
+            <br>
+            I wish I could paint the Amsterdam <span class="accent">sunset</span> in all its spring colours.
+            <br>
+            I can make <span class="accent"><strong>music</strong></span>, which is the miracle of having all that together.
+        </p>
+    </div>
 </section>
 
 <div id="overlay-third-section"></div>
-<section id="third-section" class="panel third-section align-top">
-    <p id="third-section-content">
-        I love being a musician.<br> I could have my dream day playing basso continuo and chamber music with friends and colleagues, to feel privileged whilst playing with them.<br> I have a strong connection with the music of Wilhelm Friedemann Bach and will not rest until I’ve done everything possible to make it better understood.<br> I cannot hold a conversation or read a book if there’s good music playing, but I can cry.<br> I find being onstage irresistible. Thanks to the music I travel and meet fascinating people.<br> I’m extremely fortunate.
-    </p>
+<section>
+    <div id="third-section" class="panel third-section align-top">
+        <p id="third-section-content">
+            I love being a musician.<br> I could have my dream day playing basso continuo and chamber music with friends and colleagues, to feel privileged whilst playing with them.<br> I have a strong connection with the music of Wilhelm Friedemann Bach and will not rest until I’ve done everything possible to make it better understood.<br> I cannot hold a conversation or read a book if there’s good music playing, but I can cry.<br> I find being onstage irresistible. Thanks to the music I travel and meet fascinating people.<br> I’m extremely fortunate.
+        </p>
+    </div>
 </section>
 
 <div id="overlay-fourth-section"></div>
-<section id="fourth-section" class="panel fourth-section align-top">
-    <p id="fourth-section-content">
-        <code>start: "top center"</code> pins this element when the <strong>top</strong> of
-        the red element hits the <strong>center</strong> of the viewport, and remains pinned
-        for 200px because its <code>end</code> is defined as <code>"+=200"</code>
-    </p>
+<section>
+    <div id="fourth-section" class="panel fourth-section align-top">
+        <p id="fourth-section-content">
+            Please visit to discover my recordings, get to know more about my music, browse images and video and find out information about my upcoming events.<br>You can find my biography <span class="accent"><a href="#" data-toggle="modal" data-target="#biography">here</a></span>.
+        </p>
+    </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="biography" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Biography</h5>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <span class="accent-modal">Guillermo</span> was born and grew up in Argentina and, albeit not a typical Argentinian, he still retains certain national characteristics including the love for <span class="accent-modal">cooking</span>, the vehemency for <span class="accent-modal">debating</span> and the passion for making <span class="accent-modal">music</span>.</p>
+                <p>
+                    Guillermo settled in The Netherlands in 1995 in order to perfect his skills in <span class="accent-modal">at least one</span> of those disciplines.
+                </p>
+                <p>
+                    He graduated from the <span class="accent-modal">Conservatory of Amsterdam</span> and has collaborated as a soloist and basso continuo player with many renowned orchestras including the Residentie Orkest, Nederlands Kamerorkest and The New Dutch Academy. </p>
+                <p>
+                    It is, however, in making <span class="accent-modal">chamber music</span> that Guillermo’s unique improvisational skills and his “supple gravitas” on the harpsichord can be properly enjoyed. His debut solo recording,<span class="accent-modal">“Ciaconna”</span>, has been released on Resonus Classics with enthusiastic reviews (BBC Music Magazine Instrumental Choice May 2014) followed by <span class="accent-modal">“Divine Noise”</span>, a recording of his own arrangement for two harpsichords of the opera Platée by Jean-Philippe Rameau, together with Dutch harpsichordist and former teacher <span class="accent-modal">Menno van Delft</span>.
+                </p>
+                <p>
+                    A co-founder of successful <span class="accent-modal">Ensemble Fantasticus</span>, he recorded 6 albums with this critically acclaimed baroque trio.
+                    Next to it, Guillermo has a lifelong mission to rediscover and promote the neglected work of <span class="accent-modal">Wilhelm Friedemann Bach</span>.
+                    Guillermo is very active as a researcher and <span class="accent-modal">music editor</span>, working in close cooperation with <span class="accent-modal">Cambridge University Press</span> and other international institutions, having prepared first editions of numerous works from the XVII and XVIII centuries.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-outline-black rounded-0" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}
 {% block postjs %}
@@ -50,10 +88,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js" integrity="sha256-XBVALc3QsDSQiDtiaBwNZ2rxCJTHzlUhhlDQ84J8bw8=" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EaselPlugin.min.js"></script>
+{% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EaselPlugin.min.js"></script> {% endcomment %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EasePack.min.js"></script>
+{% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EasePack.min.js"></script> {% endcomment %}
 
 <script src="{% static 'home/js/home.js' %}"></script>
 {% endblock postjs %}
