@@ -7,6 +7,8 @@
 <div class="container header-container"></div>
 {% endblock page_header %}
 
+{# asdsadjkasd add asdkjsad #}
+{% comment %}  {% endcomment %}
 {% block content %}
 <div class="container mt-5">
     <h1>Photo and Video</h1>
@@ -15,8 +17,8 @@
     <div class="row">
         <div class="col">
             <div id="nanogallery2" data-nanogallery2='{
-                    "thumbnailHeight": "auto",
-                    "thumbnailWidth": 400,
+                    "thumbnailWidth": "400 XS200 SM300",
+                    "thumbnailHeight": "auto XSauto SMauto",
                     "thumbnailBaseGridHeight" : 100,
                     "thumbnailGutterWidth" : 2,
                     "thumbnailGutterHeight" : 2,
@@ -28,15 +30,23 @@
                     "galleryDisplayTransitionDuration": 1000,
                     "thumbnailDisplayOrder": "random",
                     "thumbnailDisplayTransition": "scaleUp",
-                    "thumbnailHoverEffect2": "imageSepiaOff",
+                    "thumbnailDisplayTransitionDuration": 500,
+                    "thumbnailHoverEffect2": "imageGrayOn",
                     "viewerToolbar": {
-                    "display": true,
-                    "standard": "minimizeButton, shareButton, fullscreenButton",
-                    "minimized": "minimizeButton, fullscreenButton, downloadButton, infoButton" },
-                    "viewerTools": {
-                    "topLeft": "label",
-                    "topRight": "playPauseButton, zoomButton, fullscreenButton, closeButton" },
-                    "thumbnailLabel": { "display": false, "valign": "bottom", "position": "overImage", "hideIcons": false, "displayDescription": true }
+                        "display": true,
+                        "standard": "minimizeButton, shareButton, fullscreenButton",
+                        "minimized": "minimizeButton, fullscreenButton, downloadButton, infoButton" },
+                        "viewerTools": {
+                            "topLeft": "label",
+                            "topRight": "playPauseButton, zoomButton, fullscreenButton, closeButton"
+                        },
+                        "thumbnailLabel": {
+                            "display": false,
+                            "valign": "bottom",
+                            "position": "overImage",
+                            "hideIcons": false,
+                            "displayDescription": true
+                        }
                     }'>
                 {% for media in album %}
                 {% if media.image %}
