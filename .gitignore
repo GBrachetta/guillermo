@@ -28,3 +28,7 @@ home/templates/home/homeORIG.html
 static/images/bg1 copy.jpg
 static/images/bg2 copy.jpg
 home/static/home/js/homeORIGviejo.js
+static/images/bg2 ant.jpg
+static/images/bg1 ant.jpg
+static/images/bg.jpg
+home/templates/home/homeANT.html
