@@ -84,32 +84,6 @@ gsap.to("#fourth-section-content", {
     },
 });
 
-// Snap sections
-
-function goToSection(i, anim) {
-    gsap.to(window, {
-        scrollTo: { y: i * innerHeight, autoKill: false },
-        duration: 2,
-    });
-
-    if (anim) {
-        anim.restart();
-    }
-}
-
-gsap.utils.toArray(".panel").forEach((panel, i) => {
-    ScrollTrigger.create({
-        trigger: panel,
-        onEnter: () => goToSection(i),
-    });
-
-    ScrollTrigger.create({
-        trigger: panel,
-        start: "bottom bottom",
-        onEnterBack: () => goToSection(i),
-    });
-});
-
 // PARALLAX
 
 gsap.utils.toArray("section").forEach((section, i) => {
@@ -145,3 +119,29 @@ gsap.utils.toArray("section").forEach((section, i) => {
         });
     }
 });
+
+// Snap sections
+
+// function goToSection(i, anim) {
+//     gsap.to(window, {
+//         scrollTo: { y: i * innerHeight, autoKill: false },
+//         duration: 2,
+//     });
+
+//     if (anim) {
+//         anim.restart();
+//     }
+// }
+
+// gsap.utils.toArray(".panel").forEach((panel, i) => {
+//     ScrollTrigger.create({
+//         trigger: panel,
+//         onEnter: () => goToSection(i),
+//     });
+
+//     ScrollTrigger.create({
+//         trigger: panel,
+//         start: "bottom bottom",
+//         onEnterBack: () => goToSection(i),
+//     });
+// });
