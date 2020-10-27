@@ -891,31 +891,32 @@ section {
 }
 
 .bg-1 {
-  background-image: url("../images/bg1.jpg");
+  background-image: url("../images/bg1-sm.jpeg");
 }
 
 .bg-2 {
-  background-image: url("../images/bg2.jpg");
+  background-image: url("../images/bg2-sm.jpg");
 }
 
 .bg-3 {
-  background-image: url("../images/bg3.jpg");
+  background-image: url("../images/bg3-sm.jpg");
 }
 
 .bg-4 {
-  background-image: url("../images/bg4.jpg");
+  background-image: url("../images/bg4-sm.jpg");
 }
 
 .bg {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  bottom: 0;
+  right: 0;
   height: 100vh;
   z-index: -1;
   background-size: cover;
   background-position: center;
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
@@ -938,6 +939,7 @@ section {
     left: 0;
     bottom: 0;
     right: 0;
+    width: 100vw;
     height: 100vh;
     z-index: -1;
     background-size: cover;
