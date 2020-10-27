@@ -891,27 +891,26 @@ section {
 }
 
 .bg-1 {
-  background-image: url("../images/bg1-sm.jpeg");
+  background-image: url("../images/bg1.jpg");
 }
 
 .bg-2 {
-  background-image: url("../images/bg2-sm.jpg");
+  background-image: url("../images/bg2.jpg");
 }
 
 .bg-3 {
-  background-image: url("../images/bg3-sm.jpg");
+  background-image: url("../images/bg3.jpg");
 }
 
 .bg-4 {
-  background-image: url("../images/bg4-sm.jpg");
+  background-image: url("../images/bg4.jpg");
 }
 
 .bg {
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
+  width: 100vw;
   height: 100vh;
   z-index: -1;
   background-size: cover;
