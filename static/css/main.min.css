@@ -914,9 +914,9 @@ section {
   right: 0;
   height: 100vh;
   z-index: -1;
+  -webkit-background-size: cover;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
@@ -944,6 +944,7 @@ section {
     z-index: -1;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     background-repeat: no-repeat;
   }
   .modal-body {
