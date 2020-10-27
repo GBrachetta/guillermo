@@ -910,27 +910,14 @@ section {
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
   width: 100vw;
-  height: 100vh;
   z-index: -1;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-}
-
-.bg:after {
-  content: "";
-  position: fixed;
-  /* stretch a fixed position to the whole screen */
-  top: 0;
-  height: 100vh;
-  /* fix for mobile browser address bar appearing disappearing */
-  left: 0;
-  right: 0;
-  z-index: -1;
-  /* needed to keep in the background */
-  background-size: cover;
 }
 
 @media (min-width: 768px) {
