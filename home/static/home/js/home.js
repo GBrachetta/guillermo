@@ -40,7 +40,7 @@ gsap.to(".fourth-overlay", {
 
 gsap.to("#first-section-content", {
     opacity: 0,
-    y: "500",
+    y: "350",
     scrollTrigger: {
         trigger: ".first-overlay",
         start: "top top",
