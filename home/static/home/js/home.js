@@ -1,3 +1,14 @@
+// Try
+
+$.backstretch([
+    "../../../../static/images/bg1-sm.jpeg",
+    "../../../../static/images/bg2-sm.jpg",
+    "../../../../static/images/bg3-sm.jpg",
+    "../../../../static/images/bg4-sm.jpg"
+]);
+
+// End
+
 gsap.to(".first-overlay", {
     opacity: 1,
     scrollTrigger: {
