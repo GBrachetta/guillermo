@@ -1,14 +1,3 @@
-// Try
-
-$.backstretch([
-    "../../../../static/images/bg1-sm.jpeg",
-    "../../../../static/images/bg2-sm.jpg",
-    "../../../../static/images/bg3-sm.jpg",
-    "../../../../static/images/bg4-sm.jpg"
-]);
-
-// End
-
 gsap.to(".first-overlay", {
     opacity: 1,
     scrollTrigger: {
@@ -93,36 +82,38 @@ gsap.to("#fourth-section-content", {
     },
 });
 
-gsap.utils.toArray("section").forEach((section, i) => {
-    section.bg = section.querySelector(".bg");
+if ($(window).width() >= 400) {
+    gsap.utils.toArray("section").forEach((section, i) => {
+        section.bg = section.querySelector(".bg");
 
-    // Do the parallax effect on each section
-    if (i) {
-        section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
+        // Do the parallax effect on each section
+        if (i) {
+            section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
 
-        gsap.to(section.bg, {
-            backgroundPosition: `50% ${-innerHeight / 2}px`,
-            ease: "none",
-            scrollTrigger: {
-                trigger: section,
-                scrub: true,
-            },
-        });
-    }
+            gsap.to(section.bg, {
+                backgroundPosition: `50% ${-innerHeight / 2}px`,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: section,
+                    scrub: true,
+                },
+            });
+        }
 
-    // the first image should be positioned against the top. Use px on the animating part to work with GSAP.
-    else {
-        section.bg.style.backgroundPosition = "50% 0px";
+        // the first image should be positioned against the top. Use px on the animating part to work with GSAP.
+        else {
+            section.bg.style.backgroundPosition = "50% 0px";
 
-        gsap.to(section.bg, {
-            backgroundPosition: `50% ${-innerHeight / 2}px`,
-            ease: "none",
-            scrollTrigger: {
-                trigger: section,
-                start: "top top",
-                end: "bottom top",
-                scrub: true,
-            },
-        });
-    }
-});
+            gsap.to(section.bg, {
+                backgroundPosition: `50% ${-innerHeight / 2}px`,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true,
+                },
+            });
+        }
+    });
+}
