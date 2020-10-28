@@ -1,39 +1,37 @@
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.to("#overlay-first-section", {
+gsap.to(".first-overlay", {
     opacity: 1,
     scrollTrigger: {
-        trigger: "#overlay-first-section",
+        trigger: ".first-overlay",
         start: "top top",
         end: "bottom top",
         scrub: true,
     },
 });
 
-gsap.from("#overlay-second-section", {
+gsap.from(".second-overlay", {
     opacity: 1,
     scrollTrigger: {
-        trigger: "#overlay-second-section",
+        trigger: ".second-overlay",
         start: "top top",
         end: "bottom top",
         scrub: true,
     },
 });
 
-gsap.from("#overlay-third-section", {
+gsap.from(".third-overlay", {
     opacity: 1,
     scrollTrigger: {
-        trigger: "#overlay-third-section",
+        trigger: ".third-overlay",
         start: "top top",
         end: "bottom top",
         scrub: true,
     },
 });
 
-gsap.to("#overlay-fourth-section", {
+gsap.to(".fourth-overlay", {
     opacity: 1,
     scrollTrigger: {
-        trigger: "#overlay-third-section",
+        trigger: ".third-overlay",
         start: "bottom bottom+=200",
         end: "bottom",
         scrub: true,
@@ -42,21 +40,21 @@ gsap.to("#overlay-fourth-section", {
 
 gsap.to("#first-section-content", {
     opacity: 0,
-    y: "500",
+    y: "350",
     scrollTrigger: {
-        trigger: "#first-section",
+        trigger: ".first-overlay",
         start: "top top",
-        end: "+=800",
+        end: "bottom center",
         scrub: true,
     },
 });
 
 gsap.to("#second-section-content", {
     opacity: 1,
-    x: "15%",
+    y: "500px",
     scrollTrigger: {
-        trigger: "#first-section",
-        start: "center",
+        trigger: ".first-overlay",
+        start: "+=50%",
         end: "+=600",
         scrub: true,
     },
@@ -64,10 +62,10 @@ gsap.to("#second-section-content", {
 
 gsap.to("#third-section-content", {
     opacity: 1,
-    x: "-20%",
+    y: "300px",
     scrollTrigger: {
-        trigger: "#second-section",
-        start: "center",
+        trigger: ".first-overlay",
+        start: "+=150%",
         end: "+=600",
         scrub: true,
     },
@@ -75,73 +73,47 @@ gsap.to("#third-section-content", {
 
 gsap.to("#fourth-section-content", {
     opacity: 1,
-    y: "500px",
+    y: "300px",
     scrollTrigger: {
-        trigger: "#third-section",
-        start: "center",
+        trigger: ".first-overlay",
+        start: "+=225%",
         end: "+=600",
         scrub: true,
     },
 });
 
-// Snap sections
+if ($(window).width() >= 400) {
+    gsap.utils.toArray("section").forEach((section, i) => {
+        section.bg = section.querySelector(".bg");
 
-function goToSection(i, anim) {
-    gsap.to(window, {
-        scrollTo: { y: i * innerHeight, autoKill: false },
-        duration: 2,
+        // Do the parallax effect on each section
+        if (i) {
+            section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
+
+            gsap.to(section.bg, {
+                backgroundPosition: `50% ${-innerHeight / 2}px`,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: section,
+                    scrub: true,
+                },
+            });
+        }
+
+        // the first image should be positioned against the top. Use px on the animating part to work with GSAP.
+        else {
+            section.bg.style.backgroundPosition = "50% 0px";
+
+            gsap.to(section.bg, {
+                backgroundPosition: `50% ${-innerHeight / 2}px`,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true,
+                },
+            });
+        }
     });
-
-    if (anim) {
-        anim.restart();
-    }
 }
-
-gsap.utils.toArray(".panel").forEach((panel, i) => {
-    ScrollTrigger.create({
-        trigger: panel,
-        onEnter: () => goToSection(i),
-    });
-
-    ScrollTrigger.create({
-        trigger: panel,
-        start: "bottom bottom",
-        onEnterBack: () => goToSection(i),
-    });
-});
-
-// PARALLAX
-
-gsap.utils.toArray("section").forEach((section, i) => {
-    section.panel = section.querySelector(".panel");
-
-    // Do the parallax effect on each section
-    if (i) {
-        section.panel.style.backgroundPosition = `50% ${innerHeight / 2}px`;
-
-        gsap.to(section.panel, {
-            backgroundPosition: `50% ${-innerHeight / 2}px`,
-            ease: "none",
-            scrollTrigger: {
-                trigger: section,
-                scrub: true,
-            },
-        });
-    }
-
-    // the first image should be positioned against the top. Use px on the animating part to work with GSAP.
-    else {
-        section.panel.style.backgroundPosition = "50% 0px";
-
-        gsap.to(section.panel, {
-            backgroundPosition: `50% ${-innerHeight / 2}px`,
-            ease: "none",
-            scrollTrigger: {
-                trigger: section,
-                start: "top top",
-                end: "bottom top",
-                scrub: true,
-            },
-        });
-    }
-});

@@ -2,51 +2,55 @@
 {% load static %}
 {% block content %}
 
-<div id="overlay-first-section"></div>
-<section>
-    <div id="first-section" class="description panel first-section">
-        <div id="first-section-content">
-            <h1>Guillermo Brachetta</h1>
-            <h4 id="subtitle">Musician</h4>
+<div class="container-fluid">
+    <section class="row justify-content-start align-items-start">
+        <div class="overlay-home col first-overlay"></div>
+        <div class="bg bg-1 col"></div>
+        <div id="first-section-content" class="col-8 ml-lg-5 titles-home">
+            <h1 class="mb-0">Guillermo</h1>
+            <h1 class="mb-0">Brachetta</h1>
+            <h4 class="pt-3">Musician</h4>
         </div>
-    </div>
-    </div>
-</section>
+    </section>
 
-<div id="overlay-second-section"></div>
-<section>
-    <div id="second-section" class="panel second-section align-top">
-        <p id="second-section-content">
-            I wish I could carve my own <span class="accent">chess</span> figures.
-            <br>
-            I wish I could write the <span class="accent">novel</span> of the century.
-            <br>
-            I wish I could build my own <span class="accent">house</span>.
-            <br>
-            I wish I could paint the Amsterdam <span class="accent">sunset</span> in all its spring colours.
-            <br>
-            I can make <span class="accent"><strong>music</strong></span>, which is the miracle of having all that together.
-        </p>
-    </div>
-</section>
+    <section class="row justify-content-center align-items-start">
+        <div class="overlay-home col second-overlay"></div>
+        <div class="bg bg-2 col"></div>
+        <div class="col-10 col-md-8 container-content">
+            <p id="second-section-content" class="content-home">
+                I wish I could carve my own <span class="accent">chess</span> figures.
+                <br>
+                I wish I could write the <span class="accent">novel</span> of the century.
+                <br>
+                I wish I could build my own <span class="accent">house</span>.
+                <br>
+                I wish I could paint the Amsterdam <span class="accent">sunset</span> in all its spring colours.
+                <br>
+                I can make <span class="accent"><strong>music</strong></span>, which is the miracle of having all that together.
+            </p>
+        </div>
+    </section>
 
-<div id="overlay-third-section"></div>
-<section>
-    <div id="third-section" class="panel third-section align-top">
-        <p id="third-section-content">
-            I love being a musician.<br> I could have my dream day playing basso continuo and chamber music with friends and colleagues, to feel privileged whilst playing with them.<br> I have a strong connection with the music of Wilhelm Friedemann Bach and will not rest until I’ve done everything possible to make it better understood.<br> I cannot hold a conversation or read a book if there’s good music playing, but I can cry.<br> I find being onstage irresistible. Thanks to the music I travel and meet fascinating people.<br> I’m extremely fortunate.
-        </p>
-    </div>
-</section>
+    <section class="row justify-content-center align-items-start">
+        <div class="overlay-home col third-overlay"></div>
+        <div class="bg bg-3 col"></div>
+        <div class="col-10 col-md-8 container-content">
+            <p id="third-section-content" class="content-home">
+                I love being a musician.<br> I could have my dream day playing basso continuo and chamber music with friends and colleagues, to feel privileged whilst playing with them.<br> I have a strong connection with the music of Wilhelm Friedemann Bach and will not rest until I’ve done everything possible to make it better understood.<br> I cannot hold a conversation or read a book if there’s good music playing, but I can cry.<br> I find being onstage irresistible. Thanks to the music I travel and meet fascinating people.<br> I’m extremely fortunate.
+            </p>
+        </div>
+    </section>
 
-<div id="overlay-fourth-section"></div>
-<section>
-    <div id="fourth-section" class="panel fourth-section align-top">
-        <p id="fourth-section-content">
-            Please visit to discover my recordings, get to know more about my music, browse images and video and find out information about my upcoming events.<br>You can find my biography <span class="accent"><a href="#" data-toggle="modal" data-target="#biography">here</a></span>.
-        </p>
-    </div>
-</section>
+    <section class="row justify-content-center align-items-start">
+        <div class="overlay-home col fourth-overlay"></div>
+        <div class="bg bg-4 col"></div>
+        <div class="col-10 col-md-8 container-content">
+            <p id="fourth-section-content" class="content-home">
+                Please visit to discover my recordings, get to know more about my music, browse images and video and find out information about my upcoming events.<br>You can find my biography <span class="accent"><a href="#" data-toggle="modal" data-target="#biography">here</a></span>.
+            </p>
+        </div>
+    </section>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="biography" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
@@ -86,12 +90,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js" integrity="sha256-2p2tRZlPowp3P/04Pw2rqVCSbhyV/IB7ZEVUglrDS/c=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js" integrity="sha256-peenofh8a9TIqKdPKIeQE7mJvuwh+J0To7nslvpj1jI=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js" integrity="sha256-XBVALc3QsDSQiDtiaBwNZ2rxCJTHzlUhhlDQ84J8bw8=" crossorigin="anonymous"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-{% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EaselPlugin.min.js"></script> {% endcomment %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
-{% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/EasePack.min.js"></script> {% endcomment %}
 
 <script src="{% static 'home/js/home.js' %}"></script>
 {% endblock postjs %}

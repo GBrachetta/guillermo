@@ -17,7 +17,7 @@
         <h4 class="logo-font my-1">Free delivery if you buy {{ free_delivery_threshold }} CDs!</h4>
     </div>
 </div>
-<h1 class="mt-5">{{ cd.name }}</h1>
+<h1 class="mt-5 cd-title">{{ cd.name }}</h1>
 <div class="container">
     <div class="row">
         <div class="col text-center">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <div class="col-6">
-                            <p class="lead mb-0 text-left font-weight-bold">Price: €{{ cd.price }}</p>
+                            <p class="mb-0 text-left font-weight-bold">Price: €{{ cd.price }}</p>
                         </div>
                         <div class="col-12 text-left">
                             <a href="{% url 'shop' %}" class="btn btn-outline-black rounded-0 mt-5">
