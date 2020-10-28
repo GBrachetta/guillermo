@@ -111,11 +111,9 @@ The live version of the app can be found **[here](https://guillermo.herokuapp.co
 ![Landing Page](wireframes/01-landing-page.png)
 ![Media Page](wireframes/02-media-page.png)
 ![Events Page](wireframes/03-events-page.png)
-![CDs Page](wireframes/03-cds-page.png)
-![CD Details Page](wireframes/03-cd-detail-page.png)
-![Shop Page](wireframes/03-shop-page.png)
-![Checkout Page](wireframes/03-checkout-page.png)
-![Checkout Success Page](wireframes/03-checkout-success-page.png)
+![Shop Page](wireframes/04-shop-page.png)
+![CD Details Page](wireframes/05-CD-detail-page.png)
+![Checkout Page](wireframes/06-checkout-page.png)
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
