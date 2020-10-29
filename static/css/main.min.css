@@ -815,8 +815,8 @@ select option[value=""] {
 
 .modal-content {
   border-radius: 0px;
-  color: #3d3d3d;
-  background-color: whitesmoke;
+  color: whitesmoke;
+  background-color: #3d3d3d;
 }
 
 .modal-body {
@@ -824,7 +824,7 @@ select option[value=""] {
 }
 
 .accent-modal {
-  color: #0a4e5f;
+  color: #489db3;
   font-weight: 500;
 }
 
@@ -910,22 +910,6 @@ section {
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-}
-
-.bg:after {
-  content: "";
-  position: fixed;
-  /* stretch a fixed position to the whole screen */
-  top: 0;
-  height: 100vh;
-  /* fix for mobile browser address bar appearing disappearing */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  z-index: -1;
-  /* needed to keep in the background */
-  background-size: cover;
 }
 
 @media (min-width: 768px) {
