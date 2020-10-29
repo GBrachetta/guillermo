@@ -27,7 +27,7 @@ def profile(request):
     template = "profiles/profile.html"
     context = {
         "form": form,
-        "orders": orders,
+        "orders": reversed(orders),
         "on_profile_page": True,
     }
 
