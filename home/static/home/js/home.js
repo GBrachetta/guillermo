@@ -40,7 +40,7 @@ gsap.to(".fourth-overlay", {
 
 gsap.to("#first-section-content", {
     opacity: 0,
-    y: "350",
+    y: "450",
     scrollTrigger: {
         trigger: ".first-overlay",
         start: "top top",
@@ -51,10 +51,10 @@ gsap.to("#first-section-content", {
 
 gsap.to("#second-section-content", {
     opacity: 1,
-    y: "500px",
+    y: "550px",
     scrollTrigger: {
         trigger: ".first-overlay",
-        start: "+=50%",
+        start: "+=60%",
         end: "+=600",
         scrub: true,
     },
@@ -62,10 +62,10 @@ gsap.to("#second-section-content", {
 
 gsap.to("#third-section-content", {
     opacity: 1,
-    y: "300px",
+    y: "350px",
     scrollTrigger: {
-        trigger: ".first-overlay",
-        start: "+=150%",
+        trigger: ".second-overlay",
+        start: "+=60%",
         end: "+=600",
         scrub: true,
     },
@@ -73,10 +73,10 @@ gsap.to("#third-section-content", {
 
 gsap.to("#fourth-section-content", {
     opacity: 1,
-    y: "300px",
+    y: "500px",
     scrollTrigger: {
-        trigger: ".first-overlay",
-        start: "+=225%",
+        trigger: ".third-overlay",
+        start: "+=60%",
         end: "+=600",
         scrub: true,
     },
