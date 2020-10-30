@@ -35,9 +35,7 @@
   - [Front-end Technologies](#front-end-technologies)
   - [Back-end Technologies](#back-end-technologies)
   - [Other technologies](#other-technologies)
-  - [About Cloudinary](#about-cloudinary)
 - [Testing](#testing)
-  - [Tests performed](#tests-performed)
   - [Validators and linters](#validators-and-linters)
 - [Deployment](#deployment)
   - [Local Development](#local-development)
@@ -215,13 +213,31 @@ I chose Bootstrap (v.4.5) and overrode some of its pesky classes by using `!impo
 
 #### Login
 
+Users can create an account and log in.
+This gives registered users the possibility to purchase items from the shop.
+
 #### Account managment
+
+- Users can edit their account and change their information.
+- Users can request a password reset in case they forget it.
 
 #### Administrators
 
+  - Admins can add, edit and delete any item in the database without exiting the app (except deleting users).
+
 #### Images
 
+All images interacting with the database are dynamically stored in AWS S3, together with all other static files.
+
+Admins can upload CD photos using the interface provided. In case a photo is not provided during the creation of the CD, a default generic picture will be displayed as a fallback.
+
 ### Future Goals
+
+Upon assessment of this app, future goals will be:
+- Use the live version of Stripe to accept payments.
+- Offer customers more payment methods, such as debit card, PayPal or money transfer.
+- Put in place stock control.
+- Offer users the possibility to register and login with social accounts.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -231,7 +247,99 @@ I chose Bootstrap (v.4.5) and overrode some of its pesky classes by using `!impo
 
 ### Models
 
+Several Models have been used.
+
+For the Gallery:
+
+```python
+class Photo(models.Model):
+    name = models.CharField(max_length=254)
+    caption = models.TextField()
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(upload_to=random_filename, null=True, blank=True)
+```
+
+For the Events:
+
+```python
+class Event(models.Model):
+    name = models.CharField(max_length=254, null=False, blank=False)
+    venue = models.CharField(max_length=254, null=False, blank=False)
+    programme = models.TextField(null=False, blank=False)
+    date = models.DateField(auto_now_add=False, null=False, blank=False)
+    time = models.TimeField(auto_now_add=False, null=False, blank=False)
+    event_url = models.URLField(max_length=1024, null=True, blank=True)
+```
+
+For the Checkout:
+
+```python
+class Order(models.Model):
+    order_number = models.CharField(max_length=32, null=False, editable=False)
+    user_profile = models.ForeignKey(
+        UserProfile,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="orders",
+    )
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    phone_number = models.CharField(max_length=20, null=False, blank=False)
+    country = CountryField(blank_label="Country *", max_length=40, null=False, blank=False)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
+    town_or_city = models.CharField(max_length=40, null=False, blank=False)
+    street_address1 = models.CharField(max_length=80, null=False, blank=False)
+    street_address2 = models.CharField(max_length=80, null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    order_items = models.DecimalField(max_digits=4, decimal_places=2, null=False, default=0)
+    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    original_bag = models.TextField(null=False, blank=False, default="")
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default="")
+```
+
+```python
+class OrderLineItem(models.Model):
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name="lineitems",)
+    cd = models.ForeignKey(Cd, null=False, blank=False, on_delete=models.CASCADE)
+    quantity = models.IntegerField(null=False, blank=False, default=0)
+    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+```
+
+For the profiles:
+
+```python
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
+    default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
+    default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
+    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
+    default_postcode = models.CharField(max_length=20, null=True, blank=True)
+    default_country = CountryField(blank_label="Country", max_length=40, null=True, blank=True)
+```
+
+For the Shop:
+
+```python
+class Cd(models.Model):
+    sku = models.CharField(max_length=10, null=True, blank=True)
+    name = models.CharField(max_length=254)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+```
+
+They have been altered and given extra functionality with methods, decorators and classes.
+
 ### Data Storage
+
+No data is stored in the file system.
+
+Since Heroku has an ephemeral file system all static files are stored in an AWS S3 bucket.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -260,15 +368,13 @@ I chose Bootstrap (v.4.5) and overrode some of its pesky classes by using `!impo
 - [![balsamiq](https://img.shields.io/static/v1?label=Balsamiq&message=3.5.17&style=for-the-badge&color=7c0000&logo=balsamiq&?link=http://left&link=http://right)](https://balsamiq.com/) Balsamiq: to create the wireframes of this project.
 - [![cloudinary](https://img.shields.io/static/v1?label=Cloudinary&message=1.21&style=for-the-badge&color=f96726&logo=icloud)](https://cloudinary.com/) Cloudinary: to upload and host images.
 
-### About Cloudinary
-
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
 
 ## Testing
 
-### Tests performed
+Testing can be viewed in this [external file](wireframes/testing.md).
 
 ### Validators and linters
 
