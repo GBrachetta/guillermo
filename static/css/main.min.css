@@ -435,7 +435,7 @@ select option[value=""] {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(23, 162, 184, 0.85);
+  background: rgba(255, 207, 102, 0.8);
   z-index: 9999;
 }
 
@@ -561,9 +561,30 @@ select option[value=""] {
 }
 
 .events-divider {
-  padding-top: .4rem;
-  margin-bottom: .4rem;
+  padding-top: 0.4rem;
+  margin-bottom: 0.4rem;
   border-bottom: 1px #b8b8b8 solid;
+}
+
+.header-upcoming {
+  background-color: #ffce65;
+}
+
+.header-past {
+  background-color: #26272b;
+}
+
+.link-venue a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.link-venue a:hover {
+  text-decoration: none;
+  color: #ff0088;
 }
 
 .cd-title {

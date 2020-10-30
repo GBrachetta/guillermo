@@ -3,9 +3,9 @@
         <div class="col-12 py-3"><strong>Upcoming Events</strong></div>
         <div class="container mb-3">
             <div class="row">
-                <div class="col-3 bg-info text-light text-left py-3">Date</div>
-                <div class="col-3 bg-info text-light text-left py-3">Venue</div>
-                <div class="col-6 bg-info text-light text-left py-3">Programme</div>
+                <div class="col-3 header-upcoming text-dark text-left py-3">Date</div>
+                <div class="col-3 header-upcoming text-dark text-left py-3">Venue</div>
+                <div class="col-6 header-upcoming text-dark text-left py-3">Programme</div>
             </div>
         </div>
         {% for event in calendar %}
@@ -21,7 +21,7 @@
                         </small></p>
                     {% endif %}
                 </div>
-                <div class="col-3 bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
+                <div class="col-3 {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
                 <div class="col-6 bg-white text-left py-1">{{ event.programme }}</div>
             </div>
         </div>
@@ -33,9 +33,9 @@
         <div class="col-12 py-3"><strong>Past Events</strong></div>
         <div class="container mb-3">
             <div class="row">
-                <div class="col-3 bg-secondary text-light text-left py-3">Date</div>
-                <div class="col-3 bg-secondary text-light text-left py-3">Venue</div>
-                <div class="col-6 bg-secondary text-light text-left py-3">Programme</div>
+                <div class="col-3 header-past text-light text-left py-3">Date</div>
+                <div class="col-3 header-past text-light text-left py-3">Venue</div>
+                <div class="col-6 header-past text-light text-left py-3">Programme</div>
             </div>
         </div>
         {% for event in calendar %}
@@ -51,7 +51,7 @@
                         </small></p>
                     {% endif %}
                 </div>
-                <div class="col-3  bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
+                <div class="col-3  {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
                 <div class="col-6  bg-white text-left py-1">{{ event.programme }}</div>
             </div>
         </div>
