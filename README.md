@@ -395,7 +395,81 @@ The following validators and linters were used either remotely or with their plu
 
 ### Local Development
 
+This project can be ran locally by following these steps:
+
+1. Visit this [Repository link](https://github.com/GBrachetta/guillermo) and click on the Clone or Download button to copy the link provided.
+
+    ![clone](wireframes/clone.png)
+
+2. In your IDE, open a Terminal window and change to the directory where you want to clone this project and type:
+
+    `Git clone "your copied link"`
+
+    After pressing Enter the project will be created and cloned locally.
+
+    (Alternatively you can download the zipped file, decompress it and use your IDE of choice to access it.)
+
+3. Make sure you either have access to your email server settings and credentials or to your cloud based email, such as [Gmail](https://accounts.google.com/b/0/AddMailService).
+4. Install [Pipenv](https://pipenv.pypa.io/en/latest/). This app was developed on a Mac, and on MacOS you can install pipenv by typing `brew pipenv` (provided you have [Homebrew](https://brew.sh/) installed).
+5. Create a virtual enviroment by typing
+
+   `pipenv shell`
+
+6. Install all dependencies present in pipfile by executing
+
+   `pipenv install`
+
+7. Make sure to have a test account on [Stripe]("https://stripe.com/en-nl")
+
+8. Create a series of enviroment variables following the below criteria.
+
+    ```json
+    {
+    DEVELOPMENT=true
+    SECRET_KEY=your_secret_key
+    DATABASE_URL=your_link_to_your_postgress_db
+    STRIPE_PUBLIC_KEY=your_Stripe_PK
+    STRIPE_SECRET_KEY=your_Stripe_SK
+    STRIPE_WH_SECRET=your_Stripe_WH_secret
+    }
+    ```
+
+    > Please refer to Stripe's documentation in order to create your Webhook handler!.
+    > Please modify your app settings.py file accordingly.
+
+9. Run migrations by:
+
+    `python3 manage.py makemigrations (--dry-run)`
+    `python3 manage.py migrate (--plan)`
+
+10. Create a superuser by typing in terminal `python3 manage.py createsuperuser`
+
+11. You will then be able to run the app locally by typing either `python3 manage.py runserver`.
+
 ### Heroku
+
+[Heroku](https://www.heroku.com/) was chosen as the deployment platform for this project.
+The steps to deploy the local app to Heroku were as follow:
+
+1. In Heroku, created an app. The app must have a unique name.
+2. Linked that app to the GitHub repository by going to the "Deploy" tab in the main app menu.
+3. Selected a branch to deploy automatically (alternatively one could opt to deploy manually instead).
+4. Attach an Heroku-Postgress database to the app.
+5. In the Settings tab, added the corresponding Config Variables as present in my local development.
+
+    ![vars](wireframes/config-vars.jpg)
+
+6. Create an [AWS S3 bucket]("https://s3.console.aws.amazon.com/s3/home")
+
+    > Please refer to AWS' documentation in order to setup a bucket and obtain access to it in the app.
+    > Please modify your app settings.py file accordingly.
+
+7. I used [Pipenv](https://pipenv.pypa.io/en/latest/) to deal with my virtual enviroment, which creates a pipfile for the dependencies needed for the app and a pipfile.lock to deal with versioning of these dependencies.
+8. This pipfile renders the file 'requirements.txt' unnecessary, so it was not included in the project.
+9. I installed the dependency [Gunicorn](https://gunicorn.org/) which is a Python WSGI HTTP Server.
+10. I also created a "Procfile", needed by Heroku in order to know how to run the app and instructed it to run my app using the Gunicorn server in it.
+11. When deploying, Heroku reads the pipfiles to install the dependencies, reads the Procfile and the Config Variables inserted above.
+12. After that process, the app was live and running remotely in Heroku's servers.
 
 ### Version Control
 
