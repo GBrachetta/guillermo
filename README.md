@@ -355,6 +355,7 @@ Since Heroku has an ephemeral file system all static files are stored in an AWS 
 - [![javascript](https://img.shields.io/static/v1?label=JavaScript&message=ES6&style=for-the-badge&color=F7DF1E&logo=JavaScript)](https://www.w3schools.com/Js/) JavaScript: Used for the functionality of the app.
 - [![jquery](https://img.shields.io/static/v1?label=jQuery&message=3.5.1&style=for-the-badge&color=0769AD&logo=jquery)](https://jquery.com/) jQuery, to access and manipulate the DOM.
 - [![fontawesome](https://img.shields.io/static/v1?label=Fontawesome&message=5&style=for-the-badge&color=339AF0&logo=font-awesome)](https://fontawesome.com/) Font Awesome, for all icons.
+- [![gsap](https://img.shields.io/static/v1?label=GSAP&message=3&style=for-the-badge&color=lime&logo=greensock)](https://greensock.com/gsap/) GSAP, for the animations on the landing page.
 
 ### Back-end Technologies
 
@@ -495,9 +496,22 @@ To deal with these features i used [GitHub issues](https://guides.github.com/fea
 
 ### Content
 
+- All content is of my property or free domain.
+
 ### Media
 
+- I'm the owner of all rights of the images, media, video, music used in this site.
+- Photos are taken by different photographers and are acknowledged in the respective slide in the gallery.
+
 ### Code
+
+Code was written by the author for the present app, albeit inspired by freely available tutorials, instructional documentation and open source examples.
+On such instances, the sources have been mentioned in the code where it corresponds.
+Notable sources of information, inspiration and source to sort problems are:
+
+- [Code Institute]("https://codeinstitute.net/") and the excellent Django tutorial by [CKZ8780]("https://github.com/ckz8780")
+- [Stack Overflow](https://stackoverflow.com/)
+- [W3Schools](https://www.w3schools.com/)
 
 ### Acknowledgements
 
