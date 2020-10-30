@@ -424,14 +424,14 @@ This project can be ran locally by following these steps:
 8. Create a series of enviroment variables following the below criteria.
 
     ```json
-    {
-    DEVELOPMENT=true
-    SECRET_KEY=your_secret_key
-    DATABASE_URL=your_link_to_your_postgress_db
-    STRIPE_PUBLIC_KEY=your_Stripe_PK
-    STRIPE_SECRET_KEY=your_Stripe_SK
-    STRIPE_WH_SECRET=your_Stripe_WH_secret
-    }
+   {
+       "DEVELOPMENT": true,
+       "SECRET_KEY": "your_secret_key",
+       "DATABASE_URL": "your_link_to_your_postgress_db",
+       "STRIPE_PUBLIC_KEY": "your_Stripe_PK",
+       "STRIPE_SECRET_KEY": "your_Stripe_SK",
+       "STRIPE_WH_SECRET": "your_Stripe_WH_secret"
+   }
     ```
 
     > Please refer to Stripe's documentation in order to create your Webhook handler!.
