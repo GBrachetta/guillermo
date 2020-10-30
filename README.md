@@ -12,7 +12,6 @@
   - [Who are the primary target groups](#who-are-the-primary-target-groups)
   - [What is it that they want to achieve](#what-is-it-that-they-want-to-achieve)
   - [How is my project the best way to help them achieve those things](#how-is-my-project-the-best-way-to-help-them-achieve-those-things)
-  - [How do users achieve each of the following goals](#how-do-users-achieve-each-of-the-following-goals)
 - [Project Goals](#project-goals)
 - [User Stories](#user-stories)
 - [Design Choices](#design-choices)
@@ -52,9 +51,18 @@
 - [Disclaimer](#disclaimer)
 
 ---
+
 ## Introduction
 
-The live version of the app can be found **[here](https://guillermo.herokuapp.com/)**
+The app lets a musician showcase their portfolio and connect with people interested in their work, activities, personal life and recordings they offer on sale.
+
+Users can engage with this content in a visual and auditive way, discover more about the artist, be aware of future concerts, get to know them more closely through text, pictures and video and purchase their albums.
+
+It also allows them to register, log in, and have an overview of their order history.
+
+The app gives administrators a very intuitive way to add, edit and delete media to the album (video and pictures), CDs to the shop and events to the calendar.
+
+The live version of the app can be found **[here](https://guillermo-brachetta.herokuapp.com/)**
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -64,15 +72,37 @@ The live version of the app can be found **[here](https://guillermo.herokuapp.co
 
 ### What is the purpose of the app
 
+The ultimate goal of the app is to encourage people to discover the artist and connect to them. The app informs them about future and past events, offers media for them to get to know the artist and their art and purchase their recordings.
+
 ### Who is this website for
+
+This website is intended for the author, to showcase his work and activities, and for the public to discover them.
 
 ### Who are the primary target groups
 
+The website is aimed at a general public, the target in general ranging from young adults onwards, in general educated people and with an inclination about classical (baroque) music.
+
+Concert organisers will also benefit by being aware of the artist's calendar of activities and having a clear way to contact them.
+
 ### What is it that they want to achieve
+
+Users will either want to share find information about the artist, know when they could attend to one of their concerts and buy their recordings.
 
 ### How is my project the best way to help them achieve those things
 
-### How do users achieve each of the following goals
+The app provides as much information about the artist as possible while keeping it decluttered. The web is the most appropriate vector to share multimedia such as sound, images and video, and gives the user the chance to purchase CDs and the site owner an effective channel to promote themselves.
+
+The app features information on several aspects, professional and personal, aimed at creating a relationship between the site owner and the visitor.
+
+Users can create a profile if they are interested in purchasing a CD, but the app lets anonymous users to freely browse all information in it.
+
+Registered users can also edit all information related to their account and request a password reset.
+
+Administrators are able to update the database on site by adding, editing and deleting media, events and albums.
+
+To make all interaction as clear as possible, buttons are available only when they are permitted to the privileges of a registered user or admin. Access to admin-only pages are forbidden for plain users.
+
+No anonymous writing to the database is permitted by the app.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -80,11 +110,48 @@ The live version of the app can be found **[here](https://guillermo.herokuapp.co
 
 ## Project Goals
 
+The main goals of the site for the owner are:
+
+- Showcase their activities.
+- Let the visitor know about who they are, what they do and when.
+- Offer a platform to display their work and sell it.
+- Give a clear way to get in touch and be contacted.
+- Promote their concerts and activities by offering clear information of past and future engagements.
+- Spread the love for baroque music in general and harpsichord in particular.
+
+The main goals of the site for the visitors are:
+
+- Get to know and connect with the artist.
+- Know clearly where and when they can attend one of their concerts.
+- Discover how they present themselves by looking at the media album.
+- Have a preview of their art by watching their videos.
+- Discover what CDs they offer on sale and be able to purchase them from home.
+
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
 
 ## User Stories
+
+- As a visitor, I would like to know who the artist is.
+- As a visitor, I would like to be able to see what their looks are by visiting a media gallery.
+- As a visitor, I would like to be able to see them in video by visiting a media gallery.
+- As a visitor, I would like to be able to listen to what they do by visiting a media gallery.
+- As a visitor, I would like to know his biography and experience.
+- As a visitor, I would like to be know what he things about being an artist.
+- As a visitor, I would like to be find out information about events, well organised and displaying date, time and venue.
+- As a visitor, I would like to be when and were have them performed before.
+- As a visitor, I would like to be able what CDs has the artist recorded.
+- As a visitor, I would like to be able to purchase securely the CDs.
+- As a visitor, I would like to be able to register an account so I can make future purchases without needing to enter my customer information again.
+- As a visitor, I would like to be able to see my order history.
+- As a visitor, I would like to be able to update my user details.
+- As a visitor, I would like to see clearly what's in my shopping bag at all times.
+
+- As the site owner, I would like to be able to add, modify and delete media, video and photo, and have them automatically added to my album with no extra work.
+- As the site owner, I would like to be able to add, modify and delete events and know that the app will organise them by date, moving automatically past events to its corresponding place so they don't confuse the visitor.
+- As the site owner, I would like to be able to add, modify and delete new items to my shop, having them populate it automatically without breaking the layout.
+- As the site owner, I would like to be able to replace photos, and have a preview of the image I'm about to upload.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -94,19 +161,42 @@ The live version of the app can be found **[here](https://guillermo.herokuapp.co
 
 ### General
 
+The navigation and footer are present throughout the site and possess a strong iconographic characteristic to accentuate the purpose.
+
+The landing page relies basically on big background images that display the artist's personal views about his passion. A biography can be accessed at the end of the images on a separate modal.
+
+The rest of the content has a more relaxed approach, focusing on individual visual elements to avoid distraction. For that reason, the color palette has been kept discreet so the visitor would focus their attention on the relevant items.
+
 ### Buttons
+
+Buttons have been kept discreet and monochromatic, with a clear purpose of focussing on what they do without further distractions for the visitor.
 
 ### Colors
 
+The color palette has been kept to a minimum, having chosen dark gray for navbar and footer, white for background and a shade of dark yellow for nav items and to highlight relevant information.
+Dark red has been chosen for the logo as the only occurrence of that color to differentiate it, and a shade of magenta for accenting some keywords.
+
+![Color Palette](wireframes/palette.png)
+
 ### Fonts
 
+Montserrat was the font of choice for its excellent legibility specially on small screens, and for its timeless elegance.
+
 ### Bootstrap
+
+I chose Bootstrap (v.4.5) and overrode some of its pesky classes by using `!important` only when required.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
 
 ## Wireframes
+
+> **Note**:The app evolved and several improvements were put in place through development.
+>
+> The wireframes served as guidelines but some details such as positioning, placement of objects, images and buttons and other refinements diverge from the original wireframes on the current state of the application.
+>
+> Since there's virtually little to no difference between tablet view and desktop view besides the navbar collapsing on smaller tablets, wireframes for them have been omitted
 
 ![Landing Page](wireframes/01-landing-page.png)
 ![Media Page](wireframes/02-media-page.png)
@@ -202,6 +292,20 @@ The following validators and linters were used either remotely or with their plu
 ### Heroku
 
 ### Version Control
+
+During the development I used [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) for version control.
+
+By this I was able to isolate features in different branches and integrated them as soon as they were finished and fully tested.
+
+As soon as I considered that a feature was finished I then merged its branch to the develop branch. I then deleted stale branches once they were sufficiently tested and approved for release.
+
+When a group of features made a release worthwhile I then merged the develop branch to the master branch.
+
+Additionally, and for testing purposes, I often also deployed feature branches in order to double-check that the app was responsive remotely.
+
+Over 20 branches were using during the development of this app, to ensure isolated enviroments for each of them without interfering with already functioning features.
+
+To deal with these features i used [GitHub issues](https://guides.github.com/features/issues/) and put in place a [project board](https://help.github.com/en/github/managing-your-work-on-github/about-project-boards), which helped me organise my workflow and have a clear overview of where in the process of my development I was.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
