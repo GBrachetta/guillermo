@@ -1,9 +1,7 @@
 from django.db import models
-from django.utils.html import mark_safe
 from datetime import date
 
 
-# Create your models here.
 class Event(models.Model):
     name = models.CharField(max_length=254, null=False, blank=False)
     venue = models.CharField(max_length=254, null=False, blank=False)
@@ -14,10 +12,12 @@ class Event(models.Model):
 
     @property
     def is_due(self):
+        """ Allows to display the event in its corresponding grid """
         return date.today() > self.date
 
     @property
     def is_future(self):
+        """Allows to display the event in its corresponding grid"""
         return date.today() <= self.date
 
     def __str__(self):
