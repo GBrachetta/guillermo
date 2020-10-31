@@ -8,15 +8,12 @@ from django.shortcuts import (
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-
 from .forms import OrderForm
-
 from shop.models import Cd
 from .models import OrderLineItem, Order
 from bag.contexts import bag_contents
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
-
 import stripe
 import json
 
@@ -40,7 +37,6 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
-# Create your views here.
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY

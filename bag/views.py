@@ -11,10 +11,14 @@ from shop.models import Cd
 
 # Create your views here.
 def view_bag(request):
+    """ Renders the template with bag contents """
+
     return render(request, "bag/bag.html")
 
 
 def add_to_bag(request, item_id):
+    """Adds items to the shopping bag in the session """
+
     cd = get_object_or_404(Cd, pk=item_id)
     quantity = int(request.POST.get("quantity"))
     redirect_url = request.POST.get("redirect_url")
@@ -34,6 +38,8 @@ def add_to_bag(request, item_id):
 
 
 def adjust_bag(request, item_id):
+    """Adjusts the quantity of the specified product """
+
     cd = get_object_or_404(Cd, pk=item_id)
     quantity = int(request.POST.get("quantity"))
     bag = request.session.get("bag", {})
@@ -52,6 +58,8 @@ def adjust_bag(request, item_id):
 
 
 def remove_from_bag(request, item_id):
+    """Remove the item from the shopping bag"""
+
     try:
         cd = get_object_or_404(Cd, pk=item_id)
         bag = request.session.get("bag", {})

@@ -5,8 +5,8 @@ from .models import Cd
 from .forms import CdForm
 
 
-# Create your views here.
 def shop(request):
+    """ Shows all cds """
     cds = Cd.objects.all
     context = {"cds": cds, "shop": "active"}
     return render(request, "shop/shop.html", context)
@@ -24,6 +24,7 @@ def cd_detail(request, cd_id):
 
 @login_required
 def add_cd(request):
+    """ Allows adming to add CDs """
     if not request.user.is_superuser:
         messages.error(request, "Space reserved to administrators.")
         return redirect(reverse("home"))
@@ -49,6 +50,7 @@ def add_cd(request):
 
 @login_required
 def edit_cd(request, cd_id):
+    """ Allows adming to edit CDs """
     if not request.user.is_superuser:
         messages.error(request, "Space reserved to administrators.")
         return redirect(reverse("home"))
@@ -77,6 +79,7 @@ def edit_cd(request, cd_id):
 
 @login_required
 def delete_cd(request, cd_id):
+    """ Allows adming to delete CDs """
     if not request.user.is_superuser:
         messages.error(request, "Space reserved to administrators.")
         return redirect(reverse("home"))

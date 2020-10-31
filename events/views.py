@@ -5,8 +5,8 @@ from .models import Event
 from .forms import EventForm
 
 
-# Create your views here.
 def events(request):
+    """ Displays all events """
     events = Event.objects.all().order_by("date")
     context = {"calendar": events, "events": "active"}
     return render(request, "events/events.html", context)
@@ -14,6 +14,7 @@ def events(request):
 
 @login_required
 def add_event(request):
+    """Allows admins to add events"""
     if not request.user.is_superuser:
         messages.error(request, "Only administrators can access this url.")
         return redirect(reverse("events"))
@@ -38,6 +39,7 @@ def add_event(request):
 
 @login_required
 def edit_event(request, event_id):
+    """Allows admins to edit events"""
     event = get_object_or_404(Event, pk=event_id)
 
     if request.method == "POST":
@@ -59,6 +61,7 @@ def edit_event(request, event_id):
 
 @login_required
 def delete_event(request, event_id):
+    """Allows admins to delete events"""
     event = get_object_or_404(Event, pk=event_id)
     event.delete()
     messages.success(request, "Event deleted.")
