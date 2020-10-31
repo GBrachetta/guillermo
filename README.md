@@ -131,24 +131,31 @@ The main goals of the site for the visitors are:
 
 ## User Stories
 
-- As a visitor, I would like to know who the artist is.
-- As a visitor, I would like to be able to see what their looks are by visiting a media gallery.
-- As a visitor, I would like to be able to see them in video by visiting a media gallery.
-- As a visitor, I would like to be able to listen to what they do by visiting a media gallery.
-- As a visitor, I would like to know his biography and experience.
-- As a visitor, I would like to be know what he things about being an artist.
-- As a visitor, I would like to be find out information about events, well organised and displaying date, time and venue.
-- As a visitor, I would like to be when and were have them performed before.
-- As a visitor, I would like to be able what CDs has the artist recorded.
-- As a visitor, I would like to be able to purchase securely the CDs.
-- As a visitor, I would like to be able to register an account so I can make future purchases without needing to enter my customer information again.
-- As a visitor, I would like to be able to see my order history.
-- As a visitor, I would like to be able to update my user details.
-- As a visitor, I would like to see clearly what's in my shopping bag at all times.
+- As a user, I would like to be visually engaged when I land on the site.
+- As a user, I would like to know who the artist is.
+- As a user, I would like to be able to see what their looks are by visiting a media gallery.
+- As a user, I would like to be able to see them in video by visiting a media gallery.
+- As a user, I would like to be able to listen to what they do by visiting a media gallery.
+- As a user, I would like to know his biography and experience.
+- As a user, I would like to know what they thinks about being an artist.
+- As a user, I would like to be able to easily find information about events, well organised and displaying date, time and venue.
+- As a user, I would like to know when and were have them performed before.
+- As a user, I would like to be able to see what CDs has the artist recorded.
+- As a user, I would like to be able to purchase securely the CDs.
+- As a user, I would like to be able to register an account so I can make future purchases without needing to enter my customer information again.
+- As a user, I would like to be able to see my order history.
+- As a user, I would like to be able to update my user details.
+- As a user, I would like to see clearly what's in my shopping bag at all times.
 
-- As the site owner, I would like to be able to add, modify and delete media, video and photo, and have them automatically added to my album with no extra work.
-- As the site owner, I would like to be able to add, modify and delete events and know that the app will organise them by date, moving automatically past events to its corresponding place so they don't confuse the visitor.
-- As the site owner, I would like to be able to add, modify and delete new items to my shop, having them populate it automatically without breaking the layout.
+- As the site owner, I would like to be able to add media (video and photo) and have it automatically added to my album with no extra effort.
+- As the site owner, I would like to be able to edit media (video and photo) and have it automatically update my album with no extra effort.
+- As the site owner, I would like to be able to delete media (video and photo) and have it automatically disappear from my album with no extra effort.
+- As the site owner, I would like to be able to add events so they display automatically on my site in the right grid and order.
+- As the site owner, I would like to be able to modify events so they update automatically on my site in the right grid and order.
+- As the site owner, I would like to be able to delete events so they disappear automatically from my site.
+- As the site owner, I would like to be able to add new items to my shop, having them populate it automatically without breaking the layout.
+- As the site owner, I would like to be able to edit existing items in my shop, having them reflex the changes automatically without breaking the layout.
+- As the site owner, I would like to be able to delete existing items in my shop, making them disappear from the shop without breaking the layout.
 - As the site owner, I would like to be able to replace photos, and have a preview of the image I'm about to upload.
 
 <div align="right">
@@ -201,7 +208,7 @@ I chose Bootstrap (v.4.5) for my CSS framework.
 ![Events Page](wireframes/03-events-page.png)
 ![Shop Page](wireframes/04-shop-page.png)
 ![CD Details Page](wireframes/05-CD-detail-page.png)
-![Checkout Page](wireframes/06-checkout-page.png)
+![Checkout Page](wireframes/06-checkout.png)
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>

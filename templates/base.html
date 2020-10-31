@@ -20,7 +20,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.3/umd/popper.min.js" integrity="sha512-sdrkWdHcsY+FX+Cp0Is6hnNkukQewnksFdGjyD6wEvcfBQfseLJWwE0hB3+DIlRndHx5cuFuf0RbLOBST4cjCA==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha512-I5TkutApDjnWuX+smLIPZNhw+LhTd8WrQhdCKsxCFRSvhFx2km8ZfEpNIhF9nq04msHhOkE8BMOBj5QE07yhMA==" crossorigin="anonymous"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://kit.fontawesome.com/9464f43776.js" crossorigin="anonymous"></script>
+
     {% endblock js %}
     <title>Guillermo Brachetta {% block title %}
         {% endblock title %} </title>
@@ -62,14 +63,10 @@
 
         {% include 'includes/footer.html' %}
     </main>
-    {% block main_js %}
-    <script src="https://kit.fontawesome.com/9464f43776.js" crossorigin="anonymous"></script>
-    <script src=""></script>
-    {% endblock main_js %}
 
     {% block postjs %}
     {{ block.super }}
-    <script src="{% static 'js/extras.js' %}"></script>
+    <script src="{% static 'js/extras.min.js' %}"></script>
     {% endblock postjs %}
 </body>
 
