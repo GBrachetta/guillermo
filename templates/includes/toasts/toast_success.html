@@ -1,11 +1,10 @@
 <div class="toast custom-toast rounded-0 border-top-0" data-autohide="true" data-delay="3000">
-    <div class="toast-header bg-success text-light">
+    <div class="toast-header border-toast-success text-light">
     </div>
     <div class="toast-body bg-white text-left pb-0 px-0">
         <div class="row px-3">
-            <div class="col">
+            <div class="col pb-3">
                 {{ message }}
-                <hr class="mt-1 mb-3">
             </div>
         </div>
         {% if grand_total and not on_profile_page %}

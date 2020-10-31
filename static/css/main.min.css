@@ -323,6 +323,18 @@ input[name="q"]::placeholder {
   height: 2px;
 }
 
+.border-toast-success {
+  background-color: #ff0088;
+}
+
+.border-toast-error {
+  background-color: #850014;
+}
+
+.border-toast-info {
+  background-color: #ffce65;
+}
+
 /* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
   border-bottom-color: #007bff !important;
