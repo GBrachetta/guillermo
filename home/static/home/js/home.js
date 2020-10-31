@@ -82,38 +82,55 @@ gsap.to("#fourth-section-content", {
     },
 });
 
-if ($(window).width() >= 400) {
-    gsap.utils.toArray("section").forEach((section, i) => {
-        section.bg = section.querySelector(".bg");
-
-        // Do the parallax effect on each section
-        if (i) {
-            section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
-
-            gsap.to(section.bg, {
-                backgroundPosition: `50% ${-innerHeight / 2}px`,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: section,
-                    scrub: true,
-                },
-            });
-        }
-
-        // the first image should be positioned against the top. Use px on the animating part to work with GSAP.
-        else {
-            section.bg.style.backgroundPosition = "50% 0px";
-
-            gsap.to(section.bg, {
-                backgroundPosition: `50% ${-innerHeight / 2}px`,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: section,
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true,
-                },
-            });
-        }
+$(function () {
+    $(".bg1").parallax({
+        imageSrc: "../../../../static/images/bg1.jpg",
     });
-}
+    $(".bg2").parallax({
+        imageSrc: "../../../../static/images/bg2.jpg",
+    });
+    $(".bg3").parallax({
+        imageSrc: "../../../../static/images/bg3.jpg",
+    });
+    $(".bg4").parallax({
+        imageSrc: "../../../../static/images/bg4.jpg",
+    });
+});
+
+// const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+// // Check if iOS - only run on non-iOS (iOS background image cover/fixed issue)
+// if (!isIOS) {
+//     gsap.utils.toArray("section").forEach((section, i) => {
+//         section.bg = section.querySelector(".bg");
+
+//         // Do the parallax effect on each section
+//         if (i) {
+//             section.bg.style.backgroundPosition = `50% ${innerHeight / 2}px`;
+
+//             gsap.to(section.bg, {
+//                 backgroundPosition: `50% ${-innerHeight / 2}px`,
+//                 ease: "none",
+//                 scrollTrigger: {
+//                     trigger: section,
+//                     scrub: true,
+//                 },
+//             });
+//         }
+
+//         // the first image should be positioned against the top. Use px on the animating part to work with GSAP.
+//         else {
+//             section.bg.style.backgroundPosition = "50% 0px";
+
+//             gsap.to(section.bg, {
+//                 backgroundPosition: `50% ${-innerHeight / 2}px`,
+//                 ease: "none",
+//                 scrollTrigger: {
+//                     trigger: section,
+//                     start: "top top",
+//                     end: "bottom top",
+//                     scrub: true,
+//                 },
+//             });
+//         }
+//     });
+// }
