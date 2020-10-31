@@ -178,11 +178,11 @@ Dark red has been chosen for the logo as the only occurrence of that color to di
 
 ### Fonts
 
-Montserrat was the font of choice for its excellent legibility specially on small screens, and for its timeless elegance.
+Montserrat was the font of choice for its excellent legibility specially on small screens and timeless elegance.
 
 ### Bootstrap
 
-I chose Bootstrap (v.4.5) and overrode some of its pesky classes by using `!important` only when required.
+I chose Bootstrap (v.4.5) for my CSS framework.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -518,6 +518,7 @@ Notable sources of information, inspiration and source to sort problems are:
 - [Code Institute]("https://codeinstitute.net/") and the excellent Django tutorial by [CKZ8780]("https://github.com/ckz8780")
 - [Stack Overflow](https://stackoverflow.com/)
 - [W3Schools](https://www.w3schools.com/)
+- Mi loyal mentor, [Simen Daehlin](https://github.com/Eventyret)
 
 ### Acknowledgements
 

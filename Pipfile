@@ -9,6 +9,7 @@ pycodestyle = "*"
 flake8 = "*"
 autopep8 = "*"
 pylint = "*"
+pep8 = "*"
 
 [packages]
 django = "*"
