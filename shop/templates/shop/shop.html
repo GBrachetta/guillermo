@@ -26,17 +26,27 @@
                 {% for cd in cds %}
                 <div class="col-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
-                    <div class="card-body pb-3 pt-2">
-                        <p class="mb-0  font-weight-bold">{{ cd.name }}</p>
-                    </div>
+                        <div class="card-body pb-3 pt-2">
+                            <p class="mb-0  font-weight-bold">{{ cd.name }}</p>
+                        </div>
                         {% if cd.image %}
-                        <a href="{% url 'cd_detail' cd.id %}">
-                            <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-top img-fluid">
-                        </a>
+                        <div class="card-image">
+                            <a href="{% url 'cd_detail' cd.id %}">
+                                <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-top img-fluid">
+                                <div class="overlay-cd">
+                                    <p class="font-weight-bold">Click to buy</p>
+                                </div>
+                            </a>
+                        </div>
                         {% else %}
-                        <a href="{% url 'cd_detail' cd.id %}">
-                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid">
-                        </a>
+                        <div class="card-image">
+                            <a href="{% url 'cd_detail' cd.id %}">
+                                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid">
+                                <div class="overlay-cd">
+                                    <p class="font-weight-bold">Click to buy</p>
+                                </div>
+                            </a>
+                        </div>
                         {% endif %}
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
