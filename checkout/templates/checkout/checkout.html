@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row mt-5 mb-2 mb-md-5">
         <div class="col">
-            <h2 class="logo-font mb-4">Checkout</h2>
+            <h2>Checkout</h2>
         </div>
     </div>
 
@@ -19,7 +19,7 @@
         <div class="col-12 col-lg-6 order-lg-last mb-5">
             <p class="text-muted">Order Summary ({{ cd_count }} items)</p>
             <div class="row">
-                <div class="col-7 offset-2">
+                <div class="col-7 offset-2 text-left">
                     <p class="mb-1 mt-0 small text-muted">Item</p>
                 </div>
                 <div class="col-3 text-right">
@@ -37,9 +37,8 @@
                         {% endif %}
                     </a>
                 </div>
-                <div class="col-7">
-                    <p class="my-0"><strong>{{ item.cd.name }}</strong></p>
-                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                <div class="col-7 text-left">
+                    <p class="my-0 small"><strong>{{ item.cd.name }} (x{{ item.quantity }})</strong></p>
                 </div>
                 <div class="col-3 text-right">
                     <p class="my-0 small text-muted">€{{ item.cd.price | calc_subtotal:item.quantity }}</p>
@@ -61,7 +60,7 @@
             </div>
         </div>
         <div class="col-12 col-lg-6">
-            <p class="text-muted">Please fill out the form below to complete your order</p>
+            <p class="text-muted">Please fill out the form below</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 <fieldset class="rounded px-3 mb-5">
@@ -79,7 +78,7 @@
                     {{ order_form.country | as_crispy_field }}
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
-                        <label for="id-save-info" class="form-check-label">Save this delivery information to my profile</label>
+                        <label for="id-save-info" class="small form-check-label">Save this delivery information to my profile</label>
                         <input type="checkbox" class="form-check-input ml-2 mr-0" id="id-save-info" name="save-info" checked>
                         {% else %}
                         <label for="id-save-info" class="form-check-label">
@@ -110,7 +109,7 @@
                             <i class="fas fa-lock"></i>
                         </span>
                     </button>
-                    <p class="small text-danger my-0">
+                    <p class="small text-danger mb-0 mt-1">
                         <span class="icon">
                             <i class="fas fa-exclamation-circle"></i>
                         </span>

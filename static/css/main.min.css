@@ -85,6 +85,7 @@ body {
 
 .navbar-items {
   color: #ffce65 !important;
+  color: #ffc107 !important;
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
@@ -568,6 +569,10 @@ select option[value=""] {
   list-style-type: none;
 }
 
+.invalid-feedback {
+  margin-top: 1rem !important;
+}
+
 .text-grid-events {
   font-size: 0.8rem;
 }
@@ -619,7 +624,7 @@ select option[value=""] {
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
   background-color: rgba(0, 0, 0, 0.6);
-  color: #ffc107;
+  color: #ff0088;
 }
 
 .overlay-cd p {
@@ -654,6 +659,10 @@ select option[value=""] {
 
 .text-black {
   color: #000 !important;
+}
+
+.text-danger {
+  color: #cc1414 !important;
 }
 
 .border-black {
