@@ -33,7 +33,7 @@ def add_media(request):
         form = MediaForm()
 
     template = "album/add_media.html"
-    context = {"form": form}
+    context = {"form": form, "media": "active"}
 
     return render(request, template, context)
 
@@ -59,7 +59,7 @@ def edit_media(request, media_id):
         messages.info(request, "You are editing media.")
 
     template = "album/edit_media.html"
-    context = {"form": form, "media": media}
+    context = {"form": form, "item": media, "media": "active"}
 
     return render(request, template, context)
 

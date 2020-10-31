@@ -32,7 +32,10 @@ def add_event(request):
     else:
         form = EventForm()
     template = "events/add_event.html"
-    context = {"form": form}
+    context = {
+        "form": form,
+        "events": "active",
+    }
 
     return render(request, template, context)
 
@@ -54,7 +57,11 @@ def edit_event(request, event_id):
         form = EventForm(instance=event)
         messages.info(request, f"You are editing {event.name}")
     template = "events/edit_event.html"
-    context = {"form": form, "event": event}
+    context = {
+        "form": form,
+        "event": event,
+        "events": "active",
+    }
 
     return render(request, template, context)
 

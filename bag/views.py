@@ -12,8 +12,8 @@ from shop.models import Cd
 # Create your views here.
 def view_bag(request):
     """ Renders the template with bag contents """
-
-    return render(request, "bag/bag.html")
+    context = {"bag": "active"}
+    return render(request, "bag/bag.html", context)
 
 
 def add_to_bag(request, item_id):

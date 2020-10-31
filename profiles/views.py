@@ -30,6 +30,7 @@ def profile(request):
         "form": form,
         "orders": reversed(orders),
         "on_profile_page": True,
+        "profile": "active",
     }
 
     return render(request, template, context)
