@@ -84,16 +84,16 @@ gsap.to("#fourth-section-content", {
 
 $(function () {
     $(".bg1").parallax({
-        imageSrc: "../../../../static/images/bg1.jpg",
+        imageSrc: "/static/images/bg1.jpg",
     });
     $(".bg2").parallax({
-        imageSrc: "../../../../static/images/bg2.jpg",
+        imageSrc: "/static/images/bg2.jpg",
     });
     $(".bg3").parallax({
-        imageSrc: "../../../../static/images/bg3.jpg",
+        imageSrc: "/static/images/bg3.jpg",
     });
     $(".bg4").parallax({
-        imageSrc: "../../../../static/images/bg4.jpg",
+        imageSrc: "/static/images/bg4.jpg",
     });
 });
 

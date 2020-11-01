@@ -26,7 +26,7 @@ class StripeWH_Handler:
         send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
 
     def _send_new_order_email(self, order):
-        # cust_email = order.email
+        admin_email = "brachetta@me.com"
         subject = render_to_string(
             "checkout/confirmation_emails/new_order_email_subject.txt",
             {"order": order},
@@ -39,7 +39,7 @@ class StripeWH_Handler:
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
-            [settings.DEFAULT_ADMIN_EMAIL],
+            [admin_email],
         )
 
     def handle_event(self, event):
