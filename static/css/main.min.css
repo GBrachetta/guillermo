@@ -720,13 +720,14 @@ select option[value=""] {
   letter-spacing: 2px;
 }
 
-.site-footer a {
+.site-footer a,
+.site-footer a:focus {
   color: #737373;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
 }
 
-.site-footer a:hover {
+.site-footer a.email:hover {
   color: #ff0088 !important;
   text-decoration: none;
 }
@@ -740,8 +741,9 @@ select option[value=""] {
   display: block;
 }
 
-.footer-links a {
-  color: #737373;
+.footer-links a,
+.footer-links a:active {
+  color: #737373 !important;
 }
 
 .footer-links a:active,
