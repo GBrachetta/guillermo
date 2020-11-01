@@ -118,7 +118,7 @@ LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/shop/"
 # Modifies max length username
 # https://stackoverflow.com/questions/50548685/how-to-add-max-length-to-allauth-username
-ACCOUNT_ADAPTER = 'guillermo.adapter.UsernameMaxAdapter'
+ACCOUNT_ADAPTER = "guillermo.adapter.UsernameMaxAdapter"
 WSGI_APPLICATION = "guillermo.wsgi.application"
 
 
@@ -205,6 +205,7 @@ if "USE_AWS" in os.environ:
 if "DEVELOPMENT" in os.environ:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
     DEFAULT_FROM_EMAIL = "brachetta@me.com"
+    DEFAULT_ADMIN_EMAIL = "brachetta@me.com"
 else:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_USE_TLS = True
@@ -213,6 +214,7 @@ else:
     EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASS")
     DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
+    DEFAULT_ADMIN_EMAIL = "brachetta@me.com"
 
 FREE_DELIVERY_THRESHOLD = 3
 STANDARD_DELIVERY = 4.99

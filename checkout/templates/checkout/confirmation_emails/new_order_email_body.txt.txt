@@ -1,0 +1,14 @@
+
+We have received a new order with the following details:
+
+Order Date: {{ order.date }}
+Order Number: {{ order.order_number }}
+Customer: {{ order.full_name }},
+Shipping: {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}
+Email Address: {{ contact_email }}
+Phone Number: {{ order.phone_number }}
+Order Total: €{{ order.order_total }}
+Delivery: €{{ order.delivery_cost }}
+Grand Total: €{{ order.grand_total }}
+
+System Administrator
