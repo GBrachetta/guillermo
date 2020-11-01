@@ -14,17 +14,17 @@ class StripeWH_Handler:
     def __init__(self, request):
         self.request = request
 
-    # def _send_confirmation_email(self, order):
-    #     cust_email = order.email
-    #     subject = render_to_string(
-    #         "checkout/confirmation_emails/confirmation_email_subject.txt",
-    #         {"order": order},
-    #     )
-    #     body = render_to_string(
-    #         "checkout/confirmation_emails/confirmation_email_body.txt",
-    #         {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
-    #     )
-    #     send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
+    def _send_confirmation_email(self, order):
+        cust_email = order.email
+        subject = render_to_string(
+            "checkout/confirmation_emails/confirmation_email_subject.txt",
+            {"order": order},
+        )
+        body = render_to_string(
+            "checkout/confirmation_emails/confirmation_email_body.txt",
+            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+        )
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [cust_email])
 
     # Second Attempt
     # def _send_confirmation_email(self, order):
@@ -57,40 +57,40 @@ class StripeWH_Handler:
     #     )
 
     # First attempt
-    def _send_confirmation_email(self, order):
-        subject_customer = render_to_string(
-            "checkout/confirmation_emails/confirmation_email_subject.txt",
-            {"order": order},
-        )
-        body_customer = render_to_string(
-            "checkout/confirmation_emails/confirmation_email_body.txt",
-            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
-        )
-        subject_admin = render_to_string(
-            "checkout/confirmation_emails/new_order_email_subject.txt",
-            {"order": order},
-        )
-        body_admin = render_to_string(
-            "checkout/confirmation_emails/new_order_email_body.txt",
-            {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
-        )
-        connection = mail.get_connection()
-        cust_email = order.email
-        connection.open()
-        customer_email = mail.EmailMessage(
-            subject_customer,
-            body_customer,
-            settings.DEFAULT_FROM_EMAIL,
-            [cust_email],
-        )
-        admin_email = mail.EmailMessage(
-            subject_admin,
-            body_admin,
-            settings.DEFAULT_FROM_EMAIL,
-            [settings.DEFAULT_ADMIN_EMAIL],
-        )
-        connection.send_messages([customer_email, admin_email])
-        connection.close()
+    # def _send_confirmation_email(self, order):
+    #     subject_customer = render_to_string(
+    #         "checkout/confirmation_emails/confirmation_email_subject.txt",
+    #         {"order": order},
+    #     )
+    #     body_customer = render_to_string(
+    #         "checkout/confirmation_emails/confirmation_email_body.txt",
+    #         {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+    #     )
+    #     subject_admin = render_to_string(
+    #         "checkout/confirmation_emails/new_order_email_subject.txt",
+    #         {"order": order},
+    #     )
+    #     body_admin = render_to_string(
+    #         "checkout/confirmation_emails/new_order_email_body.txt",
+    #         {"order": order, "contact_email": settings.DEFAULT_FROM_EMAIL},
+    #     )
+    #     connection = mail.get_connection()
+    #     cust_email = order.email
+    #     connection.open()
+    #     customer_email = mail.EmailMessage(
+    #         subject_customer,
+    #         body_customer,
+    #         settings.DEFAULT_FROM_EMAIL,
+    #         [cust_email],
+    #     )
+    #     admin_email = mail.EmailMessage(
+    #         subject_admin,
+    #         body_admin,
+    #         settings.DEFAULT_FROM_EMAIL,
+    #         [settings.DEFAULT_ADMIN_EMAIL],
+    #     )
+    #     connection.send_messages([customer_email, admin_email])
+    #     connection.close()
 
     def handle_event(self, event):
         return HttpResponse(
