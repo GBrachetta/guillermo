@@ -28,6 +28,7 @@ DEBUG = "DEVELOPMENT" in os.environ
 
 ALLOWED_HOSTS = [
     "guillermo-brachetta.herokuapp.com",
+    "guillermo.brachetta.com",
     "127.0.0.1",
     "localhost",
 ]
