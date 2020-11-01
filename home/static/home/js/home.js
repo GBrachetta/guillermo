@@ -84,16 +84,16 @@ gsap.to("#fourth-section-content", {
 
 $(function () {
     $(".bg1").parallax({
-        imageSrc: "/static/images/bg1.jpg",
+        imageSrc: "https://res.cloudinary.com/gbrachetta/image/upload/v1604230951/bg1.jpg",
     });
     $(".bg2").parallax({
-        imageSrc: "/static/images/bg2.jpg",
+        imageSrc: "https://res.cloudinary.com/gbrachetta/image/upload/v1604230958/bg2.jpg",
     });
     $(".bg3").parallax({
-        imageSrc: "/static/images/bg3.jpg",
+        imageSrc: "https://res.cloudinary.com/gbrachetta/image/upload/v1604230952/bg3.jpg",
     });
     $(".bg4").parallax({
-        imageSrc: "/static/images/bg4.jpg",
+        imageSrc: "https://res.cloudinary.com/gbrachetta/image/upload/v1604230950/bg4c.jpg",
     });
 });
 
