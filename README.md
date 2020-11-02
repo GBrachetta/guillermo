@@ -23,9 +23,22 @@
 - [Wireframes](#wireframes)
 - [Features](#features)
   - [Existing Features](#existing-features)
-    - [Login](#login)
-    - [Account managment](#account-managment)
-    - [Administrators](#administrators)
+    - [Common Features](#common-features)
+      - [Navbar](#navbar)
+      - [Footer](#footer)
+    - [Home App](#home-app)
+    - [Events App](#events-app)
+    - [Album App](#album-app)
+    - [Shop App](#shop-app)
+    - [Profiles App](#profiles-app)
+      - [Login](#login)
+      - [Account managment](#account-managment)
+      - [Administrators](#administrators)
+    - [Checkout App](#checkout-app)
+    - [Bag App](#bag-app)
+    - [Login](#login-1)
+    - [Account managment](#account-managment-1)
+    - [Administrators](#administrators-1)
     - [Images](#images)
   - [Future Goals](#future-goals)
 - [Information Architecture](#information-architecture)
@@ -217,6 +230,32 @@ I chose Bootstrap (v.4.5) for my CSS framework.
 ## Features
 
 ### Existing Features
+
+#### Common Features
+
+##### Navbar
+
+##### Footer
+
+#### Home App
+
+#### Events App
+
+#### Album App
+
+#### Shop App
+
+#### Profiles App
+
+##### Login
+
+##### Account managment
+
+##### Administrators
+
+#### Checkout App
+
+#### Bag App
 
 #### Login
 
