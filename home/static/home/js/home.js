@@ -40,7 +40,7 @@ gsap.to(".fourth-overlay", {
 
 gsap.to("#first-section-content", {
     opacity: 0,
-    y: "450",
+    y: "+=450",
     scrollTrigger: {
         trigger: ".first-overlay",
         start: "top top",
@@ -51,7 +51,7 @@ gsap.to("#first-section-content", {
 
 gsap.to("#second-section-content", {
     opacity: 1,
-    y: "550px",
+    y: "500px",
     scrollTrigger: {
         trigger: ".first-overlay",
         start: "+=60%",
@@ -62,7 +62,7 @@ gsap.to("#second-section-content", {
 
 gsap.to("#third-section-content", {
     opacity: 1,
-    y: "350px",
+    y: "300px",
     scrollTrigger: {
         trigger: ".second-overlay",
         start: "+=60%",
