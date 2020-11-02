@@ -14,7 +14,8 @@
                     <li>2134XL, Hoofddorp, NL</li>
                     <li><i class="fas fa-phone mr-3"></i>+31 6 5106 3002</li>
                     <li><i class="fas fa-envelope mr-3"></i>
-                        <a class="email" href="mailto:brachetta@me.com?subject=Mail from my site" target="_blank" rel="noopener noreferrer">brachetta@me.com</a>
+                        {% comment %} <a class="email" href="mailto:brachetta@me.com?subject=Mail from my site" target="_blank" rel="noopener noreferrer">brachetta@me.com</a> {% endcomment %}
+                        <a id="trigger-contact" class="email" href="#">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -38,3 +39,5 @@
         </div>
     </div>
 </footer>
+
+{% include 'includes/contact.html' %}
