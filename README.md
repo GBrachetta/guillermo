@@ -231,6 +231,16 @@ I chose Bootstrap (v.4.5) for my CSS framework.
 
 ### Existing Features
 
+The app consists of the following apps:
+
+- Home App
+- Events App
+- Album App
+- Shop App
+- Profiles App
+- Checkout App
+- Bag App
+
 #### Common Features
 
 ##### Navbar
@@ -239,9 +249,13 @@ I chose Bootstrap (v.4.5) for my CSS framework.
 
 #### Home App
 
+![Landing Page](wireframes/landing-page.gif)
+
 #### Events App
 
 #### Album App
+
+![Landing Page](wireframes/gallery.gif)
 
 #### Shop App
 
