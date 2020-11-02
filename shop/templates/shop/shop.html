@@ -12,12 +12,13 @@
 {% block content %}
 <div class="overlay"></div>
 
-<div id="delivery-banner mb-5" class="row text-center">
+<div id="delivery-banner" class="row text-center">
     <div class="col text-black bg-warning py-2">
         <h4 class="logo-font my-1">Free delivery if you buy {{ free_delivery_threshold }} CDs!</h4>
     </div>
 </div>
-<div class="container-fluid">
+
+<div class="container-fluid mt-md-5">
     <div class="row">
         <div class="col">
             <h2 class="my-5">Shop Here</h2>
@@ -36,25 +37,21 @@
                         <div class="card-image">
                             <a href="{% url 'cd_detail' cd.id %}">
                                 <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-top img-fluid">
-                                <div class="overlay-cd">
-                                    <p class="font-weight-bold">Click to buy</p>
-                                </div>
+                                <div class="overlay-cd"></div>
                             </a>
                         </div>
                         {% else %}
                         <div class="card-image">
                             <a href="{% url 'cd_detail' cd.id %}">
                                 <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid">
-                                <div class="overlay-cd">
-                                    <p class="font-weight-bold">Click to buy</p>
-                                </div>
+                                <div class="overlay-cd"></div>
                             </a>
                         </div>
                         {% endif %}
-                        <div class="card-footer bg-white pt-0 border-0 text-left">
+                        <div class="card-footer bg-white py-0 border-0 text-left">
                             <div class="row">
                                 <div class="col text-center">
-                                    <p class="font-weight-bold mb-0 pt-3">€{{ cd.price }}</p>
+                                    <p class="font-weight-bold mb-0 py-3">€{{ cd.price }}</p>
                                     {% if request.user.is_superuser %}
                                     <small class="ml-3 font-weight-bold">
                                         <a href="{% url 'edit_cd' cd.id %}">Edit</a> |
@@ -64,6 +61,19 @@
                                 </div>
                             </div>
                         </div>
+                        <form class="form" action="{% url 'add_to_bag' cd.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="col">
+                                    <a href="{% url 'cd_detail' cd.id %}" class="btn btn-sm btn-outline-black rounded-0 mt-0">
+                                        <span class="text-uppercase">Details</span>
+                                    </a>
+                                    <input class="form-control qty_input" type="hidden" name="quantity" value="1" data-item_id="{{ cd.id }}" id="id_qty_{{ cd.id }}">
+                                    <input type="submit" class="btn btn-sm btn-black rounded-0 text-uppercase mt-0" value="Add to Bag">
+                                </div>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            </div>
+                        </form>
                     </div>
                 </div>
                 {% if forloop.counter|divisibleby:1 %}
