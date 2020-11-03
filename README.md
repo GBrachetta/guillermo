@@ -245,7 +245,13 @@ The app consists of the following apps:
 
 ##### Navbar
 
+![Navbar Expanded](wireframes/navbar-expanded.png)
+
+![Navbar Collapsed](wireframes/navbar-collapsed.png)
+
 ##### Footer
+
+![Footer](wireframes/footer.png)
 
 #### Home App
 
@@ -253,11 +259,15 @@ The app consists of the following apps:
 
 #### Events App
 
-#### Album App
-
 ![Landing Page](wireframes/gallery.gif)
 
+#### Album App
+
+![Events](wireframes/events.png)
+
 #### Shop App
+
+![Shop](wireframes/shop.png)
 
 #### Profiles App
 
@@ -307,7 +317,7 @@ Upon assessment of this app, future goals will be:
 
 ### Models
 
-Several Models have been used.
+The following models were used to develop the app.
 
 For the Gallery:
 
