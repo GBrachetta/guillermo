@@ -22,12 +22,12 @@ def contact(request):
     if request.method == "POST":
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
-            full_name = contact_form.cleaned_data["full_name"]
+            name = contact_form.cleaned_data["name"]
             user_email = contact_form.cleaned_data["email"]
             message = contact_form.cleaned_data["message"]
             try:
                 send_mail(
-                    f"Message from {full_name}, <{user_email}>",
+                    f"Message from {name}, <{user_email}>",
                     message,
                     user_email,
                     [settings.DEFAULT_FROM_EMAIL],
@@ -41,7 +41,7 @@ def contact(request):
         if request.user.is_authenticated:
             user_email = request.user.email
             contact_form = ContactForm(initial={
-                'full_name': request.user.username,
+                'name': request.user.username,
                 'email': user_email,
                 })
         else:

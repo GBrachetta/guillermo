@@ -2,10 +2,10 @@ from django import forms
 
 
 class ContactForm(forms.Form):
-    full_name = forms.CharField(label="Full Name")
-    email = forms.EmailField(label="Email")
+    name = forms.CharField(label="")
+    email = forms.EmailField(label="")
     message = forms.CharField(
-        label="Message",
+        label="",
         widget=forms.Textarea(
             attrs={
                 "rows": 8,
@@ -14,10 +14,21 @@ class ContactForm(forms.Form):
     )
 
     class Meta:
-        fields = ["full_name", "email", "message"]
+        fields = ["name", "email", "message"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         for field_name, field in self.fields.items():
             field.widget.attrs["class"] = "border-black rounded-0"
+
+        placeholders = {
+            "name": "Name *",
+            "email": "Email *",
+            "message": "Message *",
+        }
+        self.fields["name"].widget.attrs["autofocus"] = True
+        for field in self.fields:
+            placeholder = placeholders[field]
+            self.fields[field].widget.attrs["placeholder"] = placeholder
+        self.fields[field].label = False
