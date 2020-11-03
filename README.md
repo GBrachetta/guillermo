@@ -2,7 +2,7 @@
 
 ## **[Live website here](https://guillermo-brachetta.herokuapp.com/)** <!-- omit in toc -->
 
-![Mockup](wireframes/mockup.png)
+![Mockup](https://res.cloudinary.com/gbrachetta/image/upload/v1604441265/ms4/mockup_y6m0fb.png)
 
 **Guillermo Brachetta**, harpsichordist, scholar and baroque music specialist showcases in this site his portfolio and connects with people interested in his work, activities, personal life and recordings he has to offer.
 
@@ -10,50 +10,22 @@ Guillermo shares his love for art, inviting users to discover the sophistication
 
 Feel welcome to engage with the content in a visual and auditive way, discover more about the artist, be aware of his future concerts, get to know him more closely through text, pictures and video and purchase his albums.
 
-## Table of Contents
+## Table of Contents <!-- omit in toc -->
 
-- [Table of Contents](#table-of-contents)
 - [UX](#ux)
-  - [What is the purpose of the app](#what-is-the-purpose-of-the-app)
-  - [Who is this website for](#who-is-this-website-for)
-  - [Who are the primary target groups](#who-are-the-primary-target-groups)
-  - [What is it that they want to achieve](#what-is-it-that-they-want-to-achieve)
-  - [How is my project the best way to help them achieve those things](#how-is-my-project-the-best-way-to-help-them-achieve-those-things)
-- [Project Goals](#project-goals)
-- [User Stories](#user-stories)
-  - [For the visitor](#for-the-visitor)
-  - [For the site owner](#for-the-site-owner)
-- [Design Choices](#design-choices)
-  - [General](#general)
-  - [Buttons](#buttons)
-  - [Colors](#colors)
-  - [Fonts](#fonts)
-  - [Icons](#icons)
-- [Wireframes](#wireframes)
+  - [Project Goals](#project-goals)
+  - [User Stories](#user-stories)
+  - [Design Choices](#design-choices)
+  - [Wireframes](#wireframes)
 - [Features](#features)
   - [Existing Features](#existing-features)
-    - [Common Features](#common-features)
-    - [Home App](#home-app)
-    - [Album App](#album-app)
-    - [Events App](#events-app)
-    - [Shop App](#shop-app)
-    - [Bag App](#bag-app)
-    - [Checkout App](#checkout-app)
-    - [Profiles App](#profiles-app)
-    - [Login](#login)
-    - [Account management](#account-management)
-    - [Administrators](#administrators)
-    - [Images](#images)
+  - [Error Pages](#error-pages)
   - [Future Goals](#future-goals)
 - [Information Architecture](#information-architecture)
   - [Models](#models)
   - [Data Storage](#data-storage)
 - [Technologies Used](#technologies-used)
-  - [Front-end Technologies](#front-end-technologies)
-  - [Back-end Technologies](#back-end-technologies)
-  - [Other technologies](#other-technologies)
 - [Testing](#testing)
-  - [Validators and linters](#validators-and-linters)
 - [Deployment](#deployment)
   - [Local Development](#local-development)
   - [Heroku](#heroku)
@@ -69,25 +41,27 @@ Feel welcome to engage with the content in a visual and auditive way, discover m
 
 ## UX
 
-### What is the purpose of the app
+### Project Goals
+
+#### What is the purpose of the app <!-- omit in toc -->
 
 The ultimate goal of the app is to encourage people to discover the artist and connect with him. The app informs users about future and past events, offers media for them to get to know the artist and his art and purchase his recordings.
 
-### Who is this website for
+#### Who is this website for <!-- omit in toc -->
 
 This website is intended for the author, to showcase his work and activities, and for the public to discover them.
 
-### Who are the primary target groups
+#### Who are the primary target groups <!-- omit in toc -->
 
 The website is aimed at a general public, the target in general ranging from young adults onwards, in general educated people and with an inclination to enjoy classical (baroque) music.
 
 Concert organisers will also benefit by being aware of the artist's calendar of activities and having a clear way to contact him.
 
-### What is it that they want to achieve
+#### What is it that they want to achieve <!-- omit in toc -->
 
 Users will either want to find information about the artist, know when they could attend to one of his concerts and buy his recordings.
 
-### How is my project the best way to help them achieve those things
+#### How is my project the best way to help them achieve those things <!-- omit in toc -->
 
 The app provides as much information about the artist as possible while keeping it decluttered. The web is the most appropriate vector to share multimedia such as sound, images and video, and gives the user the chance to purchase CDs and the site owner an effective channel to promote himself.
 
@@ -107,9 +81,9 @@ No anonymous writing to the database is permitted by the app.
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
 
-## Project Goals
+#### Project Objectives <!-- omit in toc -->
 
-The main goals of the site for the owner are:
+The main objectives of the site for the owner are:
 
 - Showcase his activities.
 - Let the visitor know about who he is, what he does and when.
@@ -130,9 +104,9 @@ The main goals of the site for the visitors are:
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
 
-## User Stories
+### User Stories
 
-### For the visitor
+#### For the visitor <!-- omit in toc -->
 
 | As a user | I would like to                                                      | so                                                     |
 | --------- | -------------------------------------------------------------------- | ------------------------------------------------------ |
@@ -157,7 +131,7 @@ The main goals of the site for the visitors are:
 | As a user | I would like to be able to update my user details                    | so I can be sure my delivery information is accurate.  |
 | As a user | I would like to see clearly what's in my shopping bag at all times   | so I don't forget to checkout.                         |
 
-### For the site owner
+#### For the site owner <!-- omit in toc -->
 
 | As a user | I would like to                                                                  | so                                                             |
 | --------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------- |
@@ -176,9 +150,9 @@ The main goals of the site for the visitors are:
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
 
-## Design Choices
+### Design Choices
 
-### General
+#### General <!-- omit in toc -->
 
 I chose [Bootstrap](https://getbootstrap.com/) (v.4.5) for my CSS framework for its solidity, flexibility and practicality in creating and adapting its many possible elements.
 
@@ -188,41 +162,41 @@ The landing page relies basically on big background images that display the arti
 
 The rest of the content has a more relaxed approach, focusing on individual visual elements to avoid distraction. For that reason, the color palette has been kept discreet so the visitor would focus their attention on the relevant items.
 
-### Buttons
+#### Buttons <!-- omit in toc -->
 
 Buttons have been kept discreet, with a clear purpose of focussing on what they do without further distractions for the visitor. They only use the main two colours of the site.
 
-#### Unhovered <!-- omit in toc -->
+##### Unhovered <!-- omit in toc -->
 
-![unhovered](wireframes/buttons-unhovered.png)
+![unhovered](https://res.cloudinary.com/gbrachetta/image/upload/v1604441240/ms4/buttons-unhovered_uuj50p.png)
 
-#### Hovered <!-- omit in toc -->
+##### Hovered <!-- omit in toc -->
 
-![unhovered](wireframes/buttons-hovered.png)
+![unhovered](https://res.cloudinary.com/gbrachetta/image/upload/v1604441241/ms4/buttons-hovered_mxbwnc.png)
 
-### Colors
+#### Colors <!-- omit in toc -->
 
 The color palette has been kept to a minimum, having chosen dark gray for navbar and footer, white for background and a shade of dark yellow for nav items, hovered buttons and to highlight relevant information.
 Dark red has been chosen for the logo as the only occurrence of that color to differentiate it, as it's been the image of the artist for a period of time, and a shade of magenta for accenting some keywords on the landing page.
 
-![Color Palette](wireframes/palette.png)
+![Color Palette](https://res.cloudinary.com/gbrachetta/image/upload/v1604441265/ms4/palette_urclxd.png)
 
-### Fonts
+#### Fonts <!-- omit in toc -->
 
 Montserrat was the font of choice for its excellent legibility specially on small screens and timeless elegance.
 
-### Icons
+#### Icons <!-- omit in toc -->
 
 Font Awesome icons were used by their immediate and unmistakable impact.
 Navigation items are pictographically underlined by them, social media and edit and delete actions for admins also use them to avoid unnecessary text.
 
-![icons](wireframes/icons.png)
+![icons](https://res.cloudinary.com/gbrachetta/image/upload/v1604441254/ms4/icons_s75blj.png)
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
 
-## Wireframes
+### Wireframes
 
 > **Note**:The app evolved and several improvements were put in place through development.
 >
@@ -255,13 +229,13 @@ The app consists of the following apps:
 - Checkout App
 - Profiles App
 
-#### Common Features
+#### Common Features <!-- omit in toc -->
 
 ##### Navbar <!-- omit in toc -->
 
-![Navbar Expanded](wireframes/navbar-expanded.png)
+![Navbar Expanded](https://res.cloudinary.com/gbrachetta/image/upload/v1604441264/ms4/navbar-expanded_zjyzpe.png)
 
-![Navbar Collapsed](wireframes/navbar-collapsed.png)
+![Navbar Collapsed](https://res.cloudinary.com/gbrachetta/image/upload/v1604441264/ms4/navbar-collapsed_mk6elr.png)
 
 - The navbar is fixed at the top and always visible and contains quick and easy access to all content.
 - The logo is svg injected directly in the template and serves as a "Home" button.
@@ -270,9 +244,9 @@ The app consists of the following apps:
 - The "Profile" navigation item changes to the name of the current visitor if they are logged in, and displays in its dropdown menu relevant options for a logged in user. Otherwise it gives the user the choice of registering or logging in.
 - Admins have several extra options in the dropdown, such as manage photo and video, events and shop items.
 
-##### Footer <!-- omit in toc -->
+###### Footer <!-- omit in toc -->
 
-![Footer](wireframes/footer.png)
+![Footer](https://res.cloudinary.com/gbrachetta/image/upload/v1604441241/ms4/footer_skvcns.png)
 
 - The footer is sticking to the bottom on all pages and shares theme with the navbar.
 - It's divided in two rows with two columns each (desktop view) displaying a disclaimer, contact information, copyright information and social media icons, respectively.
@@ -300,7 +274,7 @@ The app consists of the following apps:
 
 - Social media links open an external page.
 
-#### Home App
+#### Home App <!-- omit in toc -->
 
 ![Landing Page](wireframes/landing-page.gif)
 
@@ -313,7 +287,7 @@ The app consists of the following apps:
 - The landing page uses bold images of the artist and the content is of personal tone, attempting to make an emotional connection with the user.
 - There's a link at the end of the content that opens a modal with the artist's biography, since I considered unnecessary to have a dedicated template for that content.
 
-#### Album App
+#### Album App <!-- omit in toc -->
 
 ![Landing Page](wireframes/gallery.gif)
 
@@ -328,7 +302,7 @@ The app consists of the following apps:
 - The gallery is capable of playing video as well (YouTube, Vimeo) and created its thumbnail dynamically taking it from the one on the server side.
 - Administrators have here as well an additional button to add new media, and a list of all images in the gallery with a small thumbnail that facilitates editing, replacing or deleting it.
 
-![album-admins](wireframes/album-admins.png)
+![album-admins](https://res.cloudinary.com/gbrachetta/image/upload/v1604441241/ms4/album-admins_ids4z6.png)
 
 - Customisation of Nanogallery2 is achieved in the template with a set of value-data pairs in the `datananogallery2` attribute:
 
@@ -370,9 +344,9 @@ The app consists of the following apps:
 
 - Many more combinations are possible and the plugin is extremely flexible.
 
-#### Events App
+#### Events App <!-- omit in toc -->
 
-![Events](wireframes/events.png)
+![Events](https://res.cloudinary.com/gbrachetta/image/upload/v1604441243/ms4/events_bqv6lh.png)
 
 - The events app displays future and past events organised in two different grids respectively.
 - As the admin adds new events through his dedicated view, they are placed in the correct order and displayed in reverse order so the user can see immediately which are the events happening sooner.
@@ -395,9 +369,9 @@ The app consists of the following apps:
 - Administrators have links after each event that allow him to either edit or delete the record.
 - Administrators have as well an additional button to add a new event.
 
-#### Shop App
+#### Shop App <!-- omit in toc -->
 
-![Shop](wireframes/shop.png)
+![Shop](https://res.cloudinary.com/gbrachetta/image/upload/v1604441265/ms4/shop_uwjv3f.png)
 
 - The Shop main page display a responsive grid containing the cards for each CD offered.
 - The cards consist of a header with the CD title, the CD image, the price and two buttons so either find out more about the particular CD or add a single unit to the shopping bag.
@@ -407,9 +381,9 @@ The app consists of the following apps:
 - Accessing the individual CD template by either clicking on the image or the button renders a bigger picture of the CD cover plus a written detail.
 - Additionally customers have in the detail template the option to add to their shopping bag a quantity different than one if they want, the button on the main shop bag attaching to the bag just unit as it's the most likely amount to be purchased for these types of products.
 
-#### Bag App
+#### Bag App <!-- omit in toc -->
 
-![Bag](wireframes/shopping-bag.png)
+![Bag](https://res.cloudinary.com/gbrachetta/image/upload/v1604441265/ms4/shopping-bag_xfowic.png)
 
 - The Bag app displays a summary of the order prior to checking out.
 - Quantities can be adjusted, or line items entirely removed.
@@ -417,9 +391,9 @@ The app consists of the following apps:
 - When sufficient items are added to the bag, the delivery cost reflects that updating accordingly.
 - The two buttons at the bottom take the user either back to the shop or to the secure checkout in order to complete the purchase.
 
-#### Checkout App
+#### Checkout App <!-- omit in toc -->
 
-![Checkout](wireframes/checkout.png)
+![Checkout](https://res.cloudinary.com/gbrachetta/image/upload/v1604441265/ms4/shopping-bag_xfowic.png)
 
 - The Checkout app renders two columns with a form on the left and the order summary on the right.
 - If the user is authenticated, the information already present in the database will populate the form, although the user can update it.
@@ -434,38 +408,54 @@ The app consists of the following apps:
 - On success, the system renders a new template with a full summary of the order and a thank you message.
 - The success page also displays a button to go back to the shop.
 
-#### Profiles App
+#### Profiles App <!-- omit in toc -->
 
-![Profiles](wireframes/profile.png)
+![Profiles](https://res.cloudinary.com/gbrachetta/image/upload/v1604441265/ms4/profile_vqmrl6.png)
 
-#### Login
+- The profile page is obviously available to authenticated users only.
+- It contais the user's delivery information, user information and order history.
+- The delivery information can be updated from the same template.
+- The user information displays the username and the primary email address. There are two buttons that allow the user to change their password and to manage their email accounts, letting them replace the current one or adding a new one.
+- Users can also choose which email address is the primary one.
+- The order history lets the user see all their purchases in the site, and review each individual ones by clicking on the order number.
 
-Users can create an account and log in.
-This gives registered users the possibility to purchase items from the shop.
+#### Account management <!-- omit in toc -->
 
-#### Account management
+- Users can edit their account and change their delivery information.
+- Users can edit and manage their email addresses.
+- Users can request a password reset in case they forget it, or they can change the password from the Profile app.
+- Users are allowed to delete email addresses, provided there's at least one present.
 
-- Users can edit their account and change their information.
-- Users can request a password reset in case they forget it.
+#### Logout <!-- omit in toc -->
 
-#### Administrators
+- Logout logs the user out without the intermediary page to confirm which allauth sets by default. To do this the following setting has been added to the app: `ACCOUNT_LOGOUT_ON_GET = True`.
+
+#### Administrators <!-- omit in toc -->
 
 - Admins can add, edit and delete any item in the database without exiting the app (except deleting users).
+- Administrators also receive a custom email when a user has placed an order.
+- Administrators have access to all feature to perform CRUD on the database without needing to exit the app or visiting the admin panel.
 
-#### Images
+#### Images <!-- omit in toc -->
 
-All images interacting with the database are dynamically stored in AWS S3, together with all other static files.
+- All images interacting with the database are dynamically stored in AWS S3, together with all other static files.
+- Admins can upload CD photos using the interface provided. In case a photo is not provided during the creation of the CD, a default generic picture will be displayed as a fallback.
+- Admins can upload media to the gallery in a similar way.
 
-Admins can upload CD photos using the interface provided. In case a photo is not provided during the creation of the CD, a default generic picture will be displayed as a fallback.
+### Error Pages
+
+- Custom methods and templates have been put in place.
+- In the event of one of the mentioned errors happening, the template will still retain footer and navbar, allowing the users to navigate back directly from those templates.
 
 ### Future Goals
 
-Upon assessment of this app, future goals will be:
+Future goals to further improve the app will be:
 
 - Use the live version of Stripe to accept payments.
 - Offer customers more payment methods, such as debit card, PayPal or money transfer.
 - Put in place stock control.
 - Offer users the possibility to register and login with social accounts.
+- Deploy the app in a custom server.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -565,9 +555,9 @@ They have been altered and given extra functionality with methods, decorators an
 
 ### Data Storage
 
-No data is stored in the file system.
+- No data is stored in the file system.
 
-Since Heroku has an ephemeral file system all static files are stored in an AWS S3 bucket.
+- Since Heroku has an ephemeral file system all static files are stored in an AWS S3 bucket.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -575,7 +565,7 @@ Since Heroku has an ephemeral file system all static files are stored in an AWS 
 
 ## Technologies Used
 
-### Front-end Technologies
+### Front-end Technologies <!-- omit in toc -->
 
 - [![html](https://img.shields.io/static/v1?label=HTML&message=5&color=E34F26&style=for-the-badge&logo=html5)](https://www.w3schools.com/html/)  HTML: Used for markup.
 - [![css](https://img.shields.io/static/v1?label=CSS&message=3&color=1572B6&style=for-the-badge&logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS) CSS: Used to style the elements of the app.
@@ -584,18 +574,20 @@ Since Heroku has an ephemeral file system all static files are stored in an AWS 
 - [![jquery](https://img.shields.io/static/v1?label=jQuery&message=3.5.1&style=for-the-badge&color=0769AD&logo=jquery)](https://jquery.com/) jQuery, to access and manipulate the DOM.
 - [![fontawesome](https://img.shields.io/static/v1?label=Fontawesome&message=5&style=for-the-badge&color=339AF0&logo=font-awesome)](https://fontawesome.com/) Font Awesome, for all icons.
 - [![gsap](https://img.shields.io/static/v1?label=GSAP&message=3&style=for-the-badge&color=lime&logo=greensock)](https://greensock.com/gsap/) GSAP, for the animations on the landing page.
+- [![parallax](https://img.shields.io/static/v1?label=parallax.js&message=1.4.2&style=for-the-badge&color=blue&logo=parallax)](https://pixelcog.github.io/parallax.js/) Parallax.js, for the parallax animations on the landing page.
+- [![nanogallery2](https://img.shields.io/static/v1?label=nanograllery&message=2&style=for-the-badge&color=0F1934&logo=parallax)](https://nanogallery2.nanostudio.org/) Nanogallery2, for the gallery on the album page.
 
-### Back-end Technologies
+### Back-end Technologies <!-- omit in toc -->
 
-- [![django](https://img.shields.io/static/v1?label=Django&style=for-the-badge&message=3.1&color=0C4B33&logo=django)](https://www.djangoproject.com/) Python, for all backend logic.
-- [![python](https://img.shields.io/static/v1?label=Python&style=for-the-badge&message=3.7&color=3776AB&logo=PYTHON)](https://www.python.org/) Python, for all backend logic.
-- [![allauth](https://img.shields.io/static/v1?label=Django-Allauth&style=for-the-badge&message=0.42&color=2980B9&logo=django)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
-- [![storages](https://img.shields.io/static/v1?label=Django-Storages&style=for-the-badge&message=0.42&color=2980B9&logo=django)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
-- [![pillow](https://img.shields.io/static/v1?label=Pillow&style=for-the-badge&message=0.42&color=2980B9&logo=pillow)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
-- [![stripe](https://img.shields.io/static/v1?label=Stripe&style=for-the-badge&message=0.42&color=5469d4&logo=stripe)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
-- [![aws](https://img.shields.io/static/v1?label=AWS&style=for-the-badge&message=0.42&color=2980B9&logo=aws)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
+- [![django](https://img.shields.io/static/v1?label=Django&style=for-the-badge&message=3.1.2&color=0C4B33&logo=django)](https://www.djangoproject.com/) Python, for all backend logic.
+- [![python](https://img.shields.io/static/v1?label=Python&style=for-the-badge&message=3.8.5&color=3776AB&logo=PYTHON)](https://www.python.org/) Python, for all backend logic.
+- [![allauth](https://img.shields.io/static/v1?label=Django-Allauth&style=for-the-badge&message=0.42&color=2980B9&logo=django)](https://django-allauth.readthedocs.io/en/latest/index.html) Django-allauth, for the app authentication.
+- [![storages](https://img.shields.io/static/v1?label=Django-Storages&style=for-the-badge&message=1.10.1&color=2980B9&logo=django)](https://django-storages.readthedocs.io/en/latest/) Django-storages, to take care of all static files.
+- [![pillow](https://img.shields.io/static/v1?label=Pillow&style=for-the-badge&message=8.0.1&color=2980B9&logo=pillow)](https://pillow.readthedocs.io/en/stable/) Pillow, to deal with images uploaded.
+- [![stripe](https://img.shields.io/static/v1?label=Stripe&style=for-the-badge&message=2.55&color=5469d4&logo=stripe)](https://stripe.com/en-nl) Stripe, to set up payment, checkout and webhook system.
+- [![aws](https://img.shields.io/static/v1?label=AWS&style=for-the-badge&message=web&color=orange&logo=amazon)](https://aws.amazon.com/) AWS, to store all static files.
 
-### Other technologies
+### Other technologies <!-- omit in toc -->
 
 - [![vscode](https://img.shields.io/static/v1?label=VSCode&message=1.50.1&style=for-the-badge&color=007ACC&logo=visual-studio)](https://code.visualstudio.com/) Visual Studio Code: my IDE of choice for all my projects.
 - [![github](https://img.shields.io/static/v1?label=GitHub&message=GBrachetta&color=181717&style=for-the-badge&logo=github)](https://github.com/GBrachetta)  GitHub: My remote storage for this project.
@@ -610,17 +602,6 @@ Since Heroku has an ephemeral file system all static files are stored in an AWS 
 
 Testing can be viewed in this [external file](TESTING.md).
 
-### Validators and linters
-
-The following validators and linters were used either remotely or with their plugins for Visual Studio Code:
-
-- [W3C HTML Validator](https://validator.w3.org/)
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
-- [CSS Lint](http://csslint.net/)
-- [JSHint](https://jshint.com/)
-- [PEP8](http://pep8online.com/)
-- [BLACK](https://pypi.org/project/black/)
-
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
@@ -633,7 +614,7 @@ This project can be ran locally by following these steps:
 
 1. Visit this [Repository link](https://github.com/GBrachetta/guillermo) and click on the Clone or Download button to copy the link provided.
 
-    ![clone](wireframes/clone.png)
+    ![clone](https://res.cloudinary.com/gbrachetta/image/upload/v1604441241/ms4/clone_kpr9nv.png)
 
 2. In your IDE, open a Terminal window and change to the directory where you want to clone this project and type:
 
@@ -691,7 +672,7 @@ The steps to deploy the local app to Heroku were as follow:
 4. Attach an Heroku-Postgres database to the app.
 5. In the Settings tab, added the corresponding Config Variables as present in my local development.
 
-    ![vars](wireframes/config-vars.jpg)
+    ![vars](https://res.cloudinary.com/gbrachetta/image/upload/v1604441242/ms4/config-vars_hqetoa.jpg)
 
 6. Create an [AWS S3 bucket]("https://s3.console.aws.amazon.com/s3/home")
 
