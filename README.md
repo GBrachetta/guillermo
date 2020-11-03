@@ -436,6 +436,8 @@ The app consists of the following apps:
 
 #### Profiles App
 
+![Profiles](wireframes/profile.png)
+
 #### Login
 
 Users can create an account and log in.
