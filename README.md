@@ -31,10 +31,6 @@ Feel welcome to engage with the content in a visual and auditive way, discover m
   - [Heroku](#heroku)
   - [Version Control](#version-control)
 - [Credits](#credits)
-  - [Content](#content)
-  - [Media](#media)
-  - [Code](#code)
-  - [Acknowledgements](#acknowledgements)
 - [Disclaimer](#disclaimer)
 
 ---
@@ -576,6 +572,7 @@ They have been altered and given extra functionality with methods, decorators an
 - [![gsap](https://img.shields.io/static/v1?label=GSAP&message=3&style=for-the-badge&color=lime&logo=greensock)](https://greensock.com/gsap/) GSAP, for the animations on the landing page.
 - [![parallax](https://img.shields.io/static/v1?label=parallax.js&message=1.4.2&style=for-the-badge&color=blue&logo=parallax)](https://pixelcog.github.io/parallax.js/) Parallax.js, for the parallax animations on the landing page.
 - [![nanogallery2](https://img.shields.io/static/v1?label=nanograllery&message=2&style=for-the-badge&color=0F1934&logo=parallax)](https://nanogallery2.nanostudio.org/) Nanogallery2, for the gallery on the album page.
+- [![googlefonts](https://img.shields.io/static/v1?label=googlefonts&message=web&style=for-the-badge&color=red&logo=google)](https://fonts.google.com/) Nanogallery2, for the gallery on the album page.
 
 ### Back-end Technologies <!-- omit in toc -->
 
@@ -586,6 +583,8 @@ They have been altered and given extra functionality with methods, decorators an
 - [![pillow](https://img.shields.io/static/v1?label=Pillow&style=for-the-badge&message=8.0.1&color=2980B9&logo=pillow)](https://pillow.readthedocs.io/en/stable/) Pillow, to deal with images uploaded.
 - [![stripe](https://img.shields.io/static/v1?label=Stripe&style=for-the-badge&message=2.55&color=5469d4&logo=stripe)](https://stripe.com/en-nl) Stripe, to set up payment, checkout and webhook system.
 - [![aws](https://img.shields.io/static/v1?label=AWS&style=for-the-badge&message=web&color=orange&logo=amazon)](https://aws.amazon.com/) AWS, to store all static files.
+- [![SQLite](https://img.shields.io/static/v1?label=SQLite&style=for-the-badge&message=3.33.0&color=044a64&logo=sqlite)](https://www.sqlite.org/index.html) SQLite, local database.
+- [![postgresql](https://img.shields.io/static/v1?label=Postgresql&style=for-the-badge&message=w3&color=336791&logo=postgresql)](https://www.postgresql.org/) AWS, to store all static files.
 
 ### Other technologies <!-- omit in toc -->
 
@@ -593,6 +592,11 @@ They have been altered and given extra functionality with methods, decorators an
 - [![github](https://img.shields.io/static/v1?label=GitHub&message=GBrachetta&color=181717&style=for-the-badge&logo=github)](https://github.com/GBrachetta)  GitHub: My remote storage for this project.
 - [![heroku](https://img.shields.io/static/v1?label=Heroku&message=brachetta@me.com&color=430098&style=for-the-badge&logo=heroku)](https://www.heroku.com/) Heroku, the platform to deploy the app.
 - [![balsamiq](https://img.shields.io/static/v1?label=Balsamiq&message=3.5.17&style=for-the-badge&color=7c0000&logo=balsamiq&?link=http://left&link=http://right)](https://balsamiq.com/) Balsamiq: to create the wireframes of this project.
+- [![cloudinary](https://img.shields.io/static/v1?label=Cloudinary&message=Web&style=for-the-badge&color=3448c5&logo=cloudinary&?link=http://left&link=http://right)](https://cloudinary.com/) Cloudinary: to store background images and the images of this readme file.
+- [![tinypng](https://img.shields.io/static/v1?label=tinypng&message=Web&style=for-the-badge&color=8cc938&logo=tinypng&?link=http://left&link=http://right)](https://tinypng.com/) Tinypng: to reduce image files size.
+- [![git](https://img.shields.io/static/v1?label=git&message=Web&style=for-the-badge&color=f14e32&logo=git&?link=http://left&link=http://right)](https://git-scm.com/) Git: for version control.
+- [![crispyforms](https://img.shields.io/static/v1?label=CrispyForms&message=1.9.2&style=for-the-badge&color=2980B9&logo=crispyforms&?link=http://left&link=http://right)](https://django-crispy-forms.readthedocs.io/en/latest/) Crispy Forms: To render forms across the project.
+- [![pipenv](https://img.shields.io/static/v1?label=pipenv&message=2020.8.13&style=for-the-badge&color=2980B9&logo=pipenv&?link=http://left&link=http://right)](https://django-crispy-forms.readthedocs.io/en/latest/) Pipenv, to deal with the virtual environment.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -685,22 +689,23 @@ The steps to deploy the local app to Heroku were as follow:
 10. I also created a "Procfile", needed by Heroku in order to know how to run the app and instructed it to run my app using the Gunicorn server in it.
 11. When deploying, Heroku reads the pipfile to install the dependencies, reads the Procfile and the Config Variables inserted above.
 12. After that process, the app was live and running remotely in Heroku's servers.
+13. Additionally I created a subdomain of my domain `www.brachetta.com` and forwarded the app deployed on heroku, so this app can be accessed also at [guillermo.brachetta.com](http://guillermo.brachetta.com/), but at the moment of this writeup I don't have a ssl certificate attached to that subdomain and thus accessing the app through that url points to a non-secure site. Attaching a SSL certificate will be done once the app passed assessment and it justifies the extra expenses caused by it.
 
 ### Version Control
 
-During the development I used [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) for version control.
+- During the development I used [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) for version control.
 
-By this I was able to isolate features in different branches and integrated them as soon as they were finished and fully tested.
+- By this I was able to isolate features in different branches and integrated them as soon as they were finished and fully tested.
 
-As soon as I considered that a feature was finished I then merged its branch to the develop branch. I then deleted stale branches once they were sufficiently tested and approved for release.
+- As soon as I considered that a feature was finished I then merged its branch to the develop branch. I then deleted stale branches once they were sufficiently tested and approved for release.
 
-When a group of features made a release worthwhile I then merged the develop branch to the master branch.
+- When a group of features made a release worthwhile I then merged the develop branch to the master branch.
 
-Additionally, and for testing purposes, I often also deployed feature branches in order to double-check that the app was responsive remotely.
+- Additionally, and for testing purposes, I often also deployed feature branches in order to double-check that the app was responsive remotely.
 
-Over 20 branches were using during the development of this app, to ensure isolated environments for each of them without interfering with already functioning features.
+- Over 20 branches were using during the development of this app, to ensure isolated environments for each of them without interfering with already functioning features.
 
-To deal with these features i used [GitHub issues](https://guides.github.com/features/issues/) and put in place a [project board](https://help.github.com/en/github/managing-your-work-on-github/about-project-boards), which helped me organise my workflow and have a clear overview of where in the process of my development I was.
+- To deal with these features i used [GitHub issues](https://guides.github.com/features/issues/) and put in place a [project board](https://help.github.com/en/github/managing-your-work-on-github/about-project-boards), which helped me organise my workflow and have a clear overview of where in the process of my development I was.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -708,16 +713,16 @@ To deal with these features i used [GitHub issues](https://guides.github.com/fea
 
 ## Credits
 
-### Content
+### Content <!-- omit in toc -->
 
-- All content is of my property or free domain.
+- All content is of my own property.
 
-### Media
+### Media <!-- omit in toc -->
 
 - I'm the owner of all rights of the images, media, video, music used in this site.
 - Photos are taken by different photographers and are acknowledged in the respective slide in the gallery.
 
-### Code
+### Code <!-- omit in toc -->
 
 Code was written by the author for the present app, albeit inspired by freely available tutorials, instructional documentation and open source examples.
 On such instances, the sources have been mentioned in the code where it corresponds.
@@ -728,11 +733,11 @@ Notable sources of information, inspiration and source to sort problems are:
 - [W3Schools](https://www.w3schools.com/)
 - Mi loyal mentor, [Simen Daehlin](https://github.com/Eventyret)
 
-### Acknowledgements
+### Acknowledgements <!-- omit in toc -->
 
 ## Disclaimer
 
-This app and its deployment are for instructional purposes only, not intended commercially in any way and its eventual copyright infringements involuntary.
+This app and its deployment are for instructional purposes only, not intended commercially in any way and its eventual copyright infringements are involuntary.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
