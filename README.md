@@ -28,6 +28,7 @@ Feel welcome to engage with the content in a visual and auditive way, discover m
   - [Buttons](#buttons)
   - [Colors](#colors)
   - [Fonts](#fonts)
+  - [Icons](#icons)
 - [Wireframes](#wireframes)
 - [Features](#features)
   - [Existing Features](#existing-features)
@@ -213,6 +214,13 @@ Dark red has been chosen for the logo as the only occurrence of that color to di
 
 Montserrat was the font of choice for its excellent legibility specially on small screens and timeless elegance.
 
+### Icons
+
+Font Awesome icons were used by their immediate and unmistakable impact.
+Navigation items are pictographically underlined by them, social media and edit and delete actions for admins also use them to avoid unnecessary text.
+
+![icons](wireframes/icons.png)
+
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
 </div>
@@ -258,13 +266,69 @@ The app consists of the following apps:
 
 ![Navbar Collapsed](wireframes/navbar-collapsed.png)
 
+The navbar is fixed at the top and always visible and contains quick and easy access to all content.
+
+The logo is svg injected directly in the template and serves as a "Home" button.
+
+The shopping bag icon indicates the presence of items to be checked out, even when the navbar is collapsed, as a reminder for the user.
+
+The navbar always reflects by a different colour the "active" or current page.
+
+The "Profile" navigation item changes to the name of the current visitor if they are logged in, and displays in its dropdown menu relevant options for a logged in user. Otherwise it gives the user the choice of registering or logging in.
+
+Admins have several extra options in the dropdown, such as manage photo and video, events and shop items.
+
 ##### Footer <!-- omit in toc -->
 
 ![Footer](wireframes/footer.png)
 
+The footer is sticking to the bottom on all pages and shares theme with the navbar.
+
+It's divided in two rows with two columns each (desktop view) displaying a disclaimer, contact information, copyright information and social media icons, respectively.
+
+On mobile view the layout changes to 4 stacked rows for the same content.
+
+The Contact link opens a modal with a contact form to send an email from the app. The contact form populates with the current user information if they are logged in.
+
+JQuery was used in order to render the form in the modal and access the view, since I didn't want users to navigate to a new template to send the email:
+
+```js
+$(function () {
+    $("#trigger-contact").on("click", () => {
+        $("#form-modal").load("/contact", () => {
+            $("#contact").modal("show");
+        });
+    });
+});
+```
+
+To prevent a potential user to access the view directly from the address bar, vanilla JS was put in place to redirect them to the homepage in that event, because accessing the contact url would result in an unformatted template (as it is a modal, it doesn't inherit from the base template)
+
+```js
+if (window.location.href.indexOf("contact") > -1) {
+    window.location.replace("https://guillermo-brachetta.herokuapp.com");
+}
+```
+
+Social media links open an external page.
+
 #### Home App
 
 ![Landing Page](wireframes/landing-page.gif)
+
+The landing page is the first content the user sees and as such it has to make a strong impression.
+
+I decided to use 4 stacked divs with an image background covering the full viewport on each of them.
+
+There are several animations in place, including asyncronous parallax, overlays changing opacity and content translating and changing opacity.
+
+It was a challenge to make sure this was usable on all platforms, since some of them (particularly iOS) have a different approach when it comes to consider what 'viewport' is.
+
+The full process and troubleshooting of this is detailed in the [testing](TESTING.md) page.
+
+The landing page uses bold images of the artist and the content is of personal tone, attempting to make an emotional connection with the user.
+
+There's a link at the end of the content that opens a modal with the artist's biography, since I considered clumsy to have a dedicated template for that content.
 
 #### Events App
 
@@ -462,7 +526,7 @@ Since Heroku has an ephemeral file system all static files are stored in an AWS 
 
 ## Testing
 
-Testing can be viewed in this [external file](wireframes/testing.md).
+Testing can be viewed in this [external file](TESTING.md).
 
 ### Validators and linters
 
