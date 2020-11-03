@@ -26,8 +26,6 @@
 - [Features](#features)
   - [Existing Features](#existing-features)
     - [Common Features](#common-features)
-      - [Navbar](#navbar)
-      - [Footer](#footer)
     - [Home App](#home-app)
     - [Events App](#events-app)
     - [Album App](#album-app)
@@ -253,13 +251,13 @@ The app consists of the following apps:
 
 #### Common Features
 
-##### Navbar
+##### Navbar <!-- omit in toc -->
 
 ![Navbar Expanded](wireframes/navbar-expanded.png)
 
 ![Navbar Collapsed](wireframes/navbar-collapsed.png)
 
-##### Footer
+##### Footer <!-- omit in toc -->
 
 ![Footer](wireframes/footer.png)
 
@@ -331,89 +329,89 @@ Upon assessment of this app, future goals will be:
 
 The following models were used to develop the app.
 
-For the Gallery:
+#### For the Album App <!-- omit in toc -->
 
-```python
-class Photo(models.Model):
-    name = models.CharField(max_length=254)
-    caption = models.TextField()
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(upload_to=random_filename, null=True, blank=True)
-```
+##### Photo <!-- omit in toc -->
 
-For the Events:
+| Key       | Type       | Validation                                       |
+| --------- | ---------- | ------------------------------------------------ |
+| name      | CharField  | max_length=254                                   |
+| caption   | TextField  |                                                  |
+| image_url | URLField   | max_length=1024, null=True, Blank=True           |
+| image     | ImageField | upload_to=random_filename, null=True, blank=True |
 
-```python
-class Event(models.Model):
-    name = models.CharField(max_length=254, null=False, blank=False)
-    venue = models.CharField(max_length=254, null=False, blank=False)
-    programme = models.TextField(null=False, blank=False)
-    date = models.DateField(auto_now_add=False, null=False, blank=False)
-    time = models.TimeField(auto_now_add=False, null=False, blank=False)
-    event_url = models.URLField(max_length=1024, null=True, blank=True)
-```
+#### For the Events App <!-- omit in toc -->
 
-For the Checkout:
+##### Event <!-- omit in toc -->
 
-```python
-class Order(models.Model):
-    order_number = models.CharField(max_length=32, null=False, editable=False)
-    user_profile = models.ForeignKey(
-        UserProfile,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name="orders",
-    )
-    full_name = models.CharField(max_length=50, null=False, blank=False)
-    email = models.EmailField(max_length=254, null=False, blank=False)
-    phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = CountryField(blank_label="Country *", max_length=40, null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=True, blank=True)
-    town_or_city = models.CharField(max_length=40, null=False, blank=False)
-    street_address1 = models.CharField(max_length=80, null=False, blank=False)
-    street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    date = models.DateTimeField(auto_now_add=True)
-    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    order_items = models.DecimalField(max_digits=4, decimal_places=2, null=False, default=0)
-    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    original_bag = models.TextField(null=False, blank=False, default="")
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default="")
-```
+| Key       | Type      | Validation                                  |
+| --------- | --------- | ------------------------------------------- |
+| name      | CharField | max_length=254, null=False, blank=False     |
+| venue     | CharField | max_length=254, null=False, blank=False     |
+| programme | TextField | null=False, blank=False                     |
+| date      | DateField | auto_now_add=False, null=False, blank=False |
+| time      | TimeField | auto_now_add=False, null=False, blank=False |
+| event_url | URLField  | max_length=1024, null=True, blank=True      |
 
-```python
-class OrderLineItem(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name="lineitems",)
-    cd = models.ForeignKey(Cd, null=False, blank=False, on_delete=models.CASCADE)
-    quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
-```
+#### For the Checkout App <!-- omit in toc -->
 
-For the profiles:
+##### Order <!-- omit in toc -->
 
-```python
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
-    default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
-    default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
-    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
-    default_postcode = models.CharField(max_length=20, null=True, blank=True)
-    default_country = CountryField(blank_label="Country", max_length=40, null=True, blank=True)
-```
+| Key           | Type                    | Validation                                                              |
+| ------------- | ----------------------- | ----------------------------------------------------------------------- |
+| order_number  | CharField               | max_length=32, null=False, editable=False                               |
+| profile       | ForeignKey: UserProfile | on_delete=models.SET_NULL, null=True, blank=True, related_name='orders' |
+| full_name     | CharField               | max_length=50, null=False, blank=False                                  |
+| email         | EmailField              | max_length=254, null=False, blank=False                                 |
+| phone_number  | CharField               | max_length=20, null=False, blank=False                                  |
+| country       | CountryField            | blank_label='Country*', null=False, blank=False                         |
+| postcode      | CharField               | max_length=20, null=True, blank=True                                    |
+| town_or_city  | CharField               | max_length=40, null=False, blank=False                                  |
+| address_line1 | CharField               | max_length=80, null=False, blank=False                                  |
+| address_line2 | CharField               | max_length=80, null=True, blank=True                                    |
+| date          | DateTimeField           | auto_now_add=True                                                       |
+| delivery_cost | DecimalField            | max_digits=6, decimal_places=2, null=False, default=0                   |
+| order_total   | DecimalField            | max_digits=10, decimal_places=2, null=False, default=0                  |
+| order_items   | DecimalField            | max_digits=4, decimal_places=2, null=False, default=0                   |
+| grand_total   | DecimalField            | max_digits=10, decimal_places=2, null=False, default=0                  |
+| original_bag  | TextField               | null=False, blank=False, default=""                                     |
+| stripe_pid    | CharField               | max_length=254, null=False, blank=False, default=""                     |
 
-For the Shop:
+##### OrderLineItem <!-- omit in toc -->
 
-```python
-class Cd(models.Model):
-    sku = models.CharField(max_length=10, null=True, blank=True)
-    name = models.CharField(max_length=254)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(null=True, blank=True)
-```
+| Key            | Type              | Validation                                                             |
+| -------------- | ----------------- | ---------------------------------------------------------------------- |
+| order          | ForeignKey: Order | null=False, blank=False, on_delete=models.CASCADE                      |
+| cd             | ForeignKey: Cd    | null=False, blank=False, on_delete=models.CASCADE                      |
+| quantity       | IntegerField      | null=False, blank=False, default=0                                     |
+| lineitem_total | DecimalField      | max_digits=6, decimal_places=2 null=False, blank=False, editable=False |
+
+#### For the profiles App <!-- omit in toc -->
+
+##### UserProfile <!-- omit in toc -->
+
+| Key                     | Type                | Validation                                                  |
+| ----------------------- | ------------------- | ----------------------------------------------------------- |
+| user                    | OneToOneField: User | on_delete=models.CASCADE                                    |
+| default_phone_number    | CharField           | max_length=20, null=True, blank=True                        |
+| default_street_address1 | CharField           | max_length=80, null=True, blank=True                        |
+| default_street_address2 | CharField           | max_length=80, null=True, blank=True                        |
+| default_town_or_city    | CharField           | max_length=40, null=True, blank=True                        |
+| default_postcode        | CharField           | max_length=20, null=True, blank=True                        |
+| default_country         | CountryField        | blank_label="Country", max_length=40, null=True, blank=True |
+
+#### For the Shop App <!-- omit in toc -->
+
+##### Cd <!-- omit in toc -->
+
+| Key         | Type         | Validation                             |
+| ----------- | ------------ | -------------------------------------- |
+| sku         | CharField    | max_length=10, null=True, blank=True   |
+| name        | CharField    | max_length=254                         |
+| description | TextField    |                                        |
+| price       | DecimalField | max_digits=6, decimal_places=2         |
+| image_url   | URLField     | max_length=1024, null=True, blank=True |
+| image       | ImageField   | null=True, blank=True                  |
 
 They have been altered and given extra functionality with methods, decorators and classes.
 
@@ -431,30 +429,30 @@ Since Heroku has an ephemeral file system all static files are stored in an AWS 
 
 ### Front-end Technologies
 
-[![html](https://img.shields.io/static/v1?label=HTML&message=5&color=E34F26&style=for-the-badge&logo=html5)](https://www.w3schools.com/html/)  HTML: Used for markup.
-[![css](https://img.shields.io/static/v1?label=CSS&message=3&color=1572B6&style=for-the-badge&logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS) CSS: Used to style the elements of the app.
-[![bootstrap](https://img.shields.io/static/v1?label=Bootstrap&message=4.5&style=for-the-badge&color=563D7C&logo=bootstrap)](https://getbootstrap.com/) Bootstrap: to make use of its grid system and responsiveness.
-[![javascript](https://img.shields.io/static/v1?label=JavaScript&message=ES6&style=for-the-badge&color=F7DF1E&logo=JavaScript)](https://www.w3schools.com/Js/) JavaScript: Used for the functionality of the app.
-[![jquery](https://img.shields.io/static/v1?label=jQuery&message=3.5.1&style=for-the-badge&color=0769AD&logo=jquery)](https://jquery.com/) jQuery, to access and manipulate the DOM.
-[![fontawesome](https://img.shields.io/static/v1?label=Fontawesome&message=5&style=for-the-badge&color=339AF0&logo=font-awesome)](https://fontawesome.com/) Font Awesome, for all icons.
-[![gsap](https://img.shields.io/static/v1?label=GSAP&message=3&style=for-the-badge&color=lime&logo=greensock)](https://greensock.com/gsap/) GSAP, for the animations on the landing page.
+- [![html](https://img.shields.io/static/v1?label=HTML&message=5&color=E34F26&style=for-the-badge&logo=html5)](https://www.w3schools.com/html/)  HTML: Used for markup.
+- [![css](https://img.shields.io/static/v1?label=CSS&message=3&color=1572B6&style=for-the-badge&logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS) CSS: Used to style the elements of the app.
+- [![bootstrap](https://img.shields.io/static/v1?label=Bootstrap&message=4.5&style=for-the-badge&color=563D7C&logo=bootstrap)](https://getbootstrap.com/) Bootstrap: to make use of its grid system and responsiveness.
+- [![javascript](https://img.shields.io/static/v1?label=JavaScript&message=ES6&style=for-the-badge&color=F7DF1E&logo=JavaScript)](https://www.w3schools.com/Js/) JavaScript: Used for the functionality of the app.
+- [![jquery](https://img.shields.io/static/v1?label=jQuery&message=3.5.1&style=for-the-badge&color=0769AD&logo=jquery)](https://jquery.com/) jQuery, to access and manipulate the DOM.
+- [![fontawesome](https://img.shields.io/static/v1?label=Fontawesome&message=5&style=for-the-badge&color=339AF0&logo=font-awesome)](https://fontawesome.com/) Font Awesome, for all icons.
+- [![gsap](https://img.shields.io/static/v1?label=GSAP&message=3&style=for-the-badge&color=lime&logo=greensock)](https://greensock.com/gsap/) GSAP, for the animations on the landing page.
 
 ### Back-end Technologies
 
-[![django](https://img.shields.io/static/v1?label=Django&style=for-the-badge&message=3.1&color=0C4B33&logo=django)](https://www.djangoproject.com/) Python, for all backend logic.
-[![python](https://img.shields.io/static/v1?label=Python&style=for-the-badge&message=3.7&color=3776AB&logo=PYTHON)](https://www.python.org/) Python, for all backend logic.
-[![allauth](https://img.shields.io/static/v1?label=Django-Allauth&style=for-the-badge&message=0.42&color=2980B9&logo=django)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
-[![storages](https://img.shields.io/static/v1?label=Django-Storages&style=for-the-badge&message=0.42&color=2980B9&logo=django)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
-[![pillow](https://img.shields.io/static/v1?label=Pillow&style=for-the-badge&message=0.42&color=2980B9&logo=pillow)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
-[![stripe](https://img.shields.io/static/v1?label=Stripe&style=for-the-badge&message=0.42&color=5469d4&logo=stripe)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
-[![aws](https://img.shields.io/static/v1?label=AWS&style=for-the-badge&message=0.42&color=2980B9&logo=aws)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
+- [![django](https://img.shields.io/static/v1?label=Django&style=for-the-badge&message=3.1&color=0C4B33&logo=django)](https://www.djangoproject.com/) Python, for all backend logic.
+- [![python](https://img.shields.io/static/v1?label=Python&style=for-the-badge&message=3.7&color=3776AB&logo=PYTHON)](https://www.python.org/) Python, for all backend logic.
+- [![allauth](https://img.shields.io/static/v1?label=Django-Allauth&style=for-the-badge&message=0.42&color=2980B9&logo=django)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
+- [![storages](https://img.shields.io/static/v1?label=Django-Storages&style=for-the-badge&message=0.42&color=2980B9&logo=django)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
+- [![pillow](https://img.shields.io/static/v1?label=Pillow&style=for-the-badge&message=0.42&color=2980B9&logo=pillow)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
+- [![stripe](https://img.shields.io/static/v1?label=Stripe&style=for-the-badge&message=0.42&color=5469d4&logo=stripe)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
+- [![aws](https://img.shields.io/static/v1?label=AWS&style=for-the-badge&message=0.42&color=2980B9&logo=aws)](https://django-allauth.readthedocs.io/en/latest/index.html) Python, for all backend logic.
 
 ### Other technologies
 
-[![vscode](https://img.shields.io/static/v1?label=VSCode&message=1.50.1&style=for-the-badge&color=007ACC&logo=visual-studio)](https://code.visualstudio.com/) Visual Studio Code: my IDE of choice for all my projects.
-[![github](https://img.shields.io/static/v1?label=GitHub&message=GBrachetta&color=181717&style=for-the-badge&logo=github)](https://github.com/GBrachetta)  GitHub: My remote storage for this project.
-[![heroku](https://img.shields.io/static/v1?label=Heroku&message=brachetta@me.com&color=430098&style=for-the-badge&logo=heroku)](https://www.heroku.com/) Heroku, the patform to deploy the app.
-[![balsamiq](https://img.shields.io/static/v1?label=Balsamiq&message=3.5.17&style=for-the-badge&color=7c0000&logo=balsamiq&?link=http://left&link=http://right)](https://balsamiq.com/) Balsamiq: to create the wireframes of this project.
+- [![vscode](https://img.shields.io/static/v1?label=VSCode&message=1.50.1&style=for-the-badge&color=007ACC&logo=visual-studio)](https://code.visualstudio.com/) Visual Studio Code: my IDE of choice for all my projects.
+- [![github](https://img.shields.io/static/v1?label=GitHub&message=GBrachetta&color=181717&style=for-the-badge&logo=github)](https://github.com/GBrachetta)  GitHub: My remote storage for this project.
+- [![heroku](https://img.shields.io/static/v1?label=Heroku&message=brachetta@me.com&color=430098&style=for-the-badge&logo=heroku)](https://www.heroku.com/) Heroku, the patform to deploy the app.
+- [![balsamiq](https://img.shields.io/static/v1?label=Balsamiq&message=3.5.17&style=for-the-badge&color=7c0000&logo=balsamiq&?link=http://left&link=http://right)](https://balsamiq.com/) Balsamiq: to create the wireframes of this project.
 
 
 <div align="right">
