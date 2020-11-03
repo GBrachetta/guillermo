@@ -37,15 +37,12 @@ Feel welcome to engage with the content in a visual and auditive way, discover m
     - [Album App](#album-app)
     - [Events App](#events-app)
     - [Shop App](#shop-app)
-    - [Profiles App](#profiles-app)
-      - [Login](#login)
-      - [Account management](#account-management)
-      - [Administrators](#administrators)
-    - [Checkout App](#checkout-app)
     - [Bag App](#bag-app)
-    - [Login](#login-1)
-    - [Account management](#account-management-1)
-    - [Administrators](#administrators-1)
+    - [Checkout App](#checkout-app)
+    - [Profiles App](#profiles-app)
+    - [Login](#login)
+    - [Account management](#account-management)
+    - [Administrators](#administrators)
     - [Images](#images)
   - [Future Goals](#future-goals)
 - [Information Architecture](#information-architecture)
@@ -251,12 +248,12 @@ Navigation items are pictographically underlined by them, social media and edit 
 The app consists of the following apps:
 
 - Home App
-- Events App
 - Album App
+- Events App
 - Shop App
-- Profiles App
-- Checkout App
 - Bag App
+- Checkout App
+- Profiles App
 
 #### Common Features
 
@@ -402,19 +399,42 @@ The app consists of the following apps:
 
 ![Shop](wireframes/shop.png)
 
-#### Profiles App
-
-##### Login
-
-##### Account management
-
-##### Administrators
-
-#### Checkout App
+- The Shop main page display a responsive grid containing the cards for each CD offered.
+- The cards consist of a header with the CD title, the CD image, the price and two buttons so either find out more about the particular CD or add a single unit to the shopping bag.
+- Administrators also will see two icons to edit and delete them.
+- More details about the CD can be also accessed by clicking on its image.
+- Hovering on the images displays a semi-transparent overlay giving a visual indication of it acting as an hyperlink.
+- Accessing the individual CD template by either clicking on the image or the button renders a bigger picture of the CD cover plus a written detail.
+- Additionally customers have in the detail template the option to add to their shopping bag a quantity different than one if they want, the button on the main shop bag attaching to the bag just unit as it's the most likely amount to be purchased for these types of products.
 
 #### Bag App
 
-![Shop](wireframes/shopping-bag.png)
+![Bag](wireframes/shopping-bag.png)
+
+- The Bag app displays a summary of the order prior to checking out.
+- Quantities can be adjusted, or line items entirely removed.
+- Delivery cost is displayed during this process, so the user is enticed to buy additional items to get free delivery.
+- When sufficient items are added to the bag, the delivery cost reflects that updating accordingly.
+- The two buttons at the bottom take the user either back to the shop or to the secure checkout in order to complete the purchase.
+
+#### Checkout App
+
+![Checkout](wireframes/checkout.png)
+
+- The Checkout app renders two columns with a form on the left and the order summary on the right.
+- If the user is authenticated, the information already present in the database will populate the form, although the user can update it.
+- If the user is not authenticated the user will be invited to fill out the form and make the purchase as a guest, or create an account or log in.
+- The checkout system implements [Stripe](https://stripe.com/en-nl) in its testing (developing) version.
+- To test checkout, users can enter `4242 4242 4242 4242` for the credit card number, any future date and any 3 digits for the CVC.
+- Webhooks have been put in place, so the order is created only after Stripe accepts the payment as valid.
+- Once the Webhook return a success status, the system notifies both the customer and the admin of the site about a new order created, sending each one of them a differently customised email through an smtp server.
+- A message also pops briefly up to let the user know immediately that their order has been successful.
+- Users have a last possibility to go back and review and adjust their bag.
+- There's a clear message letting the user know how much will they be charged.
+- On success, the system renders a new template with a full summary of the order and a thank you message.
+- The success page also displays a button to go back to the shop.
+
+#### Profiles App
 
 #### Login
 
