@@ -17,11 +17,17 @@
         {% endif %}
         <div class="col-3 text-left px-1"><small>{{ media.name }}</small></div>
         <div class="col-4 col-md-5 text-left px-1"><small>{{ media.caption }}</small></div>
-        <div class="col-3 col-md-2 text-right px-1">
-            <small class="font-weight-bold">
-                <a href="{% url 'edit_media' media.id %}">Edit</a> |
-                <a class="text-danger" href="{% url 'delete_media' media.id %}">Delete</a>
-            </small>
+        <div class="col-3 col-md-2 text-right px-1 font-weight-bold">
+            <a href="{% url 'edit_media' media.id %}">
+                <span class="icon">
+                    <i class="fas fa-edit"></i>
+                </span>
+            </a> |
+            <a class="text-danger" href="{% url 'delete_media' media.id %}">
+                <span class="icon">
+                    <i class="fas fa-trash"></i>
+                </span>
+            </a>
         </div>
         <div class="col-12">
             <hr>

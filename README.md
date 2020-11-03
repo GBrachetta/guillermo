@@ -1,11 +1,18 @@
-# [Guillermo Brachetta](https://guillermo.herokuapp.com/) <!-- omit in toc -->
+# Guillermo Brachetta <!-- omit in toc -->
+
+## **[Live website here](https://guillermo-brachetta.herokuapp.com/)** <!-- omit in toc -->
 
 ![Mockup](wireframes/mockup.png)
+
+**Guillermo Brachetta**, harpsichordist, scholar and baroque music specialist showcases in this site his portfolio and connects with people interested in his work, activities, personal life and recordings he has to offer.
+
+Guillermo shares his love for art, inviting users to discover the sophistication of an expression that despite having been created centuries past, are kept as alive as ever through the passion of artists across the world.
+
+Feel welcome to engage with the content in a visual and auditive way, discover more about the artist, be aware of his future concerts, get to know him more closely through text, pictures and video and purchase his albums.
 
 ## Table of Contents
 
 - [Table of Contents](#table-of-contents)
-- [Introduction](#introduction)
 - [UX](#ux)
   - [What is the purpose of the app](#what-is-the-purpose-of-the-app)
   - [Who is this website for](#who-is-this-website-for)
@@ -21,7 +28,6 @@
   - [Buttons](#buttons)
   - [Colors](#colors)
   - [Fonts](#fonts)
-  - [Bootstrap](#bootstrap)
 - [Wireframes](#wireframes)
 - [Features](#features)
   - [Existing Features](#existing-features)
@@ -63,27 +69,11 @@
 
 ---
 
-## Introduction
-
-The app lets a musician showcase their portfolio and connect with people interested in their work, activities, personal life and recordings they offer on sale.
-
-Users can engage with this content in a visual and auditive way, discover more about the artist, be aware of future concerts, get to know them more closely through text, pictures and video and purchase their albums.
-
-It also allows them to register, log in, and have an overview of their order history.
-
-The app gives administrators a very intuitive way to add, edit and delete media to the album (video and pictures), CDs to the shop and events to the calendar.
-
-The live version of the app can be found **[here](https://guillermo-brachetta.herokuapp.com/)**
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ Back To Top</a></b>
-</div>
-
 ## UX
 
 ### What is the purpose of the app
 
-The ultimate goal of the app is to encourage people to discover the artist and connect to them. The app informs them about future and past events, offers media for them to get to know the artist and their art and purchase their recordings.
+The ultimate goal of the app is to encourage people to discover the artist and connect with him. The app informs users about future and past events, offers media for them to get to know the artist and his art and purchase his recordings.
 
 ### Who is this website for
 
@@ -91,19 +81,19 @@ This website is intended for the author, to showcase his work and activities, an
 
 ### Who are the primary target groups
 
-The website is aimed at a general public, the target in general ranging from young adults onwards, in general educated people and with an inclination about classical (baroque) music.
+The website is aimed at a general public, the target in general ranging from young adults onwards, in general educated people and with an inclination to enjoy classical (baroque) music.
 
-Concert organisers will also benefit by being aware of the artist's calendar of activities and having a clear way to contact them.
+Concert organisers will also benefit by being aware of the artist's calendar of activities and having a clear way to contact him.
 
 ### What is it that they want to achieve
 
-Users will either want to share find information about the artist, know when they could attend to one of their concerts and buy their recordings.
+Users will either want to find information about the artist, know when they could attend to one of his concerts and buy his recordings.
 
 ### How is my project the best way to help them achieve those things
 
-The app provides as much information about the artist as possible while keeping it decluttered. The web is the most appropriate vector to share multimedia such as sound, images and video, and gives the user the chance to purchase CDs and the site owner an effective channel to promote themselves.
+The app provides as much information about the artist as possible while keeping it decluttered. The web is the most appropriate vector to share multimedia such as sound, images and video, and gives the user the chance to purchase CDs and the site owner an effective channel to promote himself.
 
-The app features information on several aspects, professional and personal, aimed at creating a relationship between the site owner and the visitor.
+The app features information on several aspects, professional and personal, aimed at creating a relationship between the artist and the visitor.
 
 Users can create a profile if they are interested in purchasing a CD, but the app lets anonymous users to freely browse all information in it.
 
@@ -123,20 +113,20 @@ No anonymous writing to the database is permitted by the app.
 
 The main goals of the site for the owner are:
 
-- Showcase their activities.
-- Let the visitor know about who they are, what they do and when.
-- Offer a platform to display their work and sell it.
+- Showcase his activities.
+- Let the visitor know about who he is, what he does and when.
+- Offer a platform to display his work and sell it.
 - Give a clear way to get in touch and be contacted.
-- Promote their concerts and activities by offering clear information of past and future engagements.
+- Promote his concerts and activities by offering clear information of past and future engagements.
 - Spread the love for baroque music in general and harpsichord in particular.
 
 The main goals of the site for the visitors are:
 
 - Get to know and connect with the artist.
 - Know clearly where and when they can attend one of their concerts.
-- Discover how they present themselves by looking at the media album.
-- Have a preview of their art by watching their videos.
-- Discover what CDs they offer on sale and be able to purchase them from home.
+- Discover how he presents himself by looking at the media album.
+- Have a preview of his art by watching his videos.
+- Discover what CDs he offers on sale and be able to securely purchase them from home.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -146,23 +136,28 @@ The main goals of the site for the visitors are:
 
 ### For the visitor
 
-| As a user | I would like to                                                    | so                                                    |
-| --------- | ------------------------------------------------------------------ | ----------------------------------------------------- |
-| As a user | I would like to be visually engaged when I land on the site        | so I desire to stay.                                  |
-| As a user | I would like to know who the artist is                             | so I can feel connected to them                       |
-| As a user | I would like to be able to see what their looks are                | so I can recognise him                                |
-| As a user | I would like to be able to see them in photo and video             | so I can know what they look like                     |
-| As a user | I would like to be able to listen to what they do                  | so I know their artistry                              |
-| As a user | I would like to know his biography and experience                  | so I know what supports his art                       |
-| As a user | I would like to know what they thinks about being an artist        | so I can feel related as a person                     |
-| As a user | I would like to be able to easily find information about events    | so I can plan attending                               |
-| As a user | I would like to know when and were have them performed before      | so I know their experience                            |
-| As a user | I would like to be able to see what CDs has the artist recorded    | so I can decide a purchase                            |
-| As a user | I would like to be able to purchase securely the CDs               | so I feel peace of mind about my personal information |
-| As a user | I would like to be able to register an account                     | so I can make effortless future purchases             |
-| As a user | I would like to be able to see my order history                    | so I can make sure to know what I have purchased      |
-| As a user | I would like to be able to update my user details                  | so I can be sure my delivery information is accurate  |
-| As a user | I would like to see clearly what's in my shopping bag at all times | so I don't forget to checkout                         |
+| As a user | I would like to                                                      | so                                                     |
+| --------- | -------------------------------------------------------------------- | ------------------------------------------------------ |
+| As a user | I would like to be visually engaged when I land on the site          | so I desire to stay.                                   |
+| As a user | I would like to have a pleasant experience in whichever device I use | so I can visit regardless of where I do it from.       |
+| As a user | I would like to navigate the site easily                             | so I can quickly find what I look for.                 |
+| As a user | I would like to easily find social media links                       | so I can quickly explore further.                      |
+| As a user | I would like to always have access to contact information            | so I can get in touch from whichever page I'm in.      |
+| As a user | I would like to know who the artist is                               | so I can feel connected to them.                       |
+| As a user | I would like to be able to see what their looks are                  | so I can recognise him.                                |
+| As a user | I would like to be able to see them in photo and video               | so I can know what they look like.                     |
+| As a user | I would like to be able to listen to what they do                    | so I know their artistry.                              |
+| As a user | I would like to know his biography and experience                    | so I know what supports his art.                       |
+| As a user | I would like to know what they thinks about being an artist          | so I can feel related as a person.                     |
+| As a user | I would like to be able to easily find information about events      | so I can plan attending one.                           |
+| As a user | I would like to know when and were have them performed before        | so I know their experience.                            |
+| As a user | I would like to be able to see what CDs has the artist recorded      | so I can decide a purchase.                            |
+| As a user | I would like to be able to purchase securely the CDs                 | so I feel peace of mind about my personal information. |
+| As a user | I would like to be able to register an account                       | so I can make effortless future purchases.             |
+| As a user | I would like to be able to reset my password                         | so I can log in in case I forgot it.                   |
+| As a user | I would like to be able to see my order history                      | so I can make sure to know what I have purchased.      |
+| As a user | I would like to be able to update my user details                    | so I can be sure my delivery information is accurate.  |
+| As a user | I would like to see clearly what's in my shopping bag at all times   | so I don't forget to checkout.                         |
 
 ### For the site owner
 
@@ -187,6 +182,8 @@ The main goals of the site for the visitors are:
 
 ### General
 
+I chose [Bootstrap](https://getbootstrap.com/) (v.4.5) for my CSS framework for its solidity, flexibility and practicality in creating and adapting its many possible elements.
+
 The navigation and footer are present throughout the site and possess a strong iconographic characteristic to accentuate the purpose.
 
 The landing page relies basically on big background images that display the artist's personal views about his passion. A biography can be accessed at the end of the images on a separate modal.
@@ -195,22 +192,26 @@ The rest of the content has a more relaxed approach, focusing on individual visu
 
 ### Buttons
 
-Buttons have been kept discreet and monochromatic, with a clear purpose of focussing on what they do without further distractions for the visitor.
+Buttons have been kept discreet, with a clear purpose of focussing on what they do without further distractions for the visitor. They only use the main two colours of the site.
+
+#### Unhovered <!-- omit in toc -->
+
+![unhovered](wireframes/buttons-unhovered.png)
+
+#### Hovered <!-- omit in toc -->
+
+![unhovered](wireframes/buttons-hovered.png)
 
 ### Colors
 
-The color palette has been kept to a minimum, having chosen dark gray for navbar and footer, white for background and a shade of dark yellow for nav items and to highlight relevant information.
-Dark red has been chosen for the logo as the only occurrence of that color to differentiate it, and a shade of magenta for accenting some keywords.
+The color palette has been kept to a minimum, having chosen dark gray for navbar and footer, white for background and a shade of dark yellow for nav items, hovered buttons and to highlight relevant information.
+Dark red has been chosen for the logo as the only occurrence of that color to differentiate it, as it's been the image of the artist for a period of time, and a shade of magenta for accenting some keywords on the landing page.
 
 ![Color Palette](wireframes/palette.png)
 
 ### Fonts
 
 Montserrat was the font of choice for its excellent legibility specially on small screens and timeless elegance.
-
-### Bootstrap
-
-I chose Bootstrap (v.4.5) for my CSS framework.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>

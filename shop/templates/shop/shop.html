@@ -53,10 +53,18 @@
                                 <div class="col text-center">
                                     <p class="font-weight-bold mb-0 py-3">€{{ cd.price }}</p>
                                     {% if request.user.is_superuser %}
-                                    <small class="ml-3 font-weight-bold">
-                                        <a href="{% url 'edit_cd' cd.id %}">Edit</a> |
-                                        <a class="text-danger" href="{% url 'delete_cd' cd.id %}">Delete</a>
-                                    </small>
+                                    <p class="ml-3 font-weight-bold">
+                                        <a href="{% url 'edit_cd' cd.id %}">
+                                            <span class="icon">
+                                                <i class="fas fa-edit"></i>
+                                            </span>
+                                        </a> |
+                                        <a class="text-danger" href="{% url 'delete_cd' cd.id %}">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                        </a>
+                                    </p>
                                     {% endif %}
                                 </div>
                             </div>

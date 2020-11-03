@@ -15,10 +15,18 @@
                 <div class="col-3 bg-white text-left py-1">
                     <small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small>
                     {% if request.user.is_superuser %}
-                    <p><small class="font-weight-bold">
-                            <a href="{% url 'edit_event' event.id %}">Edit</a> |
-                            <a class="text-danger" href="{% url 'delete_event' event.id %}">Delete</a>
-                        </small></p>
+                    <p class="font-weight-bold">
+                        <a href="{% url 'edit_event' event.id %}">
+                            <span class="icon">
+                                <i class="fas fa-edit"></i>
+                            </span>
+                        </a> |
+                        <a class="text-danger" href="{% url 'delete_event' event.id %}">
+                            <span class="icon">
+                                <i class="fas fa-trash"></i>
+                            </span>
+                        </a>
+                    </p>
                     {% endif %}
                 </div>
                 <div class="col-3 {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
@@ -45,10 +53,18 @@
                 <div class="col-3  bg-white text-left py-1">
                     <small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small>
                     {% if request.user.is_superuser %}
-                    <p><small class="font-weight-bold">
-                            <a href="{% url 'edit_event' event.id %}">Edit</a> |
-                            <a class="text-danger" href="{% url 'delete_event' event.id %}">Delete</a>
-                        </small></p>
+                    <p class="font-weight-bold">
+                        <a href="{% url 'edit_event' event.id %}">
+                            <span class="icon">
+                                <i class="fas fa-edit"></i>
+                            </span>
+                        </a> |
+                        <a class="text-danger" href="{% url 'delete_event' event.id %}">
+                            <span class="icon">
+                                <i class="fas fa-trash"></i>
+                            </span>
+                        </a>
+                    </p>
                     {% endif %}
                 </div>
                 <div class="col-3  {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>

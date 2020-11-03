@@ -1,6 +1,6 @@
 <div class="container-fluid d-block d-lg-none">
     <div class="row mx-2">
-        <div class="col-12 py-3"><strong>Upcoming Events</strong></div>
+        <div class="col-12 py-1 my-3 header-upcoming"><strong>Upcoming Events</strong></div>
         {% for event in calendar %}
         {% if event.is_future %}
         <div class="col-3 text-info text-left pl-1 text-grid-events"><small>Date</small></div>
@@ -9,21 +9,33 @@
         <div class="col-9 {% if event.event_url %}link-venue{% endif %} text-left text-grid-events">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
         <div class="col-3 text-info text-left pl-1 text-grid-events"><small>Programme</small></div>
         <div class="col-9 text-left text-grid-events">{{ event.programme }}</div>
-        <div class="col-12 events-divider"></div>
         {% if request.user.is_superuser %}
-        <div class="col-12 mb-5 text-left pl-0">
+        <div class="col-6 mb-0 text-left px-0">
             <small class="font-weight-bold">
-                <a href="{% url 'edit_event' event.id %}">Edit</a> |
-                <a class="text-danger" href="{% url 'delete_event' event.id %}">Delete</a>
+                <a href="{% url 'edit_event' event.id %}">
+                    <span class="icon">
+                        <i class="fas fa-edit"></i>
+                    </span>
+                </a>
+            </small>
+        </div>
+        <div class="col-6 mb-0 text-right px-0">
+            <small class="font-weight-bold">
+                <a class="text-danger" href="{% url 'delete_event' event.id %}">
+                    <span class="icon">
+                        <i class="fas fa-trash"></i>
+                    </span>
+                </a>
             </small>
         </div>
         {% endif %}
+        <div class="col-12 events-divider"></div>
         {% endif %}
         {% endfor %}
     </div>
 
     <div class="row mx-2">
-        <div class="col-12 py-3"><strong>Past Events</strong></div>
+        <div class="col-12 py-1 my-3 header-past"><strong class="text-light">Past Events</strong></div>
         {% for event in calendar %}
         {% if event.is_due %}
         <div class="col-3 text-dark text-left pl-1 text-grid-events"><small>Date</small></div>
@@ -33,15 +45,27 @@
         <div class="col-3 text-dark text-left pl-1 text-grid-events"><small>Programme</small></div>
         <div class="col-9 text-left text-grid-events">{{ event.programme }}</div>
         <div class="col-12 divider"></div>
-        <div class="col-12 events-divider"></div>
         {% if request.user.is_superuser %}
-        <div class="col-12 mb-5 text-left pl-0">
+        <div class="col-6 mb-0 text-left px-0">
             <small class="font-weight-bold">
-                <a href="{% url 'edit_event' event.id %}">Edit</a> |
-                <a class="text-danger" href="{% url 'delete_event' event.id %}">Delete</a>
+                <a href="{% url 'edit_event' event.id %}">
+                    <span class="icon">
+                        <i class="fas fa-edit"></i>
+                    </span>
+                </a>
+            </small>
+        </div>
+        <div class="col-6 mb-0 text-right px-0">
+            <small class="font-weight-bold">
+                <a class="text-danger" href="{% url 'delete_event' event.id %}">
+                    <span class="icon">
+                        <i class="fas fa-trash"></i>
+                    </span>
+                </a>
             </small>
         </div>
         {% endif %}
+        <div class="col-12 events-divider"></div>
         {% endif %}
         {% endfor %}
     </div>
