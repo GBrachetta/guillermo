@@ -281,6 +281,8 @@ The app consists of the following apps:
 
 #### Bag App
 
+![Shop](wireframes/shopping-bag.png)
+
 #### Login
 
 Users can create an account and log in.
