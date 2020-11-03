@@ -14,6 +14,8 @@
   - [How is my project the best way to help them achieve those things](#how-is-my-project-the-best-way-to-help-them-achieve-those-things)
 - [Project Goals](#project-goals)
 - [User Stories](#user-stories)
+  - [As a visitor](#as-a-visitor)
+  - [As a site owner](#as-a-site-owner)
 - [Design Choices](#design-choices)
   - [General](#general)
   - [Buttons](#buttons)
@@ -144,21 +146,27 @@ The main goals of the site for the visitors are:
 
 ## User Stories
 
-- As a user, I would like to be visually engaged when I land on the site.
-- As a user, I would like to know who the artist is.
-- As a user, I would like to be able to see what their looks are by visiting a media gallery.
-- As a user, I would like to be able to see them in video by visiting a media gallery.
-- As a user, I would like to be able to listen to what they do by visiting a media gallery.
-- As a user, I would like to know his biography and experience.
-- As a user, I would like to know what they thinks about being an artist.
-- As a user, I would like to be able to easily find information about events, well organised and displaying date, time and venue.
-- As a user, I would like to know when and were have them performed before.
-- As a user, I would like to be able to see what CDs has the artist recorded.
-- As a user, I would like to be able to purchase securely the CDs.
-- As a user, I would like to be able to register an account so I can make future purchases without needing to enter my customer information again.
-- As a user, I would like to be able to see my order history.
-- As a user, I would like to be able to update my user details.
-- As a user, I would like to see clearly what's in my shopping bag at all times.
+### As a visitor
+
+| As a user | I would like to                                                    | so                                                     |
+|-----------|--------------------------------------------------------------------|--------------------------------------------------------|
+| As a user | I would like to be visually engaged when I land on the site        | so I desire to stay.                                   |
+| As a user | I would like to know who the artist is                             | so I can feel connected to them                        |
+| As a user | I would like to be able to see what their looks are                | so I can recognise him                                 |
+| As a user | I would like to be able to see them in photo and video             | so I can know what they look like                      |
+| As a user | I would like to be able to listen to what they do                  | so I know their artistry                               |
+| As a user | I would like to know his biography and experience                  | so I know what support his art                         |
+| As a user | I would like to know what they thinks about being an artist        | so I can feel related as a person                      |
+| As a user | I would like to be able to easily find information about events    | so I can plan attending                                |
+| As a user | I would like to know when and were have them performed before      | so I know their experience                             |
+| As a user | I would like to be able to see what CDs has the artist recorded    | so I can decide a purchase                             |
+| As a user | I would like to be able to purchase securely the CDs               | so I feel peace of mind about my personall information |
+| As a user | I would like to be able to register an account                     | so I can make effortless future purchases              |
+| As a user | I would like to be able to see my order history                    | so I can make sure to know what I have purchased       |
+| As a user | I would like to be able to update my user details                  | so I can be sure my delivery information is accurate   |
+| As a user | I would like to see clearly what's in my shopping bag at all times | so I don't forget to checkout  
+                        |
+### As a site owner
 
 - As the site owner, I would like to be able to add media (video and photo) and have it automatically added to my album with no extra effort.
 - As the site owner, I would like to be able to edit media (video and photo) and have it automatically update my album with no extra effort.
