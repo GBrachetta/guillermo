@@ -259,11 +259,11 @@ The app consists of the following apps:
 
 #### Events App
 
-![Landing Page](wireframes/gallery.gif)
+![Events](wireframes/events.png)
 
 #### Album App
 
-![Events](wireframes/album.png)
+![Landing Page](wireframes/gallery.gif)
 
 #### Shop App
 
