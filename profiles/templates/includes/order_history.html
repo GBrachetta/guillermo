@@ -4,10 +4,10 @@
         {% if order_count <= 0 %}
         <p>You haven't placed any orders yet.</p>
         {% else %}
-        <div class="col-2 bg-light text-dark text-left d-none d-md-block border-bottom font-weight-bold">Order #</div>
-        <div class="col-2 bg-light text-dark text-left d-none d-md-block border-bottom font-weight-bold">Date</div>
-        <div class="col-6 bg-light text-dark text-left d-none d-md-block border-bottom font-weight-bold">Items</div>
-        <div class="col-2 bg-light text-dark text-left d-none d-md-block border-bottom font-weight-bold">Total</div>
+        <div class="col-2 text-dark text-left d-none d-md-block border-bottom font-weight-bold">Order #</div>
+        <div class="col-2 text-dark text-left d-none d-md-block border-bottom font-weight-bold">Date</div>
+        <div class="col-6 text-dark text-left d-none d-md-block border-bottom font-weight-bold">Items</div>
+        <div class="col-2 text-dark text-left d-none d-md-block border-bottom font-weight-bold">Total</div>
         {% for order in orders %}
 
         <div class="col-3 text-info text-left pl-1 text-grid-events d-md-none">Order #</div>
