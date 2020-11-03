@@ -24,11 +24,13 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
+    order_count = orders.count()
 
     template = "profiles/profile.html"
     context = {
         "form": form,
         "orders": reversed(orders),
+        "order_count": order_count,
         "on_profile_page": True,
         "profile": "active",
     }

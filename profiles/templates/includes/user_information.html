@@ -1,0 +1,21 @@
+<div class="col-12 py-1 my-3 header-upcoming"><strong>User Information</strong></div>
+<div class="card border-0">
+    <div class="card-body px-1 px-sm-3">
+        <div class="px-0">
+            <p class="card-text text-left"><strong>Username:</strong>
+                {{ user.username }}
+            </p>
+            <p class="card-text border-bottom pb-4 text-left"><strong>Email:</strong>
+                {{ user.email }}
+            </p>
+        </div>
+        <div class="pt-3">
+            <a href="{% url 'account_change_password' %}" class="btn btn-sm btn-black small rounded-0 float-left">
+                Change password
+            </a>
+            <a href="{% url 'account_email' %}" class="btn btn-outline-black btn-sm text-white rounded-0 float-right">
+                Manage emails
+            </a>
+        </div>
+    </div>
+</div>
