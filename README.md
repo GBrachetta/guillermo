@@ -34,17 +34,17 @@ Feel welcome to engage with the content in a visual and auditive way, discover m
   - [Existing Features](#existing-features)
     - [Common Features](#common-features)
     - [Home App](#home-app)
-    - [Events App](#events-app)
     - [Album App](#album-app)
+    - [Events App](#events-app)
     - [Shop App](#shop-app)
     - [Profiles App](#profiles-app)
       - [Login](#login)
-      - [Account managment](#account-managment)
+      - [Account management](#account-management)
       - [Administrators](#administrators)
     - [Checkout App](#checkout-app)
     - [Bag App](#bag-app)
     - [Login](#login-1)
-    - [Account managment](#account-managment-1)
+    - [Account management](#account-management-1)
     - [Administrators](#administrators-1)
     - [Images](#images)
   - [Future Goals](#future-goals)
@@ -266,77 +266,137 @@ The app consists of the following apps:
 
 ![Navbar Collapsed](wireframes/navbar-collapsed.png)
 
-The navbar is fixed at the top and always visible and contains quick and easy access to all content.
-
-The logo is svg injected directly in the template and serves as a "Home" button.
-
-The shopping bag icon indicates the presence of items to be checked out, even when the navbar is collapsed, as a reminder for the user.
-
-The navbar always reflects by a different colour the "active" or current page.
-
-The "Profile" navigation item changes to the name of the current visitor if they are logged in, and displays in its dropdown menu relevant options for a logged in user. Otherwise it gives the user the choice of registering or logging in.
-
-Admins have several extra options in the dropdown, such as manage photo and video, events and shop items.
+- The navbar is fixed at the top and always visible and contains quick and easy access to all content.
+- The logo is svg injected directly in the template and serves as a "Home" button.
+- The shopping bag icon indicates the presence of items to be checked out, even when the navbar is collapsed, as a reminder for the user.
+- The navbar always reflects by a different colour the "active" or current page.
+- The "Profile" navigation item changes to the name of the current visitor if they are logged in, and displays in its dropdown menu relevant options for a logged in user. Otherwise it gives the user the choice of registering or logging in.
+- Admins have several extra options in the dropdown, such as manage photo and video, events and shop items.
 
 ##### Footer <!-- omit in toc -->
 
 ![Footer](wireframes/footer.png)
 
-The footer is sticking to the bottom on all pages and shares theme with the navbar.
+- The footer is sticking to the bottom on all pages and shares theme with the navbar.
+- It's divided in two rows with two columns each (desktop view) displaying a disclaimer, contact information, copyright information and social media icons, respectively.
+- On mobile view the layout changes to 4 stacked rows for the same content.
+- The Contact link opens a modal with a contact form to send an email from the app. The contact form populates with the current user information if they are logged in.
+- JQuery was used in order to render the form in the modal and access the view, since I didn't want users to navigate to a new template to send the email:
 
-It's divided in two rows with two columns each (desktop view) displaying a disclaimer, contact information, copyright information and social media icons, respectively.
+  ```js
+  $(function () {
+      $("#trigger-contact").on("click", () => {
+          $("#form-modal").load("/contact", () => {
+              $("#contact").modal("show");
+          });
+      });
+  });
+  ```
 
-On mobile view the layout changes to 4 stacked rows for the same content.
+- To prevent a potential user to access the view directly from the address bar, vanilla JS was put in place to redirect them to the homepage in that event (JQuery is not loaded directly in the modal), because accessing the contact url would result in an unformatted template since as it is a modal, it doesn't inherit from the base template.
 
-The Contact link opens a modal with a contact form to send an email from the app. The contact form populates with the current user information if they are logged in.
+  ```js
+  if (window.location.href.indexOf("contact") > -1) {
+      window.location.replace("https://guillermo-brachetta.herokuapp.com");
+  }
+  ```
 
-JQuery was used in order to render the form in the modal and access the view, since I didn't want users to navigate to a new template to send the email:
-
-```js
-$(function () {
-    $("#trigger-contact").on("click", () => {
-        $("#form-modal").load("/contact", () => {
-            $("#contact").modal("show");
-        });
-    });
-});
-```
-
-To prevent a potential user to access the view directly from the address bar, vanilla JS was put in place to redirect them to the homepage in that event, because accessing the contact url would result in an unformatted template (as it is a modal, it doesn't inherit from the base template)
-
-```js
-if (window.location.href.indexOf("contact") > -1) {
-    window.location.replace("https://guillermo-brachetta.herokuapp.com");
-}
-```
-
-Social media links open an external page.
+- Social media links open an external page.
 
 #### Home App
 
 ![Landing Page](wireframes/landing-page.gif)
 
-The landing page is the first content the user sees and as such it has to make a strong impression.
+- The landing page is the first content the user sees and as such it has to make a strong impression.
+- I decided to use 4 stacked divs with an image background covering the full viewport on each of them.
+- There are several animations in place, including asynchronous parallax, overlays changing opacity and content translating and changing opacity.
+- It was a challenge to make sure this was usable on all platforms, since some of them (particularly iOS) have a different approach when it comes to consider what 'viewport' is.
+- [GSAP](https://greensock.com/) and [Parallax.js](https://pixelcog.github.io/parallax.js/) were used to deal with those, as each serve a different purpose and sort the issues encountered during development across platforms.
+- The full process and troubleshooting of this is detailed in the [testing](TESTING.md) page.
+- The landing page uses bold images of the artist and the content is of personal tone, attempting to make an emotional connection with the user.
+- There's a link at the end of the content that opens a modal with the artist's biography, since I considered unnecessary to have a dedicated template for that content.
 
-I decided to use 4 stacked divs with an image background covering the full viewport on each of them.
+#### Album App
 
-There are several animations in place, including asyncronous parallax, overlays changing opacity and content translating and changing opacity.
+![Landing Page](wireframes/gallery.gif)
 
-It was a challenge to make sure this was usable on all platforms, since some of them (particularly iOS) have a different approach when it comes to consider what 'viewport' is.
+- The Album app (gallery) displays a dynamic photo and video gallery.
+- The gallery was created with [Nanogallery2](https://nanogallery2.nanostudio.org/), which allows for a very elegant result and a lot of customisation.
+- The grid was built using a `masonry` style, and it renders randomly on every load, so the gallery looks always different.
+- Hovering on the thumbnails shows a `photo black and white` effect.
+- On scroll, the thumbnails render with animation.
+- Clicking a thumbnail displays a lightbox with the full image, relevant information such as file name and caption, and several buttons to download, resize, zoom in and out and share the image, also through social media.
+- The lightbox displays at the bottom a row of small thumbnails for a preview of other images in the album.
+- The gallery can be set by a button to slide through the album automatically.
+- The gallery is capable of playing video as well (YouTube, Vimeo) and created its thumbnail dynamically taking it from the one on the server side.
+- Administrators have here as well an additional button to add new media, and a list of all images in the gallery with a small thumbnail that facilitates editing, replacing or deleting it.
 
-The full process and troubleshooting of this is detailed in the [testing](TESTING.md) page.
+![album-admins](wireframes/album-admins.png)
 
-The landing page uses bold images of the artist and the content is of personal tone, attempting to make an emotional connection with the user.
+- Customisation of Nanogallery2 is achieved in the template with a set of value-data pairs in the `datananogallery2` attribute:
 
-There's a link at the end of the content that opens a modal with the artist's biography, since I considered clumsy to have a dedicated template for that content.
+  ```html
+  <div id="nanogallery2" data-nanogallery2='{
+                      "thumbnailWidth": "400 XS200 SM300",
+                      "thumbnailHeight": "auto XSauto SMauto",
+                      "thumbnailBaseGridHeight" : 100,
+                      "thumbnailGutterWidth" : 2,
+                      "thumbnailGutterHeight" : 2,
+                      "thumbnailBorderHorizontal" : 0,
+                      "thumbnailBorderVertical" : 0,
+                      "gallerySorting": "random",
+                      "galleryDisplayTransition": "slideUp",
+                      "galleryResizeAnimation": true,
+                      "galleryDisplayTransitionDuration": 1000,
+                      "thumbnailDisplayOrder": "random",
+                      "thumbnailDisplayTransition": "scaleUp",
+                      "thumbnailDisplayTransitionDuration": 500,
+                      "thumbnailHoverEffect2": "imageGrayOn",
+                      "viewerToolbar": {
+                          "display": true,
+                          "standard": "minimizeButton, shareButton, fullscreenButton",
+                          "minimized": "minimizeButton, fullscreenButton, downloadButton, infoButton"
+                          },
+                          "viewerTools": {
+                              "topLeft": "label",
+                              "topRight": "playPauseButton, zoomButton, fullscreenButton, closeButton"
+                          },
+                          "thumbnailLabel": {
+                              "display": false,
+                              "valign": "bottom",
+                              "position": "overImage",
+                              "hideIcons": false,
+                              "displayDescription": true
+                          }
+                      }'>
+  ```
+
+- Many more combinations are possible and the plugin is extremely flexible.
 
 #### Events App
 
 ![Events](wireframes/events.png)
 
-#### Album App
+- The events app displays future and past events organised in two different grids respectively.
+- As the admin adds new events through his dedicated view, they are placed in the correct order and displayed in reverse order so the user can see immediately which are the events happening sooner.
+- To render events in their corresponding grid, the following property was attached to the Events class:
 
-![Landing Page](wireframes/gallery.gif)
+```python
+    @property
+    def is_due(self):
+        """ Allows to display the event in its corresponding grid """
+        return date.today() > self.date
+
+    @property
+    def is_future(self):
+        """Allows to display the event in its corresponding grid"""
+        return date.today() <= self.date
+```
+
+- By that I could use `{% if event.is_due %}` to place events accordingly.
+- The URL to an external page (venue) is optional and opens a blank page.
+- Administrators have links after each event that allow him to either edit or delete the record.
+- Administrators have as well an additional button to add a new event.
 
 #### Shop App
 
@@ -346,7 +406,7 @@ There's a link at the end of the content that opens a modal with the artist's bi
 
 ##### Login
 
-##### Account managment
+##### Account management
 
 ##### Administrators
 
@@ -361,14 +421,14 @@ There's a link at the end of the content that opens a modal with the artist's bi
 Users can create an account and log in.
 This gives registered users the possibility to purchase items from the shop.
 
-#### Account managment
+#### Account management
 
 - Users can edit their account and change their information.
 - Users can request a password reset in case they forget it.
 
 #### Administrators
 
-  - Admins can add, edit and delete any item in the database without exiting the app (except deleting users).
+- Admins can add, edit and delete any item in the database without exiting the app (except deleting users).
 
 #### Images
 
@@ -379,6 +439,7 @@ Admins can upload CD photos using the interface provided. In case a photo is not
 ### Future Goals
 
 Upon assessment of this app, future goals will be:
+
 - Use the live version of Stripe to accept payments.
 - Offer customers more payment methods, such as debit card, PayPal or money transfer.
 - Put in place stock control.
@@ -516,9 +577,8 @@ Since Heroku has an ephemeral file system all static files are stored in an AWS 
 
 - [![vscode](https://img.shields.io/static/v1?label=VSCode&message=1.50.1&style=for-the-badge&color=007ACC&logo=visual-studio)](https://code.visualstudio.com/) Visual Studio Code: my IDE of choice for all my projects.
 - [![github](https://img.shields.io/static/v1?label=GitHub&message=GBrachetta&color=181717&style=for-the-badge&logo=github)](https://github.com/GBrachetta)  GitHub: My remote storage for this project.
-- [![heroku](https://img.shields.io/static/v1?label=Heroku&message=brachetta@me.com&color=430098&style=for-the-badge&logo=heroku)](https://www.heroku.com/) Heroku, the patform to deploy the app.
+- [![heroku](https://img.shields.io/static/v1?label=Heroku&message=brachetta@me.com&color=430098&style=for-the-badge&logo=heroku)](https://www.heroku.com/) Heroku, the platform to deploy the app.
 - [![balsamiq](https://img.shields.io/static/v1?label=Balsamiq&message=3.5.17&style=for-the-badge&color=7c0000&logo=balsamiq&?link=http://left&link=http://right)](https://balsamiq.com/) Balsamiq: to create the wireframes of this project.
-
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
@@ -563,7 +623,7 @@ This project can be ran locally by following these steps:
 
 3. Make sure you either have access to your email server settings and credentials or to your cloud based email, such as [Gmail](https://accounts.google.com/b/0/AddMailService).
 4. Install [Pipenv](https://pipenv.pypa.io/en/latest/). This app was developed on a Mac, and on MacOS you can install pipenv by typing `brew pipenv` (provided you have [Homebrew](https://brew.sh/) installed).
-5. Create a virtual enviroment by typing
+5. Create a virtual environment by typing
 
    `pipenv shell`
 
@@ -573,13 +633,13 @@ This project can be ran locally by following these steps:
 
 7. Make sure to have a test account on [Stripe]("https://stripe.com/en-nl")
 
-8. Create a series of enviroment variables following the below criteria.
+8. Create a series of environment variables following the below criteria.
 
     ```json
    {
        "DEVELOPMENT": true,
        "SECRET_KEY": "your_secret_key",
-       "DATABASE_URL": "your_link_to_your_postgress_db",
+       "DATABASE_URL": "your_link_to_your_postgres_db",
        "STRIPE_PUBLIC_KEY": "your_Stripe_PK",
        "STRIPE_SECRET_KEY": "your_Stripe_SK",
        "STRIPE_WH_SECRET": "your_Stripe_WH_secret"
@@ -606,7 +666,7 @@ The steps to deploy the local app to Heroku were as follow:
 1. In Heroku, created an app. The app must have a unique name.
 2. Linked that app to the GitHub repository by going to the "Deploy" tab in the main app menu.
 3. Selected a branch to deploy automatically (alternatively one could opt to deploy manually instead).
-4. Attach an Heroku-Postgress database to the app.
+4. Attach an Heroku-Postgres database to the app.
 5. In the Settings tab, added the corresponding Config Variables as present in my local development.
 
     ![vars](wireframes/config-vars.jpg)
@@ -616,11 +676,11 @@ The steps to deploy the local app to Heroku were as follow:
     > Please refer to AWS' documentation in order to setup a bucket and obtain access to it in the app.
     > Please modify your app settings.py file accordingly.
 
-7. I used [Pipenv](https://pipenv.pypa.io/en/latest/) to deal with my virtual enviroment, which creates a pipfile for the dependencies needed for the app and a pipfile.lock to deal with versioning of these dependencies.
+7. I used [Pipenv](https://pipenv.pypa.io/en/latest/) to deal with my virtual environment, which creates a pipfile for the dependencies needed for the app and a pipfile.lock to deal with versioning of these dependencies.
 8. This pipfile renders the file 'requirements.txt' unnecessary, so it was not included in the project.
 9. I installed the dependency [Gunicorn](https://gunicorn.org/) which is a Python WSGI HTTP Server.
 10. I also created a "Procfile", needed by Heroku in order to know how to run the app and instructed it to run my app using the Gunicorn server in it.
-11. When deploying, Heroku reads the pipfiles to install the dependencies, reads the Procfile and the Config Variables inserted above.
+11. When deploying, Heroku reads the pipfile to install the dependencies, reads the Procfile and the Config Variables inserted above.
 12. After that process, the app was live and running remotely in Heroku's servers.
 
 ### Version Control
@@ -635,7 +695,7 @@ When a group of features made a release worthwhile I then merged the develop bra
 
 Additionally, and for testing purposes, I often also deployed feature branches in order to double-check that the app was responsive remotely.
 
-Over 20 branches were using during the development of this app, to ensure isolated enviroments for each of them without interfering with already functioning features.
+Over 20 branches were using during the development of this app, to ensure isolated environments for each of them without interfering with already functioning features.
 
 To deal with these features i used [GitHub issues](https://guides.github.com/features/issues/) and put in place a [project board](https://help.github.com/en/github/managing-your-work-on-github/about-project-boards), which helped me organise my workflow and have a clear overview of where in the process of my development I was.
 
@@ -669,7 +729,7 @@ Notable sources of information, inspiration and source to sort problems are:
 
 ## Disclaimer
 
-This app and its deployment are for instructional purposes only, not intended comercially in any way and its eventual copyright infringments involuntary.
+This app and its deployment are for instructional purposes only, not intended commercially in any way and its eventual copyright infringements involuntary.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>
