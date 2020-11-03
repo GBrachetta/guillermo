@@ -263,7 +263,7 @@ The app consists of the following apps:
 
 #### Album App
 
-![Events](wireframes/events.png)
+![Events](wireframes/album.png)
 
 #### Shop App
 
