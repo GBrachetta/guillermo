@@ -1,0 +1,27 @@
+{% load bag_tools %}
+<div class="row mx-0">
+    <div class="col-12 py-1 my-3 header-upcoming d-block d-md-none"><strong>Totals</strong></div>
+    <div class="col-12 d-block d-md-none text-right">
+        {% include 'includes/bag-total.html' %}
+    </div>
+    <div class="col-12 d-block d-md-none text-right pr-0">
+        {% include 'includes/checkout-buttons.html' %}
+    </div>
+    <div class="col-12 py-1 my-3 header-upcoming d-block d-md-none"><strong>Order Information</strong></div>
+    {% for item in bag_items %}
+    <div class="col-12 d-block d-md-none my-3">
+        {% include 'includes/product-image.html' %}
+    </div>
+    <div class="col-12 d-block d-md-none text-left">
+        {% include 'includes/product-info.html' %}
+    </div>
+    <div class="col-12 d-block d-md-none text-left">
+        <p class="my-0">Price Each: €{{ item.cd.price }}</p>
+        <p><strong>Subtotal: </strong>€{{ item.cd.price | calc_subtotal:item.quantity }}</p>
+    </div>
+    <div class="col-12 d-block d-md-none text-left">
+        {% include 'includes/quantity-form.html' %}
+    </div>
+    <div class="col-12 d-block d-md-none border-bottom mb-3 mx-3"></div>
+    {% endfor %}
+</div>
