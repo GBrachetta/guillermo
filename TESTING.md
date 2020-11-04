@@ -237,9 +237,15 @@ It finally served the purpose perfectly and that allowed me to test and succeed 
 
 ### GSAP animations and landscape phones
 
-Full size screen parallax with a visible navbar doesn't perform well on phone in landscape position, and at the moment of this writing I'm considering a number of options to deal with it, but I don't want to sacrifice an otherwise perfectly functional and beautiful layour for the very rare user willing to try parallax on phone in landscape.
+Full size screen parallax with a visible navbar doesn't perform well on phone in landscape position, and at the moment of this writing I'm considering a number of options to deal with it, but I don't want to sacrifice an otherwise perfectly functional and beautiful layout for the very rare user willing to try parallax on phone in landscape.
 Some of the options being considered at the moment of this writing are:
 
 - Having an alternative set of CSS rules for users rotating their phones on the homepage. The objections to this are:
   - The procedure can produce unexpected results as each OS is susceptible of treating those rules differently.
   - Some computers could show those sets of rules since computer screens are landscape.
+  - Tablets will suffer from the experience, not having being able to enjoy the experience they would without those queries.
+
+- Hiding the navbar on landscape.
+  - Again, a far from ideal solution and very unfriendly and counterintuitive.
+
+- *Verdict: under investigation.* :microscope:

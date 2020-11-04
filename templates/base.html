@@ -23,8 +23,10 @@
     <script src="https://kit.fontawesome.com/9464f43776.js" crossorigin="anonymous"></script>
 
     {% endblock js %}
-    <title>Guillermo Brachetta {% block title %}
-        {% endblock title %} </title>
+    <title>
+        Guillermo Brachetta
+        {% block title %} {% endblock title %}
+    </title>
 </head>
 
 <body class="text-center">
@@ -60,8 +62,8 @@
 
         {% block page_footer %}
         {% endblock page_footer %}
-
         {% include 'includes/footer.html' %}
+
     </main>
 
     {% block postjs %}

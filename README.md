@@ -239,6 +239,17 @@ The app consists of the following apps:
 - The navbar always reflects by a different colour the "active" or current page.
 - The "Profile" navigation item changes to the name of the current visitor if they are logged in, and displays in its dropdown menu relevant options for a logged in user. Otherwise it gives the user the choice of registering or logging in.
 - Admins have several extra options in the dropdown, such as manage photo and video, events and shop items.
+- The nav item `Profile` displays the username when the user is authenticated. In order to ensure that an username too long won't mess up the layout of the navbar, a custom validator has been put in place for the username, limiting its length to 10 characters, which works as a good maximum length without creating too much margin with the following item. The method used was as follow as an `adapter`:
+
+  ```python
+  class UsernameMaxAdapter(DefaultAccountAdapter):
+      def clean_username(self, username):
+          if len(username) > 10:
+              raise ValidationError(
+                  "Please enter an username of maximum 10 characters"
+              )
+          return DefaultAccountAdapter.clean_username(self, username)
+  ```
 
 ###### Footer <!-- omit in toc -->
 
@@ -389,7 +400,8 @@ The app consists of the following apps:
 
 #### Checkout App <!-- omit in toc -->
 
-![Checkout](https://res.cloudinary.com/gbrachetta/image/upload/v1604441265/ms4/shopping-bag_xfowic.png)
+![Checkout lg](https://res.cloudinary.com/gbrachetta/image/upload/v1604533290/ms4/shopping-bag-lg_ig2unn.png)
+![Checkout sm](https://res.cloudinary.com/gbrachetta/image/upload/v1604533290/ms4/shopping-bag-sm_z3myph.png)
 
 - The Checkout app renders two columns with a form on the left and the order summary on the right.
 - If the user is authenticated, the information already present in the database will populate the form, although the user can update it.

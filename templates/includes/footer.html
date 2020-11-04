@@ -1,4 +1,5 @@
 {% load static %}
+{% block page_footer %}
 
 <footer class="site-footer">
     <div class="container">
@@ -14,7 +15,6 @@
                     <li>2134XL, Hoofddorp, NL</li>
                     <li><i class="fas fa-phone mr-3"></i>+31 6 5106 3002</li>
                     <li><i class="fas fa-envelope mr-3"></i>
-                        {% comment %} <a class="email" href="mailto:brachetta@me.com?subject=Mail from my site" target="_blank" rel="noopener noreferrer">brachetta@me.com</a> {% endcomment %}
                         <a id="trigger-contact" class="email" href="#">Contact</a>
                     </li>
                 </ul>
@@ -30,14 +30,14 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <ul class="social-icons">
-                    <li><a class="facebook" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                    <li><a class="twitter" href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                    <li><a class="linkedin" href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a class="instagram" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    <li><a class="github" href="https://github.com/GBrachetta" target="_blank"><i class="fa fa-github"></i></a></li>
+                    <li><a class="twitter" href="https://twitter.com/GBrachetta" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="instagram" href="https://www.instagram.com/brachetta/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                    <li><a class="linkedin" href="https://www.linkedin.com/in/guillermo-brachetta-027764174" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
-
 {% include 'includes/contact.html' %}
+{% endblock page_footer %}
