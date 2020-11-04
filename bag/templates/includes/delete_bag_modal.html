@@ -1,0 +1,20 @@
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteBagModal{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="deleteEventModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content modal-contact-content text-center">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger font-weight-bold" id="deleteEventModalLabel">Remove Item</h5>
+            </div>
+            <div class="modal-body">
+                <p class="font-weight-normal">
+                    <i class="fas fa-exclamation-circle text-danger"></i>
+                    Are you sure you want to delete <span class="font-weight-bold">{{ item.cd.name }}</span> from your bag?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn rounded-0 btn-outline-black" data-dismiss="modal">Close</button>
+                <a class="btn btn-black rounded-0 remove-button remove_{{ item.cd.id }}">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

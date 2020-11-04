@@ -3,9 +3,10 @@ $(".update-link").on("click", function () {
     form.submit();
 });
 
-$(".remove-item").on("click", function () {
+
+$(".remove-button").on("click", function (e) {
     let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
-    let itemId = $(this).attr("id").split("remove_")[1];
+    let itemId = $(this).attr("class").split("remove_")[1];
     let url = `/bag/remove/${itemId}/`;
     let data = {
         csrfmiddlewaretoken: csrfToken,

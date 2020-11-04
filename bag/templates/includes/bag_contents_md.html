@@ -24,6 +24,9 @@
         <p class="my-0">€{{ item.cd.price | calc_subtotal:item.quantity }}</p>
     </div>
 </div>
+
+{% include 'includes/delete_bag_modal.html' %}
+
 {% endfor %}
 <div class="row">
     <div class="col text-right d-none d-md-block">
@@ -35,4 +38,3 @@
         {% include 'includes/checkout-buttons.html' %}
     </div>
 </div>
-
