@@ -191,8 +191,55 @@ The script redirects to the home page, thus avoiding rendering an unformatted te
 
 ### Modals within for loops
 
+Confirmation modals to delete a record within a forloop are not so straightforward.
+I considered leaving that extra security feature aside, assuming the admins would be responsible enought to think carefully before hitting a "delete" button without having a chance to regret it, but ultimately thought that wasn't a fair thing to do and decided to implement this extra feature. Here's how I approached it:
+The link to the modal includes a `forloop.counter` in its `data-target` attribute, and the modal'a `id` has the same information in it, making thus certain that the modal to confirm a deletion will be in the correct iteration of the loop.
+From that point I put in place the following script that made possible to execute a post request with the given data, making the `csrftoken` match the information from the `csrfmiddlewaretoken` so the post request could succeed:
+
+```js
+$(".remove-button").on("click", function (e) {
+    let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    let itemId = $(this).attr("class").split("remove_")[1];
+    let url = `/album/delete_media/${itemId}/`;
+    let data = {
+        csrfmiddlewaretoken: csrfToken,
+    };
+
+    $.post(url, data).done(function () {
+        location.reload();
+    });
+});
+```
+
+Where `remove-button` is a class of the delete button in the modal, takes the value of the `csrfmiddlewaretoken`, takes the id by splitting it from the class and declares the delete url.
+Finally, JQuery makes a post request with on that url with the corresponding `csrftoken` and reloads the page.
+
+- *Verdict: passed.* :white_check_mark: :star:
+
 ### Parallax Home app
+
+I found an unexpected issue when discovered that iOS looks at `viewport` in a unique way, taking into account for it all html content rather than just the visible space.
+That's why it is so tricky to use `background-image: cover` on iOS.
+On my homepage I have 4 dives stacked displaying each a cover background image, and while it worked smoothly on all platforms, on iOS it resulted in a very zoomed in image covering each one of those divs, thus resulting in a far from ideal situation.
+This issue is normally sorted by using `background-attachment: scroll` instead of `fixed` on iOS, but that didn't work for my situation because I have in place a parallax scrolling all backgrounds at a different rathe than the general scrolling itself, and using the `scroll` method creates a blank gap between the four divs.
+I finally used a combination of [parallax.js](https://pixelcog.github.io/parallax.js/) and [GSAP](https://greensock.com/gsap/), the former to deal with background images assigning them as image tags, and the latter to deal with the opacity of overlays and the translating content animations.
+The result is a great compromise, displaying as expected on desktops and only sacrificing the parallax on iOS but retaining the background image sizes and aspect ratios. Additionally, GSAP's animations of overlays and opacity and movement of text works great across all platforms.
+
+- *Verdict: passed.* :white_check_mark: :star: :sparkles:
 
 ### Webhooks on localhost
 
+Testing [Stripe](https://stripe.com/en-nl)'s webhooks while working locally rather than on GitPod wasn't so readily clear at first. In order to make webhooks work and be able to test their functionality I tunneled my local IP and port to Stripe using [Ngrok](https://ngrok.com/), which allowed me to do just that.
+I obviously needed to allow my Ngrok tunnel address in my project settings, and since that address is dynamically created I had to do that on every occasion, also creating a new webhook listener for each one of those tunnels.
+It finally served the purpose perfectly and that allowed me to test and succeed setting up my Stripe webhooks.
+
+- *Verdict: passed.* :white_check_mark:
+
 ### GSAP animations and landscape phones
+
+Full size screen parallax with a visible navbar doesn't perform well on phone in landscape position, and at the moment of this writing I'm considering a number of options to deal with it, but I don't want to sacrifice an otherwise perfectly functional and beautiful layour for the very rare user willing to try parallax on phone in landscape.
+Some of the options being considered at the moment of this writing are:
+
+- Having an alternative set of CSS rules for users rotating their phones on the homepage. The objections to this are:
+  - The procedure can produce unexpected results as each OS is susceptible of treating those rules differently.
+  - Some computers could show those sets of rules since computer screens are landscape.
