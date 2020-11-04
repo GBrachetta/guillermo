@@ -31,18 +31,18 @@
         {% endif %}
     </div>
     <div class="col-6 bg-white text-left py-1 d-none d-md-block">{{ event.programme }}</div>
-
+    <div class="col-12 border-bottom my-3 d-none d-md-block"></div>
     {% endif %}
     {% endfor %}
 </div>
 
 <div class="row">
-    <div class="col-12 py-3 font-weight-bold lead d-none d-md-block">Past Events</div>
+    <div class="col-12 py-3 font-weight-bold lead d-none d-md-block mt-5">Past Events</div>
     <div class="col-3 font-weight-bold header-past text-light text-left py-3 mb-5 d-none d-md-block">Date</div>
     <div class="col-3 font-weight-bold header-past text-light text-left py-3 mb-5 d-none d-md-block">Venue</div>
     <div class="col-6 font-weight-bold header-past text-light text-left py-3 mb-5 d-none d-md-block">Programme</div>
 
-    {% for event in calendar %}
+    {% for event in calendar reversed %}
     {% if event.is_due %}
 
     <div class="col-3 bg-white text-left py-1 d-none d-md-block">
@@ -69,7 +69,7 @@
         {% endif %}
     </div>
     <div class="col-6  bg-white text-left py-1 d-none d-md-block">{{ event.programme }}</div>
-
+    <div class="col-12 border-bottom my-3 d-none d-md-block"></div>
     {% endif %}
     {% endfor %}
 </div>
