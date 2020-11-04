@@ -21,75 +21,24 @@
 <div class="container">
     <div class="row">
         <div class="col text-center">
-        {% if request.user.is_superuser %}
-        <small class="ml-3 font-weight-bold">
-            <a href="{% url 'edit_cd' cd.id %}">Edit</a> |
-            <a class="text-danger" href="{% url 'delete_cd' cd.id %}">Delete</a>
-        </small>
-        {% endif %}
+            {% if request.user.is_superuser %}
+            <p class="mb-0 font-weight-bold lead">
+                <a href="{% url 'edit_cd' cd.id %}">
+                    <span class="icon">
+                        <i class="fas fa-edit"></i>
+                    </span>
+                </a> |
+                <a class="text-danger" title="Remove" data-toggle="modal" data-target="#deleteCdModal">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </p>
+            {% include 'includes/delete_cd_modal.html' %}
+            {% endif %}
         </div>
     </div>
 </div>
+{% include 'includes/cd_details_content.html' %}
 
-<div class="container-fluid extra-padding">
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-            <div class="image-container my-5">
-                {% if cd.image %}
-                <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-details img-fluid">
-                {% else %}
-                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid">
-                {% endif %}
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="product-details-container mb-5 mt-md-5">
-                <p class="mt-3 text-left">{{ cd.description }}</p>
-                <form class="form" action="{% url 'add_to_bag' cd.id %}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-row">
-                        <div class="col-12">
-                            <p class="mt-3 text-left"><strong>Quantity:</strong></p>
-                            <div class="form-group w-50">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <button class="decrement-qty btn btn-black rounded-0" data-item_id="{{ cd.id }}" id="decrement-qty_{{ cd.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-minus"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ cd.id }}" id="id_qty_{{ cd.id }}">
-                                    <div class="input-group-append">
-                                        <button class="increment-qty btn btn-black rounded-0" data-item_id="{{ cd.id }}" id="increment-qty_{{ cd.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-plus"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <p class="mb-0 text-left font-weight-bold">Price: €{{ cd.price }}</p>
-                        </div>
-                        <div class="col-12 text-left">
-                            <a href="{% url 'shop' %}" class="btn btn-outline-black rounded-0 mt-5">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                            <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
-                        </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>
 
 {% endblock content %}
 
@@ -105,3 +54,4 @@
 {{ block.super }}
 <script src="{% static 'shop/js/quantity_input_script.min.js' %}"></script>
 {% endblock postjs %}
+
