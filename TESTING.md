@@ -1,17 +1,25 @@
 # Back to [README](README.md) <!-- omit in toc -->
 
 - [Responsiveness](#responsiveness)
-- [Navbar](#navbar)
-- [Footer](#footer)
-- [Home App](#home-app)
-- [Events App](#events-app)
-- [Album App](#album-app)
-- [Profiles app](#profiles-app)
-- [Shop App](#shop-app)
-- [Checkout app](#checkout-app)
-- [Bag App](#bag-app)
+  - [Navbar](#navbar)
+  - [Footer](#footer)
+  - [General responsiveness](#general-responsiveness)
+- [Apps](#apps)
+  - [Home App](#home-app)
+  - [Events App](#events-app)
+  - [Album App](#album-app)
+  - [Profiles app](#profiles-app)
+  - [Shop App](#shop-app)
+  - [Checkout app](#checkout-app)
+  - [Bag App](#bag-app)
 - [Validators and linters](#validators-and-linters)
 - [Issues and bugs](#issues-and-bugs)
+  - [Manually accessing `contact/` from the URL](#manually-accessing-contact-from-the-url)
+  - [Contact from](#contact-from)
+  - [Modals within for loops](#modals-within-for-loops)
+  - [Parallax Home app](#parallax-home-app)
+  - [Webhooks on localhost](#webhooks-on-localhost)
+  - [GSAP animations and landscape phones](#gsap-animations-and-landscape-phones)
 
 Testing was performed manually exhaustively, putting the app under sufficient stress to consider it solid and stable.
 
@@ -19,7 +27,7 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 
 > - *As a user I would like to have a pleasant experience in whichever device I use so I can visit regardless of where I do it from.*
 
-## Navbar
+### Navbar
 
 - **User stories tested**
 
@@ -46,7 +54,7 @@ Testing was performed manually exhaustively, putting the app under sufficient st
   - Check if there're items in the bag by having a visual indication, both when expanded and when collapsed.
     - *Verdict: passed.* :white_check_mark:
 
-## Footer
+### Footer
 
 - **User stories tested**
 
@@ -74,7 +82,11 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 - The footer accommodates to different devices and stacks its content accordingly.
   - *Verdict: passed.* :white_check_mark:
 
-## Home App
+### General responsiveness
+
+## Apps
+
+### Home App
 
 > - *As a user I would like to be visually engaged when I land on the site so I desire to stay.*
 > - *As a user I would like to be able to see them in photo and video so I can know what they look like.*
@@ -96,14 +108,29 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 - The overlays animate opacity correctly.
   - *Verdict: passed.* :white_check_mark:
 
-## Events App
+### Events App
 
 > - *As a user I would like to be able to easily find information about events so I can plan attending one.*
 > - *As a user I would like to be able to add events so they display automatically on my site in the right order.*
 > - *As a user I would like to be able to modify events so they update automatically on my site in the right order.*
 > - *As a user I would like to be able to delete events so they disappear automatically from my site.*
 
-## Album App
+- Events automatically find their way to the corresponding grid: if events are future they render in the `Upcoming Events` grid, arranged from sooner to later in time, si the user can quickly find the next activities.
+  - *Verdict: passed.* :white_check_mark:
+- likewise, when the event is in the past, they render in the `Past Events` grid, in this case organised from most recent to fartherst in time (reversed) so the user can quickly see what were his most recent activities.  
+  - *Verdict: passed.* :white_check_mark:
+- Events change from one grid to the other automatically, so the user only has to input the event once and forget about them.  
+  - *Verdict: passed.* :white_check_mark:
+- Links to the venues function correctly and open a blank page.
+  - *Verdict: passed.* :white_check_mark:
+- Grids have a completely different layout depending on screen size, and the information is always clear and efficiently transmitted.
+  - *Verdict: passed.* :white_check_mark:
+- Administrators can edit an event when they are logged in by clicking on the icon displaying exclusively to them.
+  - *Verdict: passed.* :white_check_mark:
+- Administrators can delete an event when they are logged in by clicking on the icon displaying exclusively to them. Clicking on the delete icon brings up a modal requesting confirmation. Modals within for loops were a successfully sorted challenge and the implementation works perfectly and faultlessly.
+  - *Verdict: passed.* :white_check_mark: :star:
+
+### Album App
 
 > - *As a user I would like to be able to see what their looks are so I can recognise him.*
 > - *As a user I would like to be able to add media and have it automatically added to my album so I don't need extra effort.*
@@ -111,14 +138,14 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 > - *As a user I would like to be able to delete media so it automatically disappears from my album.*
 > - *As a user I would like to be able to replace photos and have a preview of it so I don't make mistakes.*
 
-## Profiles app
+### Profiles app
 
 > - *As a user I would like to be able to register an account so I can make effortless future purchases.*
 > - *As a user I would like to be able to reset my password so I can log in in case I forgot it.*
 > - *As a user I would like to be able to see my order history so I can make sure to know what I have purchased.*
 > - *As a user I would like to be able to update my user details so I can be sure my delivery information is accurate.*
 
-## Shop App
+### Shop App
 
 > - *As a user I would like to be able to see what CDs has the artist recorded so I can decide a purchase.*
 > - *As a user I would like to be able to add new items to my shop so they populate it automatically without breaking the layout.*
@@ -126,11 +153,11 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 > - *As a user I would like to be able to delete existing items in my shop so they disappear from the shop without breaking the layout.*
 > - *As a user I would like to be able to replace photos and have a preview of it so I don't make mistakes.*
 
-## Checkout app
+### Checkout app
 
 > - *As a user I would like to be able to purchase securely the CDs so I feel peace of mind about my personal information.*
 
-## Bag App
+### Bag App
 
 ## Validators and linters
 
@@ -144,3 +171,28 @@ The following validators and linters were used either remotely or with their plu
 - [BLACK](https://pypi.org/project/black/)
 
 ## Issues and bugs
+
+### Manually accessing `contact/` from the URL
+
+The hyperlink that displays the modal with the biography from the footer lives in a view in the main app. Since the modal has an `href="#"`, accessing the view directly by entering it in the address bar would render an unformatted modal (they don't use template inheritance). To prevent this very rare occurrence, the following JS script has been put in place in the event an user entered the url manually in the address bar:
+
+```js
+if (window.location.href.indexOf("contact") > -1) {
+        window.location.replace("https://guillermo-brachetta.herokuapp.com");
+    }
+```
+
+This script is plain JS, since the modal, for not having any inheritance, doesn't load JQuery at when rendered directly.
+The script redirects to the home page, thus avoiding rendering an unformatted template in the very unlikely event of an user entering the address purposely.
+
+- *Verdict: passed.* :white_check_mark: :star:
+
+### Contact from
+
+### Modals within for loops
+
+### Parallax Home app
+
+### Webhooks on localhost
+
+### GSAP animations and landscape phones
