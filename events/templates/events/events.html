@@ -31,18 +31,5 @@
 
 {% block postjs %}
 {{ block.super }}
-<script>
-    $(".remove-button").on('click', function(e) {
-        let itemId = $(this).attr("class").split("remove_")[1];
-        let url = `/events/delete_event/`;
-        let csrfToken = "{{ csrf_token }}";
-        let data = {
-            csrfmiddlewaretoken: csrfToken,
-        };
-
-        $.post(`${url}${itemId}/`, data).done(function() {
-            location.reload();
-        });
-    });
-</script>
+<script src="{% static 'events/js/delete_modal.min.js' %}"></script>
 {% endblock %}
