@@ -390,7 +390,8 @@ The app consists of the following apps:
 
 #### Bag App <!-- omit in toc -->
 
-![Bag](https://res.cloudinary.com/gbrachetta/image/upload/v1604441265/ms4/shopping-bag_xfowic.png)
+![Bag lg](https://res.cloudinary.com/gbrachetta/image/upload/v1604533290/ms4/shopping-bag-lg_ig2unn.png)
+![Bag sm](https://res.cloudinary.com/gbrachetta/image/upload/v1604533290/ms4/shopping-bag-sm_z3myph.png)
 
 - The Bag app displays a summary of the order prior to checking out.
 - Quantities can be adjusted, or line items entirely removed.
@@ -400,8 +401,7 @@ The app consists of the following apps:
 
 #### Checkout App <!-- omit in toc -->
 
-![Checkout lg](https://res.cloudinary.com/gbrachetta/image/upload/v1604533290/ms4/shopping-bag-lg_ig2unn.png)
-![Checkout sm](https://res.cloudinary.com/gbrachetta/image/upload/v1604533290/ms4/shopping-bag-sm_z3myph.png)
+![Checkout](https://res.cloudinary.com/gbrachetta/image/upload/v1604441241/ms4/checkout_x56xp5.png)
 
 - The Checkout app renders two columns with a form on the left and the order summary on the right.
 - If the user is authenticated, the information already present in the database will populate the form, although the user can update it.
