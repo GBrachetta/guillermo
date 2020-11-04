@@ -23,9 +23,6 @@
 <a class="update-link text-info float-left">
     <i class="fas fa-sync-alt lead text-info"></i>
 </a>
-{% comment %} <a class="remove-item update-link text-danger float-right" id="remove_{{ item.item_id }}">
+<a class="float-right" title="Remove" data-toggle="modal" data-target="#deleteBagModal{{ forloop.counter }}">
     <i class="fas fa-trash lead text-danger"></i>
-</a> {% endcomment %}
-        <a class="float-right" title="Remove" data-toggle="modal" data-target="#deleteBagModal{{ forloop.counter }}">
-            <i class="fas fa-trash lead text-danger"></i>
-        </a>
+</a>

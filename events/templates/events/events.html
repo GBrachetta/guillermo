@@ -10,10 +10,10 @@
 <div class="container mt-5">
     <h2>Calendar</h2>
 </div>
-
-{% include 'includes/event_grid_lg.html' %}
-{% include 'includes/event_grid_sm.html' %}
-
+<div class="container">
+    {% include 'includes/event_grid_sm.html' %}
+    {% include 'includes/event_grid_lg.html' %}
+</div>
 {% if request.user.is_superuser %}
 <div class="container mt-5">
     <div class="row">
