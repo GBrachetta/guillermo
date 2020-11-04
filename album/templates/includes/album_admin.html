@@ -23,11 +23,10 @@
                     <i class="fas fa-edit"></i>
                 </span>
             </a> |
-            <a class="text-danger" href="{% url 'delete_media' media.id %}">
-                <span class="icon">
-                    <i class="fas fa-trash"></i>
-                </span>
+            <a class="text-danger" title="Remove" data-toggle="modal" data-target="#deleteMediaModal{{ forloop.counter }}">
+                <i class="fas fa-trash"></i>
             </a>
+            {% include 'includes/delete_media_modal.html' %}
         </div>
         <div class="col-12">
             <hr>
