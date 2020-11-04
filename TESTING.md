@@ -3,7 +3,7 @@
 - [Responsiveness](#responsiveness)
 - [Navbar](#navbar)
 - [Footer](#footer)
-- [Landing Page](#landing-page)
+- [Home App](#home-app)
 - [Events App](#events-app)
 - [Album App](#album-app)
 - [Profiles app](#profiles-app)
@@ -17,13 +17,16 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 
 ## Responsiveness
 
+> - *As a user I would like to have a pleasant experience in whichever device I use so I can visit regardless of where I do it from.*
+
 ## Navbar
 
-- **User story tested**
+- **User stories tested**
 
-> As a user I would like to navigate the site easily so I can quickly find what I look for.
+> - *As a user I would like to navigate the site easily so I can quickly find what I look for.*
+> - *As a user I would like to see clearly what's in my shopping bag at all times so I don't forget to checkout.*
 
-- Tests
+- **Tests performed**
   - Click on all the nav links and make sure they all point to the desired destination.
     - *Verdict: passed.* :white_check_mark:
   - Check navbar on different devices and make sure it collapses when required.
@@ -45,17 +48,87 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 
 ## Footer
 
-## Landing Page
+- **User stories tested**
+
+> - *As a user I would like to easily find social media links so I can quickly explore further.*
+> - *As a user I would like to always have access to contact information so I can get in touch from whichever page I'm in.*
+> - *As a user I would like to know his biography and experience so I know what supports his art.*
+> - *As a user I would like to know who the artist is so I can feel connected to them.*
+
+- **Tests performed**
+
+- Social icons redirect to the corresponding profiles in a blank page.
+  - *Verdict: passed.* :white_check_mark:
+- Footer is visible, fixed to bottom and present on all pages.
+  - *Verdict: passed.* :white_check_mark:
+- Clicking on the email (contact) link opens a modal with a form to send a message.
+  - *Verdict: passed.* :white_check_mark: :star:
+- The contact form is accessible from any page of the site.
+  - *Verdict: passed.* :white_check_mark:
+- The form populates correctly user information if the user is authenticated.
+  - *Verdict: passed.* :white_check_mark:
+- The form is responsive and works as desired on all sizes and devices.
+  - *Verdict: passed.* :white_check_mark:
+- The user receives a notification upon an email has been sent successfully.
+  - *Verdict: passed.* :white_check_mark:
+- The footer accommodates to different devices and stacks its content accordingly.
+  - *Verdict: passed.* :white_check_mark:
+
+## Home App
+
+> - *As a user I would like to be visually engaged when I land on the site so I desire to stay.*
+> - *As a user I would like to be able to see them in photo and video so I can know what they look like.*
+> - *As a user I would like to be able to listen to what they do so I know their artistry.*
+> - *As a user I would like to know what they thinks about being an artist so I can feel related as a person.*
+> - *As a user I would like to know when and were have them performed before so I know their experience.*
+
+- The images cover all viewport on all devices, are stacked correctly and are of correct proportions.
+  - *Note*: iOS has a different approach to background images covering the viewport. Thanks to the use of a combination of GSAP and parallax.js this issue has been satisfactorily resolved. In the event of an iOS device visiting, overlays and content animates correctly. More importantly, images are displayed at the correct size rather than clipped and zoomed in (iOS considers 'viewport' all content rather than just the visible available space). The sacrifice to make is to renounce to the asynchronous parallax on iOS devices, a solution I consider highly satisfactory for what I get in exchange: great image placement, sizing, and animations.
+  - *Verdict: passed.* :white_check_mark: :star:
+- The overlay content ove the images animates and fades in correctly on all devices.
+  - *Verdict: passed.* :white_check_mark:
+- Text is readable on all platforms.
+  - *Verdict: passed.* :white_check_mark:
+- The modal with the biography performs as expected on all platforms and is clear to read.
+  - *Verdict: passed.* :white_check_mark:
+- The parallax works correctly.
+  - *Verdict: passed.* :white_check_mark:
+- The overlays animate opacity correctly.
+  - *Verdict: passed.* :white_check_mark:
 
 ## Events App
 
+> - *As a user I would like to be able to easily find information about events so I can plan attending one.*
+> - *As a user I would like to be able to add events so they display automatically on my site in the right order.*
+> - *As a user I would like to be able to modify events so they update automatically on my site in the right order.*
+> - *As a user I would like to be able to delete events so they disappear automatically from my site.*
+
 ## Album App
+
+> - *As a user I would like to be able to see what their looks are so I can recognise him.*
+> - *As a user I would like to be able to add media and have it automatically added to my album so I don't need extra effort.*
+> - *As a user I would like to be able to edit media so it automatically updates my album.*
+> - *As a user I would like to be able to delete media so it automatically disappears from my album.*
+> - *As a user I would like to be able to replace photos and have a preview of it so I don't make mistakes.*
 
 ## Profiles app
 
+> - *As a user I would like to be able to register an account so I can make effortless future purchases.*
+> - *As a user I would like to be able to reset my password so I can log in in case I forgot it.*
+> - *As a user I would like to be able to see my order history so I can make sure to know what I have purchased.*
+> - *As a user I would like to be able to update my user details so I can be sure my delivery information is accurate.*
+
 ## Shop App
 
+> - *As a user I would like to be able to see what CDs has the artist recorded so I can decide a purchase.*
+> - *As a user I would like to be able to add new items to my shop so they populate it automatically without breaking the layout.*
+> - *As a user I would like to be able to edit existing items in my shop so they reflex the changes automatically.*
+> - *As a user I would like to be able to delete existing items in my shop so they disappear from the shop without breaking the layout.*
+> - *As a user I would like to be able to replace photos and have a preview of it so I don't make mistakes.*
+
 ## Checkout app
+
+> - *As a user I would like to be able to purchase securely the CDs so I feel peace of mind about my personal information.*
 
 ## Bag App
 
