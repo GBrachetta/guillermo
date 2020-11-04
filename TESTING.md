@@ -25,23 +25,23 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 
 - Tests
   - Click on all the nav links and make sure they all point to the desired destination.
-    - *Verdict: passed.* `:white_check_mark:`
+    - *Verdict: passed.* :white_check_mark:
   - Check navbar on different devices and make sure it collapses when required.
-    - *Verdict: passed.* `:white_check_mark:`
+    - *Verdict: passed.* :white_check_mark:
   - Make sure that both dropdown menus (hamburger and profile) scroll smoothly on all devices and close when clicked outside of them.
-    - *Verdict: passed.* `:white_check_mark:`
+    - *Verdict: passed.* :white_check_mark:
   - Make sure that navbar is visible at all times on all devices.
-    - *Verdict: passed.* `:white_check_mark:`
+    - *Verdict: passed.* :white_check_mark:
   - Check that nav links react on hover changing their colour.
-    - *Verdict: passed.* `:white_check_mark:`
+    - *Verdict: passed.* :white_check_mark:
   - Check if the class passed from the views makes the current nav link active in order to indicate the user where they are currently on.
-    - *Verdict: passed.* `:white_check_mark:`
+    - *Verdict: passed.* :white_check_mark:
   - Check if an authenticated user sees their username instead of "profile" and if they have access to functionalities reserved to logged in users.
-    - *Verdict: passed.* `:white_check_mark:`
+    - *Verdict: passed.* :white_check_mark:
   - Check if admins have management options available when logged in.
-    - *Verdict: passed.* `:white_check_mark:`
+    - *Verdict: passed.* :white_check_mark:
   - Check if there're items in the bag by having a visual indication, both when expanded and when collapsed.
-    - *Verdict: passed.* `:white_check_mark:`
+    - *Verdict: passed.* :white_check_mark:
 
 ## Footer
 
