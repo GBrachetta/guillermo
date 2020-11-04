@@ -20,6 +20,7 @@ $(function () {
     });
 });
 
+// Renders form in contact modal
 $(function () {
     $("#trigger-contact").on("click", () => {
         $("#form-modal").load("/contact", () => {

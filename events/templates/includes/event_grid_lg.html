@@ -21,15 +21,20 @@
                                 <i class="fas fa-edit"></i>
                             </span>
                         </a> |
-                        <a class="text-danger" href="{% url 'delete_event' event.id %}">
-                            <span class="icon">
-                                <i class="fas fa-trash"></i>
-                            </span>
+                        <a class=" text-danger" title="Remove" data-toggle="modal" data-target="#deleteEventModal{{ forloop.counter }}">
+                            <i class="fas fa-trash"></i>
                         </a>
+                        {% include 'includes/delete_event_modal.html' %}
                     </p>
                     {% endif %}
                 </div>
-                <div class="col-3 {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
+                <div class="col-3 {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1">
+                    {% if event.event_url %}
+                    <a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>
+                    {% else %}
+                    {{ event.venue }}
+                    {% endif %}
+                </div>
                 <div class="col-6 bg-white text-left py-1">{{ event.programme }}</div>
             </div>
         </div>
@@ -59,15 +64,25 @@
                                 <i class="fas fa-edit"></i>
                             </span>
                         </a> |
-                        <a class="text-danger" href="{% url 'delete_event' event.id %}">
+                        {% comment %} <a class="text-danger" href="{% url 'delete_event' event.id %}">
                             <span class="icon">
                                 <i class="fas fa-trash"></i>
                             </span>
+                        </a> {% endcomment %}
+                        <a class="text-danger" title="Remove" data-toggle="modal" data-target="#deleteEventModal{{ forloop.counter }}">
+                            <i class="fas fa-trash"></i>
                         </a>
+                        {% include 'includes/delete_event_modal.html' %}
                     </p>
                     {% endif %}
                 </div>
-                <div class="col-3  {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1">{% if event.event_url %}<a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>{% else %}{{ event.venue }}{% endif %}</div>
+                <div class="col-3  {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1">
+                    {% if event.event_url %}
+                    <a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>
+                    {% else %}
+                    {{ event.venue }}
+                    {% endif %}
+                </div>
                 <div class="col-6  bg-white text-left py-1">{{ event.programme }}</div>
             </div>
         </div>
