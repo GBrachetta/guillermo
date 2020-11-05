@@ -1,26 +1,11 @@
-# Back to [README](README.md) <!-- omit in toc -->
+# Testing  <!-- omit in toc -->
+
+**Back to [README](README.md)** <!-- omit in toc -->
 
 - [Responsiveness](#responsiveness)
-  - [Navbar](#navbar)
-  - [Footer](#footer)
-  - [General responsiveness](#general-responsiveness)
 - [Apps](#apps)
-  - [Home App](#home-app)
-  - [Events App](#events-app)
-  - [Album App](#album-app)
-  - [Profiles app](#profiles-app)
-  - [Shop App](#shop-app)
-  - [Bag App](#bag-app)
-  - [Checkout app](#checkout-app)
 - [Validators and linters](#validators-and-linters)
 - [Issues and bugs](#issues-and-bugs)
-  - [Manually accessing `contact/` from the URL](#manually-accessing-contact-from-the-url)
-  - [Contact from](#contact-from)
-  - [Modals within for loops](#modals-within-for-loops)
-  - [Parallax Home app](#parallax-home-app)
-  - [Webhooks on localhost](#webhooks-on-localhost)
-  - [GSAP animations and landscape phones](#gsap-animations-and-landscape-phones)
-  - [Validation in quantity input form](#validation-in-quantity-input-form)
 
 Testing was performed manually exhaustively, putting the app under sufficient stress to consider it solid and stable.
 
@@ -28,7 +13,7 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 
 > - *As a user I would like to have a pleasant experience in whichever device I use so I can visit regardless of where I do it from.*
 
-### Navbar
+### Navbar <!-- omit in toc -->
 
 - **User stories tested**
 
@@ -55,7 +40,7 @@ Testing was performed manually exhaustively, putting the app under sufficient st
   - Check if there're items in the bag by having a visual indication, both when expanded and when collapsed.
     - *Verdict: Passed.* :white_check_mark:
 
-### Footer
+### Footer <!-- omit in toc -->
 
 - **User stories tested**
 
@@ -83,11 +68,11 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 - The footer accommodates to different devices and stacks its content accordingly.
   - *Verdict: Passed.* :white_check_mark:
 
-### General responsiveness
+### General responsiveness <!-- omit in toc -->
 
 ## Apps
 
-### Home App
+### Home App <!-- omit in toc -->
 
 > - *As a user I would like to be visually engaged when I land on the site so I desire to stay.*
 > - *As a user I would like to be able to see them in photo and video so I can know what they look like.*
@@ -109,7 +94,7 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 - The overlays animate opacity correctly.
   - *Verdict: Passed.* :white_check_mark:
 
-### Events App
+### Events App <!-- omit in toc -->
 
 > - *As a user I would like to be able to easily find information about events so I can plan attending one.*
 > - *As a user I would like to be able to add events so they display automatically on my site in the right order.*
@@ -131,7 +116,7 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 - Administrators can delete an event when they are logged in by clicking on the icon displaying exclusively to them. Clicking on the delete icon brings up a modal requesting confirmation. Modals within for loops were a successfully sorted challenge and the implementation works perfectly and faultlessly.
   - *Verdict: Passed.* :white_check_mark: :star:
 
-### Album App
+### Album App <!-- omit in toc -->
 
 > - *As a user I would like to be able to see what their looks are so I can recognise him.*
 > - *As a user I would like to be able to add media and have it automatically added to my album so I don't need extra effort.*
@@ -158,7 +143,7 @@ seamlessly and without further action required.
   - *Verdict: Passed.* :white_check_mark:
 - Video thumbnails are generated automatically.
 
-### Profiles app
+### Profiles app <!-- omit in toc -->
 
 > - *As a user I would like to be able to register an account so I can make effortless future purchases.*
 > - *As a user I would like to be able to reset my password so I can log in in case I forgot it.*
@@ -182,7 +167,7 @@ seamlessly and without further action required.
 - Users can log out with one click without needing to go over the intermediary "Confirm Logout" form. This was achieved by adding the variable `ACCOUNT_LOGOUT_ON_GET = True` to the settings.
   - *Verdict: Passed.* :white_check_mark:
 
-### Shop App
+### Shop App <!-- omit in toc -->
 
 > - *As a user I would like to be able to see what CDs has the artist recorded so I can decide a purchase.*
 > - *As a user I would like to be able to add new items to my shop so they populate it automatically without breaking the layout.*
@@ -205,7 +190,7 @@ seamlessly and without further action required.
 - Modal works on all layouts.
   - *Verdict: Passed.* :white_check_mark:
 
-### Bag App
+### Bag App <!-- omit in toc -->
 
 - Shopping bag can be adjusted, quantity updated and products deleted from the bag.
   - *Verdict: Passed.* :white_check_mark:
@@ -218,7 +203,7 @@ seamlessly and without further action required.
 - Quantity form works as expected in adding the desired amount of items to the bag from the product detail page.
   - *Verdict: Passed.* :white_check_mark:
 
-### Checkout app
+### Checkout app <!-- omit in toc -->
 
 > - *As a user I would like to be able to purchase securely the CDs so I feel peace of mind about my personal information.*
 
@@ -257,7 +242,7 @@ The following validators and linters were used either remotely or with their plu
 
 ## Issues and bugs
 
-### Manually accessing `contact/` from the URL
+### Manually accessing `contact/` from the URL <!-- omit in toc -->
 
 The hyperlink that displays the modal with the biography from the footer lives in a view in the main app. Since the modal has an `href="#"`, accessing the view directly by entering it in the address bar would render an unformatted modal (they don't use template inheritance). To prevent this very rare occurrence, the following JS script has been put in place in the event an user entered the url manually in the address bar:
 
@@ -272,7 +257,7 @@ The script redirects to the home page, thus avoiding rendering an unformatted te
 
 - *Verdict: Passed.* :white_check_mark: :star:
 
-### Contact from
+### Contact from <!-- omit in toc -->
 
 Because the `contact` view has no template but just a modal without inheritance, the modal wouldn't render the form and an empty one was displayed.
 To solve this, the following script was put in place:
@@ -291,7 +276,7 @@ This script loads the form from the view and places it on the modal, solving the
 
 - *Verdict: Passed.* :white_check_mark:
 
-### Modals within for loops
+### Modals within for loops <!-- omit in toc -->
 
 Confirmation modals to delete a record within a forloop are not so straightforward.
 I considered leaving that extra security feature aside, assuming the admins would be responsible enough to think carefully before hitting a "delete" button without having a chance to regret it, but ultimately thought that wasn't a fair thing to do and decided to implement this extra feature. Here's how I approached it:
@@ -318,7 +303,7 @@ Finally, JQuery makes a post request with on that url with the corresponding `cs
 
 - *Verdict: Passed.* :white_check_mark: :star:
 
-### Parallax Home app
+### Parallax Home app <!-- omit in toc -->
 
 I found an unexpected issue when discovered that iOS looks at `viewport` in a unique way, taking into account for it all html content rather than just the visible space.
 That's why it is so tricky to use `background-image: cover` on iOS.
@@ -329,7 +314,7 @@ The result is a great compromise, displaying as expected on desktops and only sa
 
 - *Verdict: Fixed - Passed.* :white_check_mark: :star: :sparkles:
 
-### Webhooks on localhost
+### Webhooks on localhost <!-- omit in toc -->
 
 Testing [Stripe](https://stripe.com/en-nl)'s webhooks while working locally rather than on GitPod wasn't so readily clear at first. In order to make webhooks work and be able to test their functionality I tunneled my local IP and port to Stripe using [Ngrok](https://ngrok.com/), which allowed me to do just that.
 I obviously needed to allow my Ngrok tunnel address in my project settings, and since that address is dynamically created I had to do that on every occasion, also creating a new webhook listener for each one of those tunnels.
@@ -337,7 +322,7 @@ It finally served the purpose perfectly and that allowed me to test and succeed 
 
 - *Verdict: Fixed - Passed.* :white_check_mark:
 
-### GSAP animations and landscape phones
+### GSAP animations and landscape phones <!-- omit in toc -->
 
 Full size screen parallax with a visible navbar doesn't perform well on **phone in landscape position**, and at the moment of this writing I'm considering a number of options to deal with it, but I don't want to sacrifice an otherwise perfectly functional and beautiful layout for the very rare user willing to try parallax on phone in landscape.
 Some of the options being considered at the moment of this writing are:
@@ -352,7 +337,7 @@ Some of the options being considered at the moment of this writing are:
 
 - *Verdict: under investigation.* :microscope:
 
-### Validation in quantity input form
+### Validation in quantity input form <!-- omit in toc -->
 
 There was an issue on the form to update the quantity of items in the shopping bag, which allowed to manually enter a number outside the values permitted and still submit the form. With a sufficiently large value that would return a server error on checkout.
 Albeit a non-critical issue, I decided to be defensive, and the following method was used:
