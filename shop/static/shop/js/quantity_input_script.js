@@ -4,7 +4,9 @@ function handleEnableDisable(itemId) {
     let minusDisabled = currentValue < 2;
     let plusDisabled = currentValue > 98;
     $(`#decrement-qty_${itemId}`).prop("disabled", minusDisabled);
+    $(`#decrement-qty_sm_${itemId}`).prop("disabled", minusDisabled);
     $(`#increment-qty_${itemId}`).prop("disabled", plusDisabled);
+    $(`#increment-qty_sm_${itemId}`).prop("disabled", plusDisabled);
 }
 
 // Ensure proper enabling/disabling of all inputs on page load
