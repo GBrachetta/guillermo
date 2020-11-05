@@ -20,7 +20,7 @@
         <p><strong>Subtotal: </strong>€{{ item.cd.price | calc_subtotal:item.quantity }}</p>
     </div>
     <div class="col-12 d-block d-md-none text-left">
-        {% include 'includes/quantity-form.html' %}
+        {% include 'includes/quantity-form-sm.html' %}
     </div>
     <div class="col-12 d-block d-md-none border-bottom mb-3 mx-3"></div>
     {% endfor %}
