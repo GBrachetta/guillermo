@@ -586,11 +586,11 @@ They have been altered and given extra functionality with methods, decorators an
 - [![gsap](https://img.shields.io/static/v1?label=GSAP&message=3&style=for-the-badge&color=lime&logo=greensock)](https://greensock.com/gsap/) GSAP, for the animations on the landing page.
 - [![parallax](https://img.shields.io/static/v1?label=parallax.js&message=1.4.2&style=for-the-badge&color=blue&logo=parallax)](https://pixelcog.github.io/parallax.js/) Parallax.js, for the parallax animations on the landing page.
 - [![nanogallery2](https://img.shields.io/static/v1?label=nanograllery&message=2&style=for-the-badge&color=0F1934&logo=parallax)](https://nanogallery2.nanostudio.org/) Nanogallery2, for the gallery on the album page.
-- [![googlefonts](https://img.shields.io/static/v1?label=googlefonts&message=web&style=for-the-badge&color=red&logo=google)](https://fonts.google.com/) Nanogallery2, for the gallery on the album page.
+- [![googlefonts](https://img.shields.io/static/v1?label=googlefonts&message=web&style=for-the-badge&color=red&logo=google)](https://fonts.google.com/) Google Fonts, to deliver the fonts used in the site.
 
 ### Back-end Technologies <!-- omit in toc -->
 
-- [![django](https://img.shields.io/static/v1?label=Django&style=for-the-badge&message=3.1.2&color=0C4B33&logo=django)](https://www.djangoproject.com/) Python, for all backend logic.
+- [![django](https://img.shields.io/static/v1?label=Django&style=for-the-badge&message=3.1.2&color=0C4B33&logo=django)](https://www.djangoproject.com/) Python Framework used as the base of the project.
 - [![python](https://img.shields.io/static/v1?label=Python&style=for-the-badge&message=3.8.5&color=3776AB&logo=PYTHON)](https://www.python.org/) Python, for all backend logic.
 - [![allauth](https://img.shields.io/static/v1?label=Django-Allauth&style=for-the-badge&message=0.42&color=2980B9&logo=django)](https://django-allauth.readthedocs.io/en/latest/index.html) Django-allauth, for the app authentication.
 - [![storages](https://img.shields.io/static/v1?label=Django-Storages&style=for-the-badge&message=1.10.1&color=2980B9&logo=django)](https://django-storages.readthedocs.io/en/latest/) Django-storages, to take care of all static files.
@@ -598,7 +598,7 @@ They have been altered and given extra functionality with methods, decorators an
 - [![stripe](https://img.shields.io/static/v1?label=Stripe&style=for-the-badge&message=2.55&color=5469d4&logo=stripe)](https://stripe.com/en-nl) Stripe, to set up payment, checkout and webhook system.
 - [![aws](https://img.shields.io/static/v1?label=AWS&style=for-the-badge&message=web&color=orange&logo=amazon)](https://aws.amazon.com/) AWS, to store all static files.
 - [![SQLite](https://img.shields.io/static/v1?label=SQLite&style=for-the-badge&message=3.33.0&color=044a64&logo=sqlite)](https://www.sqlite.org/index.html) SQLite, local database.
-- [![postgresql](https://img.shields.io/static/v1?label=Postgresql&style=for-the-badge&message=w3&color=336791&logo=postgresql)](https://www.postgresql.org/) AWS, to store all static files.
+- [![postgresql](https://img.shields.io/static/v1?label=Postgresql&style=for-the-badge&message=w3&color=336791&logo=postgresql)](https://www.postgresql.org/) Postgresql, the database storing all tables and records.
 
 ### Other technologies <!-- omit in toc -->
 
@@ -666,6 +666,17 @@ This project can be ran locally by following these steps:
        "STRIPE_WH_SECRET": "your_Stripe_WH_secret"
    }
     ```
+
+    **Note**: There are environment variables not used or needed when working locally, such as the ones for AWS and smtp email server, which were only used once the app was deployed.
+
+    There are several methods to work with environment variables. I personally prefer to create a `.env` file which VS Code loads automatically.
+    The format for a `.env` file is as follows:
+
+    ```txt
+    KEY:VALUE
+    ```
+
+    For alternative methods to deal with environment variables on VS Code, please refer to [this link](https://code.visualstudio.com/docs/python/environments)
 
     > Please refer to Stripe's documentation in order to create your Webhook handler!.
     > Please modify your app settings.py file accordingly.
