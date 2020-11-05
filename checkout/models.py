@@ -3,6 +3,7 @@ from decimal import Decimal
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 from django_countries.fields import CountryField
 
@@ -90,7 +91,12 @@ class OrderLineItem(models.Model):
     cd = models.ForeignKey(
         Cd, null=False, blank=False, on_delete=models.CASCADE
     )
-    quantity = models.IntegerField(null=False, blank=False, default=0)
+    quantity = models.IntegerField(
+        null=False,
+        blank=False,
+        default=0,
+        validators=[MaxValueValidator(99), MinValueValidator(1)],
+    )
     lineitem_total = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=False, editable=False
     )
