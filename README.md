@@ -419,6 +419,7 @@ The app consists of the following apps:
 #### Profiles App <!-- omit in toc -->
 
 ![Profiles](https://res.cloudinary.com/gbrachetta/image/upload/v1604441265/ms4/profile_vqmrl6.png)
+![Email-management](https://res.cloudinary.com/gbrachetta/image/upload/v1604533987/ms4/manage-emails_jfeayu.png)
 
 - The profile page is obviously available to authenticated users only.
 - It contais the user's delivery information, user information and order history.

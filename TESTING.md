@@ -10,8 +10,8 @@
   - [Album App](#album-app)
   - [Profiles app](#profiles-app)
   - [Shop App](#shop-app)
-  - [Checkout app](#checkout-app)
   - [Bag App](#bag-app)
+  - [Checkout app](#checkout-app)
 - [Validators and linters](#validators-and-linters)
 - [Issues and bugs](#issues-and-bugs)
   - [Manually accessing `contact/` from the URL](#manually-accessing-contact-from-the-url)
@@ -117,7 +117,7 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 
 - Events automatically find their way to the corresponding grid: if events are future they render in the `Upcoming Events` grid, arranged from sooner to later in time, si the user can quickly find the next activities.
   - *Verdict: passed.* :white_check_mark:
-- likewise, when the event is in the past, they render in the `Past Events` grid, in this case organised from most recent to fartherst in time (reversed) so the user can quickly see what were his most recent activities.  
+- likewise, when the event is in the past, they render in the `Past Events` grid, in this case organised from most recent to farthest in time (reversed) so the user can quickly see what were his most recent activities.  
   - *Verdict: passed.* :white_check_mark:
 - Events change from one grid to the other automatically, so the user only has to input the event once and forget about them.  
   - *Verdict: passed.* :white_check_mark:
@@ -138,12 +138,48 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 > - *As a user I would like to be able to delete media so it automatically disappears from my album.*
 > - *As a user I would like to be able to replace photos and have a preview of it so I don't make mistakes.*
 
+- The gallery works responsively across all systems.
+  - *Verdict: passed.* :white_check_mark:
+- Lightbox displays extra information about the images (title, caption)
+  - *Verdict: passed.* :white_check_mark:
+- Images can be shared from the lightbox, via a direct link or social media.
+  - *Verdict: passed.* :white_check_mark:
+- Images can be downloaded at full resolution.
+  - *Verdict: passed.* :white_check_mark:
+- Album can be updated by admins and the additions or modifications take place instantly and without further action required.
+  - *Verdict: passed.* :white_check_mark:
+- Images can be individually edited, name and caption changed and image replaced and these changes take place
+seamlessly and without further action required.
+  - *Verdict: passed.* :white_check_mark:
+- Gallery generates randomly and creates a different layout on every reload automatically.
+  - *Verdict: passed.* :white_check_mark:
+- Video plays in the lightbox.
+  - *Verdict: passed.* :white_check_mark:
+- Video thumbnails are generated automatically.
+
 ### Profiles app
 
 > - *As a user I would like to be able to register an account so I can make effortless future purchases.*
 > - *As a user I would like to be able to reset my password so I can log in in case I forgot it.*
 > - *As a user I would like to be able to see my order history so I can make sure to know what I have purchased.*
 > - *As a user I would like to be able to update my user details so I can be sure my delivery information is accurate.*
+
+- Account is created and user receives notification email requesting to confirm email address automatically.
+  - *Verdict: passed.* :white_check_mark:
+- Activation link received by email works to effectively confirm email address, allowing to log in.
+  - *Verdict: passed.* :white_check_mark:
+- Users receive a reset password link via email when requested.
+  - *Verdict: passed.* :white_check_mark:
+- Users can alter and update their delivery information and all information related to their account, excepting username.
+  - *Verdict: passed.* :white_check_mark:
+- Users can add, change or delete email addresses and manage them, changing which one is the primary one (and thus receiving communications through that primary one).
+  - *Verdict: passed.* :white_check_mark:
+- Users can change their password.
+  - *Verdict: passed.* :white_check_mark:
+- Users have an overview of their order history, ordered from the more recent, and can access individual orders in a clear way.
+  - *Verdict: passed.* :white_check_mark:
+- Users can log out with one click without needing to go over the intermediary "Confirm Logout" form. This was achieved by adding the variable `ACCOUNT_LOGOUT_ON_GET = True` to the settings.
+  - *Verdict: passed.* :white_check_mark:
 
 ### Shop App
 
@@ -153,11 +189,48 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 > - *As a user I would like to be able to delete existing items in my shop so they disappear from the shop without breaking the layout.*
 > - *As a user I would like to be able to replace photos and have a preview of it so I don't make mistakes.*
 
+- Users see a responsive grid with clear information about the products available for purchase.
+  - *Verdict: passed.* :white_check_mark:
+- Navigation is intuitive and provides unequivocal options to find out more information about individual items, by clicking on the image or the button with the legend "Details".
+  - *Verdict: passed.* :white_check_mark:
+- Visual clues work well on all devices and layouts by displaying an overlay on the images, inviting the user to click on them.
+  - *Verdict: passed.* :white_check_mark:
+- The button "Add to Bag" effectively adds a single unit of the product to the shopping bag.
+  - *Verdict: passed.* :white_check_mark:
+- Administrators can effectively edit the product from the details page, and all changes take place immediately.
+  - *Verdict: passed.* :white_check_mark:
+- Administrators can effectively delete a product from the shop, a confirmation modal displays warning them of the action about to be performed for extra safety.
+  - *Verdict: passed.* :white_check_mark:
+- Modal works on all layouts.
+  - *Verdict: passed.* :white_check_mark:
+
+### Bag App
+
+- Shopping bag can be adjusted, quantity updated and products deleted from the bag.
+  - *Verdict: passed.* :white_check_mark:
+- Delivery cost information updates accordingly and it's easy to find.
+  - *Verdict: passed.* :white_check_mark:
+- Subtotal and totals update and are clear.
+  - *Verdict: passed.* :white_check_mark:
+- If the user decides to delete an item from their bag, a modal pops up requesting confirmation.
+  - *Verdict: passed.* :white_check_mark:
+- Quantity form works as expected in adding the desired amount of items to the bag from the product detail page.
+  - *Verdict: passed.* :white_check_mark:
+
 ### Checkout app
 
 > - *As a user I would like to be able to purchase securely the CDs so I feel peace of mind about my personal information.*
 
-### Bag App
+- Invalid information (i.e. wrongly formatted email, empty required fields, etc) is correctly validated and displays warnings as expected.
+  - *Verdict: passed.* :white_check_mark:
+- Test credit card numbers (`4242 4242 4242 4242` for USA or any other provided for testing purposes) effectively succeeds on Stripe's side and webhooks return a success message, allowing for the order to be created and entered in the system.
+  - *Verdict: passed.* :white_check_mark:
+- A confirmation email with all order information is successfully sent to the customer via my SMTP server.
+  - *Verdict: passed.* :white_check_mark:
+- An additional email formatted differently is successfully delivered to the admins announcing them about the creation of a new order.
+  - *Verdict: passed.* :white_check_mark:
+- The hyperlinks to view past orders display correctly and redirects to a template with information about that particular order.
+  - *Verdict: passed.* :white_check_mark:
 
 ## Validators and linters
 
@@ -192,8 +265,8 @@ The script redirects to the home page, thus avoiding rendering an unformatted te
 ### Modals within for loops
 
 Confirmation modals to delete a record within a forloop are not so straightforward.
-I considered leaving that extra security feature aside, assuming the admins would be responsible enought to think carefully before hitting a "delete" button without having a chance to regret it, but ultimately thought that wasn't a fair thing to do and decided to implement this extra feature. Here's how I approached it:
-The link to the modal includes a `forloop.counter` in its `data-target` attribute, and the modal'a `id` has the same information in it, making thus certain that the modal to confirm a deletion will be in the correct iteration of the loop.
+I considered leaving that extra security feature aside, assuming the admins would be responsible enough to think carefully before hitting a "delete" button without having a chance to regret it, but ultimately thought that wasn't a fair thing to do and decided to implement this extra feature. Here's how I approached it:
+The link to the modal includes a `forloop.counter` in its `data-target` attribute, and the modal's `id` has the same information in it, making thus certain that the modal to confirm a deletion will be in the correct iteration of the loop.
 From that point I put in place the following script that made possible to execute a post request with the given data, making the `csrftoken` match the information from the `csrfmiddlewaretoken` so the post request could succeed:
 
 ```js
@@ -237,7 +310,7 @@ It finally served the purpose perfectly and that allowed me to test and succeed 
 
 ### GSAP animations and landscape phones
 
-Full size screen parallax with a visible navbar doesn't perform well on phone in landscape position, and at the moment of this writing I'm considering a number of options to deal with it, but I don't want to sacrifice an otherwise perfectly functional and beautiful layout for the very rare user willing to try parallax on phone in landscape.
+Full size screen parallax with a visible navbar doesn't perform well on **phone in landscape position**, and at the moment of this writing I'm considering a number of options to deal with it, but I don't want to sacrifice an otherwise perfectly functional and beautiful layout for the very rare user willing to try parallax on phone in landscape.
 Some of the options being considered at the moment of this writing are:
 
 - Having an alternative set of CSS rules for users rotating their phones on the homepage. The objections to this are:
