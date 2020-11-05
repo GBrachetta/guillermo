@@ -238,10 +238,21 @@ The following validators and linters were used either remotely or with their plu
 
 - [W3C HTML Validator](https://validator.w3.org/)
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+  - Validators and linters were used to ensure code is valid.
+  - Warnings or errors only showed for jinja specific code, which is not interpreted by these validators and have been thud ignored after carefully checking them.
 - [CSS Lint](http://csslint.net/)
+  - I used Sass to compile my main CSS file.
+  - To compile my CSS file I used [Live Sass Compiler](https://github.com/ritwickdey/vscode-live-sass-compiler) on VS Code, which saved time and ensured all rules are valid.
+  - Sass allowed me to have my rules organised in different files and ensured that the resulting compiled file has no errors.
+  - Sass also allowed me to automatically compile a minified file, thus saving loading time.
 - [JSHint](https://jshint.com/)
+  - All JS has been minified to reduce loading times, having been previously linted and free of errors.
+  - No console warnings or errors are displayed at any moment.
 - [PEP8](http://pep8online.com/)
 - [BLACK](https://pypi.org/project/black/)
+  - Both linters were used throughout development, alternating between them for extra security and double checking.
+  - Both extensions were installed in my virtual environment, allowing me to spot warnings and errors instantly, and to correct them.
+  - No Python warnings or errors occur.
 
 ## Issues and bugs
 

@@ -10,8 +10,9 @@ Guillermo shares his love for art, inviting users to discover the sophistication
 
 Feel welcome to engage with the content in a visual and auditive way, discover more about the artist, be aware of his future concerts, get to know him more closely through text, pictures and video and purchase his albums.
 
-## Table of Contents <!-- omit in toc -->
+## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [UX](#ux)
   - [Project Goals](#project-goals)
   - [User Stories](#user-stories)
