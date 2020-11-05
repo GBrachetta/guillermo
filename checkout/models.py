@@ -89,7 +89,7 @@ class OrderLineItem(models.Model):
         related_name="lineitems",
     )
     cd = models.ForeignKey(
-        Cd, null=False, blank=False, on_delete=models.CASCADE
+        Cd, null=False, blank=False, on_delete=models.PROTECT
     )
     quantity = models.IntegerField(
         null=False,

@@ -85,6 +85,7 @@ def delete_cd(request, cd_id):
         return redirect(reverse("home"))
 
     cd = get_object_or_404(Cd, pk=cd_id)
-    cd.delete()
+    cd.out_of_stock = True
+    cd.save()
     messages.success(request, "CD deleted.")
     return redirect(reverse("shop"))
