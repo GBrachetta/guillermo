@@ -7,7 +7,7 @@ from .forms import CdForm
 
 def shop(request):
     """ Shows all cds """
-    cds = Cd.objects.all
+    cds = Cd.objects.all().order_by("name")
     context = {"cds": cds, "shop": "active"}
     return render(request, "shop/shop.html", context)
 
