@@ -20,6 +20,7 @@
   - [Parallax Home app](#parallax-home-app)
   - [Webhooks on localhost](#webhooks-on-localhost)
   - [GSAP animations and landscape phones](#gsap-animations-and-landscape-phones)
+  - [Validation in quantity input form](#validation-in-quantity-input-form)
 
 Testing was performed manually exhaustively, putting the app under sufficient stress to consider it solid and stable.
 
@@ -36,23 +37,23 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 
 - **Tests performed**
   - Click on all the nav links and make sure they all point to the desired destination.
-    - *Verdict: passed.* :white_check_mark:
+    - *Verdict: Passed.* :white_check_mark:
   - Check navbar on different devices and make sure it collapses when required.
-    - *Verdict: passed.* :white_check_mark:
+    - *Verdict: Passed.* :white_check_mark:
   - Make sure that both dropdown menus (hamburger and profile) scroll smoothly on all devices and close when clicked outside of them.
-    - *Verdict: passed.* :white_check_mark:
+    - *Verdict: Passed.* :white_check_mark:
   - Make sure that navbar is visible at all times on all devices.
-    - *Verdict: passed.* :white_check_mark:
+    - *Verdict: Passed.* :white_check_mark:
   - Check that nav links react on hover changing their colour.
-    - *Verdict: passed.* :white_check_mark:
+    - *Verdict: Passed.* :white_check_mark:
   - Check if the class passed from the views makes the current nav link active in order to indicate the user where they are currently on.
-    - *Verdict: passed.* :white_check_mark:
+    - *Verdict: Passed.* :white_check_mark:
   - Check if an authenticated user sees their username instead of "profile" and if they have access to functionalities reserved to logged in users.
-    - *Verdict: passed.* :white_check_mark:
+    - *Verdict: Passed.* :white_check_mark:
   - Check if admins have management options available when logged in.
-    - *Verdict: passed.* :white_check_mark:
+    - *Verdict: Passed.* :white_check_mark:
   - Check if there're items in the bag by having a visual indication, both when expanded and when collapsed.
-    - *Verdict: passed.* :white_check_mark:
+    - *Verdict: Passed.* :white_check_mark:
 
 ### Footer
 
@@ -66,21 +67,21 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 - **Tests performed**
 
 - Social icons redirect to the corresponding profiles in a blank page.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Footer is visible, fixed to bottom and present on all pages.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Clicking on the email (contact) link opens a modal with a form to send a message.
-  - *Verdict: passed.* :white_check_mark: :star:
+  - *Verdict: Passed.* :white_check_mark: :star:
 - The contact form is accessible from any page of the site.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - The form populates correctly user information if the user is authenticated.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - The form is responsive and works as desired on all sizes and devices.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - The user receives a notification upon an email has been sent successfully.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - The footer accommodates to different devices and stacks its content accordingly.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 
 ### General responsiveness
 
@@ -96,17 +97,17 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 
 - The images cover all viewport on all devices, are stacked correctly and are of correct proportions.
   - *Note*: iOS has a different approach to background images covering the viewport. Thanks to the use of a combination of GSAP and parallax.js this issue has been satisfactorily resolved. In the event of an iOS device visiting, overlays and content animates correctly. More importantly, images are displayed at the correct size rather than clipped and zoomed in (iOS considers 'viewport' all content rather than just the visible available space). The sacrifice to make is to renounce to the asynchronous parallax on iOS devices, a solution I consider highly satisfactory for what I get in exchange: great image placement, sizing, and animations.
-  - *Verdict: passed.* :white_check_mark: :star:
+  - *Verdict: Passed.* :white_check_mark: :star:
 - The overlay content ove the images animates and fades in correctly on all devices.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Text is readable on all platforms.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - The modal with the biography performs as expected on all platforms and is clear to read.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - The parallax works correctly.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - The overlays animate opacity correctly.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 
 ### Events App
 
@@ -116,19 +117,19 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 > - *As a user I would like to be able to delete events so they disappear automatically from my site.*
 
 - Events automatically find their way to the corresponding grid: if events are future they render in the `Upcoming Events` grid, arranged from sooner to later in time, si the user can quickly find the next activities.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - likewise, when the event is in the past, they render in the `Past Events` grid, in this case organised from most recent to farthest in time (reversed) so the user can quickly see what were his most recent activities.  
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Events change from one grid to the other automatically, so the user only has to input the event once and forget about them.  
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Links to the venues function correctly and open a blank page.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Grids have a completely different layout depending on screen size, and the information is always clear and efficiently transmitted.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Administrators can edit an event when they are logged in by clicking on the icon displaying exclusively to them.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Administrators can delete an event when they are logged in by clicking on the icon displaying exclusively to them. Clicking on the delete icon brings up a modal requesting confirmation. Modals within for loops were a successfully sorted challenge and the implementation works perfectly and faultlessly.
-  - *Verdict: passed.* :white_check_mark: :star:
+  - *Verdict: Passed.* :white_check_mark: :star:
 
 ### Album App
 
@@ -139,22 +140,22 @@ Testing was performed manually exhaustively, putting the app under sufficient st
 > - *As a user I would like to be able to replace photos and have a preview of it so I don't make mistakes.*
 
 - The gallery works responsively across all systems.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Lightbox displays extra information about the images (title, caption)
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Images can be shared from the lightbox, via a direct link or social media.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Images can be downloaded at full resolution.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Album can be updated by admins and the additions or modifications take place instantly and without further action required.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Images can be individually edited, name and caption changed and image replaced and these changes take place
 seamlessly and without further action required.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Gallery generates randomly and creates a different layout on every reload automatically.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Video plays in the lightbox.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Video thumbnails are generated automatically.
 
 ### Profiles app
@@ -165,21 +166,21 @@ seamlessly and without further action required.
 > - *As a user I would like to be able to update my user details so I can be sure my delivery information is accurate.*
 
 - Account is created and user receives notification email requesting to confirm email address automatically.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Activation link received by email works to effectively confirm email address, allowing to log in.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Users receive a reset password link via email when requested.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Users can alter and update their delivery information and all information related to their account, excepting username.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Users can add, change or delete email addresses and manage them, changing which one is the primary one (and thus receiving communications through that primary one).
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Users can change their password.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Users have an overview of their order history, ordered from the more recent, and can access individual orders in a clear way.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Users can log out with one click without needing to go over the intermediary "Confirm Logout" form. This was achieved by adding the variable `ACCOUNT_LOGOUT_ON_GET = True` to the settings.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 
 ### Shop App
 
@@ -190,47 +191,47 @@ seamlessly and without further action required.
 > - *As a user I would like to be able to replace photos and have a preview of it so I don't make mistakes.*
 
 - Users see a responsive grid with clear information about the products available for purchase.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Navigation is intuitive and provides unequivocal options to find out more information about individual items, by clicking on the image or the button with the legend "Details".
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Visual clues work well on all devices and layouts by displaying an overlay on the images, inviting the user to click on them.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - The button "Add to Bag" effectively adds a single unit of the product to the shopping bag.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Administrators can effectively edit the product from the details page, and all changes take place immediately.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Administrators can effectively delete a product from the shop, a confirmation modal displays warning them of the action about to be performed for extra safety.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Modal works on all layouts.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 
 ### Bag App
 
 - Shopping bag can be adjusted, quantity updated and products deleted from the bag.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Delivery cost information updates accordingly and it's easy to find.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Subtotal and totals update and are clear.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - If the user decides to delete an item from their bag, a modal pops up requesting confirmation.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Quantity form works as expected in adding the desired amount of items to the bag from the product detail page.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 
 ### Checkout app
 
 > - *As a user I would like to be able to purchase securely the CDs so I feel peace of mind about my personal information.*
 
 - Invalid information (i.e. wrongly formatted email, empty required fields, etc) is correctly validated and displays warnings as expected.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - Test credit card numbers (`4242 4242 4242 4242` for USA or any other provided for testing purposes) effectively succeeds on Stripe's side and webhooks return a success message, allowing for the order to be created and entered in the system.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - A confirmation email with all order information is successfully sent to the customer via my SMTP server.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - An additional email formatted differently is successfully delivered to the admins announcing them about the creation of a new order.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 - The hyperlinks to view past orders display correctly and redirects to a template with information about that particular order.
-  - *Verdict: passed.* :white_check_mark:
+  - *Verdict: Passed.* :white_check_mark:
 
 ## Validators and linters
 
@@ -269,9 +270,26 @@ if (window.location.href.indexOf("contact") > -1) {
 This script is plain JS, since the modal, for not having any inheritance, doesn't load JQuery at when rendered directly.
 The script redirects to the home page, thus avoiding rendering an unformatted template in the very unlikely event of an user entering the address purposely.
 
-- *Verdict: passed.* :white_check_mark: :star:
+- *Verdict: Passed.* :white_check_mark: :star:
 
 ### Contact from
+
+Because the `contact` view has no template but just a modal without inheritance, the modal wouldn't render the form and an empty one was displayed.
+To solve this, the following script was put in place:
+
+```js
+$(function () {
+    $("#trigger-contact").on("click", () => {
+        $("#form-modal").load("/contact", () => {
+            $("#contact").modal("show");
+        });
+    });
+});
+```
+
+This script loads the form from the view and places it on the modal, solving the issue satisfactory.
+
+- *Verdict: Passed.* :white_check_mark:
 
 ### Modals within for loops
 
@@ -298,7 +316,7 @@ $(".remove-button").on("click", function (e) {
 Where `remove-button` is a class of the delete button in the modal, takes the value of the `csrfmiddlewaretoken`, takes the id by splitting it from the class and declares the delete url.
 Finally, JQuery makes a post request with on that url with the corresponding `csrftoken` and reloads the page.
 
-- *Verdict: passed.* :white_check_mark: :star:
+- *Verdict: Passed.* :white_check_mark: :star:
 
 ### Parallax Home app
 
@@ -309,7 +327,7 @@ This issue is normally sorted by using `background-attachment: scroll` instead o
 I finally used a combination of [parallax.js](https://pixelcog.github.io/parallax.js/) and [GSAP](https://greensock.com/gsap/), the former to deal with background images assigning them as image tags, and the latter to deal with the opacity of overlays and the translating content animations.
 The result is a great compromise, displaying as expected on desktops and only sacrificing the parallax on iOS but retaining the background image sizes and aspect ratios. Additionally, GSAP's animations of overlays and opacity and movement of text works great across all platforms.
 
-- *Verdict: passed.* :white_check_mark: :star: :sparkles:
+- *Verdict: Fixed - Passed.* :white_check_mark: :star: :sparkles:
 
 ### Webhooks on localhost
 
@@ -317,7 +335,7 @@ Testing [Stripe](https://stripe.com/en-nl)'s webhooks while working locally rath
 I obviously needed to allow my Ngrok tunnel address in my project settings, and since that address is dynamically created I had to do that on every occasion, also creating a new webhook listener for each one of those tunnels.
 It finally served the purpose perfectly and that allowed me to test and succeed setting up my Stripe webhooks.
 
-- *Verdict: passed.* :white_check_mark:
+- *Verdict: Fixed - Passed.* :white_check_mark:
 
 ### GSAP animations and landscape phones
 
@@ -333,3 +351,16 @@ Some of the options being considered at the moment of this writing are:
   - Again, a far from ideal solution and very unfriendly and counterintuitive.
 
 - *Verdict: under investigation.* :microscope:
+
+### Validation in quantity input form
+
+There was an issue on the form to update the quantity of items in the shopping bag, which allowed to manually enter a number outside the values permitted and still submit the form. With a sufficiently large value that would return a server error on checkout.
+Albeit a non-critical issue, I decided to be defensive, and the following method was used:
+
+- I identified which iteration of the forloop was the input referring to by using `{{ forloop.counter }}` in the form id.
+- I also used the same counter on the button updating the form.
+- Eventually, JQuery reads that information on click and attempts to validate the form.
+- if the form validates, it submits.
+- in case it doesn't, it displays a validation error letting the user know that the value is not allowed and the form isn't submitted.
+
+- *Verdict: Fixed - Passed.* :white_check_mark:
