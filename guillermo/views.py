@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
-from django.core import mail
 from django.conf import settings
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
@@ -23,29 +22,17 @@ def contact(request):
     if request.method == "POST":
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
-            # name = contact_form.cleaned_data["name"]
+            name = contact_form.cleaned_data["name"]
             user_email = contact_form.cleaned_data["email"]
             message = contact_form.cleaned_data["message"]
             try:
-                connection = mail.get_connection()
-                connection.open()
-                customer_email = mail.EmailMessage(
-                    "subject_customer",
-                    message,
-                    user_email,
-                    ["brachetta@me.com"],
+                send_mail(
+                    f"Message from {name}, <{user_email}>",
+                    f"{name}, from {user_email}, says: '{message}'",
+                    settings.EMAIL_HOST_USER,
+                    [settings.DEFAULT_ADMIN_EMAIL],
+                    fail_silently=False,
                 )
-
-                connection.send_messages([customer_email])
-                connection.close()
-
-                # send_mail(
-                #     f"Message from {name}, <{user_email}>",
-                #     message,
-                #     user_email,
-                #     [settings.DEFAULT_FROM_EMAIL],
-                #     fail_silently=False,
-                # )
                 messages.success(request, "Your email was successfully sent.")
                 return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
             except BadHeaderError:

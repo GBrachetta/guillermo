@@ -211,13 +211,13 @@ if "DEVELOPMENT" in os.environ:
     DEFAULT_ADMIN_EMAIL = "brachetta@me.com"
 else:
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-    EMAIL_USE_TLS = True
-    EMAIL_PORT = 587
-    EMAIL_HOST = "smtp.strato.com"
+    EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS")
+    EMAIL_PORT = os.environ.get("EMAIL_PORT")
+    EMAIL_HOST = os.environ.get("EMAIL_HOST")
     EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASS")
     DEFAULT_FROM_EMAIL = os.environ.get("EMAIL_HOST_USER")
-    DEFAULT_ADMIN_EMAIL = "brachetta@me.com"
+    DEFAULT_ADMIN_EMAIL = os.environ.get("DEFAULT_ADMIN_EMAIL")
 
 FREE_DELIVERY_THRESHOLD = 3
 STANDARD_DELIVERY = 4.99
