@@ -32,7 +32,7 @@
         <span class="navbar-toggler-icon"></span>
         <span class="md-none">
             {% if grand_total %}
-            <span class="badge badge-pill badge-danger"><small>€</small></span>
+            <span class="badge badge-pill badge-red"><small>€</small></span>
             {% endif %}
         </span>
     </button>
@@ -88,7 +88,7 @@
                 <a class="nav-link navbar-items " href="{% url 'view_bag' %}">
                     <i class="fa fa-shopping-bag">
                         {% if grand_total %}
-                        <span class="badge badge-pill badge-danger">€</span>
+                        <span class="badge badge-pill badge-red">€</span>
                         {% endif %}
                     </i>
                     Bag
