@@ -22,8 +22,6 @@ class EventForm(forms.ModelForm):
         ),
     )
     time = forms.TimeField(widget=TimePickerInput(options={"stepping": 15}))
-    # To pre-populate
-    # event_url = forms.URLField(initial='https://', required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
