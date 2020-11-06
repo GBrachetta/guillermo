@@ -25,6 +25,7 @@ pillow = "*"
 django-storages = "*"
 django-countries = "*"
 django-cleanup = "*"
+django-bootstrap-datepicker-plus = "*"
 
 [requires]
 python_version = "3.8"

@@ -27,7 +27,7 @@ def contact(request):
             message = contact_form.cleaned_data["message"]
             try:
                 send_mail(
-                    f"Message from {name}, <{user_email}>",
+                    f"[Webform] - Message from {name}, <{user_email}>",
                     f"{name}, from {user_email}, says: '{message}'",
                     settings.EMAIL_HOST_USER,
                     [settings.DEFAULT_ADMIN_EMAIL],

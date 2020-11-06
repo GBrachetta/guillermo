@@ -1,5 +1,6 @@
 from django import forms
 from .models import Event
+from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput
 
 
 class EventForm(forms.ModelForm):
@@ -8,10 +9,21 @@ class EventForm(forms.ModelForm):
         fields = "__all__"
 
     # In order to display a date and time pickers in the form
-    date = forms.DateField(widget=forms.TextInput(attrs={"type": "date"}))
-    time = forms.TimeField(widget=forms.TextInput(attrs={"type": "time"}))
+    date = forms.DateField(
+        input_formats=["%d/%m/%Y"],
+        widget=DatePickerInput(
+            options={
+                "format": "DD/MM/YYYY",  # moment date-time format
+                "showClose": True,
+                "showClear": True,
+                "showTodayButton": True,
+                "viewMode": 'months',
+            }
+        ),
+    )
+    time = forms.TimeField(widget=TimePickerInput(options={"stepping": 15}))
     # To pre-populate
-    event_url = forms.URLField(initial='https://', required=False)
+    # event_url = forms.URLField(initial='https://', required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

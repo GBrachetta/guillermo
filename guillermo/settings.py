@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "storages",
     "crispy_forms",
     "django_cleanup.apps.CleanupConfig",
+    'bootstrap_datepicker_plus',
 ]
 
 MIDDLEWARE = [
@@ -225,3 +226,4 @@ STRIPE_CURRENCY = "eur"
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY", "")
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
 STRIPE_WH_SECRET = os.getenv("STRIPE_WH_SECRET", "")
+DATE_INPUT_FORMATS = ['%d/%m/%Y']
