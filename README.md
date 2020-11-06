@@ -530,7 +530,7 @@ The following models were used to develop the app.
 | Key            | Type              | Validation                                                             |
 | -------------- | ----------------- | ---------------------------------------------------------------------- |
 | order          | ForeignKey: Order | null=False, blank=False, on_delete=models.CASCADE                      |
-| cd             | ForeignKey: Cd    | null=False, blank=False, on_delete=models.CASCADE                      |
+| cd             | ForeignKey: Cd    | null=False, blank=False, on_delete=models.PROTECT                      |
 | quantity       | IntegerField      | null=False, blank=False, default=0                                     |
 | lineitem_total | DecimalField      | max_digits=6, decimal_places=2 null=False, blank=False, editable=False |
 
@@ -552,14 +552,15 @@ The following models were used to develop the app.
 
 ##### Cd <!-- omit in toc -->
 
-| Key         | Type         | Validation                             |
-| ----------- | ------------ | -------------------------------------- |
-| sku         | CharField    | max_length=10, null=True, blank=True   |
-| name        | CharField    | max_length=254                         |
-| description | TextField    |                                        |
-| price       | DecimalField | max_digits=6, decimal_places=2         |
-| image_url   | URLField     | max_length=1024, null=True, blank=True |
-| image       | ImageField   | null=True, blank=True                  |
+| Key          | Type         | Validation                             |
+| ------------ | ------------ | -------------------------------------- |
+| sku          | CharField    | max_length=10, null=True, blank=True   |
+| name         | CharField    | max_length=254                         |
+| description  | TextField    |                                        |
+| price        | DecimalField | max_digits=6, decimal_places=2         |
+| out_of_stock | BooleanField | default=False                          |
+| image_url    | URLField     | max_length=1024, null=True, blank=True |
+| image        | ImageField   | null=True, blank=True                  |
 
 They have been altered and given extra functionality with methods, decorators and classes.
 
@@ -611,6 +612,7 @@ They have been altered and given extra functionality with methods, decorators an
 - [![git](https://img.shields.io/static/v1?label=git&message=Web&style=for-the-badge&color=f14e32&logo=git&?link=http://left&link=http://right)](https://git-scm.com/) Git: for version control.
 - [![crispyforms](https://img.shields.io/static/v1?label=CrispyForms&message=1.9.2&style=for-the-badge&color=2980B9&logo=crispyforms&?link=http://left&link=http://right)](https://django-crispy-forms.readthedocs.io/en/latest/) Crispy Forms: To render forms across the project.
 - [![pipenv](https://img.shields.io/static/v1?label=pipenv&message=2020.8.13&style=for-the-badge&color=2980B9&logo=pipenv&?link=http://left&link=http://right)](https://django-crispy-forms.readthedocs.io/en/latest/) Pipenv, to deal with the virtual environment.
+- [![datepicker](https://img.shields.io/static/v1?label=Datepicker&message=2.0.0&style=for-the-badge&color=2980B9&logo=calendar&?link=http://left&link=http://right)](https://github.com/monim67/django-bootstrap-datepicker-plus) Django Bootstrap Datepicker Plus, to render date and time fields in style.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ Back To Top</a></b>

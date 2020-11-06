@@ -223,9 +223,9 @@ seamlessly and without further action required.
 The following validators and linters were used either remotely or with their plugins for Visual Studio Code:
 
 - [W3C HTML Validator](https://validator.w3.org/)
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
   - Validators and linters were used to ensure code is valid.
   - Warnings or errors only showed for jinja specific code, which is not interpreted by these validators and have been thud ignored after carefully checking them.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 - [CSS Lint](http://csslint.net/)
   - I used Sass to compile my main CSS file.
   - To compile my CSS file I used [Live Sass Compiler](https://github.com/ritwickdey/vscode-live-sass-compiler) on VS Code, which saved time and ensured all rules are valid.
