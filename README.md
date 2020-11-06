@@ -645,7 +645,7 @@ This project can be ran locally by following these steps:
     (Alternatively you can download the zipped file, decompress it and use your IDE of choice to access it.)
 
 3. Make sure you either have access to your email server settings and credentials or to your cloud based email, such as [Gmail](https://accounts.google.com/b/0/AddMailService).
-4. Install [Pipenv](https://pipenv.pypa.io/en/latest/). This app was developed on a Mac, and on MacOS you can install pipenv by typing `brew pipenv` (provided you have [Homebrew](https://brew.sh/) installed).
+4. Install [Pipenv](https://pipenv.pypa.io/en/latest/). This app was developed on a Mac, and on MacOS you can install pipenv by typing `brew install pipenv` (provided you have [Homebrew](https://brew.sh/) installed).
 5. Create a virtual environment by typing
 
    `pipenv shell`
