@@ -54,10 +54,10 @@
                     <i class="fas fa-edit"></i>
                 </span>
             </a> |
-            <a class="text-danger" title="Remove" data-toggle="modal" data-target="#deleteEventModal{{ forloop.counter }}">
+            <a class="text-danger" title="Remove" data-toggle="modal" data-target="#deleteEventModalPast{{ forloop.counter }}">
                 <i class="fas fa-trash"></i>
             </a>
-            {% include 'includes/delete_event_modal.html' %}
+            {% include 'includes/delete_event_modal_past.html' %}
         </p>
         {% endif %}
     </div>
