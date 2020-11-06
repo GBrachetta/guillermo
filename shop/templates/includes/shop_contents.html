@@ -6,14 +6,14 @@
         {% if cd.image %}
         <div class="card-image">
             <a href="{% url 'cd_detail' cd.id %}">
-                <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-top img-fluid">
+                <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-top img-fluid" alt="image">
                 <div class="overlay-cd"></div>
             </a>
         </div>
         {% else %}
         <div class="card-image">
             <a href="{% url 'cd_detail' cd.id %}">
-                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid">
+                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid" alt="noimage">
                 <div class="overlay-cd"></div>
             </a>
         </div>

@@ -11,9 +11,9 @@
         </div>
         {% for media in album %}
         {% if media.image %}
-        <div class="col-2 px-1"><img src="{{ media.image.url }}" width="50" height="50"></div>
+        <div class="col-2 px-1"><img src="{{ media.image.url }}" width="50" height="50" alt="thumbnail"></div>
         {% else %}
-        <div class="col-2 px-1"><img src="{{ MEDIA_URL }}video.png" width="50" height="50"></div>
+        <div class="col-2 px-1"><img src="{{ MEDIA_URL }}video.png" width="50" height="50" alt="thumbnail"></div>
         {% endif %}
         <div class="col-3 text-left px-1"><small>{{ media.name }}</small></div>
         <div class="col-4 col-md-5 text-left px-1"><small>{{ media.caption }}</small></div>

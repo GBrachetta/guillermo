@@ -3,9 +3,9 @@
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
                 {% if cd.image %}
-                <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-details img-fluid">
+                <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-details img-fluid" alt="image">
                 {% else %}
-                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid">
+                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid" alt="noimage">
                 {% endif %}
             </div>
         </div>

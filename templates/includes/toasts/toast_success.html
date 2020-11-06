@@ -14,9 +14,9 @@
             <div class="row">
                 <div class="col-3 my-1">
                     {% if item.cd.image %}
-                    <img class="w-100" src="{{ item.cd.image.url }}" alt="{{ item.cd.name }}">
+                    <img class="w-100" src="{{ item.cd.image.url }}" alt="{{ item.cd.name }}" alt="image">
                     {% else %}
-                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.cd.name }}">
+                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.cd.name }}" alt="noimage">
                     {% endif %}
                 </div>
                 <div class="col-9">
