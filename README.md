@@ -716,7 +716,7 @@ The steps to deploy the local app to Heroku were as follow:
 10. I also created a "Procfile", needed by Heroku in order to know how to run the app and instructed it to run my app using the Gunicorn server in it.
 11. When deploying, Heroku reads the pipfile to install the dependencies, reads the Procfile and the Config Variables inserted above.
 12. After that process, the app was live and running remotely in Heroku's servers.
-13. Additionally I created a subdomain of my domain `www.brachetta.com` and forwarded the app deployed on heroku, so this app can be accessed also at [guillermo.brachetta.com](http://guillermo.brachetta.com/), but at the moment of this writeup I don't have a ssl certificate attached to that subdomain and thus accessing the app through that url points to a non-secure site. Attaching a SSL certificate will be done once the app passed assessment and it justifies the extra expenses caused by it.
+13. Additionally I created a subdomain of my domain `www.brachetta.com` and forwarded the app deployed on heroku, so this app can be accessed also at [guillermo.brachetta.com](http://guillermo.brachetta.com/), but at the moment of this writeup I don't have a ssl certificate attached to that subdomain and thus accessing the app through that url points to a non-secure site. Attaching a SSL certificate will be done once the app passed assessment and it justifies the extra expenses caused by it. For the secure url please refer to the link stated at the top.
 
 ### Version Control
 

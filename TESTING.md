@@ -324,7 +324,7 @@ It finally served the purpose perfectly and that allowed me to test and succeed 
 
 ### GSAP animations and landscape phones <!-- omit in toc -->
 
-Full size screen parallax with a visible navbar doesn't perform well on **phone in landscape position**, and at the moment of this writing I'm considering a number of options to deal with it, but I don't want to sacrifice an otherwise perfectly functional and beautiful layout for the very rare user willing to try parallax on phone in landscape.
+Full size screen parallax with a visible navbar doesn't perform well on **phone in landscape position**, and I considered a number of options to deal with it without sacrificing an otherwise perfectly functional and beautiful layout for the very rare user willing to try parallax on phone in landscape.
 Some of the options considered were:
 
 - Having an alternative set of CSS rules for users rotating their phones on the homepage. The objections to this are:
@@ -342,13 +342,7 @@ In the end I figured out I could do as follows:
 - Tweak slightly the `yTo` values for each content (they aren't the same height) with `+=x` or `-=x` so the bottom of larger contents wouldn't escape the parent div on landscape orientation.
 
 In this way I make sure the paragraphs stay always inside their parent regardless of screen size or orientation.
-Finally, to be defensive in the rare case the user rotates the screen while being on the home page, I reload the landing page if that's detected so the new `yTo` value can be calculated (only applies to that page)
-
-```js
-window.onorientationchange = () => {
-    window.location.reload();
-};
-```
+Finally, using a function-based value for `y` I make sure that the value injected is always correctly calculated on resize or change of orientation, sorting with that last step all my previous issues.
 
 - *Verdict: Fixed - Passed.* :white_check_mark: :star: :sparkles:
 
