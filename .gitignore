@@ -35,3 +35,6 @@ home/templates/home/homeANT.html
 home/static/home/js/homeANT.js
 checkout/webhook_handler_functional.py
 bag/templates/bag/bagNEW.html
+album/templates/album/albumBIS.html
+home/static/home/js/homeGSAP.js
+home/static/home/js/homePARALLAX.js
