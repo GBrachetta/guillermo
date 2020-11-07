@@ -257,7 +257,7 @@ The script redirects to the home page, thus avoiding rendering an unformatted te
 
 - *Verdict: Passed.* :white_check_mark: :star:
 
-### Contact from <!-- omit in toc -->
+### Contact form <!-- omit in toc -->
 
 Because the `contact` view has no template but just a modal without inheritance, the modal wouldn't render the form and an empty one was displayed.
 To solve this, the following script was put in place:
@@ -307,8 +307,8 @@ Finally, JQuery makes a post request with on that url with the corresponding `cs
 
 I found an unexpected issue when discovered that iOS looks at `viewport` in a unique way, taking into account for it all html content rather than just the visible space.
 That's why it is so tricky to use `background-image: cover` on iOS.
-On my homepage I have 4 dives stacked displaying each a cover background image, and while it worked smoothly on all platforms, on iOS it resulted in a very zoomed in image covering each one of those divs, thus resulting in a far from ideal situation.
-This issue is normally sorted by using `background-attachment: scroll` instead of `fixed` on iOS, but that didn't work for my situation because I have in place a parallax scrolling all backgrounds at a different rathe than the general scrolling itself, and using the `scroll` method creates a blank gap between the four divs.
+On my homepage I have 4 divs stacked displaying each a cover background image, and while it worked smoothly on all platforms, on iOS it resulted in a very zoomed in image covering each one of those divs, thus resulting in a far from ideal situation.
+This issue is normally sorted by using `background-attachment: scroll` instead of `fixed` on iOS. That didn't work for my situation because I have in place a parallax scrolling all backgrounds at a different rather than the general scrolling itself, and using the `scroll` method creates a blank gap between the four divs.
 I finally used a combination of [parallax.js](https://pixelcog.github.io/parallax.js/) and [GSAP](https://greensock.com/gsap/), the former to deal with background images assigning them as image tags, and the latter to deal with the opacity of overlays and the translating content animations.
 The result is a great compromise, displaying as expected on desktops and only sacrificing the parallax on iOS but retaining the background image sizes and aspect ratios. Additionally, GSAP's animations of overlays and opacity and movement of text works great across all platforms.
 
@@ -325,7 +325,7 @@ It finally served the purpose perfectly and that allowed me to test and succeed 
 ### GSAP animations and landscape phones <!-- omit in toc -->
 
 Full size screen parallax with a visible navbar doesn't perform well on **phone in landscape position**, and at the moment of this writing I'm considering a number of options to deal with it, but I don't want to sacrifice an otherwise perfectly functional and beautiful layout for the very rare user willing to try parallax on phone in landscape.
-Some of the options being considered at the moment of this writing are:
+Some of the options considered were:
 
 - Having an alternative set of CSS rules for users rotating their phones on the homepage. The objections to this are:
   - The procedure can produce unexpected results as each OS is susceptible of treating those rules differently.
@@ -335,7 +335,22 @@ Some of the options being considered at the moment of this writing are:
 - Hiding the navbar on landscape.
   - Again, a far from ideal solution and very unfriendly and counterintuitive.
 
-- *Verdict: under investigation.* :microscope:
+In the end I figured out I could do as follows:
+
+- Calculate the half of the inner height of the content's parent container with `yTo = $(".parent-container").innerHeight() / 2;`.
+- Translate my content vertically that amount.
+- Tweak slightly the `yTo` values for each content (they aren't the same height) with `+=x` or `-=x` so the bottom of larger contents wouldn't escape the parent div on landscape orientation.
+
+In this way I make sure the paragraphs stay always inside their parent regardless of screen size or orientation.
+Finally, to be defensive in the rare case the user rotates the screen while being on the home page, I reload the landing page if that's detected so the new `yTo` value can be calculated (only applies to that page)
+
+```js
+window.onorientationchange = () => {
+    window.location.reload();
+};
+```
+
+- *Verdict: Fixed - Passed.* :white_check_mark: :star: :sparkles:
 
 ### Validation in quantity input form <!-- omit in toc -->
 

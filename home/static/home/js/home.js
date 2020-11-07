@@ -38,9 +38,17 @@ gsap.to(".fourth-overlay", {
     },
 });
 
-gsap.to("#first-section-content", {
+// Calculates height of parent container to position section content
+yTo = $(".parent-container").innerHeight() / 2;
+
+// Reloads screen on orientation change so new yTo value can be applied
+window.onorientationchange = () => {
+    window.location.reload();
+};
+
+gsap.to("#first-section-content", 3, {
     opacity: 0,
-    y: "+=450",
+    y: yTo,
     scrollTrigger: {
         trigger: ".first-overlay",
         start: "top top",
@@ -49,35 +57,35 @@ gsap.to("#first-section-content", {
     },
 });
 
-gsap.to("#second-section-content", {
+gsap.to("#second-section-content", 3, {
+    y: (yTo += 10),
     opacity: 1,
-    y: "500px",
     scrollTrigger: {
         trigger: ".first-overlay",
         start: "+=60%",
-        end: "+=600",
+        end: "+=220",
         scrub: true,
     },
 });
 
 gsap.to("#third-section-content", {
     opacity: 1,
-    y: "300px",
+    y: (yTo -= 80),
     scrollTrigger: {
         trigger: ".second-overlay",
         start: "+=60%",
-        end: "+=600",
+        end: "+=220",
         scrub: true,
     },
 });
 
 gsap.to("#fourth-section-content", {
     opacity: 1,
-    y: "500px",
+    y: (yTo += 80),
     scrollTrigger: {
         trigger: ".third-overlay",
         start: "+=60%",
-        end: "+=600",
+        end: "+=200",
         scrub: true,
     },
 });
