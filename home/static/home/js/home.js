@@ -1,114 +1,72 @@
-gsap.to(".first-overlay", {
-    opacity: 1,
-    scrollTrigger: {
-        trigger: ".first-overlay",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-    },
-});
-
-gsap.from(".second-overlay", {
-    opacity: 1,
-    scrollTrigger: {
-        trigger: ".second-overlay",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-    },
-});
-
-gsap.from(".third-overlay", {
-    opacity: 1,
-    scrollTrigger: {
-        trigger: ".third-overlay",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-    },
-});
-
-gsap.to(".fourth-overlay", {
-    opacity: 1,
-    scrollTrigger: {
-        trigger: ".third-overlay",
-        start: "bottom bottom+=200",
-        end: "bottom",
-        scrub: true,
-    },
-});
-
-// Calculates height of parent container to position section content
-yTo = $(".parent-container").innerHeight() / 2;
 const selector = $(".parent-container");
 
-gsap.to("#first-section-content", 3, {
-    opacity: 0,
-    y: () => {
-        return selector.innerHeight() / 2;
-    },
-    scrollTrigger: {
-        trigger: ".first-overlay",
-        start: "top top",
-        end: "bottom center",
-        scrub: true,
-        invalidateOnRefresh: true,
-    },
-});
+// Loops through the overlays, uses a function to return a new value based on resizing.
+for (let i = 1; i <= 4; i++) {
+    if (i === 1) {
+        gsap.to(`.overlay-${i}`, {
+            opacity: 1,
+            scrollTrigger: {
+                trigger: `.overlay-${i}`,
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+                invalidateOnRefresh: true,
+            },
+        });
+    } else {
+        gsap.to(`.overlay-${i}`, {
+            opacity: 1,
+            scrollTrigger: {
+                trigger: `.overlay-${i - 1}`,
+                start: () => {
+                    return `bottom ` + selector.innerHeight() / 2.5;
+                },
+                end: "bottom top",
+                scrub: true,
+                invalidateOnRefresh: true,
+            },
+        });
+    }
+}
 
-gsap.to("#second-section-content", 3, {
-    y: () => {
-        return selector.innerHeight() / 2;
-    },
-    opacity: 1,
-    scrollTrigger: {
-        trigger: ".first-overlay",
-        start: "+=60%",
-        end: "+=220",
-        scrub: true,
-        invalidateOnRefresh: true,
-    },
-});
+// Loops through the content to translate and animate
+for (let y = 1; y < 5; y++) {
+    if (y === 1) {
+        gsap.to(`#section-content-${y}`, 3, {
+            opacity: 0,
+            y: () => {
+                return selector.innerHeight() / 2;
+            },
+            scrollTrigger: {
+                trigger: `.overlay-${y}`,
+                start: "top top",
+                end: "bottom center",
+                scrub: true,
+                invalidateOnRefresh: true,
+            },
+        });
+    } else {
+        gsap.to(`#section-content-${y}`, 3, {
+            y: () => {
+                return selector.innerHeight() / 2 - selector.innerHeight() / 10;
+            },
+            opacity: 1,
+            scrollTrigger: {
+                trigger: `.overlay-${y - 1}`,
+                start: "+=60%",
+                end: "+=220",
+                scrub: true,
+                invalidateOnRefresh: true,
+            },
+        });
+    }
+}
 
-gsap.to("#third-section-content", {
-    opacity: 1,
-    y: () => {
-        return selector.innerHeight() / 2 - 80;
-    },
-    scrollTrigger: {
-        trigger: ".second-overlay",
-        start: "+=60%",
-        end: "+=220",
-        scrub: true,
-        invalidateOnRefresh: true,
-    },
-});
-
-gsap.to("#fourth-section-content", {
-    opacity: 1,
-    y: () => {
-        return selector.innerHeight() / 2;
-    },
-    scrollTrigger: {
-        trigger: ".third-overlay",
-        start: "+=60%",
-        end: "+=200",
-        scrub: true,
-        invalidateOnRefresh: true,
-    },
-});
-
+// Loops through a pool of 4 img backgrounds
 $(function () {
-    $(".bg1").parallax({
-        imageSrc: "https://res.cloudinary.com/gbrachetta/image/upload/v1604230951/bg1.jpg",
-    });
-    $(".bg2").parallax({
-        imageSrc: "https://res.cloudinary.com/gbrachetta/image/upload/v1604230958/bg2.jpg",
-    });
-    $(".bg3").parallax({
-        imageSrc: "https://res.cloudinary.com/gbrachetta/image/upload/v1604230952/bg3.jpg",
-    });
-    $(".bg4").parallax({
-        imageSrc: "https://res.cloudinary.com/gbrachetta/image/upload/v1604230950/bg4c.jpg",
-    });
+    for (let z = 1; z < 5; z++) {
+        $(`.bg${z}`).parallax({
+            imageSrc: `https://res.cloudinary.com/gbrachetta/image/upload/bgms4/bg-${z}.jpg`,
+        });
+    }
 });
