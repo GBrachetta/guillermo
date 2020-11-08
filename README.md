@@ -675,7 +675,7 @@ This project can be ran locally by following these steps:
     The format for a `.env` file is as follows:
 
     ```txt
-    KEY:VALUE
+    KEY=VALUE
     ```
 
     For alternative methods to deal with environment variables on VS Code, please refer to [this link](https://code.visualstudio.com/docs/python/environments)

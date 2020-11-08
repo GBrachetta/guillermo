@@ -15,7 +15,7 @@
     </div>
     <div class="col-9 {% if event.event_url %}link-venue{% endif %} text-left text-grid-events d-md-none">
         {% if event.event_url %}
-        <a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>
+        <a href="{{ event.event_url }}" target="_blank" rel="noopener">{{ event.venue }}</a>
         {% else %}
         {{ event.venue }}
         {% endif %}
@@ -67,7 +67,7 @@
     </div>
     <div class="col-9 {% if event.event_url %}link-venue{% endif %} text-left text-grid-events d-md-none">
         {% if event.event_url %}
-        <a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>
+        <a href="{{ event.event_url }}" target="_blank" rel="noopener">{{ event.venue }}</a>
         {% else %}
         {{ event.venue }}
         {% endif %}

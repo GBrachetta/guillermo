@@ -25,7 +25,7 @@
     </div>
     <div class="col-3 {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1 d-none d-md-block">
         {% if event.event_url %}
-        <a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>
+        <a href="{{ event.event_url }}" target="_blank" rel="noopener">{{ event.venue }}</a>
         {% else %}
         {{ event.venue }}
         {% endif %}
@@ -63,7 +63,7 @@
     </div>
     <div class="col-3 {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1 d-none d-md-block">
         {% if event.event_url %}
-        <a href="{{ event.event_url }}" target="_blank">{{ event.venue }}</a>
+        <a href="{{ event.event_url }}" target="_blank" rel="noopener">{{ event.venue }}</a>
         {% else %}
         {{ event.venue }}
         {% endif %}
