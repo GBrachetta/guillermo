@@ -14,6 +14,11 @@ class StripeWH_Handler:
         self.request = request
 
     def _send_confirmation_email(self, order):
+        """
+        Confirmation email sent to both customer and admin once Stripe's
+        pid has been successful.
+        """
+
         subject_customer = render_to_string(
             "checkout/confirmation_emails/confirmation_email_subject.txt",
             {"order": order},
@@ -54,6 +59,11 @@ class StripeWH_Handler:
         )
 
     def handle_payment_intent_succeeded(self, event):
+        """
+        Logic handling order creation, attachment and responses.
+        Sends email on successful pid.
+        """
+
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag

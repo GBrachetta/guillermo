@@ -55,6 +55,12 @@ class Order(models.Model):
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
+        """
+
+        Includes logic to calculate delivery cost based on amount of CDs
+        purchased rather than an amount of money in the checkout.
+        """
+
         self.order_total = (
             self.lineitems.aggregate(Sum("lineitem_total"))[
                 "lineitem_total__sum"

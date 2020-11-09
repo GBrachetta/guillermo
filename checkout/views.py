@@ -20,6 +20,10 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    Caches data and returns status 200 if the payment intent is successful.
+    """
+
     try:
         pid = request.POST.get("client_secret").split("_secret")[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -38,6 +42,11 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    """
+    Processes Stripe payment intent, attaches order to profile,
+    returns status after returning from Stripe webhook.
+    """
+
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -65,7 +74,9 @@ def checkout(request):
                 try:
                     cd = Cd.objects.get(id=item_id)
                     order_line_item = OrderLineItem(
-                        order=order, cd=cd, quantity=item_data,
+                        order=order,
+                        cd=cd,
+                        quantity=item_data,
                     )
                     order_line_item.save()
                 except Cd.DoesNotExist:
@@ -95,7 +106,8 @@ def checkout(request):
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
-            amount=stripe_total, currency=settings.STRIPE_CURRENCY,
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
         )
 
         if request.user.is_authenticated:
@@ -132,6 +144,10 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
+    """
+    Handles successful checkout
+    """
+
     save_info = request.session.get("save_info")
     order = get_object_or_404(Order, order_number=order_number)
 

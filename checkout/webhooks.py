@@ -9,6 +9,11 @@ import stripe
 @require_POST
 @csrf_exempt
 def webhook(request):
+    """
+    Returns response from webhook in order to deal accordingly with
+    the logic in the views in the rest of the app.
+    """
+
     wh_secret = settings.STRIPE_WH_SECRET
     stripe.api_key = settings.STRIPE_SECRET_KEY
 
