@@ -1,3 +1,6 @@
+/**
+ * Styles the selected/unselected country field in checkout form to match design.
+ */
 let countrySelected = $("#id_default_country").val();
 if (!countrySelected) {
     $("#id_default_country").css("color", "#aab7c4");

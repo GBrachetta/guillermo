@@ -1,3 +1,7 @@
+/**
+ * Scripts from Chris Zielinski's Boutique Ado, adapted to the current site.
+ */
+
 // Disable +/- buttons outside 1-99 range
 function handleEnableDisable(itemId) {
     let currentValue = parseInt($(`#id_qty_${itemId}`).val());

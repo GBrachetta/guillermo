@@ -1,3 +1,9 @@
+/*
+This script (and all modal scripts for forloops in the app) receives the itemId
+passed through anchor's class "remove_{{ itemId }}", splits it and selects
+the value needed and assigns it to the variable used to effectively delete
+the required itemId.
+*/
 $(".remove-button").on("click", function (e) {
     let csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     let itemId = $(this).attr("class").split("remove_")[1];
@@ -11,6 +17,11 @@ $(".remove-button").on("click", function (e) {
     });
 });
 
+/*
+A similar script as the one above, taking the data from the dataset.
+Then checks if the form is valid: if it is, it submits it, otherwise
+it removes the 'd-none' class from the error message, displaying it.
+*/
 $(".update-link").on("click", function () {
     let number = this.dataset.number;
     let cartForm = document.querySelector(`#cart-form-${number}`);
@@ -23,6 +34,11 @@ $(".update-link").on("click", function () {
     }
 });
 
+/*
+Same as above, needed as that one would not work on a template where a grid
+with d-none was present.
+This particular one applies to "d-block d-md-none".
+*/
 $(".update-link-sm").on("click", function () {
     let number = this.dataset.number;
     let cartForm = document.querySelector(`#cart-form-sm-${number}`);

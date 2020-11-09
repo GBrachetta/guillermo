@@ -1,6 +1,16 @@
+/**
+ * Landing page scripts
+ */
+
+// Used to determine height of element containers
 const selector = $(".parent-container");
 
-// Loops through the overlays, uses a function to return a new value based on resizing.
+/**
+ * Loops through the overlays, uses a function to dynamically return a new value
+ * Loops through the overlays, uses a function to dynamically return a new value
+ * based on current size.
+ * First overlay is different as it starts with 0 opacity and animates to 1.
+ */
 for (let i = 1; i <= 4; i++) {
     if (i === 1) {
         gsap.to(`.overlay-${i}`, {
@@ -29,7 +39,15 @@ for (let i = 1; i <= 4; i++) {
     }
 }
 
-// Loops through the content to translate and animate
+/**
+ * Loops through the content to translate and animate text content.
+ * First content is the title and uses a different animation.
+ * The value of 'y' (vertical translation) is dynamically calculated and returned,
+ * using the constant above.
+ * The key 'invalidateOnRefresh' ensures that new values are injected on 
+ * screen resize.
+ * The key 'scrub' permits to reverse the animation on scroll up.
+ */
 for (let y = 1; y < 5; y++) {
     if (y === 1) {
         gsap.to(`#section-content-${y}`, 3, {
@@ -62,7 +80,10 @@ for (let y = 1; y < 5; y++) {
     }
 }
 
-// Loops through a pool of 4 img backgrounds
+/**
+ * Loops through a pool of 4 img backgrounds and assigns each one of the to the 
+ * four containers on the homepage.
+ */
 $(function () {
     for (let z = 1; z < 5; z++) {
         $(`.bg${z}`).parallax({
