@@ -2,11 +2,8 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
+<!--Spacer-->
+<div class="header-container"></div>
 {% endblock page_header %}
 
 {% block content %}
@@ -18,6 +15,7 @@
                 <h2 class="mb-4">My Profile</h2>
             </div>
         </div>
+        <!--Includes for profile template-->
         <div class="row mb-5">
             <div class="col-12 col-lg-6">
                 {% include 'includes/delivery_information.html' %}

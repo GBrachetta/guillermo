@@ -1,28 +1,49 @@
+<!--Order history-->
 <div class="container-fluid">
     <div class=" row">
-        <div class="col-12 py-1 my-3 header-upcoming"><strong>Order History</strong></div>
+        <div class="col-12 py-1 my-3 header-upcoming">
+            <strong>Order History</strong>
+        </div>
         {% if order_count <= 0 %}
+        <!-- Message if there are no items in order history-->
         <p>You haven't placed any orders yet.</p>
         {% else %}
-        <div class="col-2 text-dark text-left d-none d-md-block border-bottom font-weight-bold">Order #</div>
-        <div class="col-2 text-dark text-left d-none d-md-block border-bottom font-weight-bold">Date</div>
-        <div class="col-6 text-dark text-left d-none d-md-block border-bottom font-weight-bold">Items</div>
-        <div class="col-2 text-dark text-left d-none d-md-block border-bottom font-weight-bold">Total</div>
+        <!--Order history content md-->
+        <div
+            class="col-2 text-dark text-left d-none d-md-block border-bottom font-weight-bold">
+            Order #
+        </div>
+        <div
+            class="col-2 text-dark text-left d-none d-md-block border-bottom font-weight-bold">
+            Date
+        </div>
+        <div
+            class="col-6 text-dark text-left d-none d-md-block border-bottom font-weight-bold">
+            Items
+        </div>
+        <div
+            class="col-2 text-dark text-left d-none d-md-block border-bottom font-weight-bold">
+            Total
+        </div>
         {% for order in orders %}
-
-        <div class="col-3 text-info text-left pl-1 text-grid-events d-md-none">Order #</div>
+        <div class="col-3 text-info text-left pl-1 text-grid-events d-md-none">
+            Order #</div>
         <div class="col-9 text-left text-grid-events d-md-none">
-            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+            <a href="{% url 'order_history' order.order_number %}"
+                title="{{ order.order_number }}">
                 {{ order.order_number|truncatechars:15 }}
             </a>
         </div>
         <div class="col-2 text-dark text-left d-none d-md-block border-bottom">
-            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+            <a href="{% url 'order_history' order.order_number %}"
+                title="{{ order.order_number }}">
                 <small>{{ order.order_number|truncatechars:10 }}</small>
             </a>
         </div>
-
-        <div class="col-3 text-info text-left pl-1 text-grid-events d-md-none">Date</div>
+        <!--Order history content sm-->
+        <div class="col-3 text-info text-left pl-1 text-grid-events d-md-none">
+            Date
+        </div>
         <div class="col-9 text-left text-grid-events d-md-none">
             {{ order.date|date:"d M Y" }}
         </div>
@@ -30,7 +51,9 @@
             {{ order.date|date:"d M Y" }}
         </div>
 
-        <div class="col-3 text-info text-left pl-1 text-grid-events d-md-none">Items</div>
+        <div class="col-3 text-info text-left pl-1 text-grid-events d-md-none">
+            Items
+        </div>
         <div class="col-9 text-left text-grid-events d-md-none">
             <ul class="list-unstyled mb-0">
                 {% for item in order.lineitems.all %}
@@ -50,11 +73,14 @@
             </ul>
         </div>
 
-        <div class="col-3 text-info text-left pl-1 text-grid-events d-md-none">Total</div>
+        <div class="col-3 text-info text-left pl-1 text-grid-events d-md-none">
+            Total
+        </div>
         <div class="col-9 text-left text-grid-events d-md-none">
             <strong>€{{ order.grand_total }}</strong>
         </div>
-        <div class="col-2 text-dark text-left d-none d-md-block border-bottom text-right">
+        <div
+            class="col-2 text-dark text-left d-none d-md-block border-bottom text-right">
             <strong>€{{ order.grand_total }}</strong>
         </div>
 
