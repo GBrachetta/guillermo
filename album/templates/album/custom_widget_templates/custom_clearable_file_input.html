@@ -1,13 +1,16 @@
+<!--Widget displaying thumbnail and filename-->
 {% if widget.is_initial %}
 <p>{{ widget.initial_text }}:</p>
 <a href="{{ widget.value.url }}">
-    <img src="{{ widget.value.url }}" class="rounded shadow-sm" width="96" height="96" alt="thumbnail">
+    <img src="{{ widget.value.url }}" class="rounded shadow-sm" width="96"
+        height="96" alt="thumbnail" />
 </a>
-<br>
-{{ widget.input_text }}
-{% endif %}
+<br />
+{{ widget.input_text }} {% endif %}
 <span class="btn btn-black rounded-0 btn-file mt-2">
-    Select Image<input id="new-image" type="{{ widget.type }}" name="{{ widget.name }}" {% include "django/forms/widgets/attrs.html" %}>
+    Select Image<input id="new-image" type="{{ widget.type }}"
+        name="{{ widget.name }}"
+        {% include 'django/forms/widgets/attrs.html' %}>
 </span>
 <strong>
     <p class="text-danger" id="filename"></p>

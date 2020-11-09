@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block postcss %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/3.0.3/css/nanogallery2.min.css" integrity="sha512-XNJOedg9uG2ewGJ32c4Nn1KNUr/7qQ0Jra+KlLMvx5I3QYEFPna9PhqYAh0kO5hV8pgP8D/+wDbeawW037VsKQ==" crossorigin="anonymous" />
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/3.0.3/css/nanogallery2.min.css"
+    integrity="sha512-XNJOedg9uG2ewGJ32c4Nn1KNUr/7qQ0Jra+KlLMvx5I3QYEFPna9PhqYAh0kO5hV8pgP8D/+wDbeawW037VsKQ=="
+    crossorigin="anonymous" />
 {% endblock postcss %}
+
 {% block page_header %}
-<div class="container header-container"></div>
+<div class="header-container"></div>
 {% endblock page_header %}
 
 {% block content %}
@@ -14,6 +19,7 @@
 <div class="container mt-3 mt-md-5">
     <div class="row">
         <div class="col">
+            <!--Data passed to NanoGallery2 script-->
             <div id="nanogallery2" data-nanogallery2='{
                     "thumbnailWidth": "400 XS200 SM300",
                     "thumbnailHeight": "auto XSauto SMauto",
@@ -23,7 +29,7 @@
                     "thumbnailGutterHeight" : 2,
                     "thumbnailBorderHorizontal" : 0,
                     "thumbnailBorderVertical" : 0,
-                    "thumbnailAlignments": "scaled",
+                    "thumbnailAlignment": "fillWidth",
                     "thumbnailDisplayTransition": "scaleUp",
                     "thumbnailDisplayTransitionDuration": 800,
                     "thumbnailDisplayInterval": 80,
@@ -51,9 +57,15 @@
                     }'>
                 {% for media in album %}
                 {% if media.image %}
-                <a href="{{ media.image.url }}" data-ngthumb="{{ media.image.url }}" data-ngdesc="{{ media.caption }}" alt="{{ media.name }}"></a>
+                <a href="{{ media.image.url }}"
+                    data-ngthumb="{{ media.image.url }}"
+                    data-ngdesc="{{ media.caption }}"
+                    alt="{{ media.name }}"></a>
                 {% else %}
-                <a href="{{ media.image_url }}" data-ngthumb="{{ media.image_url }}" data-ngdesc="{{ media.caption }}" alt="{{ media.name }}"></a>
+                <a href="{{ media.image_url }}"
+                    data-ngthumb="{{ media.image_url }}"
+                    data-ngdesc="{{ media.caption }}"
+                    alt="{{ media.name }}"></a>
                 {% endif %}
                 {% endfor %}
             </div>
@@ -66,12 +78,14 @@
 {% endblock content %}
 
 {% block page_footer %}
-<div class="container footer-container"></div>
+<div class="footer-container"></div>
 {% endblock page_footer %}
 
 {% block postjs %}
 {{ block.super }}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/3.0.3/jquery.nanogallery2.min.js" integrity="sha512-3xu5p0w7hcOqGBH4pfKR04261+kgH7Z5NjdnKQNKL+j+UmyAcTFZzDBzVsV0gN+reoUr/zahjx2TgP84RtyuRg==" crossorigin="anonymous">
-</script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/nanogallery2/3.0.3/jquery.nanogallery2.min.js"
+    integrity="sha512-3xu5p0w7hcOqGBH4pfKR04261+kgH7Z5NjdnKQNKL+j+UmyAcTFZzDBzVsV0gN+reoUr/zahjx2TgP84RtyuRg=="
+    crossorigin="anonymous"></script>
 <script src="{% static 'album/js/modal_delete.min.js' %}"></script>
 {% endblock %}
