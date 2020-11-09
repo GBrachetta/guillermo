@@ -1,79 +1,95 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        {% block meta %}
+        <meta charset="UTF-8" />
+        <meta name="description"
+            content="Website of harpsichordist Guillermo Brachetta." />
+        <meta name="author" content="Guillermo Brachetta" />
+        <meta name="keywords"
+            content="Brachetta, music, harpsichord, baroque, art, concert, shop, recording" />
+        <meta name="application-name" content="Guillermo Brachetta" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        {% endblock meta %}
+        {% block css %}
+        <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}" />
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/main.min.css' %}" />
+        {% endblock css %}
+        {% block postcss %}
+        {% endblock postcss %}
+        {% block js %}
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+            crossorigin="anonymous">
+        </script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.3/umd/popper.min.js"
+            integrity="sha512-sdrkWdHcsY+FX+Cp0Is6hnNkukQewnksFdGjyD6wEvcfBQfseLJWwE0hB3+DIlRndHx5cuFuf0RbLOBST4cjCA=="
+            crossorigin="anonymous">
+        </script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha512-I5TkutApDjnWuX+smLIPZNhw+LhTd8WrQhdCKsxCFRSvhFx2km8ZfEpNIhF9nq04msHhOkE8BMOBj5QE07yhMA=="
+            crossorigin="anonymous">
+        </script>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script src="https://kit.fontawesome.com/9464f43776.js"
+            crossorigin="anonymous">
+        </script>
+        {% endblock js %}
+        <title>
+            Guillermo Brachetta
+        </title>
+    </head>
 
-<head>
-    {% block meta %}
-    <meta charset="UTF-8" />
-    <meta name="description" content="Website of harpsichordist Guillermo Brachetta." />
-    <meta name="author" content="Guillermo Brachetta" />
-    <meta name="keywords" content="Brachetta, music, harpsichord, baroque, art, concert, shop, recording" />
-    <meta name="application-name" content="Guillermo Brachetta" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    {% endblock meta %}
-    {% block css %}
-    <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/main.min.css' %}" />
-    {% endblock css %}
-    {% block postcss %}
-    {% endblock postcss %}
-    {% block js %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.3/umd/popper.min.js" integrity="sha512-sdrkWdHcsY+FX+Cp0Is6hnNkukQewnksFdGjyD6wEvcfBQfseLJWwE0hB3+DIlRndHx5cuFuf0RbLOBST4cjCA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha512-I5TkutApDjnWuX+smLIPZNhw+LhTd8WrQhdCKsxCFRSvhFx2km8ZfEpNIhF9nq04msHhOkE8BMOBj5QE07yhMA==" crossorigin="anonymous"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="https://kit.fontawesome.com/9464f43776.js" crossorigin="anonymous"></script>
-
-    {% endblock js %}
-    <title>
-        Guillermo Brachetta
-        {% block title %} {% endblock title %}
-    </title>
-</head>
-
-<body class="text-center">
-    <header>
-        {% include 'includes/navigation.html' %}
-    </header>
-    <main>
-        {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-            {% with message.level as level %}
-            {% if level == 40 %}
-            {% include 'includes/toasts/toast_error.html' %}
-            {% elif level == 30 %}
-            {% include 'includes/toasts/toast_warning.html' %}
-            {% elif level == 25 %}
-            {% include 'includes/toasts/toast_success.html' %}
-            {% else %}
-            {% include 'includes/toasts/toast_info.html' %}
+    <body class="text-center">
+        <header>
+            {% include 'includes/navigation.html' %}
+        </header>
+        <main>
+            {% if messages %}
+            <div class="message-container">
+                <!--Renders toast messages based on category-->
+                {% for message in messages %}
+                {% with message.level as level %}
+                {% if level == 40 %}
+                {% include 'includes/toasts/toast_error.html' %}
+                {% elif level == 30 %}
+                {% include 'includes/toasts/toast_warning.html' %}
+                {% elif level == 25 %}
+                {% include 'includes/toasts/toast_success.html' %}
+                {% else %}
+                {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+                {% endwith %}
+                {% endfor %}
+            </div>
             {% endif %}
-            {% endwith %}
-            {% endfor %}
-        </div>
-        {% endif %}
-        {% block extra_header %}
-        {% endblock extra_header %}
+            {% block extra_header %}
+            {% endblock extra_header %}
 
-        {% block page_header %}
-        {% endblock page_header %}
+            {% block page_header %}
+            {% endblock page_header %}
 
-        {% block content %}
-        {% endblock content %}
+            {% block content %}
+            {% endblock content %}
 
-        {% block page_footer %}
-        {% endblock page_footer %}
-        {% include 'includes/footer.html' %}
+            {% block page_footer %}
+            {% endblock page_footer %}
+            {% include 'includes/footer.html' %}
+        </main>
 
-    </main>
-
-    {% block postjs %}
-    {{ block.super }}
-    <script src="{% static 'js/extras.min.js' %}"></script>
-    {% endblock postjs %}
-</body>
+        {% block postjs %}
+        {{ block.super }}
+        <script src="{% static 'js/extras.min.js' %}"></script>
+        {% endblock postjs %}
+    </body>
 
 </html>

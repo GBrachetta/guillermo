@@ -39,3 +39,4 @@ album/templates/album/albumBIS.html
 home/static/home/js/homeGSAP.js
 home/static/home/js/homePARALLAX.js
 album/templates/album/albumOKAY.html
+album/templates/album/albumW-ALTERNATE.html

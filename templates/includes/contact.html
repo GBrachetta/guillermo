@@ -1,11 +1,14 @@
+<!--Contact Modal-->
 <script>
+    // In case a user types the url "/contact" in the address bar, redirects to home
     if (window.location.href.indexOf("contact") > -1) {
         window.location.replace("https://guillermo-brachetta.herokuapp.com");
     }
 </script>
 <form id="form-modal" method="POST" action="{% url 'contact' %}">
     {% csrf_token %}
-    <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal fade" id="contact" tabindex="-1" role="dialog"
+        aria-labelledby="modalLabel" aria-hidden="true">
         <div id="contact-modal" class="modal-dialog modal-lg" role="document">
             <div class="modal-content modal-contact-content">
                 <div class="modal-header">
@@ -15,8 +18,15 @@
                     {{ contact_form|crispy }}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-outline-black rounded-0" data-dismiss="modal">Close</button>
-                    <button type="submit" id="contact-form-btn" class="btn btn-black rounded-0">Send</button>
+                    <button type="button"
+                        class="btn btn-secondary btn-outline-black rounded-0"
+                        data-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit" id="contact-form-btn"
+                        class="btn btn-black rounded-0">
+                        Send
+                    </button>
                 </div>
             </div>
         </div>

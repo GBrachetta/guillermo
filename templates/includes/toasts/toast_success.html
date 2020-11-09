@@ -1,4 +1,6 @@
-<div class="toast custom-toast rounded-0 border-top-0" data-autohide="true" data-delay="3000">
+<!--Toast for success messages and bag information-->
+<div class="toast custom-toast rounded-0 border-top-0" data-autohide="true"
+    data-delay="3000">
     <div class="toast-header border-toast-success text-light">
     </div>
     <div class="toast-body bg-white text-left pb-0 px-0">
@@ -8,20 +10,29 @@
             </div>
         </div>
         {% if grand_total and not on_profile_page %}
-        <p class="logo-font bg-white text-black py-1 px-3">Your Bag contains {% if cd_count == 1 %}1 CD{% else %}{{ cd_count }} CDs{% endif %}</p>
+        <p class="logo-font bg-white text-black py-1 px-3">Your Bag contains
+            {% if cd_count == 1 %}1 CD{% else %}{{ cd_count }} CDs{% endif %}
+        </p>
         <div class="bag-notification-wrapper px-3">
             {% for item in bag_items %}
+            <!--Renders bag contents in toast-->
             <div class="row">
                 <div class="col-3 my-1">
                     {% if item.cd.image %}
-                    <img class="w-100" src="{{ item.cd.image.url }}" alt="{{ item.cd.name }}" alt="image">
+                    <img class="w-100" src="{{ item.cd.image.url }}"
+                        alt="{{ item.cd.name }}" alt="image">
                     {% else %}
-                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.cd.name }}" alt="noimage">
+                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png"
+                        alt="{{ item.cd.name }}" alt="noimage">
                     {% endif %}
                 </div>
                 <div class="col-9">
-                    <p class="my-0"><strong>{{ item.cd.name }}</strong></p>
-                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                    <p class="my-0">
+                        <strong>{{ item.cd.name }}</strong>
+                    </p>
+                    <p class="my-0 small text-muted">
+                        Qty: {{ item.quantity }}
+                    </p>
                 </div>
             </div>
             {% endfor %}
@@ -31,8 +42,11 @@
                 <div class="col">
                     <strong>
                         <p class="mt-3 mb-1 text-black">
-                            Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}:
-                            <span class="float-right">€{{ total|floatformat:2 }}</span>
+                            Total{% if free_delivery_delta > 0 %} (Exc.
+                            delivery){% endif %}:
+                            <span
+                                class="float-right">€{{ total|floatformat:2 }}
+                            </span>
                         </p>
                     </strong>
                 </div>
@@ -40,12 +54,18 @@
             <div class="row">
                 <div class="col px-0">
                     {% if free_delivery_delta > 0 %}
-                    <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center border-secondary border-bottom">
-                        Buy <strong>{{ free_delivery_delta }}</strong> more CD(s) to get free delivery!
+                    <!--Message to encourage user to go over free delivery delta-->
+                    <p
+                        class="mb-0 p-2 bg-warning shadow-sm text-black text-center border-secondary border-bottom">
+                        Buy <strong>{{ free_delivery_delta }}</strong> more
+                        CD(s) to get free delivery!
                     </p>
                     {% endif %}
-                    <a href="{% url 'view_bag' %}" class="btn btn-black btn-block rounded-0">
-                        <span class="text-uppercase">Go To Secure Checkout</span>
+                    <a href="{% url 'view_bag' %}"
+                        class="btn btn-black btn-block rounded-0">
+                        <span class="text-uppercase">
+                            Go To Secure Checkout
+                        </span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
                         </span>
