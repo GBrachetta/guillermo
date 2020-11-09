@@ -6,14 +6,19 @@ from .forms import CdForm
 
 
 def shop(request):
-    """ Shows all cds """
+    """
+    Shows all cds in the database.
+    """
+
     cds = Cd.objects.all().order_by("name")
     context = {"cds": cds, "shop": "active"}
     return render(request, "shop/shop.html", context)
 
 
 def cd_detail(request, cd_id):
-    """ Renders cd details """
+    """
+    Renders cd details in their own templates.
+    """
 
     cd = get_object_or_404(Cd, pk=cd_id)
 
@@ -24,7 +29,10 @@ def cd_detail(request, cd_id):
 
 @login_required
 def add_cd(request):
-    """ Allows adming to add CDs """
+    """
+    Allows admins to add CDs
+    """
+
     if not request.user.is_superuser:
         messages.error(request, "Space reserved to administrators.")
         return redirect(reverse("home"))
@@ -50,7 +58,10 @@ def add_cd(request):
 
 @login_required
 def edit_cd(request, cd_id):
-    """ Allows adming to edit CDs """
+    """
+    Allows adming to edit CDs
+    """
+
     if not request.user.is_superuser:
         messages.error(request, "Space reserved to administrators.")
         return redirect(reverse("home"))
@@ -79,7 +90,16 @@ def edit_cd(request, cd_id):
 
 @login_required
 def delete_cd(request, cd_id):
-    """ Allows adming to delete CDs """
+    """
+    Allows adming to 'delete' CDs: if a CD is deleted from the app, the
+    view saves the item as "out of stock".
+    Conditional rendering in the template makes it for users not possible
+    to add them to their shopping bag.
+    This is for both putting in place stock control in the future and also
+    to avoid items disappearing from past orders if record is effectively
+    deleted.
+    """
+
     if not request.user.is_superuser:
         messages.error(request, "Space reserved to administrators.")
         return redirect(reverse("home"))
