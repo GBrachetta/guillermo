@@ -4,8 +4,12 @@
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
+{% block page_header %}
+<div class="header-container"></div>
+{% endblock %}
+
 {% block inner_content %}
-<div class="wrapper">
+<div class="container wrapper">
 <h2 class="my-5">{% trans "Sign Up" %}</h2>
 
 <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
