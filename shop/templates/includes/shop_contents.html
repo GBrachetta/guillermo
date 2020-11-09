@@ -1,3 +1,4 @@
+<!-- Shop contents-->
 <div class="col col-md-6 col-lg-4 col-xl-3">
     <div class="card h-100 border-0">
         <div class="card-body pb-3 pt-2">
@@ -6,14 +7,16 @@
         {% if cd.image %}
         <div class="card-image">
             <a href="{% url 'cd_detail' cd.id %}">
-                <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-top img-fluid" alt="image">
+                <img src="{{ cd.image.url }}" alt="{{ cd.name }}"
+                    class="card-img-top img-fluid" alt="image">
                 <div class="overlay-cd"></div>
             </a>
         </div>
         {% else %}
         <div class="card-image">
             <a href="{% url 'cd_detail' cd.id %}">
-                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid" alt="noimage">
+                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}"
+                    class="card-img-top img-fluid" alt="noimage">
                 <div class="overlay-cd"></div>
             </a>
         </div>
@@ -26,24 +29,35 @@
             </div>
         </div>
         {% if cd.out_of_stock %}
+        <!--Disables button and changes text if cd out of stock-->
         <div class="col">
-            <a href="{% url 'cd_detail' cd.id %}" class="btn btn-sm btn-outline-black rounded-0 mt-0">
+            <a href="{% url 'cd_detail' cd.id %}"
+                class="btn btn-sm btn-outline-black rounded-0 mt-0">
                 <span class="text-uppercase">Details</span>
             </a>
-            <input type="submit" disabled="disabled" class="btn-disabled btn btn-sm btn-black rounded-0 text-uppercase mt-0" value="Sold Out">
+            <input type="submit" disabled="disabled"
+                class="btn-disabled btn btn-sm btn-black rounded-0 text-uppercase mt-0"
+                value="Sold Out">
         </div>
         {% else %}
+        <!--Button active if cd in stock-->
         <form class="form" action="{% url 'add_to_bag' cd.id %}" method="POST">
             {% csrf_token %}
             <div class="form-row">
                 <div class="col">
-                    <a href="{% url 'cd_detail' cd.id %}" class="btn btn-sm btn-outline-black rounded-0 mt-0">
+                    <a href="{% url 'cd_detail' cd.id %}"
+                        class="btn btn-sm btn-outline-black rounded-0 mt-0">
                         <span class="text-uppercase">Details</span>
                     </a>
-                    <input class="form-control qty_input" type="hidden" name="quantity" value="1" data-item_id="{{ cd.id }}" id="id_qty_{{ cd.id }}">
-                    <input type="submit" class="btn btn-sm btn-black rounded-0 text-uppercase mt-0" value="Add to Bag">
+                    <input class="form-control qty_input" type="hidden"
+                        name="quantity" value="1" data-item_id="{{ cd.id }}"
+                        id="id_qty_{{ cd.id }}">
+                    <input type="submit"
+                        class="btn btn-sm btn-black rounded-0 text-uppercase mt-0"
+                        value="Add to Bag">
                 </div>
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                <input type="hidden" name="redirect_url"
+                    value="{{ request.path }}">
             </div>
         </form>
         {% endif %}

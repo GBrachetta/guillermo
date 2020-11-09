@@ -1,34 +1,50 @@
+<!--Content individual CD-->
 <div class="container-fluid extra-padding">
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
                 {% if cd.image %}
-                <img src="{{ cd.image.url }}" alt="{{ cd.name }}" class="card-img-details img-fluid" alt="image">
+                <img src="{{ cd.image.url }}" alt="{{ cd.name }}"
+                    class="card-img-details img-fluid" alt="image">
                 {% else %}
-                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}" class="card-img-top img-fluid" alt="noimage">
+                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ cd.name }}"
+                    class="card-img-top img-fluid" alt="noimage">
                 {% endif %}
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
             <div class="product-details-container mb-5 mt-md-5">
                 <p class="mt-3 text-left">{{ cd.description }}</p>
-                <form class="form" action="{% url 'add_to_bag' cd.id %}" method="POST">
+                <form class="form" action="{% url 'add_to_bag' cd.id %}"
+                    method="POST">
                     {% csrf_token %}
                     <div class="form-row">
                         <div class="col-12">
-                            <p class="mt-3 text-left"><strong>Quantity:</strong></p>
+                            <p class="mt-3 text-left">
+                                <strong>Quantity:</strong>
+                            </p>
                             <div class="form-group w-50">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <button class="decrement-qty btn btn-black rounded-0" data-item_id="{{ cd.id }}" id="decrement-qty_{{ cd.id }}">
+                                        <button
+                                            class="decrement-qty btn btn-black rounded-0"
+                                            data-item_id="{{ cd.id }}"
+                                            id="decrement-qty_{{ cd.id }}">
                                             <span class="icon">
                                                 <i class="fas fa-minus"></i>
                                             </span>
                                         </button>
                                     </div>
-                                    <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ cd.id }}" id="id_qty_{{ cd.id }}">
+                                    <input class="form-control qty_input"
+                                        type="number" name="quantity" value="1"
+                                        min="1" max="99"
+                                        data-item_id="{{ cd.id }}"
+                                        id="id_qty_{{ cd.id }}">
                                     <div class="input-group-append">
-                                        <button class="increment-qty btn btn-black rounded-0" data-item_id="{{ cd.id }}" id="increment-qty_{{ cd.id }}">
+                                        <button
+                                            class="increment-qty btn btn-black rounded-0"
+                                            data-item_id="{{ cd.id }}"
+                                            id="increment-qty_{{ cd.id }}">
                                             <span class="icon">
                                                 <i class="fas fa-plus"></i>
                                             </span>
@@ -38,25 +54,36 @@
                             </div>
                         </div>
                         <div class="col-6">
-                            <p class="mb-0 text-left font-weight-bold">Price: €{{ cd.price }}</p>
+                            <p class="mb-0 text-left font-weight-bold">
+                                Price: €{{ cd.price }}
+                            </p>
                         </div>
                         <div class="col-12 text-left">
-                            <a href="{% url 'shop' %}" class="btn btn-outline-black rounded-0 mt-5">
+                            <a href="{% url 'shop' %}"
+                                class="btn btn-outline-black rounded-0 mt-5">
                                 <span class="icon">
                                     <i class="fas fa-arrow-left"></i>
                                 </span>
-                                <span class="text-uppercase">Keep Shopping</span>
+                                <span class="text-uppercase">
+                                    Keep Shopping
+                                </span>
                             </a>
                             {% if cd.out_of_stock %}
-                            <input disabled type="submit" class="btn-disabled btn btn-black rounded-0 text-uppercase mt-5" value="Sold Out">
+                            <!--Disables button and changes text if CD out of stock-->
+                            <input disabled type="submit"
+                                class="btn-disabled btn btn-black rounded-0 text-uppercase mt-5"
+                                value="Sold Out">
                             {% else %}
-                            <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                            <!--Button available if CD in stock-->
+                            <input type="submit"
+                                class="btn btn-black rounded-0 text-uppercase mt-5"
+                                value="Add to Bag">
                             {% endif %}
                         </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        <input type="hidden" name="redirect_url"
+                            value="{{ request.path }}">
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
