@@ -1,12 +1,23 @@
 {% load bag_tools %}
+<!--Bag Contents md-->
+<!--Column headers-->
 <div class="row mx-0">
-    <div class="col-6 py-1 my-3 header-upcoming d-none d-md-block"><strong>CD Information</strong></div>
-    <div class="col-2 py-1 my-3 header-upcoming d-none d-md-block"><strong>Price</strong></div>
-    <div class="col-2 py-1 my-3 header-upcoming d-none d-md-block"><strong>Quantity</strong></div>
-    <div class="col-md-2 py-1 my-3 header-upcoming d-none d-md-block"><strong>Subtotal</strong></div>
+    <div class="col-6 py-1 my-3 header-upcoming d-none d-md-block">
+        <strong>CD Information</strong>
+    </div>
+    <div class="col-2 py-1 my-3 header-upcoming d-none d-md-block">
+        <strong>Price</strong>
+    </div>
+    <div class="col-2 py-1 my-3 header-upcoming d-none d-md-block">
+        <strong>Quantity</strong>
+    </div>
+    <div class="col-md-2 py-1 my-3 header-upcoming d-none d-md-block">
+        <strong>Subtotal</strong>
+    </div>
 </div>
 
 {% for item in bag_items %}
+<!--Bag contents under headers-->
 <div class="row my-md-3">
     <div class="col-3 d-none d-md-block">
         {% include 'includes/product-image.html' %}
@@ -28,11 +39,15 @@
 {% include 'includes/delete_bag_modal.html' %}
 
 {% endfor %}
+
+<!--Totals-->
 <div class="row">
     <div class="col text-right d-none d-md-block">
         {% include 'includes/bag-total.html' %}
     </div>
 </div>
+
+<!--Buttons-->
 <div class="row mb-3">
     <div class="col text-right d-none d-md-block">
         {% include 'includes/checkout-buttons.html' %}
