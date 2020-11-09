@@ -4,6 +4,10 @@ from .models import Photo
 
 
 class MediaForm(forms.ModelForm):
+    """
+    Form to add/edit media for the gallery.
+    """
+
     class Meta:
         model = Photo
         fields = "__all__"

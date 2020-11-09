@@ -2,8 +2,12 @@ from django.contrib import admin
 from .models import Photo
 
 
-# Register your models here.
 class PhotoAdmin(admin.ModelAdmin):
+    """
+    Fields displayed in admin.
+    Allows to display a thumbnail of the images in the admin.
+    """
+
     list_display = (
         "name",
         "caption",

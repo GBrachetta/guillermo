@@ -4,14 +4,21 @@ from django.db import models
 from django.utils.html import mark_safe
 
 
-# Create your models here.
 def random_filename(instance, filename):
+    """
+    Returns a random filename to avoid name duplicates when uploading media.
+    """
+
     ext = filename.split(".")[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)
     return os.path.join("", filename)
 
 
 class Photo(models.Model):
+    """
+    The photo model renders a thumbnail of the media it contains.
+    """
+
     name = models.CharField(max_length=254)
     caption = models.TextField()
     image_url = models.URLField(max_length=1024, null=True, blank=True)

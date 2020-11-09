@@ -2,11 +2,14 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Photo
-# from random import shuffle
 from .forms import MediaForm
 
 
 def album(request):
+    """
+    Renders the template with all objects in the Photo model.
+    """
+
     album = Photo.objects.all()
     context = {"album": album, "media": "active"}
     return render(request, "album/album.html", context)
@@ -14,6 +17,11 @@ def album(request):
 
 @login_required
 def add_media(request):
+    """
+    Saves the form admins can fill out to add media to the gallery.
+    If accessed directly from the address bar and not superuser, an
+    error message shows in a toast and redirects to the album view.
+    """
     if not request.user.is_superuser:
         messages.error(request, "Reserved to administrators.")
         return redirect(reverse("album"))
@@ -39,6 +47,10 @@ def add_media(request):
 
 @login_required
 def edit_media(request, media_id):
+    """
+    Same as above, takes media_id to effectively edit the intended item.
+    """
+
     if not request.user.is_superuser:
         messages.error(request, "Reserved to administrators.")
         return redirect(reverse("album"))
@@ -65,6 +77,9 @@ def edit_media(request, media_id):
 
 @login_required
 def delete_media(request, media_id):
+    """
+    Same as above, takes media_id to effectively delete the intended item.
+    """
     if not request.user.is_superuser:
         messages.error(request, "Reserved to administrators.")
         return redirect(reverse("album"))
