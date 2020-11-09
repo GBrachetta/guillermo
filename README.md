@@ -176,7 +176,7 @@ Buttons have been kept discreet, with a clear purpose of focussing on what they 
 The color palette has been kept to a minimum, having chosen dark gray for navbar and footer, white for background and a shade of dark yellow for nav items, hovered buttons and to highlight relevant information.
 Dark red has been chosen for the logo as the only occurrence of that color to differentiate it, as it's been the image of the artist for a period of time, and a shade of magenta for accenting some keywords on the landing page.
 
-![Color Palette](https://res.cloudinary.com/gbrachetta/image/upload/v1604441265/ms4/palette_urclxd.png)
+![Color Palette](https://res.cloudinary.com/gbrachetta/image/upload/v1604913249/ms4/palette_rfhjvr.png)
 
 #### Fonts <!-- omit in toc -->
 
