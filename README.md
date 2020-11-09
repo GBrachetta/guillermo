@@ -600,6 +600,8 @@ They have been altered and given extra functionality with methods, decorators an
 - [![aws](https://img.shields.io/static/v1?label=AWS&style=for-the-badge&message=web&color=orange&logo=amazon)](https://aws.amazon.com/) AWS, to store all static files.
 - [![SQLite](https://img.shields.io/static/v1?label=SQLite&style=for-the-badge&message=3.33.0&color=044a64&logo=sqlite)](https://www.sqlite.org/index.html) SQLite, local database.
 - [![postgresql](https://img.shields.io/static/v1?label=Postgresql&style=for-the-badge&message=w3&color=336791&logo=postgresql)](https://www.postgresql.org/) Postgresql, the database storing all tables and records.
+- [![cleanup](https://img.shields.io/static/v1?label=DJCleanup&style=for-the-badge&message=5.1.0&color=0C4B33&logo=django)](https://pypi.org/project/django-cleanup/) Django Cleanup, deletes files from fs when user does from the admin or app.
+- [![datepicker](https://img.shields.io/static/v1?label=Datepicker&style=for-the-badge&message=3.0.5&color=0C4B33&logo=django)](https://pypi.org/project/django-bootstrap-datepicker-plus/) Django Bootstrap Datepicker Plus, displays a stylish datepicker in the events forms.
 
 ### Other technologies <!-- omit in toc -->
 

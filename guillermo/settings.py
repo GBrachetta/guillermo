@@ -54,11 +54,11 @@ INSTALLED_APPS = [
     "events",
     "checkout",
     "profiles",
-    # Extra
+    # Extra apps
     "storages",
     "crispy_forms",
     "django_cleanup.apps.CleanupConfig",
-    'bootstrap_datepicker_plus',
+    "bootstrap_datepicker_plus",
 ]
 
 MIDDLEWARE = [
@@ -89,8 +89,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "django.template.context_processors.media",  # makes media available accross the site
-                "bag.contexts.bag_contents",  # Context processors
+                "django.template.context_processors.media",  # Media (static)
+                "bag.contexts.bag_contents",  # Context processor for bag
             ],
             "builtins": [
                 "crispy_forms.templatetags.crispy_forms_tags",
@@ -120,7 +120,7 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 ACCOUNT_LOGOUT_ON_GET = True  # Skips Django-Allauth logout confirmation
 LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/shop/"
-# Modifies max length username
+# Modifies and limits max length username
 # https://stackoverflow.com/questions/50548685/how-to-add-max-length-to-allauth-username
 ACCOUNT_ADAPTER = "guillermo.adapter.UsernameMaxAdapter"
 WSGI_APPLICATION = "guillermo.wsgi.application"
@@ -226,4 +226,4 @@ STRIPE_CURRENCY = "eur"
 STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY", "")
 STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
 STRIPE_WH_SECRET = os.getenv("STRIPE_WH_SECRET", "")
-DATE_INPUT_FORMATS = ['%d/%m/%Y']
+DATE_INPUT_FORMATS = ["%d/%m/%Y"]

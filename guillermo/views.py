@@ -7,18 +7,32 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 
 def handler404(request, exception):
+    """
+    Handles 404 error and returns response, displaying custom template.
+    """
+
     response = render(request, "errors/404.html")
     response.status_code = 404
     return response
 
 
 def handler500(request):
+    """
+    Handles 500 error and returns response, displaying custom template.
+    """
+
     response = render(request, "errors/500.html")
     response.status_code = 500
     return response
 
 
 def contact(request):
+    """
+    Contact lives in the project app, renders the contact form, sends the email
+    from it and returns appropriate responses.
+    In case the use is authenticated, it populates the form with current data.
+    """
+
     if request.method == "POST":
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():

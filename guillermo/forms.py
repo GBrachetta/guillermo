@@ -2,6 +2,10 @@ from django import forms
 
 
 class ContactForm(forms.Form):
+    """
+    Form for the contact view and template
+    """
+
     name = forms.CharField(label="")
     email = forms.EmailField(label="")
     message = forms.CharField(
