@@ -12,12 +12,16 @@ class Event(models.Model):
 
     @property
     def is_due(self):
-        """ Allows to display the event in its corresponding grid """
+        """
+        Allows to display the event in its corresponding grid (past events)
+        """
         return date.today() > self.date
 
     @property
     def is_future(self):
-        """Allows to display the event in its corresponding grid"""
+        """
+        Allows to display the event in its corresponding grid (upcoming events)
+        """
         return date.today() <= self.date
 
     def __str__(self):

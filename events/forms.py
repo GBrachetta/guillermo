@@ -8,7 +8,9 @@ class EventForm(forms.ModelForm):
         model = Event
         fields = "__all__"
 
-    # In order to display a date and time pickers in the form
+    # In order to display a date and time pickers in the form.
+    # Uses 'bootstrap-datepicker-plus' for better functionality and
+    # improved design.
     date = forms.DateField(
         input_formats=["%d/%m/%Y"],
         widget=DatePickerInput(
