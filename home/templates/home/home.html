@@ -3,7 +3,9 @@
 {% block content %}
 
 <div class="container-fluid">
-    <section class="row justify-content-start align-items-start parent-container">
+    <!--Parallax section 1-->
+    <section
+        class="row justify-content-start align-items-start parent-container">
         <div class="overlay-home col overlay-1"></div>
         <div class="bg1 bg col" data-parallax="scroll" data-speed="0.5"></div>
         <div id="section-content-1" class="col-8 ml-lg-5 titles-home">
@@ -11,41 +13,73 @@
             <h4 class="pt-3 subtitle-home">Musician</h4>
         </div>
     </section>
-
-    <section class="row justify-content-center align-items-start parent-container">
+    <!--Parallax section 2-->
+    <section
+        class="row justify-content-center align-items-start parent-container">
         <div class="overlay-home col overlay-2"></div>
         <div class="bg2 bg col" data-parallax="scroll" data-speed="0.5"></div>
         <div class="col-10 col-md-8 container-content content-2">
             <p id="section-content-2" class="content-home">
-                I wish I could carve my own <span class="accent">chess</span> figures.
+                I wish I could carve my own <span class="accent">chess</span>
+                figures.
                 <br>
-                I wish I could write the <span class="accent">novel</span> of the century.
+                I wish I could write the <span class="accent">novel</span> of
+                the century.
                 <br>
                 I wish I could build my own <span class="accent">house</span>.
                 <br>
-                I wish I could paint the Amsterdam <span class="accent">sunset</span> in all its spring colours.
+                I wish I could paint the Amsterdam <span
+                    class="accent">sunset</span> in all its spring colours.
                 <br>
-                I can make <span class="accent">music</span>, which is the miracle of having all that together.
+                I can make <span class="accent">music</span>, which is the
+                miracle of having all that together.
             </p>
         </div>
     </section>
-
-    <section class="row justify-content-center align-items-start parent-container">
+    <!--Parallax section 3-->
+    <section
+        class="row justify-content-center align-items-start parent-container">
         <div class="overlay-home col overlay-3"></div>
         <div class="bg3 bg col" data-parallax="scroll" data-speed="0.5"></div>
         <div class="col-10 col-md-8 container-content content-3">
             <p id="section-content-3" class="content-home">
-                I love being a musician.<br> I could have my dream day playing basso continuo and chamber music with friends and colleagues.<br> I have a strong connection with the music of Wilhelm Friedemann Bach and wished it was better understood.<br> I cannot hold a conversation or read a book if there’s good music playing (but I can cry).<br> I find being onstage irresistible. Thanks to the music I travel and meet fascinating people.<br> I’m extremely fortunate.
+                I love being a musician.
+                <br>
+                I could have my dream day playing
+                basso continuo and chamber music with friends and
+                colleagues.
+                <br>
+                I have a strong connection with the music of
+                Wilhelm Friedemann Bach and wished it was better understood.
+                <br>
+                I cannot hold a conversation or read a book if there’s good
+                music playing (but I can cry).
+                <br>
+                I find being onstage
+                irresistible. Thanks to the music I travel and meet fascinating
+                people.
+                <br>
+                I’m extremely fortunate.
             </p>
         </div>
     </section>
-
-    <section class="row justify-content-center align-items-start parent-container">
+    <!--Parallax section 4-->
+    <section
+        class="row justify-content-center align-items-start parent-container">
         <div class="overlay-home col overlay-4"></div>
         <div class="bg4 bg col" data-parallax="scroll" data-speed="0.5"></div>
         <div class="col-10 col-md-8 container-content content-4">
             <p id="section-content-4" class="content-home">
-                Please visit to discover my recordings, get to know more about my music, browse images and video and find out information about my upcoming events.<br>You can find my biography <span class="accent"><a href="#" data-toggle="modal" data-target="#biography">here</a></span>.
+                Please visit to discover my recordings, get to know more about
+                my music, browse images and video and find out information about
+                my upcoming events.
+                <br>
+                You can find my biography
+                <span class="accent">
+                    <a href="#" data-toggle="modal" data-target="#biography">
+                        here
+                    </a>
+                </span>.
             </p>
         </div>
     </section>
@@ -56,8 +90,15 @@
 {% endblock content %}
 {% block postjs %}
 {{ block.super }}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.4.2/parallax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js" integrity="sha256-XDWrid8aGX+NZwSY7JzTu6oWArI71Sw+aUZ9Hd0P5mo=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.4.2/parallax.min.js">
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"
+    integrity="sha256-XDWrid8aGX+NZwSY7JzTu6oWArI71Sw+aUZ9Hd0P5mo="
+    crossorigin="anonymous">
+    </script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js">
+    </script>
 <script src="{% static 'home/js/home.min.js' %}"></script>
 {% endblock postjs %}
