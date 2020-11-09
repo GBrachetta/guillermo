@@ -2,13 +2,12 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import Photo
-from random import shuffle
+# from random import shuffle
 from .forms import MediaForm
 
 
 def album(request):
-    album = list(Photo.objects.all())
-    shuffle(album)
+    album = Photo.objects.all()
     context = {"album": album, "media": "active"}
     return render(request, "album/album.html", context)
 
