@@ -11,7 +11,11 @@ from checkout.models import Order
 # Create your views here.
 @login_required
 def profile(request):
-    """ Displays the user's profile. """
+    """
+    Validates and displays the user's profile.
+    Returns historic of orders attached to that profile, in reversed order
+    so use can see them from more recent.
+    """
     profile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == "POST":
@@ -39,6 +43,11 @@ def profile(request):
 
 
 def order_history(request, order_number):
+    """
+
+    Returns and renders a unique order attached to profile.
+    """
+
     order = get_object_or_404(Order, order_number=order_number)
     messages.info(
         request,
