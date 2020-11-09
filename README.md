@@ -757,12 +757,15 @@ Code was written by the author for the present app, albeit inspired by freely av
 On such instances, the sources have been mentioned in the code where it corresponds.
 Notable sources of information, inspiration and source to sort problems are:
 
-- [Code Institute]("https://codeinstitute.net/") and the excellent Django tutorial by [CKZ8780]("https://github.com/ckz8780")
-- [Stack Overflow](https://stackoverflow.com/)
-- [W3Schools](https://www.w3schools.com/)
-- Mi loyal mentor, [Simen Daehlin](https://github.com/Eventyret)
+- [Stack Overflow](https://stackoverflow.com/) sorted quite a few of my doubts.
 
 ### Acknowledgements <!-- omit in toc -->
+
+- Mi loyal mentor, [Simen Daehlin](https://github.com/Eventyret)
+- Kind help by [CKZ8780](https://github.com/ckz8780)
+- Amazing support from [Kris-B](https://github.com/Kris-B)
+- They guys at [GreenSock](https://greensock.com/)
+- Unfailing encouragement by [fdeboo](https://github.com/fdeboo)
 
 ## Disclaimer
 
