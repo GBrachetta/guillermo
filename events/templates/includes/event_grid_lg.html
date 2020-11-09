@@ -1,74 +1,114 @@
+<!--Events grid for md-->
 <div class="row mt-md-5">
-    <div class="col-12 py-3 font-weight-bold lead d-none d-md-block">Upcoming Events</div>
-    <div class="col-3 font-weight-bold header-upcoming text-dark text-left py-3 mb-5 d-none d-md-block">Date</div>
-    <div class="col-3 font-weight-bold header-upcoming text-dark text-left py-3 mb-5 d-none d-md-block">Venue</div>
-    <div class="col-6 font-weight-bold header-upcoming text-dark text-left py-3 mb-5 d-none d-md-block">Programme</div>
+    <div class="col-12 py-3 font-weight-bold lead d-none d-md-block">
+        Upcoming Events
+    </div>
+    <div
+        class="col-3 font-weight-bold header-upcoming text-dark text-left py-3 mb-5 d-none d-md-block">
+        Date
+    </div>
+    <div
+        class="col-3 font-weight-bold header-upcoming text-dark text-left py-3 mb-5 d-none d-md-block">
+        Venue
+    </div>
+    <div
+        class="col-6 font-weight-bold header-upcoming text-dark text-left py-3 mb-5 d-none d-md-block">
+        Programme
+    </div>
 
     {% for event in calendar %}
     {% if event.is_future %}
-
+    <!--Content upcoming events md-->
     <div class="col-3 bg-white text-left py-1 d-none d-md-block">
-        <small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small>
+        <small>{{ event.date|date:"j M Y" }},
+            {{ event.time|date:"H:i" }}hs
+        </small>
         {% if request.user.is_superuser %}
+        <!--Edit/delete admins-->
         <p class="font-weight-bold">
             <a href="{% url 'edit_event' event.id %}">
                 <span class="icon">
                     <i class="fas fa-edit"></i>
                 </span>
             </a> |
-            <a class="text-danger" title="Remove" data-toggle="modal" data-target="#deleteEventModal{{ forloop.counter }}">
+            <a class="text-danger" title="Remove" data-toggle="modal"
+                data-target="#deleteEventModal{{ forloop.counter }}">
                 <i class="fas fa-trash"></i>
             </a>
         </p>
         {% include 'includes/delete_event_modal.html' %}
         {% endif %}
     </div>
-    <div class="col-3 {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1 d-none d-md-block">
+    <div
+        class="col-3 {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1 d-none d-md-block">
         {% if event.event_url %}
-        <a href="{{ event.event_url }}" target="_blank" rel="noopener">{{ event.venue }}</a>
+        <a href="{{ event.event_url }}" target="_blank"
+            rel="noopener">{{ event.venue }}
+        </a>
         {% else %}
         {{ event.venue }}
         {% endif %}
     </div>
-    <div class="col-6 bg-white text-left py-1 d-none d-md-block">{{ event.programme }}</div>
+    <div class="col-6 bg-white text-left py-1 d-none d-md-block">
+        {{ event.programme }}
+    </div>
     <div class="col-12 border-bottom my-3 d-none d-md-block"></div>
     {% endif %}
     {% endfor %}
 </div>
 
 <div class="row">
-    <div class="col-12 py-3 font-weight-bold lead d-none d-md-block mt-5">Past Events</div>
-    <div class="col-3 font-weight-bold header-past text-light text-left py-3 mb-5 d-none d-md-block">Date</div>
-    <div class="col-3 font-weight-bold header-past text-light text-left py-3 mb-5 d-none d-md-block">Venue</div>
-    <div class="col-6 font-weight-bold header-past text-light text-left py-3 mb-5 d-none d-md-block">Programme</div>
+    <div class="col-12 py-3 font-weight-bold lead d-none d-md-block mt-5">
+        Past Events
+    </div>
+    <div
+        class="col-3 font-weight-bold header-past text-light text-left py-3 mb-5 d-none d-md-block">
+        Date
+    </div>
+    <div
+        class="col-3 font-weight-bold header-past text-light text-left py-3 mb-5 d-none d-md-block">
+        Venue
+    </div>
+    <div
+        class="col-6 font-weight-bold header-past text-light text-left py-3 mb-5 d-none d-md-block">
+        Programme
+    </div>
 
     {% for event in calendar reversed %}
     {% if event.is_due %}
-
+    <!--Content past events md-->
     <div class="col-3 bg-white text-left py-1 d-none d-md-block">
-        <small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small>
+        <small>{{ event.date|date:"j M Y" }},
+            {{ event.time|date:"H:i" }}hs
+        </small>
         {% if request.user.is_superuser %}
+        <!--Edit/delete admins-->
         <p class="font-weight-bold">
             <a href="{% url 'edit_event' event.id %}">
                 <span class="icon">
                     <i class="fas fa-edit"></i>
                 </span>
             </a> |
-            <a class="text-danger" title="Remove" data-toggle="modal" data-target="#deleteEventModalPast{{ forloop.counter }}">
+            <a class="text-danger" title="Remove" data-toggle="modal"
+                data-target="#deleteEventModalPast{{ forloop.counter }}">
                 <i class="fas fa-trash"></i>
             </a>
             {% include 'includes/delete_event_modal_past.html' %}
         </p>
         {% endif %}
     </div>
-    <div class="col-3 {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1 d-none d-md-block">
+    <div
+        class="col-3 {% if event.event_url %}link-venue{% endif %} bg-white text-left py-1 d-none d-md-block">
         {% if event.event_url %}
-        <a href="{{ event.event_url }}" target="_blank" rel="noopener">{{ event.venue }}</a>
+        <a href="{{ event.event_url }}" target="_blank"
+            rel="noopener">{{ event.venue }}</a>
         {% else %}
         {{ event.venue }}
         {% endif %}
     </div>
-    <div class="col-6  bg-white text-left py-1 d-none d-md-block">{{ event.programme }}</div>
+    <div class="col-6  bg-white text-left py-1 d-none d-md-block">
+        {{ event.programme }}
+    </div>
     <div class="col-12 border-bottom my-3 d-none d-md-block"></div>
     {% endif %}
     {% endfor %}

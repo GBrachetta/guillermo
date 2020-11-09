@@ -1,21 +1,28 @@
+<!--Events grid for sm-->
 <div class="row mx-2">
     <div class="col-12 py-1 my-3 header-upcoming d-md-none">
         <strong>Upcoming Events</strong>
     </div>
     {% for event in calendar %}
     {% if event.is_future %}
+    <!--Content upcoming events sm-->
     <div class="col-3 text-left pl-1 text-grid-events d-md-none">
         <small>Date</small>
     </div>
     <div class="col-9 text-left text-grid-events d-md-none">
-        <small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small>
+        <small>{{ event.date|date:"j M Y" }},
+            {{ event.time|date:"H:i" }}hs
+        </small>
     </div>
     <div class="col-3 text-left pl-1 text-grid-events d-md-none">
         <small>Venue</small>
     </div>
-    <div class="col-9 {% if event.event_url %}link-venue{% endif %} text-left text-grid-events d-md-none">
+    <div
+        class="col-9 {% if event.event_url %}link-venue{% endif %} text-left text-grid-events d-md-none">
         {% if event.event_url %}
-        <a href="{{ event.event_url }}" target="_blank" rel="noopener">{{ event.venue }}</a>
+        <a href="{{ event.event_url }}" target="_blank"
+            rel="noopener">{{ event.venue }}
+        </a>
         {% else %}
         {{ event.venue }}
         {% endif %}
@@ -27,6 +34,7 @@
         {{ event.programme }}
     </div>
     {% if request.user.is_superuser %}
+    <!--Delete/edit admins-->
     <div class="col-6 mb-0 text-left px-0 d-md-none">
         <small class="font-weight-bold">
             <a href="{% url 'edit_event' event.id %}">
@@ -38,7 +46,8 @@
     </div>
     <div class="col-6 mb-0 text-right px-0 d-block d-md-none">
         <small class="font-weight-bold">
-            <a class="text-danger" title="Remove" data-toggle="modal" data-target="#deleteEventModalSm{{ forloop.counter }}">
+            <a class="text-danger" title="Remove" data-toggle="modal"
+                data-target="#deleteEventModalSm{{ forloop.counter }}">
                 <i class="fas fa-trash"></i>
             </a>
             {% include 'includes/delete_event_modal_sm.html' %}
@@ -56,18 +65,24 @@
     </div>
     {% for event in calendar reversed %}
     {% if event.is_due %}
+    <!--Content past events sm-->
     <div class="col-3 text-dark text-left pl-1 text-grid-events d-md-none">
         <small>Date</small>
     </div>
     <div class="col-9 text-left text-grid-events d-md-none">
-        <small>{{ event.date|date:"j M Y" }}, {{ event.time|date:"H:i" }}hs</small>
+        <small>{{ event.date|date:"j M Y" }},
+            {{ event.time|date:"H:i" }}hs
+        </small>
     </div>
     <div class="col-3 text-dark text-left pl-1 text-grid-events d-md-none">
         <small>Venue</small>
     </div>
-    <div class="col-9 {% if event.event_url %}link-venue{% endif %} text-left text-grid-events d-md-none">
+    <div
+        class="col-9 {% if event.event_url %}link-venue{% endif %} text-left text-grid-events d-md-none">
         {% if event.event_url %}
-        <a href="{{ event.event_url }}" target="_blank" rel="noopener">{{ event.venue }}</a>
+        <a href="{{ event.event_url }}" target="_blank"
+            rel="noopener">{{ event.venue }}
+        </a>
         {% else %}
         {{ event.venue }}
         {% endif %}
@@ -80,6 +95,7 @@
     </div>
     <div class="col-12 divider d-md-none"></div>
     {% if request.user.is_superuser %}
+    <!--Edit/delete admins-->
     <div class="col-6 mb-0 text-left px-0 d-md-none">
         <small class="font-weight-bold">
             <a href="{% url 'edit_event' event.id %}">
@@ -91,7 +107,8 @@
     </div>
     <div class="col-6 mb-0 text-right px-0 d-md-none">
         <small class="font-weight-bold">
-            <a class="text-danger" title="Remove" data-toggle="modal" data-target="#deleteEventModalPastSm{{ forloop.counter }}">
+            <a class="text-danger" title="Remove" data-toggle="modal"
+                data-target="#deleteEventModalPastSm{{ forloop.counter }}">
                 <i class="fas fa-trash"></i>
             </a>
             {% include 'includes/delete_event_modal_past_sm.html' %}

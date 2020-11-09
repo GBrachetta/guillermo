@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block page_header %}
+<!--Spacer-->
 <div class="header-container"></div>
 {% endblock %}
 
@@ -15,10 +16,13 @@
     {% include 'includes/event_grid_lg.html' %}
 </div>
 {% if request.user.is_superuser %}
+<!--Admin container-->
 <div class="container mt-5">
     <div class="row">
         <div class="col">
-            <a class="btn btn-outline-black rounded-0" href="{% url 'add_event' %}">Add Event</a>
+            <a class="btn btn-outline-black rounded-0"
+                href="{% url 'add_event' %}">Add Event
+            </a>
         </div>
     </div>
 </div>
@@ -26,7 +30,8 @@
 {% endblock content %}
 
 {% block page_footer %}
-<div class="container footer-container"></div>
+<!--Spacer-->
+<div class="footer-container"></div>
 {% endblock page_footer %}
 
 {% block postjs %}

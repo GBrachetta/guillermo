@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block page_header %}
+<!--Spacer-->
 <div class="header-container"></div>
 {% endblock %}
 
@@ -14,16 +15,19 @@
             <h5 class="text-muted">Add an Event</h5>
         </div>
     </div>
-
+    <!--Content-->
     <div class="row justify-content-center">
         <div class="col-12 col-md-6">
-            <form method="POST" action="{% url 'add_event' %}" class="form mb-2">
+            <form method="POST" action="{% url 'add_event' %}"
+                class="form mb-2">
                 {% csrf_token %}
                 {{ form.media }}
                 {{ form | crispy }}
                 <div class="text-right">
-                    <a class="btn btn-outline-black rounded-0" href="{% url 'events' %}">Cancel</a>
-                    <button class="btn btn-black rounded-0" type="submit">Add Event</button>
+                    <a class="btn btn-outline-black rounded-0"
+                        href="{% url 'events' %}">Cancel</a>
+                    <button class="btn btn-black rounded-0" type="submit">Add
+                        Event</button>
                 </div>
             </form>
         </div>
@@ -32,7 +36,8 @@
 {% endblock %}
 
 {% block page_footer %}
-<div class="container footer-container"></div>
+<!--Spacer-->
+<div class="footer-container"></div>
 {% endblock page_footer %}
 
 {% block postjs %}
