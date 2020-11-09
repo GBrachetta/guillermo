@@ -5,6 +5,10 @@ from shop.models import Cd
 
 
 def bag_contents(request):
+    """
+    Adds bag_contents to context processors so the bag is accessible
+    across the app, rathern than needing to import it each time it's needed.
+    """
 
     bag_items = []
     total = 0
@@ -15,11 +19,13 @@ def bag_contents(request):
         cd = get_object_or_404(Cd, pk=item_id)
         total += quantity * cd.price
         cd_count += quantity
-        bag_items.append({
-            "item_id": item_id,
-            "quantity": quantity,
-            "cd": cd,
-            })
+        bag_items.append(
+            {
+                "item_id": item_id,
+                "quantity": quantity,
+                "cd": cd,
+            }
+        )
 
     if cd_count < settings.FREE_DELIVERY_THRESHOLD and cd_count > 0:
         delivery = Decimal(settings.STANDARD_DELIVERY)

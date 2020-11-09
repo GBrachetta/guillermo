@@ -9,15 +9,18 @@ from django.contrib import messages
 from shop.models import Cd
 
 
-# Create your views here.
 def view_bag(request):
-    """ Renders the template with bag contents """
+    """
+    Renders the template with bag contents
+    """
     context = {"bag": "active"}
     return render(request, "bag/bag.html", context)
 
 
 def add_to_bag(request, item_id):
-    """Adds items to the shopping bag in the session """
+    """
+    Adds the item passed as second parameter to the shopping bag in the session
+    """
 
     cd = get_object_or_404(Cd, pk=item_id)
     quantity = int(request.POST.get("quantity"))
@@ -38,7 +41,9 @@ def add_to_bag(request, item_id):
 
 
 def adjust_bag(request, item_id):
-    """Adjusts the quantity of the specified product """
+    """
+    Adjusts the quantity of the item passed as second parameter.
+    """
 
     cd = get_object_or_404(Cd, pk=item_id)
     quantity = int(request.POST.get("quantity"))
@@ -58,7 +63,9 @@ def adjust_bag(request, item_id):
 
 
 def remove_from_bag(request, item_id):
-    """Remove the item from the shopping bag"""
+    """
+    Removes the item passed as second parameter from the shopping bag
+    """
 
     try:
         cd = get_object_or_404(Cd, pk=item_id)
