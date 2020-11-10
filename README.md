@@ -832,6 +832,7 @@ On such instances, the sources have been mentioned in the code where it correspo
 Notable sources of information, inspiration and source to sort problems are:
 
 - [Stack Overflow](https://stackoverflow.com/) sorted quite a few of my doubts.
+- [Code Institute](https://codeinstitute.net/) and its Django module provided with some solid boilerplates, specifically related to [Stripe](https://stripe.com/en-nl), which were adapted to the needs of this site.
 
 ### Acknowledgements <!-- omit in toc -->
 
