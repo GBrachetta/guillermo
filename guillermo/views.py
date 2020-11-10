@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
@@ -51,6 +51,12 @@ def contact(request):
                 return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
+        else:
+            messages.error(
+                request,
+                "Message wasn't delivered. Please check the form is correct.",
+            )
+            return redirect(reverse("home"))
     else:
         if request.user.is_authenticated:
             user_email = request.user.email
