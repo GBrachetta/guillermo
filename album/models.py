@@ -2,6 +2,8 @@ import os
 import uuid
 from django.db import models
 from django.utils.html import mark_safe
+from .make_thumbnail import make_thumbnail
+from django.core.validators import FileExtensionValidator
 
 
 def random_filename(instance, filename):
@@ -16,13 +18,30 @@ def random_filename(instance, filename):
 
 class Photo(models.Model):
     """
-    The photo model renders a thumbnail of the media it contains.
+    If image is present and has a valid format, generates its thumbnail.
+    Otherwise it's an url and skips that method.
     """
 
     name = models.CharField(max_length=254)
     caption = models.TextField()
     image_url = models.URLField(max_length=1024, null=True, blank=True)
-    image = models.ImageField(upload_to=random_filename, null=True, blank=True)
+    image = models.ImageField(
+        upload_to=random_filename,
+        null=True,
+        blank=True,
+        validators=[FileExtensionValidator(["jpeg", "jpg", "png"])],
+    )
+    thumbnail = models.ImageField(
+        upload_to=random_filename, null=True, blank=True
+    )
+
+    def save(self, *args, **kwargs):
+        if self.image:
+            self.thumbnail = make_thumbnail(self.image, size=(600, 600))
+
+            super().save(*args, **kwargs)
+        else:
+            super().save(*args, **kwargs)
 
     @property
     def thumbnail_preview(self):
