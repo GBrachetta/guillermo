@@ -314,7 +314,7 @@ The app consists of the following apps:
 
 Although the gallery was already perfectly functional, it bugged me that the thumbnails showing in it were the full-sized images, thus if the gallery contained large files those took time to download and render.
 
-Trying to offer the best possible experience is that I decided to incorporate the functionality of automatically creating reduced thumbnails of the original files.
+In order to offer the best possible experience I decided to incorporate the functionality of automatically creating small thumbnails of the original files.
 
 The way I dealt with this is as follows:
 
@@ -422,6 +422,8 @@ def random_filename(instance, filename):
   ```
 
 - Many more combinations are possible and the plugin is extremely flexible.
+
+**Note** NanoGallery2 animates the thumbnails in a random order and in a random sequence. This has an impact on the results of Lighthouse (performance) as it waits for all animations to end, but it's not what the user perceives as the animations are part of the features of it.
 
 #### Events App <!-- omit in toc -->
 

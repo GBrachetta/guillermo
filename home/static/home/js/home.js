@@ -87,7 +87,7 @@ for (let y = 1; y < 5; y++) {
 $(function () {
     for (let z = 1; z < 5; z++) {
         $(`.bg${z}`).parallax({
-            imageSrc: `https://res.cloudinary.com/gbrachetta/image/upload/bgms4/bg-${z}.jpg`,
+            imageSrc: `https://res.cloudinary.com/gbrachetta/image/upload/ms4/backgrounds/bg-${z}.jpg`,
         });
     }
 });
