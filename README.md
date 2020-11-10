@@ -312,9 +312,9 @@ The app consists of the following apps:
 
 ##### Thumbnails <!-- omit in toc -->
 
-Although the gallery was already perfectly functional, it bugged me that the thumbnails showing in it were the full image, thus if the gallery contained large files those took time to download and render.
+Although the gallery was already perfectly functional, it bugged me that the thumbnails showing in it were the full-sized images, thus if the gallery contained large files those took time to download and render.
 
-With that in mind and trying to offer the best possible experience is that I decided (last minute!) to incorporate the functionality of automatically creating reduced thumbnails of the original files.
+Trying to offer the best possible experience is that I decided to incorporate the functionality of automatically creating reduced thumbnails of the original files.
 
 The way I dealt with this is as follows:
 
@@ -369,7 +369,7 @@ The way I dealt with this is as follows:
 - That way I made sure that the field thumbnail is not visible to the admins and that it gets populated with the same data the image field contains, so that the thumbnail and the image correspond to each other.
 - As a result, the speed of the gallery increased dramatically, since the user only renders the full size image when they click on the thumbnail.
 - As an indication, thumbnails are approximately 40Kb, while images can take up to a few Mb.
-- Finally they are both saved to the method `random_filename`:
+- Finally they are both uploaded to the method `random_filename` (as indicated in the model):
 
 ```python
 def random_filename(instance, filename):
